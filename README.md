@@ -1,2 +1,3 @@
-# course-sync
-Sync your SJTU course schedule with your system calendar on iOS &amp; macOS.
+# Sjtu Schedule Sync Utility
+
+Sync your SJTU course schedule with your iCloud calendar on iOS &amp; macOS.
