@@ -22,6 +22,7 @@ extension String {
                                               range: NSMakeRange(0, self.count),
                                               withTemplate: with)
     }
+    
     func regexGetSub(pattern: String, options: NSRegularExpression.Options = []) -> [String] {
         var subStr = [String]()
         let regex = try! NSRegularExpression(pattern: pattern, options: options)
@@ -30,5 +31,19 @@ extension String {
             subStr.append(contentsOf: [String(self[Range(match.range(at: 1), in: self)!]),String(self[Range(match.range(at: 2), in: self)!])])
         }
         return subStr
+    }
+    
+    func regExGetFirstOccur(pattern: String, options: NSRegularExpression.Options = []) -> String {
+        var subStr = [String]()
+        let regex = try! NSRegularExpression(pattern: pattern, options: options)
+        let matches = regex.matches(in: self, options: [], range: NSRange(self.startIndex...,in: self))
+        for  match in matches {
+            subStr.append(contentsOf: [String(self[Range(match.range(at: 1), in: self)!]),String(self[Range(match.range(at: 2), in: self)!])])
+        }
+        if subStr.count > 0 {
+            return subStr[0]
+        } else {
+            return ""
+        }
     }
 }

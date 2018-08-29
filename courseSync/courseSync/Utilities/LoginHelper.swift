@@ -17,14 +17,24 @@ let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
 
 
 
-func attemptLogin() -> Bool {
-    Alamofire.request(loginUrl).responseString(completionHandler: {response in
-        if let obtainData = response.data, let utf8Text = String(data: obtainData, encoding: .utf8) {
-            var retUrl = utf8Text.regexGetSub(pattern: "returl\"\\s+value=\"(.*?)\">")
-            var sid = utf8Text.regexGetSub(pattern: "sid\"\\s+value=\"(.*?)\">")
-            var se = utf8Text.regexGetSub(pattern: "se\"\\s+value=\"(.*?)\">")
-        }
+func attemptLogin(userName: String, password: String, captchaWord: String) -> Bool {
+    Alamofire.request(loginUrl).response(completionHandler: {response in
+        let jumpUrl = response.response?.url?.absoluteString
+        let returnUrl = jumpUrl!.regExGetFirstOccur(pattern: "(^|&)returl=([^&]*)(&|$)")
+        let sID = jumpUrl!.regExGetFirstOccur(pattern: "(^|&)sid=([^&]*)(&|$)")
+        let se = jumpUrl!.regExGetFirstOccur(pattern: "(^|&)se=([^&]*)(&|$)")
+        let postParams: Parameters = [
+            "sid": sID,
+            "returl": returnUrl,
+            "se": se,
+            "v": "",
+            "user": userName,
+            "pass": password,
+            "captcha": captchaWord
+        ]
+        Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.default).responseString(completionHandler: { response in
+        NSLog(String(data: response.data!, encoding: String.Encoding.utf8)!)
+        })
     })
-
     return true
 }

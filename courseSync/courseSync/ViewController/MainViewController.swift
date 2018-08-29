@@ -30,7 +30,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var refreshCaptchaButton: NSButton!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
-        attemptLogin()
+        attemptLogin(userName: self.userNameField.stringValue, password: self.passwordField.stringValue, captchaWord: self.captchaTextField.stringValue)
     }
     
     @IBAction func updateCaptcha(_ sender: NSButton) {
