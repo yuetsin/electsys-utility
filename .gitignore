@@ -6,6 +6,11 @@
 build/
 DerivedData/
 
+## macOS cache files
+*.DS_Store
+.AppleDouble
+.LSOverride
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
