@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  courseSync
 //
-//  Created by 法好 on 2018/8/29.
+//  Created by yuxiqian on 2018/8/29.
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //
 
