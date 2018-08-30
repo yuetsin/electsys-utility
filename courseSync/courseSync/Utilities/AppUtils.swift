@@ -1,5 +1,5 @@
 //
-//  RegularExpression.swift
+//  AppUtils.swift
 //  courseSync
 //
 //  Created by yuxiqian on 2018/8/29.
@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 
 extension String {
     var count: Int {
@@ -23,6 +22,10 @@ extension String {
                                               withTemplate: with)
     }
     
+    // deprecated for parsing request url. doesn't work very well.
+    // for example, using regular expression pattern: "(^|&)sid=([^&]*)(&|$)" to
+    // parse the sid part.
+    
     func regexGetSub(pattern: String, options: NSRegularExpression.Options = []) -> [String] {
         var subStr = [String]()
         let regex = try! NSRegularExpression(pattern: pattern, options: options)
@@ -32,48 +35,50 @@ extension String {
         }
         return subStr
     }
-    
-    // deprecated for parsing request url. doesn't work very well.
-    // for example, using regular expression pattern: "(^|&)sid=([^&]*)(&|$)" to
-    // parse the sid part.
-
-    func regExGetFirstOccur(pattern: String, options: NSRegularExpression.Options = []) -> String {
-        var subStr = [String]()
-        let regex = try! NSRegularExpression(pattern: pattern, options: options)
-        let matches = regex.matches(in: self, options: [], range: NSRange(self.startIndex...,in: self))
-        for match in matches {
-            subStr.append(contentsOf: [String(self[Range(match.range(at: 1), in: self)!]),String(self[Range(match.range(at: 2), in: self)!])])
-        }
-        if subStr.count > 0 {
-            return subStr[0]
-        } else {
-            return ""
-        }
-    }
 }
 
 func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpression.Options = []) -> String {
     var toBeSplit = requestUrl.removingPercentEncoding ?? ""
-//    NSLog("现在的 toBeSplit: \(toBeSplit)")
     let splitKeyWord = ["?sid=", "&returl=", "&se="]
     var splitedRequest: [String] = []
     for item in splitKeyWord {
-        splitedRequest.append((toBeSplit.components(separatedBy: item)[0].removingPercentEncoding)!)
-        toBeSplit = toBeSplit.components(separatedBy: item)[1]
+        let componentsOfString = toBeSplit.components(separatedBy: item)
+        splitedRequest.append(componentsOfString[0].removingPercentEncoding!)
+        if componentsOfString.count > 1 {
+            toBeSplit = componentsOfString[1]
+        } else {
+            break
+        }
     }
     splitedRequest.append(toBeSplit)
     switch parseType {
     case "sid":
-        return splitedRequest[1]
+        if splitedRequest.count > 1 {
+            return splitedRequest[1]
+        }
     case "returl":
-        return splitedRequest[2]
+        if splitedRequest.count > 2 {
+            return splitedRequest[2]
+        }
     case "se":
-        if splitedRequest.count < 4 {
-            return ""
-        } else {
+        if splitedRequest.count > 3 {
             return splitedRequest[3]
         }
     default:
-        return splitedRequest[0]
+        if splitedRequest.count > 1 {
+            return splitedRequest[0]
+        }
     }
+    return ""
+}
+
+enum loginReturnCode {
+    case successLogin
+    case accountError
+    case argumentError
+    case networkError
+}
+
+protocol requestHtmlDelegate {
+    func validateLoginResult(htmlData: String) -> ()
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0BFF34DDBE8A10CF8D3A4C70 /* Pods_courseSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */; };
-		8A44513121366418000156BD /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44513021366418000156BD /* RegularExpression.swift */; };
+		8A44513121366418000156BD /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44513021366418000156BD /* AppUtils.swift */; };
 		8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DD21362EAF0064488C /* AppDelegate.swift */; };
 		8A4A22E021362EAF0064488C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* MainViewController.swift */; };
 		8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22E121362EAF0064488C /* courseSync.xcdatamodeld */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		2DE148D3735F9F40099E038A /* Pods-courseSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.release.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.release.xcconfig"; sourceTree = "<group>"; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A44513021366418000156BD /* RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
+		8A44513021366418000156BD /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		8A4A22DA21362EAF0064488C /* courseSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4A22DD21362EAF0064488C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A4A22DF21362EAF0064488C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +77,7 @@
 		8A4A22DC21362EAF0064488C /* courseSync */ = {
 			isa = PBXGroup;
 			children = (
+				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
 				8A4A22F3213644140064488C /* Utilities */,
 				8A4A22F2213631F20064488C /* ViewController */,
 				8A4A22DD21362EAF0064488C /* AppDelegate.swift */,
@@ -102,9 +103,16 @@
 			isa = PBXGroup;
 			children = (
 				8A4A22F42136443D0064488C /* LoginHelper.swift */,
-				8A44513021366418000156BD /* RegularExpression.swift */,
+				8A44513021366418000156BD /* AppUtils.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8AB4A34D21375FDE00F7F382 /* ScheduleKits */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ScheduleKits;
 			sourceTree = "<group>";
 		};
 		CEBAC5F7F8148695C76C2836 /* Frameworks */ = {
@@ -245,7 +253,7 @@
 				8A4A22E021362EAF0064488C /* MainViewController.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
-				8A44513121366418000156BD /* RegularExpression.swift in Sources */,
+				8A44513121366418000156BD /* AppUtils.swift in Sources */,
 				8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
