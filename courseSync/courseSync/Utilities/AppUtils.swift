@@ -82,3 +82,8 @@ enum loginReturnCode {
 protocol requestHtmlDelegate {
     func validateLoginResult(htmlData: String) -> ()
 }
+
+protocol getDataDelegate {
+    func htmlDataResult(htmlData: String) -> ()
+}
+

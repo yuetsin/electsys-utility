@@ -10,21 +10,25 @@
 		0BFF34DDBE8A10CF8D3A4C70 /* Pods_courseSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */; };
 		8A44513121366418000156BD /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44513021366418000156BD /* AppUtils.swift */; };
 		8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DD21362EAF0064488C /* AppDelegate.swift */; };
-		8A4A22E021362EAF0064488C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* MainViewController.swift */; };
+		8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* jAccountViewController.swift */; };
 		8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22E121362EAF0064488C /* courseSync.xcdatamodeld */; };
 		8A4A22E521362EB00064488C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E421362EB00064488C /* Assets.xcassets */; };
 		8A4A22E821362EB00064488C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E621362EB00064488C /* Main.storyboard */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LoginHelper.swift */; };
+		8A747FF92137AB3800AB67BB /* htmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */; };
+		8A7F52892137D5F300FBA008 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F52882137D5F300FBA008 /* Schedule.swift */; };
+		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
+		8A7F52912137E1B800FBA008 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F52902137E1B800FBA008 /* DirectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2DE148D3735F9F40099E038A /* Pods-courseSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.release.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.release.xcconfig"; sourceTree = "<group>"; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A44513021366418000156BD /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		8A4A22DA21362EAF0064488C /* courseSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = courseSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A4A22DA21362EAF0064488C /* Sync Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sync Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4A22DD21362EAF0064488C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A4A22DF21362EAF0064488C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8A4A22DF21362EAF0064488C /* jAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jAccountViewController.swift; sourceTree = "<group>"; };
 		8A4A22E221362EAF0064488C /* courseSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = courseSync.xcdatamodel; sourceTree = "<group>"; };
 		8A4A22E421362EB00064488C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A4A22E721362EB00064488C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +36,10 @@
 		8A4A22EA21362EB00064488C /* courseSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = courseSync.entitlements; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
+		8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = htmlGetViewController.swift; sourceTree = "<group>"; };
+		8A7F52882137D5F300FBA008 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		8A7F528A2137D65A00FBA008 /* SchoolTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTime.swift; sourceTree = "<group>"; };
+		8A7F52902137E1B800FBA008 /* DirectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
 		EE26F8B0524475210410BF0F /* Pods-courseSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.debug.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +77,7 @@
 		8A4A22DB21362EAF0064488C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A4A22DA21362EAF0064488C /* courseSync.app */,
+				8A4A22DA21362EAF0064488C /* Sync Utility.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,7 +101,9 @@
 		8A4A22F2213631F20064488C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8A4A22DF21362EAF0064488C /* MainViewController.swift */,
+				8A4A22DF21362EAF0064488C /* jAccountViewController.swift */,
+				8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */,
+				8A7F52902137E1B800FBA008 /* DirectViewController.swift */,
 				8A4A22F0213631EC0064488C /* CreditsViewController.swift */,
 			);
 			path = ViewController;
@@ -111,6 +121,8 @@
 		8AB4A34D21375FDE00F7F382 /* ScheduleKits */ = {
 			isa = PBXGroup;
 			children = (
+				8A7F52882137D5F300FBA008 /* Schedule.swift */,
+				8A7F528A2137D65A00FBA008 /* SchoolTime.swift */,
 			);
 			path = ScheduleKits;
 			sourceTree = "<group>";
@@ -126,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A4A22D921362EAF0064488C /* courseSync */ = {
+		8A4A22D921362EAF0064488C /* Sync Utility */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "courseSync" */;
+			buildConfigurationList = 8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Sync Utility" */;
 			buildPhases = (
 				FDDEAD7083F49DEBD1D10250 /* [CP] Check Pods Manifest.lock */,
 				8A4A22D621362EAF0064488C /* Sources */,
@@ -140,9 +152,9 @@
 			);
 			dependencies = (
 			);
-			name = courseSync;
+			name = "Sync Utility";
 			productName = courseSync;
-			productReference = 8A4A22DA21362EAF0064488C /* courseSync.app */;
+			productReference = 8A4A22DA21362EAF0064488C /* Sync Utility.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "courseSync" */;
+			buildConfigurationList = 8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Sync Utility" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -178,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A4A22D921362EAF0064488C /* courseSync */,
+				8A4A22D921362EAF0064488C /* Sync Utility */,
 			);
 		};
 /* End PBXProject section */
@@ -250,10 +262,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
-				8A4A22E021362EAF0064488C /* MainViewController.swift in Sources */,
+				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
+				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
+				8A7F52912137E1B800FBA008 /* DirectViewController.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
+				8A747FF92137AB3800AB67BB /* htmlGetViewController.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
+				8A7F52892137D5F300FBA008 /* Schedule.swift in Sources */,
 				8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +450,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "courseSync" */ = {
+		8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Sync Utility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A4A22EB21362EB00064488C /* Debug */,
@@ -443,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "courseSync" */ = {
+		8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Sync Utility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A4A22EE21362EB00064488C /* Debug */,

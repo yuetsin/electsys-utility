@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import Kanna
 
 let loginUrl = "http://electsys.sjtu.edu.cn/edu/login.aspx"
 let targetUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtMain.aspx"

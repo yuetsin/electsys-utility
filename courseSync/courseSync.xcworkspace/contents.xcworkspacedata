@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:courseSync.xcodeproj">
+      location = "group:/Users/yue/Documents/GitHub/course-sync/courseSync/Sync Utility.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
