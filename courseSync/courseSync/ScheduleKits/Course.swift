@@ -1,5 +1,5 @@
 //
-//  Schedule.swift
+//  Course.swift
 //  Sync Utility
 //
 //  Created by yuxiqian on 2018/8/30.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-class Schedule {
-    let daysOfWeek = 7
-    let lessonsOfDay = 14
-    let durationOfLesson = 45
+class Course {
+    
 }

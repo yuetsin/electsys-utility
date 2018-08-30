@@ -79,11 +79,12 @@ enum loginReturnCode {
     case networkError
 }
 
-protocol requestHtmlDelegate {
+protocol requestHtmlDelegate: NSObjectProtocol {
     func validateLoginResult(htmlData: String) -> ()
+
 }
 
-protocol getDataDelegate {
-    func htmlDataResult(htmlData: String) -> ()
+protocol inputHtmlDelegate: NSObjectProtocol {
+    func checkDataInput(htmlData: String) -> ()
+    func cancelDataInput() -> ()
 }
-

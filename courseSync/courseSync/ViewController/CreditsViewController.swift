@@ -11,6 +11,10 @@ import Cocoa
 
 class CreditsViewController : NSViewController {
     @IBAction func closeWindow(_ sender: NSButton) {
+       self.view.window?.close()
+    }
+    
+    override func viewWillDisappear() {
         let application = NSApplication.shared
         application.stopModal()
     }

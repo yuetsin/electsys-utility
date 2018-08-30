@@ -10,9 +10,10 @@ import Foundation
 import Cocoa
 import Alamofire
 
-class jAccountViewController: NSViewController, requestHtmlDelegate {
+class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDelegate {
     
-    var delegate: getDataDelegate?
+//    var requestDelegate: requestHtmlDelegate?
+//    var inputDelegate: inputHtmlDelegate?
     
     @IBOutlet weak var userNameField: NSTextField!
     @IBOutlet weak var passwordField: NSSecureTextField!
@@ -21,6 +22,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate {
     @IBOutlet weak var loginButton: NSButton!
     @IBOutlet weak var refreshCaptchaButton: NSButton!
     @IBOutlet weak var resetButton: NSButton!
+    @IBOutlet weak var manualOpenButton: NSButton!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
@@ -65,9 +67,10 @@ class jAccountViewController: NSViewController, requestHtmlDelegate {
     
     
     func validateLoginResult(htmlData: String) {
-        NSLog(htmlData)
-        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台")) {
-            // success!
+//        NSLog(htmlData)
+        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
+            htmlData.contains("http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx")) {
+//        success!
         } else if (htmlData.contains("上海交通大学统一身份认证")) {
             showErrorMessage(errorMsg: "登陆失败。\n\n用户名、密码和验证码中有至少一项不正确。")
             resumeUI()
@@ -79,7 +82,38 @@ class jAccountViewController: NSViewController, requestHtmlDelegate {
             resumeUI()
         }
     }
-
+    
+    func checkDataInput(htmlData: String) {
+//        NSLog(htmlData)
+        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
+            htmlData.contains("http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx")) {
+            //        success!
+        } else if (htmlData.contains("上海交通大学统一身份认证")) {
+            showErrorMessage(errorMsg: "登陆失败。\n\n用户名、密码和验证码中有至少一项不正确。")
+            resumeUI()
+        } else if (!htmlData.isEmpty) {
+            showErrorMessage(errorMsg: "登陆失败。\n\n请求的参数不正确。")
+            resumeUI()
+        } else {
+            showErrorMessage(errorMsg: "登陆失败。\n\n检查你的网络连接。")
+            resumeUI()
+        }
+    }
+    
+    
+    func cancelDataInput() {
+        resumeUI()
+    }
+    
+    @IBAction func manualLoadHTML(_ sender: NSButton) {
+        disableUI()
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let manualOpenViewController = storyboard.instantiateController(withIdentifier: "htmlGetViewController") as! htmlGetViewController
+        manualOpenViewController.delegate = self
+        let manualOpenWindowController = storyboard.instantiateController(withIdentifier: "Manually Get HTML Window Controller") as! NSWindowController
+        manualOpenWindowController.contentViewController = manualOpenViewController
+        manualOpenWindowController.showWindow(sender)
+    }
 
     func disableUI() {
         userNameField.isEnabled = false
@@ -88,6 +122,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate {
         loginButton.isEnabled = false
         resetButton.isEnabled = false
         refreshCaptchaButton.isEnabled = false
+        manualOpenButton.isEnabled = false
+        captchaImage.isEnabled = false
     }
     
     func resumeUI() {
@@ -97,6 +133,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate {
         loginButton.isEnabled = true
         resetButton.isEnabled = true
         refreshCaptchaButton.isEnabled = true
+        manualOpenButton.isEnabled = true
+        captchaImage.isEnabled = true
         updateCaptcha(refreshCaptchaButton)
     }
 

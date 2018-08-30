@@ -47,7 +47,7 @@ class Login {
 
             Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.default).responseString(completionHandler: { response in
                 responseHtml = String(data: response.data!, encoding: String.Encoding.utf8)!
-                NSLog("reponseHtml successfully obtained.")
+//                NSLog("reponseHtml successfully obtained.")
                 self.delegate?.validateLoginResult(htmlData: responseHtml)
             })
         })

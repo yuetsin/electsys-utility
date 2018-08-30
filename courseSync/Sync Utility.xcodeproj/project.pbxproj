@@ -16,10 +16,10 @@
 		8A4A22E821362EB00064488C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E621362EB00064488C /* Main.storyboard */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LoginHelper.swift */; };
+		8A6E58A92138054D00FF38CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E58A82138054D00FF38CF /* Course.swift */; };
 		8A747FF92137AB3800AB67BB /* htmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */; };
 		8A7F52892137D5F300FBA008 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F52882137D5F300FBA008 /* Schedule.swift */; };
 		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
-		8A7F52912137E1B800FBA008 /* DirectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F52902137E1B800FBA008 /* DirectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +36,10 @@
 		8A4A22EA21362EB00064488C /* courseSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = courseSync.entitlements; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelper.swift; sourceTree = "<group>"; };
+		8A6E58A82138054D00FF38CF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = htmlGetViewController.swift; sourceTree = "<group>"; };
 		8A7F52882137D5F300FBA008 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		8A7F528A2137D65A00FBA008 /* SchoolTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTime.swift; sourceTree = "<group>"; };
-		8A7F52902137E1B800FBA008 /* DirectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectViewController.swift; sourceTree = "<group>"; };
 		EE26F8B0524475210410BF0F /* Pods-courseSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.debug.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +103,6 @@
 			children = (
 				8A4A22DF21362EAF0064488C /* jAccountViewController.swift */,
 				8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */,
-				8A7F52902137E1B800FBA008 /* DirectViewController.swift */,
 				8A4A22F0213631EC0064488C /* CreditsViewController.swift */,
 			);
 			path = ViewController;
@@ -123,6 +122,7 @@
 			children = (
 				8A7F52882137D5F300FBA008 /* Schedule.swift */,
 				8A7F528A2137D65A00FBA008 /* SchoolTime.swift */,
+				8A6E58A82138054D00FF38CF /* Course.swift */,
 			);
 			path = ScheduleKits;
 			sourceTree = "<group>";
@@ -262,10 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
+				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
-				8A7F52912137E1B800FBA008 /* DirectViewController.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
 				8A747FF92137AB3800AB67BB /* htmlGetViewController.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
