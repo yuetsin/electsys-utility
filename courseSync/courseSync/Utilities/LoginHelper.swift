@@ -9,10 +9,13 @@
 import Foundation
 import Alamofire
 
+let electSysUrl = "http://electsys.sjtu.edu.cn/"
 let loginUrl = "http://electsys.sjtu.edu.cn/edu/login.aspx"
 let targetUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtMain.aspx"
+let contentUrl = "http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx"
 let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"
 let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
+
 
 class Login {
     var delegate: requestHtmlDelegate?
@@ -38,17 +41,26 @@ class Login {
                 "sid": sID,
                 "returl": returnUrl,
                 "se": se,
-    //            "v": "",
+//                "v": "",
     //          empty parameter v is no longer necessary.
                 "user": userName,
                 "pass": password,
                 "captcha": captchaWord
             ]
 
-            Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.default).responseString(completionHandler: { response in
-                responseHtml = String(data: response.data!, encoding: String.Encoding.utf8)!
+            Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.httpBody).responseData(completionHandler: { response in
+                responseHtml = String(data: response.data!, encoding: .utf8)!
+                if (responseHtml.contains("上海交通大学教学信息服务网－学生服务平台")) {
+                    // finished first step!
+                    Alamofire.request(contentUrl).responseData(completionHandler: { response in
+                        let realOutput = String(data: response.data!, encoding: .utf8)!
+//                        print(realOutput)
+                        self.delegate?.validateLoginResult(htmlData: realOutput)
+                    })
+                } else {
+                    self.delegate?.validateLoginResult(htmlData: responseHtml)
+                }
 //                NSLog("reponseHtml successfully obtained.")
-                self.delegate?.validateLoginResult(htmlData: responseHtml)
             })
         })
     }

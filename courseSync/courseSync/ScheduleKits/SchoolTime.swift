@@ -33,9 +33,20 @@ class Time {
     }
 }
 
+class SchoolDay : NSObject {
+    init(dayNum: Int) {
+        self.dayNumber = dayNum
+    }
+    var dayNumber = 0
+    var hasChildren = true
+    var children: [Course] = []
+}
+
 let defaultLessonTime: [Time] = [
     Time("8:00"), Time("8:55"), Time("10:00"), Time("10:55"),
     Time("12:00"), Time("12:55"), Time("14:00"), Time("14:55"),
     Time("16:00"), Time("16:55"), Time("18:00"), Time("18:55"),
     Time("20:00"), Time("20:55")
 ]
+
+let dayOfWeekName = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", "Unknown"]

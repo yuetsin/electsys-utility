@@ -72,6 +72,21 @@ func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpre
     return ""
 }
 
+
+func sanitize(_ input: String) -> String {
+    return input.replacingOccurrences(of: " ", with: "")
+}
+
+func findIndexOfCourseByName (name: String, array: [Course]) -> Int {
+    for index in 0...(array.count - 1) {
+//        print("Attempted to compare \(name) and \(array[index].courseName)")
+        if name.contains(array[index].courseName) {
+            return index
+        }
+    }
+    return -1
+}
+
 enum loginReturnCode {
     case successLogin
     case accountError
@@ -88,3 +103,4 @@ protocol inputHtmlDelegate: NSObjectProtocol {
     func checkDataInput(htmlData: String) -> ()
     func cancelDataInput() -> ()
 }
+

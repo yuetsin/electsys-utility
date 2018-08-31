@@ -52,57 +52,16 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         passwordField.stringValue = ""
         captchaTextField.stringValue = ""
         updateCaptcha(refreshCaptchaButton)
+        removeCookie()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateCaptcha(refreshCaptchaButton)
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
+
+    func removeCookie() {
+        let cookieStorage = HTTPCookieStorage.shared
+        if let cookies = cookieStorage.cookies(for: URL(string: electSysUrl)!) {
+            for cookie in cookies {
+                cookieStorage.deleteCookie(cookie)
+            }
         }
-    }
-    
-    
-    func validateLoginResult(htmlData: String) {
-//        NSLog(htmlData)
-        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
-            htmlData.contains("http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx")) {
-//        success!
-        } else if (htmlData.contains("上海交通大学统一身份认证")) {
-            showErrorMessage(errorMsg: "登陆失败。\n\n用户名、密码和验证码中有至少一项不正确。")
-            resumeUI()
-        } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登陆失败。\n\n请求的参数不正确。")
-            resumeUI()
-        } else {
-            showErrorMessage(errorMsg: "登陆失败。\n\n检查你的网络连接。")
-            resumeUI()
-        }
-    }
-    
-    func checkDataInput(htmlData: String) {
-//        NSLog(htmlData)
-        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
-            htmlData.contains("http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx")) {
-            //        success!
-        } else if (htmlData.contains("上海交通大学统一身份认证")) {
-            showErrorMessage(errorMsg: "登陆失败。\n\n用户名、密码和验证码中有至少一项不正确。")
-            resumeUI()
-        } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登陆失败。\n\n请求的参数不正确。")
-            resumeUI()
-        } else {
-            showErrorMessage(errorMsg: "登陆失败。\n\n检查你的网络连接。")
-            resumeUI()
-        }
-    }
-    
-    
-    func cancelDataInput() {
-        resumeUI()
     }
     
     @IBAction func manualLoadHTML(_ sender: NSButton) {
@@ -114,6 +73,69 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         manualOpenWindowController.contentViewController = manualOpenViewController
         manualOpenWindowController.showWindow(sender)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        removeCookie()
+        updateCaptcha(refreshCaptchaButton)
+    }
+    
+    override var representedObject: Any? {
+        didSet {
+            // Update the view, if already loaded.
+        }
+    }
+    
+    func validateLoginResult(htmlData: String) {
+        print(htmlData)
+        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
+            htmlData.contains("本学期课程详细情况")) {
+//        success!
+            startDataResolve(html: htmlData)
+        } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
+            showErrorMessage(errorMsg: "登录失败。\n\n登录过于频繁，请至少等待 30 秒后再次尝试。")
+            resumeUI()
+        }
+        else if (htmlData.contains("上海交通大学统一身份认证")) {
+            showErrorMessage(errorMsg: "登录失败。\n\n用户名、密码和验证码中有至少一项不正确。")
+            resumeUI()
+        } else if (!htmlData.isEmpty) {
+            showErrorMessage(errorMsg: "登录失败。\n\n请求的参数不正确。")
+            resumeUI()
+        } else {
+            showErrorMessage(errorMsg: "登录失败。\n\n检查你的网络连接。")
+            resumeUI()
+        }
+    }
+    
+    func checkDataInput(htmlData: String) {
+//        NSLog(htmlData)
+        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
+            htmlData.contains("本学期课程详细情况")) {
+            startDataResolve(html: htmlData)
+        } else {
+            showErrorMessage(errorMsg: "置入 HTML 文件失败。\n\n获取的数据格式不正确。")
+            resumeUI()
+        }
+    }
+    
+    
+    func cancelDataInput() {
+        resumeUI()
+    }
+    
+    func startDataResolve(html: String) {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let resolveWindowController = storyboard.instantiateController(withIdentifier: "Resolve Window Controller") as! NSWindowController
+        if let resolveWindow = resolveWindowController.window {
+            let resolveViewController = storyboard.instantiateController(withIdentifier: "Resolve View Controller") as! ResolveViewController
+            resolveViewController.htmlDoc = html
+            resolveWindow.contentViewController = resolveViewController
+            resolveWindowController.showWindow(self)
+        }
+        self.view.window?.close()
+    }
+    
 
     func disableUI() {
         userNameField.isEnabled = false
