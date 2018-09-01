@@ -47,7 +47,7 @@ class Time {
 }
 
 
-let durationOfLesson = 45
+let durationMinutesOfLesson = 45
 // 一节课 = 四十五分钟
 
 let defaultLessonTime: [Time] = [Time("0:00"),

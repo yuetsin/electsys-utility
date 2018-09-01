@@ -91,6 +91,46 @@ func findIndexOfCourseByName (name: String, array: [Course]) -> Int {
     return -1
 }
 
+func generateArray(start: Int, end: Int, shift: ShiftWeekType) -> [Int] {
+    var array: [Int] = []
+    switch shift {
+    case .Both:
+        for i in start...end {
+            array.append(i)
+        }
+        break
+    case .EvenWeekOnly:
+        var j = start
+        while j <= end {
+            if j % 2 == 1 {
+                array.append(j)
+            }
+            j += 1
+        }
+        break
+    case .OddWeekOnly:
+        var k = start
+        while k <= end {
+            if k % 2 == 0 {
+                array.append(k)
+            }
+            k += 1
+        }
+        break
+    }
+    return array
+}
+
+func getSharedArray(_ arrayA: [Int], _ arrayB: [Int]) -> [Int] {
+    var shared: [Int] = []
+    for element in arrayA {
+        if arrayB.contains(element) {
+            shared.append(element)
+        }
+    }
+    return shared
+}
+
 enum loginReturnCode {
     case successLogin
     case accountError
@@ -100,7 +140,6 @@ enum loginReturnCode {
 
 protocol requestHtmlDelegate: NSObjectProtocol {
     func validateLoginResult(htmlData: String) -> ()
-
 }
 
 protocol inputHtmlDelegate: NSObjectProtocol {

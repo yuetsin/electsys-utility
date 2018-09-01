@@ -10,70 +10,18 @@ import Kanna
 import Foundation
 import Regex
 
-fileprivate func parseTimeTable(_ html: HTMLDocument, _ xpath: String, _ rawCourseArray: inout [Course], _ week: inout Week, isOddWeek: Bool = false) {
-    for timeTable in html.xpath(xpath) {
-        if let timeTableDetail = try? HTML(html: timeTable.toHTML!, encoding: .utf8) {
-            var timeIndex = 1
-            for weekDay in timeTableDetail.xpath("//tr[position()>1]") {
 
-                if let dayTimeDetail = try? HTML(html: weekDay.toHTML!, encoding: .utf8) {
-                    var weekDayNum = 1
-                    for lessonTime in dayTimeDetail.xpath("//td[position()>1]") {
-                        if weekDayNum >= 7 {
-                            break
-                        }
-                        // detect lessonName
-                        let lessonName = sanitize(lessonTime.text ?? "")
-//                        print("lessonName = \(lessonName)")
-//                        print("Now, it's weekDay No.\(weekDay)")
-//                        print("Now it's courseTime No.\(timeIndex)")
-                        // detect lesson duration
-                        var lessonDuration = 0
-                        if let lessonNode = try? HTML(html: lessonTime.toHTML!, encoding: .utf8) {
-                            lessonDuration = Int(lessonNode.xpath("//@rowspan").first?.text ?? "0") ?? 0
-                        }
-                        
-                        while
-                            (week.days[weekDayNum - 1].children.last?.courseStartsAt ?? 0) +
-                                (week.days[weekDayNum - 1].children.last?.courseDuration ?? 0) - 1 > timeIndex {
-                            weekDayNum += 1
-                        }
-                        
-                        if lessonName.contains("单周") && !lessonName.contains("双周") {
-                            
-                        }
-                        
-                        if !(lessonName.contains("单周") || lessonName.contains("双周")) {
-                            if lessonDuration != 0 {
-                                let index = findIndexOfCourseByName(name: lessonName, array: rawCourseArray)
-                                if index != -1 {
-                                    let newCourse = Course(rawCourseArray[index].courseName, identifier: rawCourseArray[index].courseIdentifier,
-                                           CourseScore: rawCourseArray[index].courseScore)
-                                    newCourse.courseRoom = clearBrackets(("(\\[[^\\]]*\\])".r?.findFirst(in: lessonName)?.group(at: 1)) ?? "未知")
-                                    newCourse.courseDuration = lessonDuration
-                                    newCourse.courseStartsAt = timeIndex
-                                    week.days[weekDayNum - 1].children.append(newCourse)
-                                    print("weekday: \(weekDayNum), append name: \(lessonName), startTime = \(timeIndex), room = \(newCourse.courseRoom), duration = \(lessonDuration)")
-                                }
-                            }
-                        } else {
 
-                        }
-                        weekDayNum += 1
-                    }
-                }
-                timeIndex += 1
-            }
-        }
-    }
-}
 
-func parseCourseSheet(_ docContent: String, week: inout Week, isSummerTerm: Bool = false) {
+func parseCourseSheet(_ docContent: String,
+//                      _ courseInfoArray: inout [Course],
+                      _ displayWeek: inout [Day],
+                      _ isSummerTerm: Bool = false) {
 //    print("收到：\(docContent)")
 
 //    var isSummerTerm = false
 //    var trIndex = 0, tdIndex = 0
-    var rawCourseArray: [Course] = []
+    var courseNameArray: [Course] = []
     if let html = try? HTML(html: docContent, encoding: .utf8) {
         for dataGrid in html.xpath("//*[@id=\"Datagrid1\"]") {
             if let detailTable = try? HTML(html: dataGrid.toHTML!, encoding: .utf8) {
@@ -84,19 +32,205 @@ func parseCourseSheet(_ docContent: String, week: inout Week, isSummerTerm: Bool
                             courseProp.append(propItem.text ?? "Nil")
                         }
                         if courseProp.count >= 3 {
-                            rawCourseArray.append(Course(courseProp[1] , identifier: courseProp[0] , CourseScore: Float(courseProp[2]) ?? 0.0))
+                            courseNameArray.append(Course(courseProp[1] , identifier: courseProp[0] , CourseScore: Float(courseProp[2]) ?? 0.0))
                         }
                     }
                 }
             }
         }
+        
+        parseTimeTable(html,
+                       "//*[@id=\"LessonTbl1_spanContent\"]/table",
+                       &courseNameArray,
+//                       &courseInfoArray,
+                       &displayWeek)
+        // 解析普通学期
+        
         if (isSummerTerm) {
             // 如果解析暑期学期
-            parseTimeTable(html, "//*[@id=\"LessonTbl1_span1\"]/table", &rawCourseArray, &week)
-        } else {
-            parseTimeTable(html, "//*[@id=\"LessonTbl1_spanContent\"]/table", &rawCourseArray, &week)
+            parseTimeTable(html, "//*[@id=\"LessonTbl1_span1\"]/table",
+                           &courseNameArray,
+//                           &courseInfoArray,
+                           &displayWeek,
+                           isSummerTerm: true)
         }
+//        }
         // 暑期小学期 selector:
         // "#LessonTbl1_span1 > table > tbody > tr:nth-child(2) > td > table > tbody"
     }
+}
+
+fileprivate func parseTimeTable(_ html: HTMLDocument,
+                                _ xpath: String,
+                                _ rawCourseArray: inout [Course],
+//                                _ courseArray: inout [Course],
+                                _ displayWeek: inout [Day],
+                                isSummerTerm: Bool = false) {
+    for timeTable in html.xpath(xpath) {
+        if let timeTableDetail = try? HTML(html: timeTable.toHTML!, encoding: .utf8) {
+            var timeIndex = 1
+            if isSummerTerm {
+                timeIndex = 0
+                // 暑期小学期课表表头有多余的一行。
+                // 需要特殊处理。
+            }
+            for weekDay in timeTableDetail.xpath("//tr[position()>1]") {
+                if let dayTimeDetail = try? HTML(html: weekDay.toHTML!, encoding: .utf8) {
+                    var weekDayNum = 1
+                    for lessonTime in dayTimeDetail.xpath("//td[position()>1]") {
+                        if weekDayNum >= 7 {
+                            break
+                        }
+                        // detect lessonName
+                        let lessonName = sanitize(lessonTime.text ?? "")
+                        if lessonName.contains("单周") && lessonName.contains("双周") {
+                            if lessonName.hasSuffix("双周") {
+                                print ("单 + 双周模式：\(lessonName) 将被拆分。")
+                                var splited = lessonName.components(separatedBy: "单周")
+                                print ("分裂1：\(splited[0] + "单周")，分裂2:\(splited[1])")
+                                createCourse(splited[0] + "单周",
+                                             lessonTime.toHTML!,
+                                             &weekDayNum,
+                                             timeIndex,
+                                             &displayWeek,
+//                                             &courseArray,
+                                             &rawCourseArray,
+                                             ShiftWeekType.OddWeekOnly)
+                                createCourse(splited[1],
+                                             lessonTime.toHTML!,
+                                             &weekDayNum,
+                                             timeIndex,
+                                             &displayWeek,
+//                                             &courseArray,
+                                             &rawCourseArray,
+                                             ShiftWeekType.EvenWeekOnly)
+                            } else if lessonName.hasSuffix("单周") {
+                                print ("双 + 单周模式：\(lessonName) 将被拆分。")
+                                var splited = lessonName.components(separatedBy: "双周")
+                                print ("分裂1：\(splited[0] + "双周")，分裂2:\(splited[1])")
+                                createCourse(splited[0] + "双周",
+                                             lessonTime.toHTML!,
+                                             &weekDayNum,
+                                             timeIndex,
+                                             &displayWeek,
+//                                             &courseArray,
+                                             &rawCourseArray,
+                                             ShiftWeekType.EvenWeekOnly)
+                                createCourse(splited[1],
+                                             lessonTime.toHTML!,
+                                             &weekDayNum,
+                                             timeIndex,
+                                             &displayWeek,
+//                                             &courseArray,
+                                             &rawCourseArray,
+                                             ShiftWeekType.OddWeekOnly)
+                            }
+                        } else if lessonName.contains("单周") {
+                            createCourse(lessonName,
+                                         lessonTime.toHTML!,
+                                         &weekDayNum,
+                                         timeIndex,
+                                         &displayWeek,
+//                                         &courseArray,
+                                         &rawCourseArray,
+                                         ShiftWeekType.OddWeekOnly)
+                        } else if lessonName.contains("双周") {
+                            createCourse(lessonName,
+                                         lessonTime.toHTML!,
+                                         &weekDayNum,
+                                         timeIndex,
+                                         &displayWeek,
+//                                         &courseArray,
+                                         &rawCourseArray,
+                                         ShiftWeekType.EvenWeekOnly)
+                        } else {
+                            createCourse(lessonName,
+                                         lessonTime.toHTML!,
+                                         &weekDayNum,
+                                         timeIndex,
+                                         &displayWeek,
+//                                         &courseArray,
+                                         &rawCourseArray,
+                                         ShiftWeekType.Both)
+                        }
+                        weekDayNum += 1
+                    }
+                }
+                timeIndex += 1
+            }
+        }
+    }
+}
+
+fileprivate func createCourse(_ lessonName: String,
+                              _ innerHTML: String,
+                              _ weekDayNum: inout Int,
+                              _ timeIndex: Int,
+                              _ displayWeek: inout [Day],
+//                              _ courseArray: inout [Course],
+                              _ rawCourseArray: inout [Course],
+                              _ shiftType: ShiftWeekType) {
+    
+    //                        print("lessonName = \(lessonName)")
+    //                        print("Now, it's weekDay No.\(weekDay)")
+    //                        print("Now it's courseTime No.\(timeIndex)")
+    // detect lesson duration
+    var lessonDuration = 0
+    if let lessonNode = try? HTML(html: innerHTML, encoding: .utf8) {
+        lessonDuration = Int(lessonNode.xpath("//@rowspan").first?.text ?? "0") ?? 0
+    }
+    if lessonDuration == 0 {
+        return
+    }
+    
+    let index = findIndexOfCourseByName(name: lessonName, array: rawCourseArray)
+    if index == -1 {
+        return
+    }
+    let newCourse = Course(rawCourseArray[index].courseName, identifier: rawCourseArray[index].courseIdentifier,
+                           CourseScore: rawCourseArray[index].courseScore)
+    newCourse.courseRoom = clearBrackets(("(\\[[^\\]]*\\])".r?.findFirst(in: lessonName)?.group(at: 1)) ?? "未知")
+    newCourse.courseDuration = lessonDuration
+    newCourse.dayStartsAt = timeIndex
+    newCourse.shiftWeek = shiftType
+    
+    
+    let weekSchedule = lessonName.replacingOccurrences(of: newCourse.courseName, with: "")
+//
+//    print("(?<=（)[^-]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0")
+//    print("(?<=-)[^周）]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0")
+    let startWeek = Int("(?<=（)[^-]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
+    let endWeek = Int("(?<=-)[^周）]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
+    
+
+    
+    newCourse.setWeekDuration(start: startWeek, end: endWeek)
+    
+    var flag = true
+    while flag {
+        flag = false
+        for course in displayWeek[weekDayNum].children {
+//            print("判断\(course.courseName)与\(newCourse.courseName)是否冲突…")
+            if course.judgeIfConflicts(newCourse) {
+                print ("\(course.courseName)与\(newCourse.courseName) 课程冲突。移位一次。")
+                flag = true
+                break
+            }
+        }
+        if flag {
+            weekDayNum += 1
+            print("完成一次移动位置。")
+        } else {
+            break
+        }
+    }
+    
+    print("开始于周\(startWeek)，终止于周\(endWeek)的课程：")
+    
+    print("星期\(weekDayNum), 原始名称 \(lessonName), 节数  \(timeIndex) ~ \(timeIndex + lessonDuration - 1), 教室在 \(newCourse.courseRoom)")
+    
+    newCourse.courseDay = weekDayNum
+    
+//    courseArray.append(newCourse)
+    displayWeek[weekDayNum].children.append(newCourse)
 }

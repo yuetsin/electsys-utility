@@ -12,6 +12,20 @@ import Alamofire
 
 class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDelegate {
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loadingIcon.startAnimation(self)
+        removeCookie()
+        updateCaptcha(refreshCaptchaButton)
+    }
+    
+    override var representedObject: Any? {
+        didSet {
+            // Update the view, if already loaded.
+        }
+    }
+    
 //    var requestDelegate: requestHtmlDelegate?
 //    var inputDelegate: inputHtmlDelegate?
     
@@ -23,6 +37,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBOutlet weak var refreshCaptchaButton: NSButton!
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var manualOpenButton: NSButton!
+    @IBOutlet weak var loadingIcon: NSProgressIndicator!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
@@ -73,18 +88,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         manualOpenWindowController.contentViewController = manualOpenViewController
         manualOpenWindowController.showWindow(sender)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        removeCookie()
-        updateCaptcha(refreshCaptchaButton)
-    }
-    
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
+
     
     func validateLoginResult(htmlData: String) {
         print(htmlData)
@@ -146,6 +150,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         refreshCaptchaButton.isEnabled = false
         manualOpenButton.isEnabled = false
         captchaImage.isEnabled = false
+        loadingIcon.isHidden = false
     }
     
     func resumeUI() {
@@ -157,6 +162,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         refreshCaptchaButton.isEnabled = true
         manualOpenButton.isEnabled = true
         captchaImage.isEnabled = true
+        loadingIcon.isHidden = true
         updateCaptcha(refreshCaptchaButton)
     }
 
