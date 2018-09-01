@@ -50,26 +50,33 @@ class Course : NSObject {
         self.weekEndsAt = end
     }
     
-    func judgeIfConflicts(_ another: Course) -> Bool {
-        
-        if (self.courseDay != another.courseDay) {
-            return false
-        }
-        
-        if self.weekEndsAt < another.weekStartsAt {
-            return false
-        }
-        
-        if self.weekStartsAt > another.weekEndsAt {
-            return false
-        }
-        
-        if self.shiftWeek == .EvenWeekOnly && another.shiftWeek == .OddWeekOnly {
-            return false
-        }
-        
-        if self.shiftWeek == .OddWeekOnly && another.shiftWeek == .EvenWeekOnly {
-            return false
+    func judgeIfConflicts(_ another: Course, summerMode: Bool = false) -> Bool {
+        // 判断冲突与否，需要看现在加入的是否是小学期的课程。
+        // 同一张课表里，就算不在同一周出现，也不会占有相同的时间（除非是在同一格中同时开始）
+        // （否则课表无法成形）
+        // 但是小学期和主课表完全分开不属于同一张课表
+        // 因此需要判断的内容更多。
+        // 故而需要参数 summerMode
+        if summerMode {
+            if (self.courseDay != another.courseDay) {
+                return false
+            }
+            
+            if self.weekEndsAt < another.weekStartsAt {
+                return false
+            }
+            
+            if self.weekStartsAt > another.weekEndsAt {
+                return false
+            }
+            
+            if self.shiftWeek == .EvenWeekOnly && another.shiftWeek == .OddWeekOnly {
+                return false
+            }
+            
+            if self.shiftWeek == .OddWeekOnly && another.shiftWeek == .EvenWeekOnly {
+                return false
+            }
         }
         
         let selfWeek = generateArray(start: self.weekStartsAt,
@@ -106,7 +113,7 @@ class Course : NSObject {
     }
     
     func getExtraIdentifier() -> String {
-        var identifier = self.courseName + "，"
+        var identifier = self.courseName + "，\(self.weekStartsAt) ~ \(self.weekEndsAt) 周"
         switch self.shiftWeek {
         case .EvenWeekOnly:
             identifier += "单周"
@@ -118,6 +125,8 @@ class Course : NSObject {
             break
         }
         identifier += dayOfWeekName[self.courseDay]
+        identifier += " \(self.dayStartsAt) ~ \(self.dayStartsAt + self.courseDuration - 1) 节"
+        identifier += " @ " + self.courseRoom
         return identifier
     }
 }

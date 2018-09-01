@@ -131,6 +131,81 @@ func getSharedArray(_ arrayA: [Int], _ arrayB: [Int]) -> [Int] {
     return shared
 }
 
+func getCourseName(_ string: String) -> String {
+    return String(string.prefix(string.positionOf(sub: "（", backwards: true)))
+}
+
+func getCourseRoom(_ string: String) -> String {
+    return clearBrackets(("(\\[[^\\]]*\\])".r?.findFirst(in: string)?.group(at: 1)) ?? "未知")
+}
+
+func getStartWeek(_ string: String) -> Int {
+    let weekIns = String(string.suffix(string.count - string.positionOf(sub: "（", backwards: true)))
+//    print("getStartWeek: workaround \(weekIns)")
+    return Int("(?<=（)[^-]+".r?.findFirst(in: weekIns)?.group(at: 0) ?? "0") ?? 0
+}
+
+func getEndWeek(_ string: String) -> Int {
+    return Int("(?<=-)[^周）]+".r?.findFirst(in: string)?.group(at: 0) ?? "0") ?? 0
+}
+
+func checkIfWordyExpress(_ stringA: String, _ stringB: String) -> Bool {
+//    print("判断可否合并。")
+    // 在教务处给出的信息中，有时会出现这样的情况：
+    // 分别声明了单周和双周，但是却完全没有任何不同。
+    // 比如：
+    // 算法原理（1-15周）[东上院202]单周
+    // 算法原理（2-16周）[东上院202]双周
+    // 此方法可以判断出这种情况是否出现。
+    let courseNameA = getCourseName(stringA)
+    let courseNameB = getCourseName(stringB)
+//    print("课程名称：\(courseNameA) & \(courseNameB)")
+    if sanitize(courseNameA) != sanitize(courseNameB) {
+        return false
+    }
+    let roomA = getCourseRoom(stringA)
+    let roomB = getCourseRoom(stringB)
+//    print("教室：\(roomA) & \(roomB)")
+    if roomA != roomB {
+        return false
+    }
+    let startWeekA = getStartWeek(stringA)
+    let startWeekB = getStartWeek(stringB)
+    let endWeekA = getEndWeek(stringA)
+    let endWeekB = getEndWeek(stringB)
+//    print("周数：\(startWeekA) ~ \(endWeekA) & \(startWeekB) ~ \(endWeekB)")
+    if abs(startWeekA - startWeekB) <= 1 && abs(endWeekA - endWeekB) <= 1 {
+        return true
+    } else {
+        return false
+    }
+}
+
+func combineWordyExpress(_ stringA: String, _ stringB: String) -> String {
+    // 在教务处给出的信息中，有时会出现这样的情况：
+    // 分别声明了单周和双周，但是却完全没有任何不同。
+    // 比如：
+    // 算法原理（1-15周）[东上院202]单周
+    // 算法原理（2-16周）[东上院202]双周
+    // 此方法可以将它们简化为：
+    // 算法原理（1-16周）[东上院202]
+    
+    // 仅在保证二者可以合并
+    // 即 checkIfWordyExpress 返回 true 时调用此方法。
+    
+    let courseName = getCourseName(stringA)
+    let courseRoom = getCourseRoom(stringA)
+    let startA = getStartWeek(stringA)
+    let startB = getStartWeek(stringB)
+    let endA = getEndWeek(stringA)
+    let endB = getEndWeek(stringB)
+    let start = min(startA, startB)
+    let end = max(endA, endB)
+    let result = "\(courseName)（\(start)-\(end)周）[\(courseRoom)]"
+//    print("成功合并结果：\(result)")
+    return result
+}
+
 enum loginReturnCode {
     case successLogin
     case accountError
@@ -147,3 +222,14 @@ protocol inputHtmlDelegate: NSObjectProtocol {
     func cancelDataInput() -> ()
 }
 
+extension String {
+    func positionOf(sub:String, backwards: Bool = false) -> Int {
+        var position = -1
+        if let range = range(of: sub, options: backwards ? .backwards : .literal ) {
+            if !range.isEmpty {
+                position = self.distance(from: startIndex, to: range.lowerBound)
+            }
+        }
+        return position
+    }
+}

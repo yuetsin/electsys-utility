@@ -47,11 +47,7 @@ class ResolveViewController: NSViewController {
         self.promptTextField.stringValue = "已经成功导入 \(getAllCount(week: displayWeek)) 条课程信息。"
         for dayNum in 1...7 {
             for course in displayWeek[dayNum - 1].children {
-                if course.judgeIfDuplicates(in: displayWeek) {
-                    self.coursePopUpList.addItem(withTitle: course.getExtraIdentifier())
-                } else {
-                    self.coursePopUpList.addItem(withTitle: course.courseName)
-                }
+                self.coursePopUpList.addItem(withTitle: course.getExtraIdentifier())
             }
         }
     }

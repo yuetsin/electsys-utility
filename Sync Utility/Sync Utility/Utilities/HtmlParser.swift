@@ -85,45 +85,73 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                         let lessonName = sanitize(lessonTime.text ?? "")
                         if lessonName.contains("单周") && lessonName.contains("双周") {
                             if lessonName.hasSuffix("双周") {
-                                print ("单 + 双周模式：\(lessonName) 将被拆分。")
+//                                print ("单 + 双周模式：\(lessonName) 将被拆分。")
                                 var splited = lessonName.components(separatedBy: "单周")
-                                print ("分裂1：\(splited[0] + "单周")，分裂2:\(splited[1])")
-                                createCourse(splited[0] + "单周",
-                                             lessonTime.toHTML!,
-                                             &weekDayNum,
-                                             timeIndex,
-                                             &displayWeek,
-//                                             &courseArray,
-                                             &rawCourseArray,
-                                             ShiftWeekType.OddWeekOnly)
-                                createCourse(splited[1],
-                                             lessonTime.toHTML!,
-                                             &weekDayNum,
-                                             timeIndex,
-                                             &displayWeek,
-//                                             &courseArray,
-                                             &rawCourseArray,
-                                             ShiftWeekType.EvenWeekOnly)
+//                                print ("分裂1：\(splited[0] + "单周")，分裂2:\(splited[1])")
+                                if (checkIfWordyExpress(splited[0], splited[1])) {
+                                    createCourse(combineWordyExpress(splited[0], splited[1]),
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+   //                                             &courseArray,
+                                                &rawCourseArray,
+                                                ShiftWeekType.Both,
+                                                isSummerTerm)
+                                } else {
+                                    createCourse(splited[0] + "单周",
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+    //                                             &courseArray,
+                                                 &rawCourseArray,
+                                                 ShiftWeekType.OddWeekOnly,
+                                                 isSummerTerm)
+                                    createCourse(splited[1],
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+    //                                             &courseArray,
+                                                 &rawCourseArray,
+                                                 ShiftWeekType.EvenWeekOnly,
+                                                 isSummerTerm)
+                                }
                             } else if lessonName.hasSuffix("单周") {
-                                print ("双 + 单周模式：\(lessonName) 将被拆分。")
+//                                print ("双 + 单周模式：\(lessonName) 将被拆分。")
                                 var splited = lessonName.components(separatedBy: "双周")
-                                print ("分裂1：\(splited[0] + "双周")，分裂2:\(splited[1])")
-                                createCourse(splited[0] + "双周",
-                                             lessonTime.toHTML!,
-                                             &weekDayNum,
-                                             timeIndex,
-                                             &displayWeek,
-//                                             &courseArray,
-                                             &rawCourseArray,
-                                             ShiftWeekType.EvenWeekOnly)
-                                createCourse(splited[1],
-                                             lessonTime.toHTML!,
-                                             &weekDayNum,
-                                             timeIndex,
-                                             &displayWeek,
-//                                             &courseArray,
-                                             &rawCourseArray,
-                                             ShiftWeekType.OddWeekOnly)
+//                                print ("分裂1：\(splited[0] + "双周")，分裂2:\(splited[1])")
+                                if (checkIfWordyExpress(splited[0], splited[1])) {
+                                    createCourse(combineWordyExpress(splited[0], splited[1]),
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+                                                 //                                             &courseArray,
+                                        &rawCourseArray,
+                                        ShiftWeekType.Both,
+                                        isSummerTerm)
+                                } else {
+                                    createCourse(splited[0] + "双周",
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+    //                                             &courseArray,
+                                                 &rawCourseArray,
+                                                 ShiftWeekType.EvenWeekOnly,
+                                                 isSummerTerm)
+                                    createCourse(splited[1],
+                                                 lessonTime.toHTML!,
+                                                 &weekDayNum,
+                                                 timeIndex,
+                                                 &displayWeek,
+    //                                             &courseArray,
+                                                 &rawCourseArray,
+                                                 ShiftWeekType.OddWeekOnly,
+                                                 isSummerTerm)
+                                }
                             }
                         } else if lessonName.contains("单周") {
                             createCourse(lessonName,
@@ -133,7 +161,8 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                                          &displayWeek,
 //                                         &courseArray,
                                          &rawCourseArray,
-                                         ShiftWeekType.OddWeekOnly)
+                                         ShiftWeekType.OddWeekOnly,
+                                         isSummerTerm)
                         } else if lessonName.contains("双周") {
                             createCourse(lessonName,
                                          lessonTime.toHTML!,
@@ -142,7 +171,8 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                                          &displayWeek,
 //                                         &courseArray,
                                          &rawCourseArray,
-                                         ShiftWeekType.EvenWeekOnly)
+                                         ShiftWeekType.EvenWeekOnly,
+                                         isSummerTerm)
                         } else {
                             createCourse(lessonName,
                                          lessonTime.toHTML!,
@@ -151,7 +181,8 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                                          &displayWeek,
 //                                         &courseArray,
                                          &rawCourseArray,
-                                         ShiftWeekType.Both)
+                                         ShiftWeekType.Both,
+                                         isSummerTerm)
                         }
                         weekDayNum += 1
                     }
@@ -169,7 +200,8 @@ fileprivate func createCourse(_ lessonName: String,
                               _ displayWeek: inout [Day],
 //                              _ courseArray: inout [Course],
                               _ rawCourseArray: inout [Course],
-                              _ shiftType: ShiftWeekType) {
+                              _ shiftType: ShiftWeekType,
+                              _ isSummerTerm: Bool) {
     
     //                        print("lessonName = \(lessonName)")
     //                        print("Now, it's weekDay No.\(weekDay)")
@@ -189,7 +221,8 @@ fileprivate func createCourse(_ lessonName: String,
     }
     let newCourse = Course(rawCourseArray[index].courseName, identifier: rawCourseArray[index].courseIdentifier,
                            CourseScore: rawCourseArray[index].courseScore)
-    newCourse.courseRoom = clearBrackets(("(\\[[^\\]]*\\])".r?.findFirst(in: lessonName)?.group(at: 1)) ?? "未知")
+    newCourse.courseRoom = getCourseRoom(lessonName)
+//    newCourse.courseRoom = clearBrackets(("(\\[[^\\]]*\\])".r?.findFirst(in: lessonName)?.group(at: 1)) ?? "未知")
     newCourse.courseDuration = lessonDuration
     newCourse.dayStartsAt = timeIndex
     newCourse.shiftWeek = shiftType
@@ -199,8 +232,10 @@ fileprivate func createCourse(_ lessonName: String,
 //
 //    print("(?<=（)[^-]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0")
 //    print("(?<=-)[^周）]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0")
-    let startWeek = Int("(?<=（)[^-]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
-    let endWeek = Int("(?<=-)[^周）]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
+    let startWeek = getStartWeek(weekSchedule)
+    let endWeek = getEndWeek(weekSchedule)
+//    let startWeek = Int("(?<=（)[^-]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
+//    let endWeek = Int("(?<=-)[^周）]+".r?.findFirst(in: weekSchedule)?.group(at: 0) ?? "0") ?? 0
     
 
     
@@ -211,23 +246,23 @@ fileprivate func createCourse(_ lessonName: String,
         flag = false
         for course in displayWeek[weekDayNum].children {
 //            print("判断\(course.courseName)与\(newCourse.courseName)是否冲突…")
-            if course.judgeIfConflicts(newCourse) {
-                print ("\(course.courseName)与\(newCourse.courseName) 课程冲突。移位一次。")
+            if course.judgeIfConflicts(newCourse, summerMode: isSummerTerm) {
+//                print ("\(course.courseName)与\(newCourse.courseName) 课程冲突。移位一次。")
                 flag = true
                 break
             }
         }
         if flag {
             weekDayNum += 1
-            print("完成一次移动位置。")
+//            print("完成一次移动位置。")
         } else {
             break
         }
     }
     
-    print("开始于周\(startWeek)，终止于周\(endWeek)的课程：")
-    
-    print("星期\(weekDayNum), 原始名称 \(lessonName), 节数  \(timeIndex) ~ \(timeIndex + lessonDuration - 1), 教室在 \(newCourse.courseRoom)")
+//    print("开始于周\(startWeek)，终止于周\(endWeek)的课程：")
+//
+//    print("星期\(weekDayNum), 原始名称 \(lessonName), 节数  \(timeIndex) ~ \(timeIndex + lessonDuration - 1), 教室在 \(newCourse.courseRoom)")
     
     newCourse.courseDay = weekDayNum
     
