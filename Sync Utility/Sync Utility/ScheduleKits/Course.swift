@@ -113,23 +113,47 @@ class Course : NSObject {
     }
     
     func getExtraIdentifier() -> String {
-        var identifier = self.courseName + "，\(self.weekStartsAt) ~ \(self.weekEndsAt) 周"
+        var identifier = self.courseName + "，"
         switch self.shiftWeek {
         case .EvenWeekOnly:
-            identifier += "单周"
+            identifier += "双周"
             break
         case .OddWeekOnly:
-            identifier += "双周"
+            identifier += "单周"
             break
         default:
             break
         }
         identifier += dayOfWeekName[self.courseDay]
-        identifier += " \(self.dayStartsAt) ~ \(self.dayStartsAt + self.courseDuration - 1) 节"
-        identifier += " @ " + self.courseRoom
         return identifier
     }
+    
+    func getTime() -> String {
+        var timeString = ""
+        if self.weekStartsAt == self.weekEndsAt {
+            timeString += "\(self.weekStartsAt) 周"
+        } else if self.weekEndsAt - self.weekStartsAt == 1 {
+            timeString += "\(self.weekStartsAt)、\(self.weekEndsAt) 周"
+        } else {
+            timeString += "\(self.weekStartsAt) ~ \(self.weekEndsAt) 周"
+        }
+        switch self.shiftWeek {
+        case .EvenWeekOnly:
+            timeString += "双周"
+            break
+        case .OddWeekOnly:
+            timeString += "单周"
+            break
+        default:
+            break
+        }
+        timeString += " \(self.dayStartsAt) ~ \(self.dayStartsAt + self.courseDuration - 1) 节，"
+        timeString += getExactTime(startAt: self.dayStartsAt, duration: self.courseDuration)
+        return timeString
+    }
 }
+
+let errorCourse = Course("未知", identifier: "未知", CourseScore: 0.0)
 
 enum ShiftWeekType {
     case OddWeekOnly

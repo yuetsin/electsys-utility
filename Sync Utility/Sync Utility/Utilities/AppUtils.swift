@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 extension String {
     var count: Int {
@@ -206,6 +207,28 @@ func combineWordyExpress(_ stringA: String, _ stringB: String) -> String {
     return result
 }
 
+func findCourseByIndex(_ i: Int, _ array: inout [Day]) -> Course {
+    // count since 1 but not 0.
+    if i <= 0 {
+        return errorCourse
+    }
+    var index = i
+    for day in 0...6 {
+        index -= array[day].children.count
+        if index <= 0 {
+            index += array[day].children.count
+            return array[day].children[index - 1]
+        }
+    }
+    return errorCourse
+}
+
+func getExactTime(startAt: Int, duration: Int) -> String {
+    let startTime = defaultLessonTime[startAt].getTimeString()
+    let endTime = defaultLessonTime[startAt + duration - 1].getTimeString(passed: durationMinutesOfLesson)
+    return "\(startTime) ~ \(endTime)"
+}
+
 enum loginReturnCode {
     case successLogin
     case accountError
@@ -231,5 +254,44 @@ extension String {
             }
         }
         return position
+    }
+}
+
+extension NSMenuItem {
+    func indexIn(_ array: [NSMenuItem]) -> Int {
+        var index = 0
+        for item in array {
+            if self == item {
+//                print("定位到Course[\(index)]")
+                return index
+            }
+            index += 1
+        }
+        return -1
+    }
+}
+
+extension Date {
+    func getWeekDay() -> Int {
+        let calendar = NSCalendar.init(calendarIdentifier: .gregorian)
+        let timeZone = NSTimeZone.init(name: "Asia/Shanghai")
+        calendar?.timeZone = timeZone! as TimeZone
+        let calendarUnit = NSCalendar.Unit.weekday
+        let theComponents = calendar?.components(calendarUnit, from: self)
+        if theComponents?.weekday == 1 {
+            return 6
+        }
+        return ((theComponents?.weekday)! - 1)
+    }
+    
+    
+    func getStringExpression() -> String {
+        let timeZone = TimeZone.init(identifier: "UTC")
+        let formatter = DateFormatter()
+        formatter.timeZone = timeZone
+        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.dateFormat = "yyyy-MM-dd"
+        let date = formatter.string(from: self)
+        return date.components(separatedBy: " ").first!
     }
 }

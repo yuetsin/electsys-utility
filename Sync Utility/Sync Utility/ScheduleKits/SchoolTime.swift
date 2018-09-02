@@ -35,20 +35,26 @@ class Time {
         self.minute = -1
     }
     
-    func getString(passed: Int = 0) -> String {
+    func getTimeString(passed: Int = 0) -> String {
         var pastHour = hour
         var pastMinute = minute + passed
         if pastMinute >= 60 {
             pastHour += 1
             pastMinute -= 60
         }
-        return String(format: "%02d:%02d", arguments: [pastHour, pastMinute])
+        return String(format: "%d:%02d", arguments: [pastHour, pastMinute])
     }
 }
 
 
 let durationMinutesOfLesson = 45
 // 一节课 = 四十五分钟
+
+let secondsInDay: Double = 86400
+// 一天 = 86400秒
+
+let secondsInEighteenWeeks: Double = 10886400
+// 正常学期与小学期间隔 18 周。折合 10886400 秒。
 
 let defaultLessonTime: [Time] = [Time("0:00"),
     Time("8:00"), Time("8:55"), Time("10:00"), Time("10:55"),
