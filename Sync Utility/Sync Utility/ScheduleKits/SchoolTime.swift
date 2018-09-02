@@ -44,6 +44,16 @@ class Time {
         }
         return String(format: "%d:%02d", arguments: [pastHour, pastMinute])
     }
+    
+    func getTime(passed: Int = 0) -> Time {
+        var pastHour = hour
+        var pastMinute = minute + passed
+        if pastMinute >= 60 {
+            pastHour += 1
+            pastMinute -= 60
+        }
+        return Time(Hour: pastHour, Minute: pastMinute)
+    }
 }
 
 

@@ -23,6 +23,7 @@ class ResolveViewController: NSViewController {
     var htmlDoc: String = ""
 //    var courseList: [Course] = []
     var displayWeek: [Day] = []
+    var startDate: Date?
     
     @IBOutlet weak var coursePopUpList: NSPopUpButton!
     @IBOutlet weak var promptTextField: NSTextField!
@@ -157,6 +158,48 @@ class ResolveViewController: NSViewController {
         if willLoadSummerBox.state == .on {
             self.startWeekIndicator.stringValue +=
             "\n同时以 \(startDate.addingTimeInterval(secondsInEighteenWeeks).getStringExpression())，星期一作为暑期小学期的开始。"
+        }
+        self.startDate = startDate
+    }
+    
+//    @IBAction func addExampleEvent(_ sender: NSButton) {
+//        addToCalendar(date: self.startWeekSelector.dateValue,
+//                      title: "Example Title",
+//                      place: "Example Location",
+//                      start: defaultLessonTime[2],
+//                      end: defaultLessonTime[4],
+//                      remindType: .tenMinutes)
+//    }
+    @IBAction func startSync(_ sender: NSButton) {
+        var remindType: remindType?
+        if willRemindBox.state == .on {
+            switch self.remindTypeSelector.selectedItem!.title {
+            case "上课前 15 分钟":
+                remindType = .fifteenMinutes
+                break
+            case "上课前 10 分钟":
+                remindType = .tenMinutes
+                break
+            case "上课时":
+                remindType = .atCourseStarts
+                break
+            default:
+                remindType = .noReminder
+            }
+        }
+        for day in displayWeek {
+            for course in day.children {
+                for week in generateArray(start: course.weekStartsAt,
+                                          end: course.weekEndsAt,
+                                          shift: course.shiftWeek) {
+                      addToCalendar(date: (startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
+                                    title: course.courseName,
+                                    place: course.courseRoom,
+                                    start: defaultLessonTime[course.dayStartsAt],
+                                    end: defaultLessonTime[course.dayStartsAt + course.courseDuration - 1].getTime(passed: durationMinutesOfLesson),
+                                    remindType: remindType!)
+                }
+            }
         }
     }
 }

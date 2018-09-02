@@ -23,6 +23,8 @@
 		8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B42139789300B476E0 /* Kanna.framework */; };
 		8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B62139789900B476E0 /* Alamofire.framework */; };
 		8A96E4B82139789B00B476E0 /* Pods_Sync_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF6AAB4208DB297833B7167 /* Pods_Sync_Utility.framework */; };
+		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
+		8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,8 @@
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B42139789300B476E0 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B62139789900B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
 		8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
 		B219B33155D0D7A3C6BDC304 /* Pods-Sync Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sync Utility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility.debug.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */,
 				8A96E4B82139789B00B476E0 /* Pods_Sync_Utility.framework in Frameworks */,
 				8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */,
 				8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */,
@@ -144,6 +149,7 @@
 				8A6E58A82138054D00FF38CF /* Course.swift */,
 				8A7F528A2137D65A00FBA008 /* SchoolTime.swift */,
 				8A04055C213984050060F93A /* schoolDay.swift */,
+				8AD04CFC213BC40200D59DB1 /* DateUtils.swift */,
 			);
 			path = ScheduleKits;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 		CEBAC5F7F8148695C76C2836 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AD04CFE213BC58800D59DB1 /* EventKit.framework */,
 				8A96E4B62139789900B476E0 /* Alamofire.framework */,
 				8A96E4B42139789300B476E0 /* Kanna.framework */,
 				8A96E4B22139789000B476E0 /* Regex.framework */,
@@ -196,6 +203,9 @@
 					8A4A22D921362EAF0064488C = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -292,6 +302,7 @@
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
+				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
 				8AD4A49E2138C8D800F7E5E8 /* HtmlParser.swift in Sources */,

@@ -49,5 +49,7 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>需要日历的访问权限来写入课程信息。</string>
 </dict>
 </plist>

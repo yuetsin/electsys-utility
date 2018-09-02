@@ -147,6 +147,7 @@ class Course : NSObject {
         default:
             break
         }
+        timeString += dayOfWeekName[self.courseDay]
         timeString += " \(self.dayStartsAt) ~ \(self.dayStartsAt + self.courseDuration - 1) 节，"
         timeString += getExactTime(startAt: self.dayStartsAt, duration: self.courseDuration)
         return timeString

@@ -103,7 +103,7 @@ func generateArray(start: Int, end: Int, shift: ShiftWeekType) -> [Int] {
     case .EvenWeekOnly:
         var j = start
         while j <= end {
-            if j % 2 == 1 {
+            if j % 2 == 0 {
                 array.append(j)
             }
             j += 1
@@ -112,7 +112,7 @@ func generateArray(start: Int, end: Int, shift: ShiftWeekType) -> [Int] {
     case .OddWeekOnly:
         var k = start
         while k <= end {
-            if k % 2 == 0 {
+            if k % 2 == 1 {
                 array.append(k)
             }
             k += 1
