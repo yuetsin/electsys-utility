@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import EventKit
 
-class ResolveViewController: NSViewController {
+class ResolveViewController: NSViewController, writeCalendarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class ResolveViewController: NSViewController {
         initializeInfo()
         self.startWeekSelector.dateValue = Date()
         onDatePicked(startWeekSelector)
+        self.loadingRing.startAnimation(self)
         //        outlineView.reloadData()
     }
     
@@ -24,6 +26,7 @@ class ResolveViewController: NSViewController {
 //    var courseList: [Course] = []
     var displayWeek: [Day] = []
     var startDate: Date?
+
     
     @IBOutlet weak var coursePopUpList: NSPopUpButton!
     @IBOutlet weak var promptTextField: NSTextField!
@@ -32,12 +35,53 @@ class ResolveViewController: NSViewController {
     @IBOutlet weak var remindTypeSelector: NSPopUpButton!
     @IBOutlet weak var startWeekSelector: NSDatePicker!
     @IBOutlet weak var startWeekIndicator: NSTextField!
+    @IBOutlet weak var syncAccountType: NSPopUpButton!
+    @IBOutlet weak var calendarTextField: NSTextField!
+    @IBOutlet weak var loadingRing: NSProgressIndicator!
+    @IBOutlet weak var relsamaHouwyButton: NSButton!
     
     @IBOutlet weak var courseNameField: NSTextField!
     @IBOutlet weak var courseRoomField: NSTextField!
     @IBOutlet weak var courseIdentifierField: NSTextField!
     @IBOutlet weak var courseScoreField: NSTextField!
     @IBOutlet weak var courseTimeField: NSTextField!
+
+    
+    func disableUI() {
+        self.coursePopUpList.isEnabled = false
+        self.willLoadSummerBox.isEnabled = false
+        self.willRemindBox.isEnabled = false
+        self.remindTypeSelector.isEnabled = false
+        self.startWeekSelector.isEnabled = false
+        self.syncAccountType.isEnabled = false
+        self.courseNameField.isEnabled = false
+        self.courseRoomField.isEnabled = false
+        self.courseIdentifierField.isEnabled = false
+        self.courseScoreField.isEnabled = false
+        self.courseTimeField.isEnabled = false
+        self.calendarTextField.isEnabled = false
+        self.relsamaHouwyButton.isEnabled = false
+        self.loadingRing.isHidden = false
+    }
+    
+    func resumeUI() {
+        self.coursePopUpList.isEnabled = true
+        self.willLoadSummerBox.isEnabled = true
+        self.willRemindBox.isEnabled = true
+        self.remindTypeSelector.isEnabled = true
+        self.startWeekSelector.isEnabled = true
+        self.syncAccountType.isEnabled = true
+        self.courseNameField.isEnabled = true
+        self.courseRoomField.isEnabled = true
+        self.courseIdentifierField.isEnabled = true
+        self.courseScoreField.isEnabled = true
+        self.courseTimeField.isEnabled = true
+        self.calendarTextField.isEnabled = true
+        self.relsamaHouwyButton.isEnabled = true
+        self.loadingRing.isHidden = true
+        remindTapped(self.willRemindBox)
+        updatePopUpSelector()
+    }
     
     @IBAction func remindTapped(_ sender: NSButton) {
         if willRemindBox.state == NSControl.StateValue.on {
@@ -107,6 +151,88 @@ class ResolveViewController: NSViewController {
         updatePopUpSelector(at: index!)
     }
     
+    @IBAction func onDatePicked(_ sender: NSDatePicker) {
+        var startDate = sender.dateValue
+        while startDate.getWeekDay() > 1 {
+            startDate = startDate.addingTimeInterval(-secondsInDay)
+            //            print("Date: \(startDate.getStringExpression()), weekday: \(startDate.getWeekDay())")
+        }
+        self.startWeekIndicator.stringValue =
+        "以 \(startDate.getStringExpression())，星期一作为主学期第一周的开始。"
+        if willLoadSummerBox.state == .on {
+            self.startWeekIndicator.stringValue +=
+            "\n同时以 \(startDate.addingTimeInterval(secondsInEighteenWeeks).getStringExpression())，星期一作为暑期小学期的开始。"
+        }
+        self.startDate = startDate
+    }
+    
+    //    @IBAction func addExampleEvent(_ sender: NSButton) {
+    //        addToCalendar(date: self.startWeekSelector.dateValue,
+    //                      title: "Example Title",
+    //                      place: "Example Location",
+    //                      start: defaultLessonTime[2],
+    //                      end: defaultLessonTime[4],
+    //                      remindType: .tenMinutes)
+    //    }
+    @IBAction func startSync(_ sender: NSButton) {
+
+        let calendarHelper = CalendarHelper()
+        calendarHelper.delegate = self
+        var inCalendar: EKCalendar
+        print("新课表的名字应该叫：\(self.calendarTextField.stringValue)")
+        switch syncAccountType.selectedItem!.title {
+        case "CalDAV 或 iCloud 日历":
+            inCalendar = calendarHelper.initializeCalendar(name: self.calendarTextField.stringValue,
+                                                           type: .calDAV)!
+            break
+        case "Mac 上的本地日历":
+            inCalendar = calendarHelper.initializeCalendar(name: self.calendarTextField.stringValue,
+                                                           type: .local)!
+            break
+        default:
+            return
+        }
+        
+        var remindType: remindType?
+        if willRemindBox.state == .on {
+            switch self.remindTypeSelector.selectedItem!.title {
+            case "上课前 15 分钟":
+                remindType = .fifteenMinutes
+                break
+            case "上课前 10 分钟":
+                remindType = .tenMinutes
+                break
+            case "上课时":
+                remindType = .atCourseStarts
+                break
+            default:
+                remindType = .noReminder
+            }
+        }
+        disableUI()
+        DispatchQueue.global().async {
+            for day in self.displayWeek {
+                for course in day.children {
+                    for week in generateArray(start: course.weekStartsAt,
+                                              end: course.weekEndsAt,
+                                              shift: course.shiftWeek) {
+                                                calendarHelper.addToCalendar(date: (self.startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
+                                                              title: course.courseName,
+                                                              place: course.courseRoom,
+                                                              start: defaultLessonTime[course.dayStartsAt],
+                                                              end: defaultLessonTime[course.dayStartsAt + course.courseDuration - 1].getTime(passed: durationMinutesOfLesson),
+                                                              remindType: remindType!, in: inCalendar)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.resumeUI()
+            }
+        }
+//        calendarHelper.commitChanges()
+
+    }
+    
     func updatePopUpSelector(at itemIndex: Int = 0) {
         self.coursePopUpList.removeAllItems()
         let courseCount = getAllCount(week: displayWeek)
@@ -147,59 +273,11 @@ class ResolveViewController: NSViewController {
         self.courseTimeField.stringValue = displayCourse.getTime()
     }
     
-    @IBAction func onDatePicked(_ sender: NSDatePicker) {
-        var startDate = sender.dateValue
-        while startDate.getWeekDay() > 1 {
-            startDate = startDate.addingTimeInterval(-secondsInDay)
-//            print("Date: \(startDate.getStringExpression()), weekday: \(startDate.getWeekDay())")
-        }
-        self.startWeekIndicator.stringValue =
-        "以 \(startDate.getStringExpression())，星期一作为主学期第一周的开始。"
-        if willLoadSummerBox.state == .on {
-            self.startWeekIndicator.stringValue +=
-            "\n同时以 \(startDate.addingTimeInterval(secondsInEighteenWeeks).getStringExpression())，星期一作为暑期小学期的开始。"
-        }
-        self.startDate = startDate
+    func didWriteEvent(title: String) {
+//        print(":Did write \(title) into the calendar.")
     }
-    
-//    @IBAction func addExampleEvent(_ sender: NSButton) {
-//        addToCalendar(date: self.startWeekSelector.dateValue,
-//                      title: "Example Title",
-//                      place: "Example Location",
-//                      start: defaultLessonTime[2],
-//                      end: defaultLessonTime[4],
-//                      remindType: .tenMinutes)
-//    }
-    @IBAction func startSync(_ sender: NSButton) {
-        var remindType: remindType?
-        if willRemindBox.state == .on {
-            switch self.remindTypeSelector.selectedItem!.title {
-            case "上课前 15 分钟":
-                remindType = .fifteenMinutes
-                break
-            case "上课前 10 分钟":
-                remindType = .tenMinutes
-                break
-            case "上课时":
-                remindType = .atCourseStarts
-                break
-            default:
-                remindType = .noReminder
-            }
-        }
-        for day in displayWeek {
-            for course in day.children {
-                for week in generateArray(start: course.weekStartsAt,
-                                          end: course.weekEndsAt,
-                                          shift: course.shiftWeek) {
-                      addToCalendar(date: (startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
-                                    title: course.courseName,
-                                    place: course.courseRoom,
-                                    start: defaultLessonTime[course.dayStartsAt],
-                                    end: defaultLessonTime[course.dayStartsAt + course.courseDuration - 1].getTime(passed: durationMinutesOfLesson),
-                                    remindType: remindType!)
-                }
-            }
-        }
-    }
+}
+
+protocol writeCalendarDelegate: NSObjectProtocol {
+    func didWriteEvent(title: String) -> ()
 }
