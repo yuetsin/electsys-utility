@@ -309,17 +309,6 @@
                                     </subviews>
                                 </view>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SjO-ja-IsS">
-                                <rect key="frame" x="443" y="17" width="37" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSGoRightTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Gz-eC-iKM">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="startSync:" target="qbp-Sd-AJM" id="Tsf-NF-vXU"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-Es-Vqs">
                                 <rect key="frame" x="20" y="45" width="142" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -441,6 +430,17 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="makeRandomName:" target="qbp-Sd-AJM" id="D2o-6s-KiV"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SjO-ja-IsS">
+                                <rect key="frame" x="437" y="11" width="47" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2Gz-eC-iKM">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startSync:" target="qbp-Sd-AJM" id="Tsf-NF-vXU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1332,9 +1332,9 @@ DQ
         </scene>
     </scenes>
     <resources>
-        <image name="NSGoRightTemplate" width="9" height="12"/>
         <image name="NSLockUnlockedTemplate" width="10" height="14"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
         <image name="NSStopProgressTemplate" width="11" height="11"/>
         <image name="NSUserGroup" width="128" height="128"/>
     </resources>
