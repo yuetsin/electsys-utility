@@ -164,6 +164,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="updateRemindState:" target="qbp-Sd-AJM" id="fcN-A3-F9d"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8j2-rZ-nAJ">
                                 <rect key="frame" x="20" y="385" width="189" height="17"/>

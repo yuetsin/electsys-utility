@@ -11,31 +11,38 @@ import EventKit
 
 class CalendarHelper {
 
-    var calIdentifier: String = ""
-    let calIdentifierKey = "CalendarIdentifierKey"
     let eventStore = EKEventStore()
     let defaultCalendarTitle = "jAccount 同步"
-    weak var delegate: writeCalendarDelegate?
+    var calendar: EKCalendar?
+    weak var delegate: writeCalendarDelegate!
     
-    func initializeCalendar(name: String, type: EKSourceType) -> EKCalendar? {
-        let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
-        if name.isEmpty {
-            newCalendar.title = defaultCalendarTitle
-        } else {
-            newCalendar.title = name
+    init (name: String, type: EKSourceType) {
+        eventStore.requestAccess(to: .event) {(granted, error) in
+            if ((error) != nil) {
+                return
+            } else if (!granted) {
+                return
+            } else {
+                let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
+                if name.isEmpty {
+                    newCalendar.title = self.defaultCalendarTitle
+                } else {
+                    newCalendar.title = name
+                }
+                let sourcesInEventStore = self.eventStore.sources
+                newCalendar.source = sourcesInEventStore.filter{
+                    (source: EKSource) -> Bool in
+                    source.sourceType.rawValue == type.rawValue
+                    }.first!
+                do {
+                    try self.eventStore.saveCalendar(newCalendar, commit: true)
+                    self.calendar = newCalendar
+                } catch {
+                    //            print("Calendar cannot be saved.")
+                }
+            }
+            self.delegate?.startWriteCalendar()
         }
-        let sourcesInEventStore = eventStore.sources
-        newCalendar.source = sourcesInEventStore.filter{
-            (source: EKSource) -> Bool in
-            source.sourceType.rawValue == type.rawValue
-            }.first!
-        do {
-            try eventStore.saveCalendar(newCalendar, commit: true)
-            return newCalendar
-        } catch {
-//            print("Calendar cannot be saved.")
-        }
-        return nil
     }
 
     func addToCalendar(date: Date,
@@ -43,25 +50,24 @@ class CalendarHelper {
                        place: String,
                        start: Time,
                        end: Time,
-                       remindType: remindType,
-                       in Calendar: EKCalendar) {
+                       remindType: remindType
+                       ) {
         
         // request access to system library
         
        
         
         eventStore.requestAccess(to: .event) {(granted, error) in
-            
             if ((error) != nil) {
                 return
             } else if (!granted) {
                 return
             } else {
                 let event = EKEvent(eventStore: self.eventStore)
-                event.calendar = Calendar
+                event.calendar = self.calendar
                 event.title = title
                 event.location = place
-                event.calendar = Calendar
+                event.calendar = self.calendar
                 let dateFormatter = DateFormatter()
                 let timeAndDateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -93,7 +99,7 @@ class CalendarHelper {
                     try self.eventStore.save(event, span: .thisEvent, commit: true)
                     self.delegate?.didWriteEvent(title: event.title)
                 } catch {
-//                    print("Event could not save. Error: \(error as NSError).localizedDescription")
+                    print("Event could not save. Error: \(error as NSError).localizedDescription")
                 }
             }
         }

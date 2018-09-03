@@ -28,6 +28,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     var startDate: Date?
     var inputCounter: Int = 0
     var expectedCounter: Int = 0
+    var calendarHelper: CalendarHelper?
+    var remindState: remindType = .fifteenMinutes
     
     @IBOutlet weak var coursePopUpList: NSPopUpButton!
     @IBOutlet weak var promptTextField: NSTextField!
@@ -95,10 +97,29 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     @IBAction func remindTapped(_ sender: NSButton) {
         if willRemindBox.state == NSControl.StateValue.on {
             remindTypeSelector.isEnabled = true
+            switch self.remindTypeSelector.selectedItem!.title {
+            case "上课前 15 分钟":
+                self.remindState = .fifteenMinutes
+                break
+            case "上课前 10 分钟":
+                self.remindState = .tenMinutes
+                break
+            case "上课时":
+                self.remindState = .atCourseStarts
+                break
+            default:
+                self.remindState = .noReminder
+            }
         } else {
             remindTypeSelector.isEnabled = false
+            self.remindState = .noReminder
         }
     }
+    
+    @IBAction func updateRemindState(_ sender: NSPopUpButton) {
+        remindTapped(willRemindBox)
+    }
+    
     
     @IBAction func restartAnalyse(_ sender: NSButton) {
         self.loadingTextField.stringValue = ""
@@ -189,60 +210,25 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     //                      remindType: .tenMinutes)
     //    }
     @IBAction func startSync(_ sender: NSButton) {
-
-        let calendarHelper = CalendarHelper()
         inputCounter = 0
         expectedCounter = 0
-        calendarHelper.delegate = self
-        var inCalendar: EKCalendar
         print("新课表的名字应该叫：\(self.calendarTextField.stringValue)")
         switch syncAccountType.selectedItem!.title {
         case "CalDAV 或 iCloud 日历":
-            inCalendar = calendarHelper.initializeCalendar(name: self.calendarTextField.stringValue,
-                                                           type: .calDAV)!
+            calendarHelper = CalendarHelper(name: self.calendarTextField.stringValue,
+                                            type: .calDAV)
             break
         case "Mac 上的本地日历":
-            inCalendar = calendarHelper.initializeCalendar(name: self.calendarTextField.stringValue,
-                                                           type: .local)!
+            calendarHelper = CalendarHelper(name: self.calendarTextField.stringValue,
+                                            type: .local)
             break
         default:
             return
         }
-        
-        var remindType: remindType?
-        if willRemindBox.state == .on {
-            switch self.remindTypeSelector.selectedItem!.title {
-            case "上课前 15 分钟":
-                remindType = .fifteenMinutes
-                break
-            case "上课前 10 分钟":
-                remindType = .tenMinutes
-                break
-            case "上课时":
-                remindType = .atCourseStarts
-                break
-            default:
-                remindType = .noReminder
-            }
-        }
+        calendarHelper?.delegate = self
+
         disableUI()
-        DispatchQueue.global().async {
-            for day in self.displayWeek {
-                for course in day.children {
-                    for week in generateArray(start: course.weekStartsAt,
-                                              end: course.weekEndsAt,
-                                              shift: course.shiftWeek) {
-                                                self.expectedCounter += 1
-                                                calendarHelper.addToCalendar(date: (self.startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
-                                                              title: course.courseName,
-                                                              place: course.courseRoom,
-                                                              start: defaultLessonTime[course.dayStartsAt],
-                                                              end: defaultLessonTime[course.dayStartsAt + course.courseDuration - 1].getTime(passed: durationMinutesOfLesson),
-                                                              remindType: remindType!, in: inCalendar)
-                    }
-                }
-            }
-        }
+
 //        calendarHelper.commitChanges()
     }
     
@@ -271,6 +257,27 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
             self.coursePopUpList.selectItem(at: itemIndex)
         }
         updateInfoField()
+    }
+    
+    func startWriteCalendar() {
+        DispatchQueue.global().async {
+            for day in self.displayWeek {
+                for course in day.children {
+                    for week in generateArray(start: course.weekStartsAt,
+                                              end: course.weekEndsAt,
+                                              shift: course.shiftWeek) {
+                                                self.expectedCounter += 1
+                                                self.calendarHelper!.addToCalendar(date: (self.startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
+                                                                              title: course.courseName,
+                                                                              place: course.courseRoom,
+                                                                              start: defaultLessonTime[course.dayStartsAt],
+                                                                              end: defaultLessonTime[course.dayStartsAt + course.courseDuration - 1].getTime(passed: durationMinutesOfLesson),
+                                                                              remindType: self.remindState)
+                    }
+                }
+            }
+        }
+        
     }
     
     func updateInfoField() {
@@ -308,4 +315,5 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
 
 protocol writeCalendarDelegate: NSObjectProtocol {
     func didWriteEvent(title: String) -> ()
+    func startWriteCalendar() -> ()
 }
