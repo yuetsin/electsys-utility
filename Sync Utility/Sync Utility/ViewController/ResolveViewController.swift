@@ -311,9 +311,14 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
+    func showError(error: String) {
+        showErrorMessage(errorMsg: error)
+        self.view.window?.close()
+    }
 }
 
 protocol writeCalendarDelegate: NSObjectProtocol {
     func didWriteEvent(title: String) -> ()
     func startWriteCalendar() -> ()
+    func showError(error: String) -> ()
 }
