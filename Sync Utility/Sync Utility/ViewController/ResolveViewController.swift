@@ -19,14 +19,15 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         self.startWeekSelector.dateValue = Date()
         onDatePicked(startWeekSelector)
         self.loadingRing.startAnimation(self)
-        //        outlineView.reloadData()
+        self.loadingTextField.stringValue = ""
     }
     
     var htmlDoc: String = ""
 //    var courseList: [Course] = []
     var displayWeek: [Day] = []
     var startDate: Date?
-
+    var inputCounter: Int = 0
+    var expectedCounter: Int = 0
     
     @IBOutlet weak var coursePopUpList: NSPopUpButton!
     @IBOutlet weak var promptTextField: NSTextField!
@@ -39,13 +40,17 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     @IBOutlet weak var calendarTextField: NSTextField!
     @IBOutlet weak var loadingRing: NSProgressIndicator!
     @IBOutlet weak var relsamaHouwyButton: NSButton!
+    @IBOutlet weak var startSyncButton: NSButton!
     
     @IBOutlet weak var courseNameField: NSTextField!
     @IBOutlet weak var courseRoomField: NSTextField!
     @IBOutlet weak var courseIdentifierField: NSTextField!
     @IBOutlet weak var courseScoreField: NSTextField!
     @IBOutlet weak var courseTimeField: NSTextField!
-
+    @IBOutlet weak var loadingTextField: NSTextField!
+    @IBOutlet weak var diceButton: NSButton!
+    
+   
     
     func disableUI() {
         self.coursePopUpList.isEnabled = false
@@ -61,6 +66,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         self.courseTimeField.isEnabled = false
         self.calendarTextField.isEnabled = false
         self.relsamaHouwyButton.isEnabled = false
+        self.startSyncButton.isEnabled = false
+        self.diceButton.isEnabled = false
         self.loadingRing.isHidden = false
     }
     
@@ -78,6 +85,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         self.courseTimeField.isEnabled = true
         self.calendarTextField.isEnabled = true
         self.relsamaHouwyButton.isEnabled = true
+        self.startSyncButton.isEnabled = true
+        self.diceButton.isEnabled = true
         self.loadingRing.isHidden = true
         remindTapped(self.willRemindBox)
         updatePopUpSelector()
@@ -92,6 +101,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     }
     
     @IBAction func restartAnalyse(_ sender: NSButton) {
+        self.loadingTextField.stringValue = ""
         initializeInfo()
     }
     
@@ -105,6 +115,10 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
                          &displayWeek,
                          self.willLoadSummerBox.state == .on)
         updatePopUpSelector()
+    }
+    
+    @IBAction func makeRandomName(_ sender: NSButton) {
+        self.calendarTextField.stringValue = getRandomNames()
     }
     
     @IBAction func popUpClicked(_ sender: NSPopUpButton) {
@@ -155,7 +169,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         var startDate = sender.dateValue
         while startDate.getWeekDay() > 1 {
             startDate = startDate.addingTimeInterval(-secondsInDay)
-            //            print("Date: \(startDate.getStringExpression()), weekday: \(startDate.getWeekDay())")
+//            print("Date: \(startDate.getStringExpression()), weekday: \(startDate.getWeekDay())")
         }
         self.startWeekIndicator.stringValue =
         "以 \(startDate.getStringExpression())，星期一作为主学期第一周的开始。"
@@ -177,6 +191,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     @IBAction func startSync(_ sender: NSButton) {
 
         let calendarHelper = CalendarHelper()
+        inputCounter = 0
+        expectedCounter = 0
         calendarHelper.delegate = self
         var inCalendar: EKCalendar
         print("新课表的名字应该叫：\(self.calendarTextField.stringValue)")
@@ -216,6 +232,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
                     for week in generateArray(start: course.weekStartsAt,
                                               end: course.weekEndsAt,
                                               shift: course.shiftWeek) {
+                                                self.expectedCounter += 1
                                                 calendarHelper.addToCalendar(date: (self.startDate!.convertWeekToDate(week: week, weekday: course.courseDay)),
                                                               title: course.courseName,
                                                               place: course.courseRoom,
@@ -225,12 +242,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
                     }
                 }
             }
-            DispatchQueue.main.async {
-                self.resumeUI()
-            }
         }
 //        calendarHelper.commitChanges()
-
     }
     
     func updatePopUpSelector(at itemIndex: Int = 0) {
@@ -274,8 +287,23 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     }
     
     func didWriteEvent(title: String) {
-//        print(":Did write \(title) into the calendar.")
+        DispatchQueue.main.async {
+            self.inputCounter += 1
+            self.loadingTextField.stringValue = "正在创建「\(title)」。不要现在退出。"
+            if self.inputCounter == self.expectedCounter {
+                self.loadingTextField.stringValue = "已经成功写入 \(self.expectedCounter) 个日历事件。"
+                self.resumeUI()
+            }
+        }
     }
+    
+    func showErrorMessage(errorMsg: String) {
+        let errorAlert: NSAlert = NSAlert()
+        errorAlert.messageText = errorMsg
+        errorAlert.alertStyle = NSAlert.Style.critical
+        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
+    
 }
 
 protocol writeCalendarDelegate: NSObjectProtocol {

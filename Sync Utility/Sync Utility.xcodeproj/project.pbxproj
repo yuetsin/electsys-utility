@@ -23,6 +23,7 @@
 		8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B42139789300B476E0 /* Kanna.framework */; };
 		8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B62139789900B476E0 /* Alamofire.framework */; };
 		8A96E4B82139789B00B476E0 /* Pods_Sync_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF6AAB4208DB297833B7167 /* Pods_Sync_Utility.framework */; };
+		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
 		8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
@@ -51,6 +52,7 @@
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B42139789300B476E0 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B62139789900B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
 		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				8A4A22F42136443D0064488C /* LoginHelper.swift */,
 				8A44513021366418000156BD /* AppUtils.swift */,
 				8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */,
+				8ACEEB05213CB04200A7776E /* RandomNames.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				8A747FF92137AB3800AB67BB /* htmlGetViewController.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
 				8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */,
+				8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */,
 				8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

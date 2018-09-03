@@ -411,7 +411,7 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="usU-QW-bbn">
-                                <rect key="frame" x="339" y="69" width="141" height="22"/>
+                                <rect key="frame" x="339" y="69" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="jAccount 同步" drawsBackground="YES" id="77h-S3-CTl">
                                     <font key="font" metaFont="system"/>
@@ -423,6 +423,26 @@
                                 <rect key="frame" x="312" y="12" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XA3-pa-Aiv">
+                                <rect key="frame" x="166" y="45" width="314" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="charWrapping" alignment="right" title="PlaceHolder" id="2ie-8s-TS0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTD-fK-6RX">
+                                <rect key="frame" x="437" y="62" width="47" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="push" title="🎲" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="IEq-Rg-LTU">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="makeRandomName:" target="qbp-Sd-AJM" id="D2o-6s-KiV"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -433,10 +453,13 @@
                         <outlet property="courseRoomField" destination="IJf-if-37d" id="BIq-fJ-4XD"/>
                         <outlet property="courseScoreField" destination="ZJW-yI-w2e" id="DYk-Fy-CUw"/>
                         <outlet property="courseTimeField" destination="TsF-4G-MWb" id="hLj-vo-R1a"/>
+                        <outlet property="diceButton" destination="FTD-fK-6RX" id="8RV-51-kGO"/>
                         <outlet property="loadingRing" destination="Sb1-Qc-rYk" id="qe8-Jb-8X5"/>
+                        <outlet property="loadingTextField" destination="XA3-pa-Aiv" id="aYP-Dn-0Zj"/>
                         <outlet property="promptTextField" destination="8j2-rZ-nAJ" id="6jq-TH-u65"/>
                         <outlet property="relsamaHouwyButton" destination="yhp-9l-Gkz" id="6JP-P9-Plp"/>
                         <outlet property="remindTypeSelector" destination="ABl-aU-Rzc" id="1G4-Xl-Be6"/>
+                        <outlet property="startSyncButton" destination="SjO-ja-IsS" id="YEI-tn-AWO"/>
                         <outlet property="startWeekIndicator" destination="E4Z-hd-VYC" id="Ej4-tj-7jx"/>
                         <outlet property="startWeekSelector" destination="mxZ-n4-J36" id="V8L-Ge-jc6"/>
                         <outlet property="syncAccountType" destination="InV-5F-r7M" id="rsw-US-aaz"/>

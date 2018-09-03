@@ -99,6 +99,7 @@ class CalendarHelper {
         }
     }
     func commitChanges() {
+//          deprecated method
 //        do {
 //            try self.eventStore.commit()
 //        } catch {

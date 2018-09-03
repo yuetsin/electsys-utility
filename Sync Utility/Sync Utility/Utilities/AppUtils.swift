@@ -272,6 +272,7 @@ extension NSMenuItem {
 }
 
 extension Date {
+    
     func getWeekDay() -> Int {
         let calendar = NSCalendar.init(calendarIdentifier: .gregorian)
         let timeZone = NSTimeZone.init(name: "Asia/Shanghai")
@@ -286,7 +287,7 @@ extension Date {
     
     
     func getStringExpression() -> String {
-        let timeZone = TimeZone.init(identifier: "UTC")
+        let timeZone = TimeZone.init(identifier: "Asia/Shanghai")
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
         formatter.locale = Locale.init(identifier: "zh_CN")
