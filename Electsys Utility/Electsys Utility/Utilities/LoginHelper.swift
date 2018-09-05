@@ -15,11 +15,12 @@ let targetUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtMain.aspx"
 let contentUrl = "http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx"
 let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"
 let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
+let dataGrabUrlHead = "http://electsys.sjtu.edu.cn/edu/lesson/viewLessonArrangeDetail2.aspx?bsid="
 
 
 class Login {
     var delegate: requestHtmlDelegate?
-    func attempt(userName: String, password: String, captchaWord: String) {
+    func attempt(userName: String, password: String, captchaWord: String, isLegacy: Bool = true) {
         var responseHtml: String = ""
         Alamofire.request(loginUrl).response(completionHandler: { response in
             if response.response == nil {
@@ -51,12 +52,16 @@ class Login {
             Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.httpBody).responseData(completionHandler: { response in
                 responseHtml = String(data: response.data!, encoding: .utf8)!
                 if (responseHtml.contains("上海交通大学教学信息服务网－学生服务平台")) {
-                    // finished first step!
-                    Alamofire.request(contentUrl).responseData(completionHandler: { response in
-                        let realOutput = String(data: response.data!, encoding: .utf8)!
-//                        print(realOutput)
-                        self.delegate?.validateLoginResult(htmlData: realOutput)
-                    })
+                    // successfully goes in!
+                    if isLegacy {
+                        Alamofire.request(contentUrl).responseData(completionHandler: { response in
+                            let realOutput = String(data: response.data!, encoding: .utf8)!
+    //                        print(realOutput)
+                            self.delegate?.validateLoginResult(htmlData: realOutput)
+                        })
+                    } else {
+                        self.delegate?.goFullDataObtainer()
+                    }
                 } else {
                     self.delegate?.validateLoginResult(htmlData: responseHtml)
                 }

@@ -22,20 +22,22 @@
 		8A96E4B32139789000B476E0 /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B22139789000B476E0 /* Regex.framework */; };
 		8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B42139789300B476E0 /* Kanna.framework */; };
 		8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B62139789900B476E0 /* Alamofire.framework */; };
-		8A96E4B82139789B00B476E0 /* Pods_Sync_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF6AAB4208DB297833B7167 /* Pods_Sync_Utility.framework */; };
+		8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB34652140143C002053D0 /* FullDataViewController.swift */; };
 		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
 		8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */; };
+		C5B7ECDABE77F79C015462FD /* Pods_Electsys_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2DE148D3735F9F40099E038A /* Pods-courseSync.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.release.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.release.xcconfig"; sourceTree = "<group>"; };
+		4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Electsys_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A04055C213984050060F93A /* schoolDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schoolDay.swift; sourceTree = "<group>"; };
 		8A44513021366418000156BD /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		8A4A22DA21362EAF0064488C /* Sync Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sync Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A4A22DA21362EAF0064488C /* Electsys Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Electsys Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4A22DD21362EAF0064488C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A4A22DF21362EAF0064488C /* jAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jAccountViewController.swift; sourceTree = "<group>"; };
 		8A4A22E221362EAF0064488C /* courseSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = courseSync.xcdatamodel; sourceTree = "<group>"; };
@@ -52,11 +54,14 @@
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B42139789300B476E0 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B62139789900B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACB34652140143C002053D0 /* FullDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataViewController.swift; sourceTree = "<group>"; };
 		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
 		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
 		8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
+		98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Electsys Utility.release.xcconfig"; path = "Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility.release.xcconfig"; sourceTree = "<group>"; };
+		9DC9CE2F64C043C009C22FAA /* Pods-Electsys Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Electsys Utility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility.debug.xcconfig"; sourceTree = "<group>"; };
 		B219B33155D0D7A3C6BDC304 /* Pods-Sync Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sync Utility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility.debug.xcconfig"; sourceTree = "<group>"; };
 		D3EE30836E5688BDC202DEE0 /* Pods-Sync Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sync Utility.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility.release.xcconfig"; sourceTree = "<group>"; };
 		EE26F8B0524475210410BF0F /* Pods-courseSync.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-courseSync.debug.xcconfig"; path = "Pods/Target Support Files/Pods-courseSync/Pods-courseSync.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,10 +74,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */,
-				8A96E4B82139789B00B476E0 /* Pods_Sync_Utility.framework in Frameworks */,
 				8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */,
 				8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */,
 				8A96E4B32139789000B476E0 /* Regex.framework in Frameworks */,
+				C5B7ECDABE77F79C015462FD /* Pods_Electsys_Utility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,8 @@
 				2DE148D3735F9F40099E038A /* Pods-courseSync.release.xcconfig */,
 				B219B33155D0D7A3C6BDC304 /* Pods-Sync Utility.debug.xcconfig */,
 				D3EE30836E5688BDC202DEE0 /* Pods-Sync Utility.release.xcconfig */,
+				9DC9CE2F64C043C009C22FAA /* Pods-Electsys Utility.debug.xcconfig */,
+				98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -93,7 +100,7 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
-				8A4A22DC21362EAF0064488C /* Sync Utility */,
+				8A4A22DC21362EAF0064488C /* Electsys Utility */,
 				8A4A22DB21362EAF0064488C /* Products */,
 				7F6671998AA5242BF06E5E28 /* Pods */,
 				CEBAC5F7F8148695C76C2836 /* Frameworks */,
@@ -103,12 +110,12 @@
 		8A4A22DB21362EAF0064488C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A4A22DA21362EAF0064488C /* Sync Utility.app */,
+				8A4A22DA21362EAF0064488C /* Electsys Utility.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A4A22DC21362EAF0064488C /* Sync Utility */ = {
+		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
 				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
@@ -121,7 +128,7 @@
 				8A4A22EA21362EB00064488C /* courseSync.entitlements */,
 				8A4A22E121362EAF0064488C /* courseSync.xcdatamodeld */,
 			);
-			path = "Sync Utility";
+			path = "Electsys Utility";
 			sourceTree = "<group>";
 		};
 		8A4A22F2213631F20064488C /* ViewController */ = {
@@ -131,6 +138,7 @@
 				8A747FF82137AB3800AB67BB /* htmlGetViewController.swift */,
 				8A4A22F0213631EC0064488C /* CreditsViewController.swift */,
 				8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */,
+				8ACB34652140143C002053D0 /* FullDataViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 				8A96E4B02139788A00B476E0 /* Alamofire.framework */,
 				6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */,
 				FAF6AAB4208DB297833B7167 /* Pods_Sync_Utility.framework */,
+				4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A4A22D921362EAF0064488C /* Sync Utility */ = {
+		8A4A22D921362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Sync Utility" */;
+			buildConfigurationList = 8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Electsys Utility" */;
 			buildPhases = (
 				FDDEAD7083F49DEBD1D10250 /* [CP] Check Pods Manifest.lock */,
 				8A4A22D621362EAF0064488C /* Sources */,
@@ -188,9 +197,9 @@
 			);
 			dependencies = (
 			);
-			name = "Sync Utility";
+			name = "Electsys Utility";
 			productName = courseSync;
-			productReference = 8A4A22DA21362EAF0064488C /* Sync Utility.app */;
+			productReference = 8A4A22DA21362EAF0064488C /* Electsys Utility.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -216,7 +225,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Sync Utility" */;
+			buildConfigurationList = 8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Electsys Utility" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -229,7 +238,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A4A22D921362EAF0064488C /* Sync Utility */,
+				8A4A22D921362EAF0064488C /* Electsys Utility */,
 			);
 		};
 /* End PBXProject section */
@@ -255,7 +264,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
@@ -270,7 +279,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDDEAD7083F49DEBD1D10250 /* [CP] Check Pods Manifest.lock */ = {
@@ -288,7 +297,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sync Utility-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Electsys Utility-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
+				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
@@ -450,20 +460,20 @@
 		};
 		8A4A22EE21362EB00064488C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B219B33155D0D7A3C6BDC304 /* Pods-Sync Utility.debug.xcconfig */;
+			baseConfigurationReference = 9DC9CE2F64C043C009C22FAA /* Pods-Electsys Utility.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Sync Utility/courseSync.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/courseSync.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24XARD42BP;
-				INFOPLIST_FILE = "Sync Utility/Info.plist";
+				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yue.schedule.sync.utility;
+				PRODUCT_BUNDLE_IDENTIFIER = yue.elect.sys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -472,20 +482,20 @@
 		};
 		8A4A22EF21362EB00064488C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3EE30836E5688BDC202DEE0 /* Pods-Sync Utility.release.xcconfig */;
+			baseConfigurationReference = 98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Sync Utility/courseSync.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/courseSync.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24XARD42BP;
-				INFOPLIST_FILE = "Sync Utility/Info.plist";
+				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = yue.schedule.sync.utility;
+				PRODUCT_BUNDLE_IDENTIFIER = yue.elect.sys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -495,7 +505,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Sync Utility" */ = {
+		8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Electsys Utility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A4A22EB21362EB00064488C /* Debug */,
@@ -504,7 +514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Sync Utility" */ = {
+		8A4A22ED21362EB00064488C /* Build configuration list for PBXNativeTarget "Electsys Utility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A4A22EE21362EB00064488C /* Debug */,

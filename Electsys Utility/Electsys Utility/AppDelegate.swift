@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func openGithubPage(_ sender: NSButton) {
-        if let url = URL(string: "https://github.com/yuxiqian/Sjtu-Schedule-Sync-Utility"), NSWorkspace.shared.open(url) {
+        if let url = URL(string: "https://github.com/yuxiqian/Electsys-Utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }

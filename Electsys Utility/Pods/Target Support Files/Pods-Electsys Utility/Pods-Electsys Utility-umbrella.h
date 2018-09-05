@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Sync_UtilityVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Sync_UtilityVersionString[];
+FOUNDATION_EXPORT double Pods_Electsys_UtilityVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Electsys_UtilityVersionString[];
 

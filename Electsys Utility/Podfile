@@ -1,5 +1,5 @@
 platform :macos, '10.14'
-target 'Sync Utility' do
+target 'Electsys Utility' do
   use_frameworks!
   pod 'CrossroadRegex'
   pod 'Kanna', '~> 4.0.0'

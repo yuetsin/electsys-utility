@@ -38,14 +38,28 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBOutlet weak var resetButton: NSButton!
     @IBOutlet weak var manualOpenButton: NSButton!
     @IBOutlet weak var loadingIcon: NSProgressIndicator!
+    @IBOutlet weak var expandButton: NSButton!
+    @IBOutlet weak var operationSelector: NSPopUpButton!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
+        if self.userNameField.stringValue == "" ||
+            self.passwordField.stringValue == "" ||
+            self.captchaTextField.stringValue == "" {
+            showErrorMessage(errorMsg: "请完整填写所有信息。")
+            return
+        }
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
         disableUI()
         let loginSession = Login()
         loginSession.delegate = self
-        DispatchQueue.global().async {
-            loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
+        if self.operationSelector.selectedItem!.title == "仅同步课程表到系统日历" {
+            DispatchQueue.global().async {
+                loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
+            }
+        } else {
+            DispatchQueue.global().async {
+                loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2], isLegacy: false)
+            }
         }
     }
     
@@ -79,6 +93,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         }
     }
     
+
+    
     @IBAction func manualLoadHTML(_ sender: NSButton) {
         disableUI()
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -104,7 +120,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
             showErrorMessage(errorMsg: "登录失败。\n\n用户名、密码和验证码中有至少一项不正确。")
             resumeUI()
         } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登录失败。\n\n请求的参数不正确。")
+            showErrorMessage(errorMsg: "登录失败。\n\n访问被拒绝。")
             resumeUI()
         } else {
             showErrorMessage(errorMsg: "登录失败。\n\n检查你的网络连接。")
@@ -140,6 +156,13 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         self.view.window?.close()
     }
     
+    func goFullDataObtainer() {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let creditsWindowController = storyboard.instantiateController(withIdentifier: "Full Data Window Controller") as! NSWindowController
+        creditsWindowController.showWindow(self)
+        self.view.window?.close()
+    }
+    
 
     func disableUI() {
         userNameField.isEnabled = false
@@ -150,6 +173,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         refreshCaptchaButton.isEnabled = false
         manualOpenButton.isEnabled = false
         captchaImage.isEnabled = false
+        operationSelector.isEnabled = false
         loadingIcon.isHidden = false
     }
     
@@ -160,10 +184,13 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         loginButton.isEnabled = true
         resetButton.isEnabled = true
         refreshCaptchaButton.isEnabled = true
-        manualOpenButton.isEnabled = true
         captchaImage.isEnabled = true
+        operationSelector.isEnabled = true
         loadingIcon.isHidden = true
         updateCaptcha(refreshCaptchaButton)
+        if operationSelector.selectedItem!.title == "仅同步课程表到系统日历" {
+            manualOpenButton.isEnabled = true
+        }
     }
 
     func showErrorMessage(errorMsg: String) {
@@ -171,6 +198,25 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         errorAlert.messageText = errorMsg
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
+    
+    @IBAction func onExpand(_ sender: NSButton) {
+        var frame: NSRect = (self.view.window?.frame)!
+        if sender.state == .on {
+            frame.size = NSSize(width: 260, height: 300)
+        } else {
+            frame.size = NSSize(width: 260, height: 236)
+        }
+        self.view.window?.setFrame(frame, display: true, animate: true)
+    }
+    
+    
+    @IBAction func operationSelectorPopped(_ sender: NSPopUpButton) {
+        if sender.selectedItem!.title == "仅同步课程表到系统日历" {
+            self.manualOpenButton.isEnabled = true
+        } else {
+            self.manualOpenButton.isEnabled = false
+        }
     }
 }
 

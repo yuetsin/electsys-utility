@@ -229,15 +229,16 @@ func getExactTime(startAt: Int, duration: Int) -> String {
     return "\(startTime) ~ \(endTime)"
 }
 
-enum loginReturnCode {
-    case successLogin
-    case accountError
-    case argumentError
-    case networkError
-}
+//enum loginReturnCode {
+//    case successLogin
+//    case accountError
+//    case argumentError
+//    case networkError
+//}
 
 protocol requestHtmlDelegate: NSObjectProtocol {
     func validateLoginResult(htmlData: String) -> ()
+    func goFullDataObtainer() -> ()
 }
 
 protocol inputHtmlDelegate: NSObjectProtocol {
