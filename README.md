@@ -1,10 +1,10 @@
-# Sjtu Schedule Sync Utility
+# Electsys Utility
 
-课表同步实用程序
+上海交通大学教务处实用程序
 
 Sync your SJTU course schedule with your iCloud calendar on iOS &amp; macOS.
 
-将上海交通大学教务处的课程表信息和你的 iCloud 日历事件同步。
+将教务处的课程表信息和你的 iCloud 日历事件同步。
 
 # 起因
 * 受够了 ×× 课程表和 ×× 格子之后，希望可以获得一个方便稳定的方式来给自己课程提示。
