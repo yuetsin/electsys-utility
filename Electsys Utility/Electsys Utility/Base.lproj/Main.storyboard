@@ -372,16 +372,10 @@
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhY-Qk-Maj">
                                 <rect key="frame" x="66" y="417" width="111" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="2017 - 2018" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1yS-ef-JSd" id="nct-la-0tJ">
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="nct-la-0tJ">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="i5Y-4n-5rT">
-                                        <items>
-                                            <menuItem title="2017 - 2018" state="on" id="1yS-ef-JSd"/>
-                                            <menuItem title="Item 2" id="49T-B4-fag"/>
-                                            <menuItem title="Item 3" id="Aa2-7r-u50"/>
-                                        </items>
-                                    </menu>
+                                    <menu key="menu" id="i5Y-4n-5rT"/>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agr-x6-7mw">
@@ -443,7 +437,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNo-k1-xbt">
                                 <rect key="frame" x="399" y="413" width="67" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="开始" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DfA-Sa-Dsi">
+                                <buttonCell key="cell" type="push" title="检索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DfA-Sa-Dsi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -451,17 +445,13 @@
                                     <action selector="startButtonClicked:" target="Db8-rN-Brm" id="TCs-8o-RfS"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmA-lN-PV9">
-                                <rect key="frame" x="18" y="336" width="444" height="68"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <textFieldCell key="cell" title="说明：由于教务系统限制，爬取数据效率低下，因此已经放弃即时爬去数据的功能，转而维护另一个第三方课程数据库并尽量与教务处官方做到及时同步。本程序以该数据库作为数据源。由于数据库建设尚未完成，当前程序可以检索到的内容极为有限。抱歉。" id="L62-Aa-Nfb">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="startQuery" destination="oNo-k1-xbt" id="19U-PW-aOg"/>
+                        <outlet property="termSelector" destination="agr-x6-7mw" id="f6i-od-Taj"/>
+                        <outlet property="yearSelector" destination="hhY-Qk-Maj" id="wwd-bB-6Yj"/>
+                    </connections>
                 </viewController>
                 <customObject id="ZcL-94-pl4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

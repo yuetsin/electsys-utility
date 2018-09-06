@@ -9,6 +9,10 @@
 import Foundation
 import Alamofire
 
+
+let dataBaseUrl = "https://github.com/yuxiqian/sjtu-curricula-data/blob/master/data/"
+
+
 // bsid 从 330001 开始往后递增遍历就能得到所有课程信息。（但是！没有教室信息 深坑）
 let dataGrabUrlHead = "http://electsys.sjtu.edu.cn/edu/lesson/viewLessonArrangeDetail2.aspx?bsid="
 
@@ -31,8 +35,8 @@ class Query {
     
     var delegate: queryDelegate?
 
-    func start(Bsid: Int) {
-        let requestUrl = "\(dataGrabUrlHead)\(Bsid)"
+    func start(_ year: Int, _ term: Int) {
+        let requestUrl = "\(dataBaseUrl)\(year)/\(term)/"
         print("Attempted to request \(requestUrl)")
         Alamofire.request(requestUrl).responseData(completionHandler: { response in
             let output = String(data: response.data!, encoding: .utf8)!

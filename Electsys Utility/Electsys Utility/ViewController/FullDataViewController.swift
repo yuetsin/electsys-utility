@@ -17,8 +17,14 @@ class FullDataViewController: NSViewController, queryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        for year in 0...8 {
+            yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
+        }
     }
     
+    @IBOutlet weak var yearSelector: NSPopUpButton!
+    @IBOutlet weak var termSelector: NSPopUpButton!
+    @IBOutlet weak var startQuery: NSButton!
     
     @IBAction func startButtonClicked(_ sender: NSButton) {
         let query = Query()
@@ -46,7 +52,7 @@ class FullDataViewController: NSViewController, queryDelegate {
             course.printToConsole()
             courses.append(course)
         } else {
-            print("被发现了！")
+//            print("被发现了！")
             DispatchQueue.main.async {
                 self.toTheEnd = true
             }

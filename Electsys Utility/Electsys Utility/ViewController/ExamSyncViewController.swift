@@ -47,6 +47,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
                 let date = time.prefix(10)
                 var numbersArray = time.components(separatedBy: CharacterSet(charactersIn: ":：－"))
                 // ：和:两种冒号混用……绝了
+                // － 不是 - ...
                 numbersArray[0] = String(numbersArray[0].suffix(2))
                 // 拆出两位数字作为时间
 
