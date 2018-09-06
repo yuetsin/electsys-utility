@@ -15,6 +15,7 @@ let targetUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtMain.aspx"
 let contentUrl = "http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx"
 let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"
 let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
+let sdtLeftUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtLeft.aspx"
 
 class Login {
     
@@ -42,8 +43,7 @@ class Login {
                 "sid": sID,
                 "returl": returnUrl,
                 "se": se,
-//                "v": "",
-    //          empty parameter v is no longer necessary.
+                "v": "",
                 "user": userName,
                 "pass": password,
                 "captcha": captchaWord

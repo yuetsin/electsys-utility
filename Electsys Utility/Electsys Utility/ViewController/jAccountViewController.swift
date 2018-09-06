@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import Kanna
 import Alamofire
 
 class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDelegate {
@@ -108,7 +109,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
 
     
     func validateLoginResult(htmlData: String) {
-        print(htmlData)
+//        print(htmlData)
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
             htmlData.contains("本学期课程详细情况")) {
 //        success!
