@@ -13,6 +13,7 @@
 		8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC82140B9C600AE297A /* CourseAnalyse.swift */; };
 		8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DCA2140D6E500AE297A /* ExamSyncViewController.swift */; };
 		8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */; };
+		8A397DD021410CFB00AE297A /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DCF21410CFB00AE297A /* Exam.swift */; };
 		8A44513121366418000156BD /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44513021366418000156BD /* AppUtils.swift */; };
 		8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DD21362EAF0064488C /* AppDelegate.swift */; };
 		8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* jAccountViewController.swift */; };
@@ -47,6 +48,7 @@
 		8A397DC82140B9C600AE297A /* CourseAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAnalyse.swift; sourceTree = "<group>"; };
 		8A397DCA2140D6E500AE297A /* ExamSyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSyncViewController.swift; sourceTree = "<group>"; };
 		8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSyncHelper.swift; sourceTree = "<group>"; };
+		8A397DCF21410CFB00AE297A /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
 		8A44513021366418000156BD /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		8A4A22DA21362EAF0064488C /* Electsys Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Electsys Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4A22DD21362EAF0064488C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */,
+				8A397DCF21410CFB00AE297A /* Exam.swift */,
 			);
 			path = ExamSyncKits;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A397DD021410CFB00AE297A /* Exam.swift in Sources */,
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
 				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,

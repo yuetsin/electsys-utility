@@ -158,7 +158,7 @@
             <objects>
                 <windowController storyboardIdentifier="Sync Exam Window Controller" id="0ui-aN-Kz4" sceneMemberID="viewController">
                     <window key="window" title="同步考试信息" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" titlebarAppearsTransparent="YES" id="kH5-h4-eWx">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="192"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -183,9 +183,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YX-Bk-akg">
-                                <rect key="frame" x="18" y="116" width="122" height="17"/>
+                                <rect key="frame" x="18" y="116" width="124" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="PromptPlaceHolder" id="qWi-kb-d9o">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="请选择学年和学期。" id="qWi-kb-d9o">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -204,7 +204,7 @@
                                 </connections>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFv-Nz-q3E">
-                                <rect key="frame" x="66" y="148" width="111" height="25"/>
+                                <rect key="frame" x="66" y="139" width="111" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="DJX-5M-ZlK" id="274-fG-0be">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -217,7 +217,7 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0as-Zo-s0G">
-                                <rect key="frame" x="239" y="148" width="105" height="25"/>
+                                <rect key="frame" x="239" y="139" width="105" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="213-Br-pqv" id="9ZN-Jp-vi7">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -231,7 +231,7 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdw-Ca-Xqi">
-                                <rect key="frame" x="18" y="153" width="44" height="17"/>
+                                <rect key="frame" x="18" y="144" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="bOS-em-Pgy">
                                     <font key="font" metaFont="system"/>
@@ -240,7 +240,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-YG-rNP">
-                                <rect key="frame" x="192" y="153" width="44" height="17"/>
+                                <rect key="frame" x="192" y="144" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="oqu-nQ-p21">
                                     <font key="font" metaFont="system"/>
@@ -308,7 +308,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="generateName:" target="ah1-9S-EAt" id="iuN-ss-rvB"/>
+                                    <action selector="generateName:" target="ah1-9S-EAt" id="eAM-9o-Dv9"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCG-qy-7NH">
@@ -319,7 +319,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startSync:" target="qbp-Sd-AJM" id="vkj-Um-A8q"/>
+                                    <action selector="startSync:" target="ah1-9S-EAt" id="qoY-ic-4ez"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fxl-9u-y0i">
@@ -332,14 +332,14 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5L-yf-4b3">
-                                <rect key="frame" x="351" y="144" width="115" height="32"/>
+                                <rect key="frame" x="351" y="135" width="115" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="加载考试信息" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7lo-QK-amV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="syncButtonClicked:" target="ah1-9S-EAt" id="qUy-2e-VA9"/>
+                                    <action selector="startRequest:" target="ah1-9S-EAt" id="qUy-2e-VA9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -984,12 +984,12 @@ DQ
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjH-SA-vbM">
                                 <rect key="frame" x="58" y="-56" width="184" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <popUpButtonCell key="cell" type="push" title="仅同步课程表到系统日历" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="BG6-qP-elo" id="0iu-3h-uYL">
+                                <popUpButtonCell key="cell" type="push" title="同步课程表到系统日历" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="BG6-qP-elo" id="0iu-3h-uYL">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="UKg-B4-wI7">
                                         <items>
-                                            <menuItem title="仅同步课程表到系统日历" state="on" id="BG6-qP-elo"/>
+                                            <menuItem title="同步课程表到系统日历" state="on" id="BG6-qP-elo"/>
                                             <menuItem title="同步考试安排到系统日历" id="lgN-id-c5B"/>
                                             <menuItem title="抓取并分析所有课程信息" id="eM5-vx-GVR"/>
                                         </items>

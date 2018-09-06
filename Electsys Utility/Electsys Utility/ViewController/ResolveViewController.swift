@@ -212,7 +212,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     @IBAction func startSync(_ sender: NSButton) {
         inputCounter = 0
         expectedCounter = 0
-        print("新课表的名字应该叫：\(self.calendarTextField.stringValue)")
+        print("课表的名字：\(self.calendarTextField.stringValue)")
         switch syncAccountType.selectedItem!.title {
         case "CalDAV 或 iCloud 日历":
             calendarHelper = CalendarHelper(name: self.calendarTextField.stringValue,

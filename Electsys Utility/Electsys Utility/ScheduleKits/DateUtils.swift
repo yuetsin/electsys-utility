@@ -108,6 +108,37 @@ class CalendarHelper {
             }
         }
     }
+    
+    func addToDate(exam: Exam, remind: Bool) {
+        eventStore.requestAccess(to: .event) {(granted, error) in
+            if ((error) != nil) {
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                return
+            } else if (!granted) {
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                return
+            } else {
+                let event = EKEvent(eventStore: self.eventStore)
+                event.calendar = self.calendar
+                event.title = exam.name! + "考试"
+                event.location = exam.location
+                event.calendar = self.calendar
+                event.startDate = exam.startDate
+                event.endDate = exam.endDate
+                
+                if remind {
+                    let alarm = EKAlarm(relativeOffset: 1800)
+                    event.addAlarm(alarm)
+                }
+                do {
+                    try self.eventStore.save(event, span: .thisEvent, commit: true)
+                } catch {
+                    print("Event could not save. Error: \(error as NSError).localizedDescription")
+                }
+            }
+        }
+    }
+    
     func commitChanges() {
 //          deprecated method
 //        do {

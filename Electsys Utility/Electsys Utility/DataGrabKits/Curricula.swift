@@ -37,6 +37,7 @@ class Curricula {
 
 
 enum Year: Int {
+    case Y_2018_2019 = 2018
     case Y_2017_2018 = 2017
     case Y_2016_2017 = 2016
     case Y_2015_2016 = 2015
@@ -56,13 +57,13 @@ enum Term: Int {
 
 func ConvertToYear(_ string: String) -> Year {
     var startYear = 2010
-    while startYear < 2017 {
+    while startYear < 2018 {
         if string.contains(String(startYear)) && string.contains(String(startYear + 1)) {
             return Year(rawValue: startYear)!
         }
         startYear += 1
     }
-    return .Y_2017_2018
+    return .Y_2018_2019
 }
 
 func ConvertToString(_ year: Year) -> String {

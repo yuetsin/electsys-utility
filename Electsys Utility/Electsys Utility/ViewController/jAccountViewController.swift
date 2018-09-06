@@ -52,7 +52,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         disableUI()
         let loginSession = Login()
         loginSession.delegate = self
-        if self.operationSelector.selectedItem!.title == "仅同步课程表到系统日历" {
+        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
             DispatchQueue.global().async {
                 loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
             }
@@ -120,7 +120,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
             showErrorMessage(errorMsg: "登录失败。\n\n用户名、密码和验证码中有至少一项不正确。")
             resumeUI()
         } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登录失败。\n\n访问被拒绝。")
+            showErrorMessage(errorMsg: "登录失败。\n\n访问被拒绝。请重启应用后再次尝试。")
             resumeUI()
         } else {
             showErrorMessage(errorMsg: "登录失败。\n\n检查你的网络连接。")
@@ -188,7 +188,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         operationSelector.isEnabled = true
         loadingIcon.isHidden = true
         updateCaptcha(refreshCaptchaButton)
-        if operationSelector.selectedItem!.title == "仅同步课程表到系统日历" {
+        if operationSelector.selectedItem!.title == "同步课程表到系统日历" {
             manualOpenButton.isEnabled = true
         }
     }
@@ -212,7 +212,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     
     
     @IBAction func operationSelectorPopped(_ sender: NSPopUpButton) {
-        if sender.selectedItem!.title == "仅同步课程表到系统日历" {
+        if sender.selectedItem!.title == "同步课程表到系统日历" {
             self.manualOpenButton.isEnabled = true
         } else {
             self.manualOpenButton.isEnabled = false
