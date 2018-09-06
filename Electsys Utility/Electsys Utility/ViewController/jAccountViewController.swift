@@ -56,7 +56,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
             DispatchQueue.global().async {
                 loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
             }
-        } else {
+        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
             DispatchQueue.global().async {
                 loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2], isLegacy: false)
             }
@@ -113,7 +113,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
 //        success!
             startDataResolve(html: htmlData)
         } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
-            showErrorMessage(errorMsg: "登录失败。\n\n登录过于频繁，请至少等待 30 秒后再次尝试。")
+            showErrorMessage(errorMsg: "登录失败。\n\n请求过于频繁，请至少等待 30 秒后再次尝试。")
             resumeUI()
         }
         else if (htmlData.contains("上海交通大学统一身份认证")) {
@@ -156,9 +156,9 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         self.view.window?.close()
     }
     
-    func goFullDataObtainer() {
+    func syncExamInfo() {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let creditsWindowController = storyboard.instantiateController(withIdentifier: "Full Data Window Controller") as! NSWindowController
+        let creditsWindowController = storyboard.instantiateController(withIdentifier: "Sync Exam Window Controller") as! NSWindowController
         creditsWindowController.showWindow(self)
         self.view.window?.close()
     }

@@ -7,19 +7,49 @@
 //
 
 import Cocoa
+import Alamofire
 
-class FullDataViewController: NSViewController {
-
+class FullDataViewController: NSViewController, queryDelegate {
+    
+    var courses: [Curricula] = []
+    var teachers: [Teacher] = []
+    var toTheEnd: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
     
-    @IBAction func questionMark(_ sender: NSButton) {
-        let errorAlert: NSAlert = NSAlert()
-        errorAlert.messageText = "学期说明"
-        errorAlert.informativeText = "第一学期指每一学年的秋季学期。第二学期指每一学年的春季学期和夏季小学期。"
-        errorAlert.alertStyle = NSAlert.Style.informational
-        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    
+    @IBAction func startButtonClicked(_ sender: NSButton) {
+        let query = Query()
+        query.delegate = self
+        var bsid = firstBsid
+        toTheEnd = false
+        DispatchQueue.global().async {
+            while !self.toTheEnd {
+                DispatchQueue.global().async {
+                    query.start(Bsid: bsid)
+                }
+                Thread.sleep(forTimeInterval: 1)
+                // 睡十秒钟再说
+                bsid += 1
+                if bsid % 8 == 0 {
+                    Thread.sleep(forTimeInterval: 31)
+                    // 每爬 8 个睡 31 秒
+                }
+            }
+        }
+    }
+    
+    func judgeResponse(htmlData: String) {
+        if let course = parseCourseDetail(htmlData) {
+            course.printToConsole()
+            courses.append(course)
+        } else {
+            print("被发现了！")
+            DispatchQueue.main.async {
+                self.toTheEnd = true
+            }
+        }
     }
 }

@@ -15,11 +15,11 @@ let targetUrl = "http://electsys.sjtu.edu.cn/edu/student/sdtMain.aspx"
 let contentUrl = "http://electsys.sjtu.edu.cn/edu/newsboard/newsinside.aspx"
 let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"
 let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
-let dataGrabUrlHead = "http://electsys.sjtu.edu.cn/edu/lesson/viewLessonArrangeDetail2.aspx?bsid="
-
 
 class Login {
+    
     var delegate: requestHtmlDelegate?
+    
     func attempt(userName: String, password: String, captchaWord: String, isLegacy: Bool = true) {
         var responseHtml: String = ""
         Alamofire.request(loginUrl).response(completionHandler: { response in
@@ -60,7 +60,7 @@ class Login {
                             self.delegate?.validateLoginResult(htmlData: realOutput)
                         })
                     } else {
-                        self.delegate?.goFullDataObtainer()
+                        self.delegate?.syncExamInfo()
                     }
                 } else {
                     self.delegate?.validateLoginResult(htmlData: responseHtml)

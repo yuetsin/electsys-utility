@@ -5,10 +5,14 @@
 //  Created by yuxiqian on 2018/8/30.
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //
+//  ScheduleKits/Course.swift 用于处理「课程表内」相关的课程信息。
+//  Utility/Curricula.swift 用于处理不与课程表相关的其他信息。
+
 
 import Foundation
 
 class Course : NSObject {
+    
     let hasChildren = false
     var courseIdentifier: String = ""
     var isSummerVacation: Bool = false

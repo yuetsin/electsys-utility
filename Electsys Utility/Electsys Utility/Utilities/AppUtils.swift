@@ -74,8 +74,12 @@ func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpre
 }
 
 
-func sanitize(_ input: String) -> String {
-    return input.replacingOccurrences(of: " ", with: "")
+func sanitize(_ input: String?) -> String {
+    if (input != nil) {
+        return (input?.deleteOccur(remove: " ").deleteOccur(remove: "\t").deleteOccur(remove: "\n").deleteOccur(remove: "\r"))!
+    } else {
+        return "0"
+    }
 }
 
 func clearBrackets(_ input: String) -> String {
@@ -229,6 +233,12 @@ func getExactTime(startAt: Int, duration: Int) -> String {
     return "\(startTime) ~ \(endTime)"
 }
 
+extension String {
+    func deleteOccur(remove: String) -> String {
+        return self.replacingOccurrences(of: remove, with: "")
+    }
+}
+
 //enum loginReturnCode {
 //    case successLogin
 //    case accountError
@@ -238,12 +248,20 @@ func getExactTime(startAt: Int, duration: Int) -> String {
 
 protocol requestHtmlDelegate: NSObjectProtocol {
     func validateLoginResult(htmlData: String) -> ()
-    func goFullDataObtainer() -> ()
+    func syncExamInfo() -> ()
 }
 
 protocol inputHtmlDelegate: NSObjectProtocol {
     func checkDataInput(htmlData: String) -> ()
     func cancelDataInput() -> ()
+}
+
+protocol queryDelegate: NSObjectProtocol {
+    func judgeResponse(htmlData: String) -> ()
+}
+
+protocol examQueryDelegate: NSObjectProtocol {
+    func parseResponse(examData: String) -> ()
 }
 
 extension String {
