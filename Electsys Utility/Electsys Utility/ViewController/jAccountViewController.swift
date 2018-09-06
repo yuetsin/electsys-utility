@@ -40,6 +40,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBOutlet weak var loadingIcon: NSProgressIndicator!
     @IBOutlet weak var expandButton: NSButton!
     @IBOutlet weak var operationSelector: NSPopUpButton!
+    @IBOutlet weak var checkHistoryButton: NSButton!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
         if self.userNameField.stringValue == "" ||
@@ -158,8 +159,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     
     func syncExamInfo() {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let creditsWindowController = storyboard.instantiateController(withIdentifier: "Sync Exam Window Controller") as! NSWindowController
-        creditsWindowController.showWindow(self)
+        let syncWindowController = storyboard.instantiateController(withIdentifier: "Sync Exam Window Controller") as! NSWindowController
+        syncWindowController.showWindow(self)
         self.view.window?.close()
     }
     
@@ -174,6 +175,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         manualOpenButton.isEnabled = false
         captchaImage.isEnabled = false
         operationSelector.isEnabled = false
+        checkHistoryButton.isEnabled = false
         loadingIcon.isHidden = false
     }
     
@@ -186,6 +188,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         refreshCaptchaButton.isEnabled = true
         captchaImage.isEnabled = true
         operationSelector.isEnabled = true
+        checkHistoryButton.isEnabled = true
         loadingIcon.isHidden = true
         updateCaptcha(refreshCaptchaButton)
         if operationSelector.selectedItem!.title == "同步课程表到系统日历" {
@@ -203,7 +206,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBAction func onExpand(_ sender: NSButton) {
         var frame: NSRect = (self.view.window?.frame)!
         if sender.state == .on {
-            frame.size = NSSize(width: 260, height: 300)
+            frame.size = NSSize(width: 260, height: 318)
         } else {
             frame.size = NSSize(width: 260, height: 236)
         }
@@ -217,6 +220,13 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         } else {
             self.manualOpenButton.isEnabled = false
         }
+    }
+    
+    @IBAction func checkHistoryData(_ sender: NSButton) {
+        // do something crazy
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let historyDataWindowController = storyboard.instantiateController(withIdentifier: "Data Window Controller") as! NSWindowController
+        historyDataWindowController.showWindow(self)
     }
 }
 

@@ -121,6 +121,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
             }
             DispatchQueue.main.async {
                 self.resumeUI()
+                self.showInfoMessage(infoMsg: "已完成同步。")
             }
         }
     }
