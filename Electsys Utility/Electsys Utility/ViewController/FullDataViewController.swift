@@ -34,7 +34,7 @@ class FullDataViewController: NSViewController, queryDelegate {
         DispatchQueue.global().async {
             while !self.toTheEnd {
                 DispatchQueue.global().async {
-                    query.start(Bsid: bsid)
+//                    query.start(Bsid: bsid, <#Int#>)
                 }
                 Thread.sleep(forTimeInterval: 1)
                 // 睡十秒钟再说

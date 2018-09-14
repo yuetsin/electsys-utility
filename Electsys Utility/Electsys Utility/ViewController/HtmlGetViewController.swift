@@ -18,6 +18,12 @@ class htmlGetViewController: NSViewController {
         // Do view setup here.
     }
     
+    override func viewDidDisappear() {
+        let application = NSApplication.shared
+        application.stopModal()
+        self.delegate?.cancelDataInput()
+        super.viewDidDisappear()
+    }
     
     @IBOutlet var htmlContentField: NSTextView!
     
@@ -69,7 +75,8 @@ class htmlGetViewController: NSViewController {
     
     func showErrorMessage(errorMsg: String) {
         let errorAlert: NSAlert = NSAlert()
-        errorAlert.messageText = errorMsg
+        errorAlert.informativeText = errorMsg
+        errorAlert.messageText = "出错啦"
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }

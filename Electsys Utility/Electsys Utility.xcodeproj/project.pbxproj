@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,23 +19,24 @@
 		8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* jAccountViewController.swift */; };
 		8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22E121362EAF0064488C /* courseSync.xcdatamodeld */; };
 		8A4A22E521362EB00064488C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E421362EB00064488C /* Assets.xcassets */; };
-		8A4A22E821362EB00064488C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E621362EB00064488C /* Main.storyboard */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LoginHelper.swift */; };
 		8A6E58A92138054D00FF38CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E58A82138054D00FF38CF /* Course.swift */; };
 		8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */; };
 		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
 		8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96D489214026F4009E90CA /* CourseQuery.swift */; };
-		8A96E4B32139789000B476E0 /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B22139789000B476E0 /* Regex.framework */; };
-		8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B42139789300B476E0 /* Kanna.framework */; };
-		8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96E4B62139789900B476E0 /* Alamofire.framework */; };
+		8AA6279C214A5A1D003906BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AA6279A214A5A1D003906BD /* Main.storyboard */; };
+		8AA6279F214A5B68003906BD /* Pods_Electsys_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */; };
+		8AA627A0214A5B6F003906BD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A1214A5B6F003906BD /* Alamofire.framework */; };
+		8AA627A2214A5B72003906BD /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A3214A5B72003906BD /* Regex.framework */; };
+		8AA627A4214A5B75003906BD /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A5214A5B75003906BD /* Kanna.framework */; };
+		8AA627A6214A5B7E003906BD /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
+		8AA627A8214A5C3E003906BD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A7214A5C3E003906BD /* Cocoa.framework */; };
 		8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB34652140143C002053D0 /* FullDataViewController.swift */; };
 		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
-		8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* HtmlParser.swift */; };
-		C5B7ECDABE77F79C015462FD /* Pods_Electsys_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,6 @@
 		8A4A22DF21362EAF0064488C /* jAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jAccountViewController.swift; sourceTree = "<group>"; };
 		8A4A22E221362EAF0064488C /* courseSync.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = courseSync.xcdatamodel; sourceTree = "<group>"; };
 		8A4A22E421362EB00064488C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A4A22E721362EB00064488C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A4A22E921362EB00064488C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A4A22EA21362EB00064488C /* courseSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = courseSync.entitlements; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +68,11 @@
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B42139789300B476E0 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B62139789900B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AA6279B214A5A1D003906BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8AA627A1214A5B6F003906BD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AA627A3214A5B72003906BD /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AA627A5214A5B75003906BD /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AA627A7214A5C3E003906BD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8ACB34652140143C002053D0 /* FullDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataViewController.swift; sourceTree = "<group>"; };
 		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
 		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
@@ -87,11 +92,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD04CFF213BC58800D59DB1 /* EventKit.framework in Frameworks */,
-				8A96E4B72139789900B476E0 /* Alamofire.framework in Frameworks */,
-				8A96E4B52139789300B476E0 /* Kanna.framework in Frameworks */,
-				8A96E4B32139789000B476E0 /* Regex.framework in Frameworks */,
-				C5B7ECDABE77F79C015462FD /* Pods_Electsys_Utility.framework in Frameworks */,
+				8AA627A8214A5C3E003906BD /* Cocoa.framework in Frameworks */,
+				8AA627A6214A5B7E003906BD /* EventKit.framework in Frameworks */,
+				8AA627A4214A5B75003906BD /* Kanna.framework in Frameworks */,
+				8AA627A2214A5B72003906BD /* Regex.framework in Frameworks */,
+				8AA627A0214A5B6F003906BD /* Alamofire.framework in Frameworks */,
+				8AA6279F214A5B68003906BD /* Pods_Electsys_Utility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,14 @@
 				98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A233761214A5738007F0957 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8AA6279A214A5A1D003906BD /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		8A397DC52140B84800AE297A /* DataGrabKits */ = {
@@ -152,6 +166,7 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A233761214A5738007F0957 /* Storyboard */,
 				8A397DCC2140D7E400AE297A /* ExamSyncKits */,
 				8A397DC52140B84800AE297A /* DataGrabKits */,
 				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
@@ -159,7 +174,6 @@
 				8A4A22F2213631F20064488C /* ViewController */,
 				8A4A22DD21362EAF0064488C /* AppDelegate.swift */,
 				8A4A22E421362EB00064488C /* Assets.xcassets */,
-				8A4A22E621362EB00064488C /* Main.storyboard */,
 				8A4A22E921362EB00064488C /* Info.plist */,
 				8A4A22EA21362EB00064488C /* courseSync.entitlements */,
 				8A4A22E121362EAF0064488C /* courseSync.xcdatamodeld */,
@@ -205,6 +219,10 @@
 		CEBAC5F7F8148695C76C2836 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AA627A7214A5C3E003906BD /* Cocoa.framework */,
+				8AA627A5214A5B75003906BD /* Kanna.framework */,
+				8AA627A3214A5B72003906BD /* Regex.framework */,
+				8AA627A1214A5B6F003906BD /* Alamofire.framework */,
 				8AD04CFE213BC58800D59DB1 /* EventKit.framework */,
 				8A96E4B62139789900B476E0 /* Alamofire.framework */,
 				8A96E4B42139789300B476E0 /* Kanna.framework */,
@@ -251,6 +269,7 @@
 				TargetAttributes = {
 					8A4A22D921362EAF0064488C = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 0;
@@ -263,7 +282,7 @@
 				};
 			};
 			buildConfigurationList = 8A4A22D521362EAF0064488C /* Build configuration list for PBXProject "Electsys Utility" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -286,7 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A4A22E521362EB00064488C /* Assets.xcassets in Resources */,
-				8A4A22E821362EB00064488C /* Main.storyboard in Resources */,
+				8AA6279C214A5A1D003906BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,8 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -307,8 +324,6 @@
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Regex.framework",
@@ -324,15 +339,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Electsys Utility-checkManifestLockResult.txt",
 			);
@@ -376,10 +387,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8A4A22E621362EB00064488C /* Main.storyboard */ = {
+		8AA6279A214A5A1D003906BD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8A4A22E721362EB00064488C /* Base */,
+				8AA6279B214A5A1D003906BD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -497,8 +508,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -513,14 +523,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24XARD42BP;
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = yue.elect.sys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SDKROOT = macosx10.13;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -535,14 +544,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 24XARD42BP;
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = yue.elect.sys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SDKROOT = macosx10.13;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

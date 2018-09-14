@@ -20,7 +20,7 @@ class Teacher {
     var rankScore: Float = 100.0
     
     func requestRankScore() {
-        let requestUrl = teacherEvaluate + "gh=\(self.employeeID)&xm=\(self.name)"
+//        let requestUrl = teacherEvaluate + "gh=\(self.employeeID)&xm=\(self.name)"
     }
 }
 

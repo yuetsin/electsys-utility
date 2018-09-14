@@ -12,6 +12,7 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    var windowController: NSWindowController?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -25,9 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func openCreditsWindow(_ sender: NSButton) {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let creditsWindowController = storyboard.instantiateController(withIdentifier: "Credits Window Controller") as! NSWindowController
-            creditsWindowController.showWindow(sender)
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "Credits Window Controller")) as? NSWindowController
+        windowController?.showWindow(sender)
     }
     
     @IBAction func openGithubPage(_ sender: NSButton) {

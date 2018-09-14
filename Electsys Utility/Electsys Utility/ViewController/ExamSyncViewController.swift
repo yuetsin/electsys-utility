@@ -16,6 +16,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     var exams: [Exam] = []
     var helper: CalendarHelper?
     var shouldRemind: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -23,7 +24,6 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
         for year in 0...8 {
             yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
         }
-        self.promptTextField.stringValue = ""
     }
     
     func parseResponse(examData: String) {
@@ -54,8 +54,9 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
                 let timeAndDateFormatter = DateFormatter()
                 timeAndDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 if numbersArray.count < 4 {
-                    break
+                    continue
                 }
+                
                 let offset = numbersArray.count - 4
                 let startDateString = date + " \(numbersArray[offset]):\(numbersArray[offset + 1])"
                 let endDateString = date + " \(numbersArray[offset + 2]):\(numbersArray[offset + 3])"
@@ -71,7 +72,6 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     @IBOutlet weak var yearSelector: NSPopUpButton!
     @IBOutlet weak var termSelector: NSPopUpButton!
     @IBOutlet weak var loadButton: NSButton!
-    @IBOutlet weak var promptTextField: NSTextField!
     @IBOutlet weak var testInfo: NSPopUpButton!
     @IBOutlet weak var syncTo: NSPopUpButton!
     @IBOutlet weak var calendarName: NSTextField!
@@ -112,7 +112,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     }
     
     func didWriteEvent(title: String) {
-        promptTextField.stringValue = "正在写入：\(title)。此时请不要退出。"
+//        promptTextField.stringValue = "正在写入：\(title)。此时请不要退出。"
     }
     
     func startWriteCalendar() {
@@ -159,8 +159,12 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     
     func showInfoMessage(infoMsg: String) {
         let errorAlert: NSAlert = NSAlert()
-        errorAlert.messageText = infoMsg
+        errorAlert.informativeText = infoMsg
+        errorAlert.messageText = "信息"
+        errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.informational
-        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        errorAlert.beginSheetModal(for: self.view.window!) { (response) in
+            // do nothing
+        }
     }
 }

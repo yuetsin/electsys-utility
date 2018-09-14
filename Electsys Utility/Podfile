@@ -1,4 +1,4 @@
-platform :macos, '10.14'
+platform :macos, '10.12’
 target 'Electsys Utility' do
   use_frameworks!
   pod 'CrossroadRegex'

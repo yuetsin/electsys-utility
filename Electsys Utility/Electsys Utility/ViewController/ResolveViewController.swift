@@ -306,7 +306,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     
     func showErrorMessage(errorMsg: String) {
         let errorAlert: NSAlert = NSAlert()
-        errorAlert.messageText = errorMsg
+        errorAlert.informativeText = errorMsg
+        errorAlert.messageText = "出错啦"
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }

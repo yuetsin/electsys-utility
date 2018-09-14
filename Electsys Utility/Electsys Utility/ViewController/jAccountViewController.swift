@@ -13,6 +13,7 @@ import Alamofire
 
 class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDelegate {
     
+    var windowController: NSWindowController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
                 self.captchaImage.image = captchaImageObject
             } else {
 //                self.captchaImage.image = 
-                self.showErrorMessage(errorMsg: "未能成功加载验证码图片。\n\n检查你的网络连接。")
+                self.showErrorMessage(errorMsg: "未能成功加载验证码图片。\n检查你的网络连接。")
             }
         }
     }
@@ -99,12 +100,15 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     
     @IBAction func manualLoadHTML(_ sender: NSButton) {
         disableUI()
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let manualOpenViewController = storyboard.instantiateController(withIdentifier: "htmlGetViewController") as! htmlGetViewController
-        manualOpenViewController.delegate = self
-        let manualOpenWindowController = storyboard.instantiateController(withIdentifier: "Manually Get HTML Window Controller") as! NSWindowController
-        manualOpenWindowController.contentViewController = manualOpenViewController
-        manualOpenWindowController.showWindow(sender)
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Manually Get HTML Window Controller")) as? NSWindowController
+        if let htmlWindow = windowController?.window {
+            let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
+            htmlViewController.delegate = self
+            let application = NSApplication.shared
+            application.runModal(for: htmlWindow)
+            htmlWindow.close()
+        }
     }
 
     
@@ -115,17 +119,17 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
 //        success!
             startDataResolve(html: htmlData)
         } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
-            showErrorMessage(errorMsg: "登录失败。\n\n请求过于频繁，请至少等待 30 秒后再次尝试。")
+            showErrorMessage(errorMsg: "登录失败。\n请求过于频繁，请至少等待 30 秒后再次尝试。")
             resumeUI()
         }
         else if (htmlData.contains("上海交通大学统一身份认证")) {
-            showErrorMessage(errorMsg: "登录失败。\n\n用户名、密码和验证码中有至少一项不正确。")
+            showErrorMessage(errorMsg: "登录失败。\n用户名、密码和验证码中有至少一项不正确。")
             resumeUI()
         } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登录失败。\n\n访问被拒绝。请重启应用后再次尝试。")
+            showErrorMessage(errorMsg: "登录失败。\n访问被拒绝。请重启应用后再次尝试。")
             resumeUI()
         } else {
-            showErrorMessage(errorMsg: "登录失败。\n\n检查你的网络连接。")
+            showErrorMessage(errorMsg: "登录失败。\n检查你的网络连接。")
             resumeUI()
         }
     }
@@ -136,7 +140,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
             htmlData.contains("本学期课程详细情况")) {
             startDataResolve(html: htmlData)
         } else {
-            showErrorMessage(errorMsg: "置入 HTML 文件失败。\n\n获取的数据格式不正确。")
+            showErrorMessage(errorMsg: "置入 HTML 文件失败。\n获取的数据格式不正确。")
             resumeUI()
         }
     }
@@ -147,22 +151,22 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     }
     
     func startDataResolve(html: String) {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let resolveWindowController = storyboard.instantiateController(withIdentifier: "Resolve Window Controller") as! NSWindowController
-        if let resolveWindow = resolveWindowController.window {
-            let resolveViewController = storyboard.instantiateController(withIdentifier: "Resolve View Controller") as! ResolveViewController
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve Window Controller")) as? NSWindowController
+        if let resolveWindow = windowController?.window {
+            let resolveViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve View Controller")) as! ResolveViewController
             resolveViewController.htmlDoc = html
             resolveWindow.contentViewController = resolveViewController
-            resolveWindowController.showWindow(self)
+            windowController?.showWindow(self)
+            self.view.window?.orderOut(self)
         }
-        self.view.window?.close()
     }
     
     func syncExamInfo() {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let syncWindowController = storyboard.instantiateController(withIdentifier: "Sync Exam Window Controller") as! NSWindowController
-        syncWindowController.showWindow(self)
-        self.view.window?.close()
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Sync Exam Window Controller")) as? NSWindowController
+        windowController?.showWindow(self)
+        self.view.window?.orderOut(self)
     }
     
 
@@ -199,7 +203,9 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
 
     func showErrorMessage(errorMsg: String) {
         let errorAlert: NSAlert = NSAlert()
-        errorAlert.messageText = errorMsg
+        errorAlert.messageText = "出错啦"
+        errorAlert.informativeText = errorMsg
+        errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
@@ -225,8 +231,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     
     @IBAction func checkHistoryData(_ sender: NSButton) {
         // do something crazy
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let historyDataWindowController = storyboard.instantiateController(withIdentifier: "Data Window Controller") as! NSWindowController
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let historyDataWindowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Data Window Controller")) as! NSWindowController
         historyDataWindowController.showWindow(self)
     }
 }
