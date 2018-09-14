@@ -31,7 +31,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
         let studentID: String = getByXpath(examData, "//*[@id=\"lblXh\"]")
         let studentName: String = getByXpath(examData, "//*[@id=\"lblXm\"]")
         let studentMajor: String = getByXpath(examData, "//*[@id=\"lblZy\"]")
-        showInfoMessage(infoMsg: "请确认个人信息：\n\n\(studentMajor)专业\(studentName)，学号 \(studentID)。")
+        showInfoMessage(infoMsg: "请确认个人信息：\n\(studentMajor)专业\(studentName)，学号 \(studentID)。")
 //        print(examData)
     
         if let html = try? HTML(html: examData, encoding: .utf8) {
@@ -128,7 +128,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     }
     
     func showError(error: String) {
-        showInfoMessage(infoMsg: "发生了错误。\n\n\(error)")
+        showInfoMessage(infoMsg: "发生了错误。\n\(error)")
     }
     
 
@@ -160,11 +160,9 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     func showInfoMessage(infoMsg: String) {
         let errorAlert: NSAlert = NSAlert()
         errorAlert.informativeText = infoMsg
-        errorAlert.messageText = "信息"
+        errorAlert.messageText = "提示"
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.informational
-        errorAlert.beginSheetModal(for: self.view.window!) { (response) in
-            // do nothing
-        }
+        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
 }

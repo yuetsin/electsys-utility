@@ -20,6 +20,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         loadingIcon.startAnimation(self)
         removeCookie()
         updateCaptcha(refreshCaptchaButton)
+//        openRequestPanel()
     }
     
     override var representedObject: Any? {
@@ -232,8 +233,8 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBAction func checkHistoryData(_ sender: NSButton) {
         // do something crazy
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let historyDataWindowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Data Window Controller")) as! NSWindowController
-        historyDataWindowController.showWindow(self)
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Data Window Controller")) as? NSWindowController
+        windowController?.showWindow(self)
     }
 }
 

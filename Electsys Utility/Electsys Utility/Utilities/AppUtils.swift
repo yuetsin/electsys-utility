@@ -96,6 +96,12 @@ func findIndexOfCourseByName (name: String, array: [Course]) -> Int {
     return -1
 }
 
+func openRequestPanel() {
+    if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy"), NSWorkspace.shared.open(url) {
+        // successfully opened
+    }
+}
+
 func generateArray(start: Int, end: Int, shift: ShiftWeekType) -> [Int] {
     var array: [Int] = []
     switch shift {

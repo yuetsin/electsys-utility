@@ -858,7 +858,7 @@
                                 </secureTextFieldCell>
                             </secureTextField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Qwa-I4-cWQ">
-                                <rect key="frame" x="20" y="105" width="100" height="40"/>
+                                <rect key="frame" x="20" y="101" width="100" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStopProgressTemplate" id="u54-vw-gXO"/>
                             </imageView>
@@ -896,7 +896,7 @@ DQ
                                 <rect key="frame" x="19" y="41" width="221" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="你的信息仅会被发送给 SJTU NIC。" id="2DS-MJ-RKN">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -905,7 +905,7 @@ DQ
                                 <rect key="frame" x="19" y="26" width="221" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="请确保在安全的网络环境中操作。" id="9y8-Sy-VRM">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -922,7 +922,7 @@ DQ
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" misplaced="YES" id="ajT-UK-Wwf">
-                                <rect key="frame" x="128" y="114" width="70" height="22"/>
+                                <rect key="frame" x="128" y="110" width="70" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="验证码" drawsBackground="YES" id="ieG-58-Kpz">
                                     <font key="font" metaFont="system"/>
@@ -934,7 +934,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="qkF-Wo-v9W">
-                                <rect key="frame" x="210" y="113" width="29" height="25"/>
+                                <rect key="frame" x="210" y="109" width="29" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9l8-TZ-jHO">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1079,19 +1079,19 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="440" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="anq-6M-l3b">
-                                <rect key="frame" x="0.0" y="0.0" width="440" height="380"/>
+                            <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" id="anq-6M-l3b">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="LbJ-3f-rl5">
-                                    <rect key="frame" x="0.0" y="0.0" width="440" height="380"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="440" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="-0.5" width="440" height="3119.5"/>
+                                            <rect key="frame" x="0.0" y="-1" width="440" height="3119.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="440" height="380"/>
+                                            <size key="minSize" width="440" height="400"/>
                                             <size key="maxSize" width="448" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
@@ -1591,8 +1591,8 @@ Copyright © 2018 </string>
                                         </textView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.0001825150574922431" horizontal="NO" id="lkE-DH-sMA">
-                                    <rect key="frame" x="424" y="0.0" width="16" height="380"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.00018385732671446958" horizontal="NO" id="lkE-DH-sMA">
+                                    <rect key="frame" x="424" y="0.0" width="16" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1727,7 +1727,9 @@ DQ
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="browseButton" destination="2Ga-bg-ccq" id="09v-Mo-RcZ"/>
                         <outlet property="htmlContentField" destination="JbX-ap-1te" id="stP-co-sO7"/>
+                        <outlet property="promptText" destination="Bcd-fE-xlE" id="FbF-8U-9lY"/>
                     </connections>
                 </viewController>
                 <customObject id="2Gi-pp-Gcu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

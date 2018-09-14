@@ -305,8 +305,14 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         let errorAlert: NSAlert = NSAlert()
         errorAlert.informativeText = errorMsg
         errorAlert.messageText = "出错啦"
-        errorAlert.alertStyle = NSAlert.Style.critical
-        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        errorAlert.addButton(withTitle: "嗯")
+        errorAlert.addButton(withTitle: "打开系统偏好设置")
+        errorAlert.alertStyle = NSAlert.Style.informational
+        errorAlert.beginSheetModal(for: self.view.window!) { (returnCode) in
+            if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
+                openRequestPanel()
+            }
+        }
     }
     
     func showError(error: String) {

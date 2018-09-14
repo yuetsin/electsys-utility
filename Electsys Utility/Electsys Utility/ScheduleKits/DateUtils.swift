@@ -20,10 +20,10 @@ class CalendarHelper {
         self.delegate = delegate
         eventStore.requestAccess(to: .event) {(granted, error) in
             if ((error) != nil) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else if (!granted) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else {
                 let newCalendar = EKCalendar(for: .event, eventStore: self.eventStore)
@@ -38,14 +38,14 @@ class CalendarHelper {
                     source.sourceType.rawValue == type.rawValue
                     }.first
                 if newCalendar.source == nil {
-                    self.delegate?.showError(error: "哎呀！Sync Utility 未得到充分授权。\n\n重新启动并再次尝试。")
+                    self.delegate?.showError(error: "哎呀！Sync Utility 未得到充分授权。\n重新启动并再次尝试。")
                     return
                 }
                 do {
                     try self.eventStore.saveCalendar(newCalendar, commit: true)
                     self.calendar = newCalendar
                 } catch {
-                    self.delegate?.showError(error: "哎呀！Sync Utility 未能创建指定的日历。\n\n重新启动并再次尝试。")
+                    self.delegate?.showError(error: "哎呀！Sync Utility 未能创建指定的日历。\n重新启动并再次尝试。")
                 }
             }
             self.delegate?.startWriteCalendar()
@@ -66,10 +66,10 @@ class CalendarHelper {
         
         eventStore.requestAccess(to: .event) {(granted, error) in
             if ((error) != nil) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else if (!granted) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else {
                 let event = EKEvent(eventStore: self.eventStore)
