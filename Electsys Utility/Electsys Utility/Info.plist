@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.4.1</string>
+	<string>0.4.2</string>
 	<key>CFBundleVersion</key>
-	<string>13</string>
+	<string>14</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -44,7 +44,7 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>需要日历的访问权限来写入课程信息。</string>
+	<string>$(PRODUCT_NAME) calendar events</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 yuxiqian. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>

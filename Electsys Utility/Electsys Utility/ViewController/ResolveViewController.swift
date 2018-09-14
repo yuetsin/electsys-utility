@@ -20,6 +20,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         onDatePicked(startWeekSelector)
         self.loadingRing.startAnimation(self)
         self.loadingTextField.stringValue = ""
+        self.courseIdentifierField.isEnabled = false
+        self.courseScoreField.isEnabled = false
+        self.courseTimeField.isEnabled = false
     }
     
     var htmlDoc: String = ""
@@ -63,9 +66,6 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         self.syncAccountType.isEnabled = false
         self.courseNameField.isEnabled = false
         self.courseRoomField.isEnabled = false
-        self.courseIdentifierField.isEnabled = false
-        self.courseScoreField.isEnabled = false
-        self.courseTimeField.isEnabled = false
         self.calendarTextField.isEnabled = false
         self.relsamaHouwyButton.isEnabled = false
         self.startSyncButton.isEnabled = false
@@ -82,9 +82,6 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         self.syncAccountType.isEnabled = true
         self.courseNameField.isEnabled = true
         self.courseRoomField.isEnabled = true
-        self.courseIdentifierField.isEnabled = true
-        self.courseScoreField.isEnabled = true
-        self.courseTimeField.isEnabled = true
         self.calendarTextField.isEnabled = true
         self.relsamaHouwyButton.isEnabled = true
         self.startSyncButton.isEnabled = true
@@ -216,16 +213,16 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
         switch syncAccountType.selectedItem!.title {
         case "CalDAV 或 iCloud 日历":
             calendarHelper = CalendarHelper(name: self.calendarTextField.stringValue,
-                                            type: .calDAV)
+                                            type: .calDAV, delegate: self)
             break
         case "Mac 上的本地日历":
             calendarHelper = CalendarHelper(name: self.calendarTextField.stringValue,
-                                            type: .local)
+                                            type: .local, delegate: self)
             break
         default:
             return
         }
-        calendarHelper?.delegate = self
+        
 
         disableUI()
 
@@ -313,8 +310,10 @@ class ResolveViewController: NSViewController, writeCalendarDelegate {
     }
     
     func showError(error: String) {
-        showErrorMessage(errorMsg: error)
-        self.view.window?.close()
+        DispatchQueue.main.async {
+            self.showErrorMessage(errorMsg: error)
+            self.resumeUI()
+        }
     }
 }
 

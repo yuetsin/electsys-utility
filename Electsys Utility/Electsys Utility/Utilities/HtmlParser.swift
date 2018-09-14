@@ -215,7 +215,7 @@ fileprivate func createCourse(_ lessonName: String,
         return
     }
     
-    let index = findIndexOfCourseByName(name: lessonName, array: rawCourseArray)
+    let index = findIndexOfCourseByName(name: getCourseName(lessonName), array: rawCourseArray)
     if index == -1 {
         return
     }

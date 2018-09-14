@@ -16,7 +16,8 @@ class CalendarHelper {
     var calendar: EKCalendar?
     weak var delegate: writeCalendarDelegate!
     
-    init (name: String, type: EKSourceType) {
+    init (name: String, type: EKSourceType, delegate: writeCalendarDelegate) {
+        self.delegate = delegate
         eventStore.requestAccess(to: .event) {(granted, error) in
             if ((error) != nil) {
                 self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
@@ -35,7 +36,11 @@ class CalendarHelper {
                 newCalendar.source = sourcesInEventStore.filter{
                     (source: EKSource) -> Bool in
                     source.sourceType.rawValue == type.rawValue
-                    }.first!
+                    }.first
+                if newCalendar.source == nil {
+                    self.delegate?.showError(error: "哎呀！Sync Utility 未得到充分授权。\n\n重新启动并再次尝试。")
+                    return
+                }
                 do {
                     try self.eventStore.saveCalendar(newCalendar, commit: true)
                     self.calendar = newCalendar
@@ -133,7 +138,7 @@ class CalendarHelper {
                 do {
                     try self.eventStore.save(event, span: .thisEvent, commit: true)
                 } catch {
-                    print("Event could not save. Error: \(error as NSError).localizedDescription")
+                    print("Event could not be saved. Error: \(error as NSError)")
                 }
             }
         }

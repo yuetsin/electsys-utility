@@ -89,7 +89,7 @@ func clearBrackets(_ input: String) -> String {
 func findIndexOfCourseByName (name: String, array: [Course]) -> Int {
     for index in 0...(array.count - 1) {
 //        print("Attempted to compare \(name) and \(array[index].courseName)")
-        if name.contains(array[index].courseName) {
+        if name == array[index].courseName {
             return index
         }
     }

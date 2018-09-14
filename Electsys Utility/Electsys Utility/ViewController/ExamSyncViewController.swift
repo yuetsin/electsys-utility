@@ -102,9 +102,9 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
             self.calendarName.stringValue = "jAccount 同步"
         }
         if syncTo.selectedItem!.title == "Mac 上的本地日历" {
-            helper = CalendarHelper(name: self.calendarName.stringValue , type: .local)
+            helper = CalendarHelper(name: self.calendarName.stringValue , type: .local, delegate: self)
         } else {
-            helper = CalendarHelper(name: self.calendarName.stringValue , type: .calDAV)
+            helper = CalendarHelper(name: self.calendarName.stringValue , type: .calDAV, delegate: self)
         }
         shouldRemind = (self.remindMe.state == .on)
         helper?.delegate = self
