@@ -6,35 +6,58 @@
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //  
 //  ScheduleKits/Course.swift 用于处理「课程表内」相关的课程信息。
-//  Utility/Curricula.swift 用于处理不与课程表相关的其他信息。
+//  Utility/Curricula.swift 用于处理教室信息之中的信息。
 
 import Foundation
 
 class Curricula {
-    var codeName: String = ""
+//    var codeName: String = ""
     var name: String = ""
+    var holderSchool: String = ""
     var teacherName: String = ""
+    var teacherTitle: String = ""
     var identifier: String = ""
-    var notes: String = ""
+    var creditScore: Float = 0.0
     var year: Year = .Y_2017_2018
+    var targetGrade: Int = 0
     var term: Term = .Spring
     var studentNumber: Int = 0
-    var maximumNumber: Int = 0
+//    var maximumNumber: Int = 0
+    var startWeek: Int = 0
+    var endWeek: Int = 0
+    var oddWeekArr: [Arrangement] = []
+    var evenWeekArr: [Arrangement] = []
     
-    func getSelectRatio() -> Float {
-        if self.maximumNumber != 0 {
-            return Float(self.studentNumber) / Float(self.maximumNumber)
-        } else {
-            return 1.0
+    func getRelatedClassroom() -> [String] {
+        var classrooms: [String] = []
+        for i in oddWeekArr {
+            if !classrooms.contains(i.classroom) {
+                classrooms.append(i.classroom)
+            }
         }
-    }
-    
-    func printToConsole() {
-        print("Name: \(codeName) - \(name)")
-        print("Teacher: \(teacherName)")
+        for i in evenWeekArr {
+            if !classrooms.contains(i.classroom) {
+                classrooms.append(i.classroom)
+            }
+        }
+        return classrooms
     }
 }
 
+class Arrangement {
+
+    var weekDay: Int = 0
+// 星期数。约定使用 1 ～ 7 分别代表周一到周日。
+
+    var startsAt = 0
+// 开始节数
+
+    var endsAt = 0
+// 结束节数
+
+    var classroom = ""
+// 授课教室
+}
 
 enum Year: Int {
     case Y_2018_2019 = 2018
@@ -77,5 +100,16 @@ func ConvertToTerm(_ string: String) -> Term {
         return .Summer
     } else {
         return .Spring
+    }
+}
+
+
+func rawValueToInt(_ string: String) -> Int {
+    if string == "秋季学期" {
+        return 1
+    } else if string == "春季学期" {
+        return 2
+    } else {
+        return 3
     }
 }

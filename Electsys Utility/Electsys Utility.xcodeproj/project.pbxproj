@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A04055D213984050060F93A /* SchoolDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04055C213984050060F93A /* SchoolDay.swift */; };
+		8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A485214E0EC0008EC502 /* GalleryIcon.swift */; };
+		8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A487214E1787008EC502 /* JsonRequester.swift */; };
 		8A397DC42140B69900AE297A /* Curricula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC32140B69900AE297A /* Curricula.swift */; };
 		8A397DC72140B87400AE297A /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC62140B87400AE297A /* Teacher.swift */; };
 		8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC82140B9C600AE297A /* CourseAnalyse.swift */; };
@@ -44,6 +46,8 @@
 		4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Electsys_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A04055C213984050060F93A /* SchoolDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDay.swift; sourceTree = "<group>"; };
+		8A09A485214E0EC0008EC502 /* GalleryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryIcon.swift; sourceTree = "<group>"; };
+		8A09A487214E1787008EC502 /* JsonRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequester.swift; sourceTree = "<group>"; };
 		8A397DC32140B69900AE297A /* Curricula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curricula.swift; sourceTree = "<group>"; };
 		8A397DC62140B87400AE297A /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		8A397DC82140B9C600AE297A /* CourseAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAnalyse.swift; sourceTree = "<group>"; };
@@ -117,6 +121,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8A09A484214E0E9C008EC502 /* GalleryKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A09A485214E0EC0008EC502 /* GalleryIcon.swift */,
+				8A397DC32140B69900AE297A /* Curricula.swift */,
+				8A09A487214E1787008EC502 /* JsonRequester.swift */,
+			);
+			path = GalleryKits;
+			sourceTree = "<group>";
+		};
 		8A233761214A5738007F0957 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,15 +139,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		8A397DC52140B84800AE297A /* DataGrabKits */ = {
+		8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */ = {
 			isa = PBXGroup;
 			children = (
-				8A397DC32140B69900AE297A /* Curricula.swift */,
 				8A96D489214026F4009E90CA /* CourseQuery.swift */,
 				8A397DC62140B87400AE297A /* Teacher.swift */,
 				8A397DC82140B9C600AE297A /* CourseAnalyse.swift */,
 			);
-			path = DataGrabKits;
+			path = Deprecated_DataGrabKits;
 			sourceTree = "<group>";
 		};
 		8A397DCC2140D7E400AE297A /* ExamSyncKits */ = {
@@ -166,9 +179,10 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */,
 				8A233761214A5738007F0957 /* Storyboard */,
 				8A397DCC2140D7E400AE297A /* ExamSyncKits */,
-				8A397DC52140B84800AE297A /* DataGrabKits */,
+				8A09A484214E0E9C008EC502 /* GalleryKits */,
 				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
 				8A4A22F3213644140064488C /* Utilities */,
 				8A4A22F2213631F20064488C /* ViewController */,
@@ -322,12 +336,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Regex.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -365,7 +381,9 @@
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A397DC42140B69900AE297A /* Curricula.swift in Sources */,
 				8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */,
+				8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
+				8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */,
 				8A397DC72140B87400AE297A /* Teacher.swift in Sources */,
 				8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,

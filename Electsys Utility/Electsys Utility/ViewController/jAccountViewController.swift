@@ -15,6 +15,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     
     var windowController: NSWindowController?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingIcon.startAnimation(self)
@@ -216,7 +217,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         if sender.state == .on {
             frame.size = NSSize(width: 260, height: 318)
         } else {
-            frame.size = NSSize(width: 260, height: 236)
+            frame.size = NSSize(width: 260, height: 230)
         }
         self.view.window?.setFrame(frame, display: true, animate: true)
     }

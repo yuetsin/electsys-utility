@@ -16,8 +16,8 @@ func parseCourseDetail(_ htmlDoc: String) -> Curricula? {
     curricula.teacherName = getByXpath(htmlDoc,
                 "//*[@id=\"TeacherInfo1_dataListT\"]/tr/td/table/tr[2]/td[2]")
     
-    curricula.codeName =
-        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[1]/td[1]").deleteOccur(remove: "课程代码：")
+//    curricula.codeName =
+//        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[1]/td[1]").deleteOccur(remove: "课程代码：")
    
     curricula.name =
         getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[1]/td[2]").deleteOccur(remove: "课程名称：")
@@ -31,18 +31,18 @@ func parseCourseDetail(_ htmlDoc: String) -> Curricula? {
     curricula.term = ConvertToTerm(
         getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[2]/td[3]").deleteOccur(remove: "学期："))
     
-    curricula.maximumNumber = Int(
-        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[5]/td[1]").deleteOccur(remove: "最大人数："))!
+//    curricula.maximumNumber = Int(
+//        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[5]/td[1]").deleteOccur(remove: "最大人数："))!
     
     curricula.studentNumber = Int(
         getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[5]/td[2]").deleteOccur(remove: "已选课人数："))!
     
-    curricula.notes =
-        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[6]/td[1]").deleteOccur(remove: "备注：")
-    if curricula.notes.contains("夏季") {
-        curricula.term = .Summer
+//    curricula.notes =
+//        getByXpath(htmlDoc, "//*[@id=\"LessonArrangeDetail1_dataListKc\"]/tr/td/table/tr[6]/td[1]").deleteOccur(remove: "备注：")
+//    if curricula.notes.contains("夏季") {
+//        curricula.term = .Summer
         // 教务处不改学期字段，把信息写在备注里…… 绝了
-    }
+//    }
     
     if curricula.identifier == "0" {
         return nil
