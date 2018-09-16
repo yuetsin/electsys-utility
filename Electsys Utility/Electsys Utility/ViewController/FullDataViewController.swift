@@ -19,15 +19,22 @@ class FullDataViewController: NSViewController {
     var eastUpperHall: [String] = []
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
-    
-    var toTheEnd: Bool = true
-    var isOddWeekAndNotEvenWeek = true
+    var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressIndicator.startAnimation(nil)
+        setWeekPop(start: 1, end: 16)
         // Do view setup here.
         for year in 0...8 {
             yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
+        }
+    }
+    
+    func setWeekPop(start: Int, end: Int) {
+        weekSelector.removeAllItems()
+        for i in start...end {
+            weekSelector.addItem(withTitle: "第 \(i) 周")
         }
     }
     
@@ -39,15 +46,7 @@ class FullDataViewController: NSViewController {
         eastUpperHall.removeAll()
         eastMiddleHall.removeAll()
         eastLowerHall.removeAll()
-    }
-    
-    
-    @IBAction func oddEvenSelected(_ sender: NSButton) {
-        if sender.title == "单周" {
-            isOddWeekAndNotEvenWeek = true
-        } else {
-            isOddWeekAndNotEvenWeek = false
-        }
+        
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
@@ -63,6 +62,8 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var roomSelector: NSPopUpButton!
     @IBOutlet weak var weekDaySelector: NSPopUpButton!
 
+    @IBOutlet weak var weekSelector: NSPopUpButton!
+    
     @IBOutlet weak var oneButton: NSButton!
     @IBOutlet weak var twoButton: NSButton!
     @IBOutlet weak var threeButton: NSButton!
@@ -76,16 +77,32 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var elevenButton: NSButton!
     @IBOutlet weak var twelveButton: NSButton!
     
+    @IBOutlet weak var sortBox: NSBox!
+    @IBOutlet weak var detailBox: NSBox!
+    
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
-        print(sender.identifier?.rawValue ?? "Nil")
+        let id = Int((sender.identifier?.rawValue)!)
+        showCourseInfo(infoMsg: arrangement[id! - 1])
+    }
+
+    @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
+        shrinkFrame()
     }
     
+    @IBAction func termPopTapped(_ sender: NSPopUpButton) {
+        shrinkFrame()
+        if sender.selectedItem?.title == "夏季小学期" {
+            setWeekPop(start: 19, end: 22)
+        } else {
+            setWeekPop(start: 1, end: 16)
+        }
+    }
     
-
     func getJson() {
         let jsonUrl = "\(jsonHeader)\(yearSelector.selectedItem?.title.replacingOccurrences(of: "-", with: "_") ?? "__invalid__")_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
-        print(jsonUrl)
+//        print(jsonUrl)
+        self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
@@ -147,6 +164,7 @@ class FullDataViewController: NSViewController {
         default:
             roomSelector.addItem(withTitle: "ˊ_>ˋ")
         }
+        updateBoxes(sender)
     }
 
     
@@ -207,4 +225,128 @@ class FullDataViewController: NSViewController {
         frame.size = NSSize(width: 480, height: 337)
         self.view.window?.setFrame(frame, display: true, animate: true)
     }
+
+    
+    @IBAction func updateBoxes(_ sender: NSPopUpButton) {
+        for i in 1...12 {
+            drawBox(id: i)
+        }
+        arrangement = [String].init(repeating: "空教室", count: 14)
+
+        let currentWeek = hanToInt(self.weekSelector.selectedItem?.title)
+        let weekDay = dayToInt.index(of: (self.weekDaySelector.selectedItem?.title)!)
+        detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
+        if let room = self.roomSelector.selectedItem?.title {
+            for cur in courses {
+                if !cur.getRelatedClassroom().contains(room) {
+                    continue
+                }
+                if cur.startWeek > currentWeek { return }
+                if cur.endWeek < currentWeek { return }
+                if currentWeek % 2 == 1 {
+                    // 单周
+                    for arr in cur.oddWeekArr {
+                        if arr.weekDay != weekDay {
+                            continue
+                        }
+                        for lessonIndex in arr.startsAt...arr.endsAt {
+                            drawBox(id: lessonIndex, population: cur.studentNumber)
+                            arrangement[lessonIndex - 1] = "课程：\(cur.name)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
+                        }
+                    }
+                } else {
+                    // 双周
+                    for arr in cur.evenWeekArr {
+                        if arr.weekDay != weekDay {
+                            continue
+                        }
+                        for lessonIndex in arr.startsAt...arr.endsAt {
+                            drawBox(id: lessonIndex, population: cur.studentNumber)
+                        }
+                    }
+                }
+            }
+        } else {
+            detailBox.title = "教室占用情况"
+        }
+    }
+    
+    func drawBox(id: Int, population: Int = -1) {
+        var color: NSColor?
+        if population == -1 {
+            color = getColor(name: "empty")
+        } else if population < 25 {
+            color = getColor(name: "light")
+        } else if population < 50 {
+            color = getColor(name: "medium")
+        } else if population < 100 {
+            color = getColor(name: "heavy")
+        } else {
+            color = getColor(name: "full")
+        }
+        let colorBox = NSImage(color: color!, size: NSSize(width: 25, height: 25))
+        switch id {
+        case 1:
+            oneButton.image = colorBox
+            break
+        case 2:
+            twoButton.image = colorBox
+            break
+        case 3:
+            threeButton.image = colorBox
+            break
+        case 4:
+            fourButton.image = colorBox
+            break
+        case 5:
+            fiveButton.image = colorBox
+            break
+        case 6:
+            sixButton.image = colorBox
+            break
+        case 7:
+            sevenButton.image = colorBox
+            break
+        case 8:
+            eightButton.image = colorBox
+            break
+        case 9:
+            nineButton.image = colorBox
+            break
+        case 10:
+            tenButton.image = colorBox
+            break
+        case 11:
+            elevenButton.image = colorBox
+            break
+        case 12:
+            twelveButton.image = colorBox
+            break
+        default:
+            break
+        }
+    }
+    
+    func showCourseInfo(infoMsg: String) {
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.messageText = "课程信息"
+        infoAlert.informativeText = infoMsg
+        infoAlert.addButton(withTitle: "嗯")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
 }
+
+
+extension NSImage {
+    convenience init(color: NSColor, size: NSSize) {
+        self.init(size: size)
+        lockFocus()
+        color.drawSwatch(in: NSRect(origin: .zero, size: size))
+        self.draw(in: NSRect(origin: .zero, size: size),
+                 from: NSRect(origin: .zero, size: self.size),
+                 operation: .color, fraction: 1)
+        unlockFocus()
+    }
+}
+

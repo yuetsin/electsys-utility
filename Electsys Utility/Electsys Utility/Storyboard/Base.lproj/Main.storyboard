@@ -23,6 +23,12 @@
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="致谢" id="KTz-QL-YDA">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openCreditsWindow:" target="Ady-hI-5gd" id="yGi-ug-DWE"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="服务" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -59,10 +65,10 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="帮助" systemMenu="help" autoenablesItems="NO" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="致谢" id="FKE-Sm-Kum">
+                                        <menuItem title="给我发邮件" id="Eji-4u-phi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="openCreditsWindow:" target="Ady-hI-5gd" id="v8K-Pd-VXH"/>
+                                                <action selector="mailAuthor:" target="Ady-hI-5gd" id="er2-gP-Vg3"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Github 页面" id="Bud-SE-0fk">
@@ -380,6 +386,9 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="i5Y-4n-5rT"/>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="yearPopTapped:" target="Db8-rN-Brm" id="1PQ-jP-IOX"/>
+                                </connections>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" id="agr-x6-7mw">
                                 <rect key="frame" x="248" y="35" width="126" height="26"/>
@@ -395,6 +404,9 @@
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
+                                <connections>
+                                    <action selector="termPopTapped:" target="Db8-rN-Brm" id="qhj-Z8-MU6"/>
+                                </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="vbM-zM-Ipn">
                                 <rect key="frame" x="18" y="40" width="44" height="17"/>
@@ -522,29 +534,10 @@
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="eNB-c8-y7y"/>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <action selector="updateBoxes:" target="Db8-rN-Brm" id="lri-6f-FUD"/>
+                                            </connections>
                                         </popUpButton>
-                                        <button verticalHuggingPriority="750" misplaced="YES" id="Un6-Mh-Ow7">
-                                            <rect key="frame" x="81" y="16" width="49" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="单周" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="j3z-zF-922">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="oddEvenSelected:" target="Db8-rN-Brm" id="XHj-d2-vQq"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" misplaced="YES" id="PJk-OD-WB4">
-                                            <rect key="frame" x="160" y="16" width="49" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="双周" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="TFY-6S-6lI">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="oddEvenSelected:" target="Db8-rN-Brm" id="LJY-Dq-KnU"/>
-                                            </connections>
-                                        </button>
                                         <popUpButton verticalHuggingPriority="750" misplaced="YES" id="esy-E3-YHf">
                                             <rect key="frame" x="294" y="12" width="131" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -571,6 +564,21 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <action selector="updateBoxes:" target="Db8-rN-Brm" id="hq8-y4-RdD"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <popUpButton verticalHuggingPriority="750" misplaced="YES" id="7zx-83-Mds">
+                                            <rect key="frame" x="80" y="12" width="130" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Yhi-pM-tp7">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="PTZ-Fw-feb"/>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="updateBoxes:" target="Db8-rN-Brm" id="dHh-g0-x2f"/>
+                                            </connections>
                                         </popUpButton>
                                     </subviews>
                                 </view>
@@ -582,7 +590,7 @@
                                     <rect key="frame" x="2" y="2" width="442" height="90"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button identifier="one" misplaced="YES" id="izF-Co-Oac">
+                                        <button identifier="1" misplaced="YES" id="izF-Co-Oac">
                                             <rect key="frame" x="16" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="SaP-Na-qfr">
@@ -593,7 +601,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="c9g-Wf-Gw2"/>
                                             </connections>
                                         </button>
-                                        <button identifier="three" misplaced="YES" id="AdJ-Mh-drD">
+                                        <button identifier="3" misplaced="YES" id="AdJ-Mh-drD">
                                             <rect key="frame" x="86" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2H9-ey-zV3">
@@ -604,7 +612,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="RMB-zE-k1X"/>
                                             </connections>
                                         </button>
-                                        <button identifier="two" misplaced="YES" id="ie8-oP-LCS">
+                                        <button identifier="2" misplaced="YES" id="ie8-oP-LCS">
                                             <rect key="frame" x="51" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="hlk-yg-ESZ">
@@ -615,7 +623,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="89n-vj-cnF"/>
                                             </connections>
                                         </button>
-                                        <button identifier="four" misplaced="YES" id="cUp-yt-BKa">
+                                        <button identifier="4" misplaced="YES" id="cUp-yt-BKa">
                                             <rect key="frame" x="121" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="a1M-BM-ZHe">
@@ -626,7 +634,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="pZy-aj-6hV"/>
                                             </connections>
                                         </button>
-                                        <button identifier="six" misplaced="YES" id="WEb-az-nO3">
+                                        <button identifier="6" misplaced="YES" id="WEb-az-nO3">
                                             <rect key="frame" x="191" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ZBh-cE-N0Q">
@@ -637,7 +645,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="9XO-lm-UfX"/>
                                             </connections>
                                         </button>
-                                        <button identifier="five" misplaced="YES" id="2Yg-o0-r6W">
+                                        <button identifier="5" misplaced="YES" id="2Yg-o0-r6W">
                                             <rect key="frame" x="156" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="GRX-Qp-bU7">
@@ -648,7 +656,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="6Hp-uX-vZ6"/>
                                             </connections>
                                         </button>
-                                        <button identifier="seven" misplaced="YES" id="Sya-hH-Tea">
+                                        <button identifier="7" misplaced="YES" id="Sya-hH-Tea">
                                             <rect key="frame" x="226" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Okn-3c-DjO">
@@ -659,7 +667,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="ur2-XM-k8c"/>
                                             </connections>
                                         </button>
-                                        <button identifier="nine" misplaced="YES" id="rOF-T3-FXP">
+                                        <button identifier="9" misplaced="YES" id="rOF-T3-FXP">
                                             <rect key="frame" x="296" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Tk1-zx-Ywf">
@@ -670,7 +678,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="peu-Vn-8Gh"/>
                                             </connections>
                                         </button>
-                                        <button identifier="eight" misplaced="YES" id="ZDW-I5-m5t">
+                                        <button identifier="8" misplaced="YES" id="ZDW-I5-m5t">
                                             <rect key="frame" x="261" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="H2a-ch-gTY">
@@ -681,7 +689,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="kvi-pV-q9K"/>
                                             </connections>
                                         </button>
-                                        <button identifier="ten" misplaced="YES" id="3EV-5i-evQ">
+                                        <button identifier="10" misplaced="YES" id="3EV-5i-evQ">
                                             <rect key="frame" x="331" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="7En-sR-cJi">
@@ -692,7 +700,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="acC-kM-E42"/>
                                             </connections>
                                         </button>
-                                        <button identifier="twelve" misplaced="YES" id="D0Y-77-LZg">
+                                        <button identifier="12" misplaced="YES" id="D0Y-77-LZg">
                                             <rect key="frame" x="401" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="qnq-ch-pbO">
@@ -703,7 +711,7 @@
                                                 <action selector="iconButtonTapped:" target="Db8-rN-Brm" id="wXa-5N-ZGM"/>
                                             </connections>
                                         </button>
-                                        <button identifier="eleven" misplaced="YES" id="kdf-aV-rX9">
+                                        <button identifier="11" misplaced="YES" id="kdf-aV-rX9">
                                             <rect key="frame" x="366" y="32" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="b0R-7l-xqr">
@@ -829,6 +837,7 @@
                     </view>
                     <connections>
                         <outlet property="buildingSelector" destination="ePU-d5-pMa" id="gef-Zt-9IY"/>
+                        <outlet property="detailBox" destination="kSU-ft-5UW" id="gis-l8-ALa"/>
                         <outlet property="eightButton" destination="ZDW-I5-m5t" id="vja-5i-CxU"/>
                         <outlet property="elevenButton" destination="kdf-aV-rX9" id="jRR-Dd-RGO"/>
                         <outlet property="fiveButton" destination="2Yg-o0-r6W" id="M6S-DW-ClY"/>
@@ -839,18 +848,20 @@
                         <outlet property="roomSelector" destination="rif-97-zSd" id="6NL-Jf-m8w"/>
                         <outlet property="sevenButton" destination="Sya-hH-Tea" id="JkP-MW-fAW"/>
                         <outlet property="sixButton" destination="WEb-az-nO3" id="v4h-5i-dO3"/>
+                        <outlet property="sortBox" destination="F9K-82-4Us" id="AyF-cQ-pay"/>
                         <outlet property="tenButton" destination="3EV-5i-evQ" id="J0k-bf-cI1"/>
                         <outlet property="termSelector" destination="agr-x6-7mw" id="f6i-od-Taj"/>
                         <outlet property="threeButton" destination="AdJ-Mh-drD" id="MhC-28-6Ex"/>
                         <outlet property="twelveButton" destination="D0Y-77-LZg" id="IgI-2B-Vmx"/>
                         <outlet property="twoButton" destination="ie8-oP-LCS" id="vsr-Xn-YI0"/>
                         <outlet property="weekDaySelector" destination="esy-E3-YHf" id="fgT-KH-WZd"/>
+                        <outlet property="weekSelector" destination="7zx-83-Mds" id="KU4-gE-MpQ"/>
                         <outlet property="yearSelector" destination="hhY-Qk-Maj" id="wwd-bB-6Yj"/>
                     </connections>
                 </viewController>
                 <customObject id="ZcL-94-pl4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1742" y="868.5"/>
+            <point key="canvasLocation" x="-1742" y="987.5"/>
         </scene>
         <!--Resolve View Controller-->
         <scene sceneID="iKi-s5-3ho">

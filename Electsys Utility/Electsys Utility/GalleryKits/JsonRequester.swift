@@ -22,6 +22,9 @@ func generateCur(_ json: JSON) -> Curricula {
     cur.teacherName = json["teacher"].stringValue
     cur.teacherTitle = json["teacher_title"].stringValue
     cur.creditScore = json["credit"].floatValue
+    cur.startWeek = json["start_week"].intValue
+    cur.endWeek = json["end_week"].intValue
+    cur.studentNumber = json["student_number"].intValue
     
     if let oddWeekArr = json["odd_week"].array {
         for owa in oddWeekArr {
@@ -46,3 +49,15 @@ func generateCur(_ json: JSON) -> Curricula {
     }
     return cur
 }
+
+func hanToInt(_ str: String?) -> Int {
+    if str == nil { return -1 }
+    for i in 1...22 {
+        if str == "第 \(i) 周" {
+            return i
+        }
+    }
+    return 0
+}
+
+let dayToInt = ["", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日", ]

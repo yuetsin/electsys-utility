@@ -113,3 +113,4 @@ func rawValueToInt(_ string: String) -> Int {
         return 3
     }
 }
+
