@@ -262,6 +262,7 @@ class FullDataViewController: NSViewController {
                         }
                         for lessonIndex in arr.startsAt...arr.endsAt {
                             drawBox(id: lessonIndex, population: cur.studentNumber)
+                            arrangement[lessonIndex - 1] = "课程：\(cur.name)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
                         }
                     }
                 }
