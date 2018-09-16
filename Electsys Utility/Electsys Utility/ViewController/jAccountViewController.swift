@@ -75,7 +75,6 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
             if captchaImageObject != nil {
                 self.captchaImage.image = captchaImageObject
             } else {
-//                self.captchaImage.image = 
                 self.showErrorMessage(errorMsg: "未能成功加载验证码图片。\n检查你的网络连接。")
             }
         }
@@ -238,4 +237,5 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         windowController?.showWindow(self)
     }
 }
+
 

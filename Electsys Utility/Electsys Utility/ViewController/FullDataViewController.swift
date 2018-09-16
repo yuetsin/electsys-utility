@@ -46,7 +46,6 @@ class FullDataViewController: NSViewController {
         eastUpperHall.removeAll()
         eastMiddleHall.removeAll()
         eastLowerHall.removeAll()
-        
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
@@ -107,6 +106,7 @@ class FullDataViewController: NSViewController {
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
                 self.progressIndicator.isHidden = true
+                self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
                 return
             } else {
                 DispatchQueue.global().async {
@@ -236,13 +236,15 @@ class FullDataViewController: NSViewController {
         let currentWeek = hanToInt(self.weekSelector.selectedItem?.title)
         let weekDay = dayToInt.index(of: (self.weekDaySelector.selectedItem?.title)!)
         detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
+        
         if let room = self.roomSelector.selectedItem?.title {
             for cur in courses {
+
                 if !cur.getRelatedClassroom().contains(room) {
                     continue
                 }
-                if cur.startWeek > currentWeek { return }
-                if cur.endWeek < currentWeek { return }
+                if cur.startWeek > currentWeek { continue }
+                if cur.endWeek < currentWeek { continue }
                 if currentWeek % 2 == 1 {
                     // 单周
                     for arr in cur.oddWeekArr {

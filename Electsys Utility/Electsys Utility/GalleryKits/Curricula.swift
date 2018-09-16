@@ -30,6 +30,7 @@ class Curricula {
     
     func getRelatedClassroom() -> [String] {
         var classrooms: [String] = []
+
         for i in oddWeekArr {
             if !classrooms.contains(i.classroom) {
                 classrooms.append(i.classroom)
