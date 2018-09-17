@@ -132,7 +132,7 @@ class CalendarHelper {
                 event.endDate = exam.endDate
                 
                 if remind {
-                    let alarm = EKAlarm(relativeOffset: 1800)
+                    let alarm = EKAlarm(relativeOffset: -1800.0)
                     event.addAlarm(alarm)
                 }
                 do {
