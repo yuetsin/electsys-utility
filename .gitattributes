@@ -1,1 +1,2 @@
 *.html linguist-language=Swift
+.m linguist-language=Objective-C
