@@ -117,10 +117,10 @@ class CalendarHelper {
     func addToDate(exam: Exam, remind: Bool) {
         eventStore.requestAccess(to: .event) {(granted, error) in
             if ((error) != nil) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else if (!granted) {
-                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
+                self.delegate?.showError(error: "哎呀！Sync Utility 没有权限访问您的日历。\n请在「系统偏好设置」-「安全性与隐私」中给予权限，然后再启动 Sync Utility。")
                 return
             } else {
                 let event = EKEvent(eventStore: self.eventStore)
