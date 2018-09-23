@@ -233,16 +233,17 @@ class FullDataViewController: NSViewController {
         }
         arrangement = [String].init(repeating: "空教室", count: 14)
 
+        
         let currentWeek = hanToInt(self.weekSelector.selectedItem?.title)
         let weekDay = dayToInt.index(of: (self.weekDaySelector.selectedItem?.title)!)
         detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
         
         if let room = self.roomSelector.selectedItem?.title {
             for cur in courses {
-
                 if !cur.getRelatedClassroom().contains(room) {
                     continue
                 }
+
                 if cur.startWeek > currentWeek { continue }
                 if cur.endWeek < currentWeek { continue }
                 if currentWeek % 2 == 1 {

@@ -14,4 +14,10 @@ class CreditsViewController : NSViewController {
         let application = NSApplication.shared
         application.stopModal()
     }
+    
+    
+    @IBAction func closeWindow(_ sender: NSButton) {
+        self.view.window?.close()
+    }
+    
 }
