@@ -106,9 +106,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         if let htmlWindow = windowController?.window {
             let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
             htmlViewController.delegate = self
-            let application = NSApplication.shared
-            application.runModal(for: htmlWindow)
-            htmlWindow.close()
+            self.view.window?.beginSheet(htmlWindow, completionHandler: nil)
         }
     }
 
