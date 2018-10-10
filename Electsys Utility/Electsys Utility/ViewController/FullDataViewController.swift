@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class FullDataViewController: NSViewController {
     
+    let specialSep = "$_$"
     var courses: [Curricula] = []
     var upperHall: [String] = []
     var middleHall: [String] = []
@@ -82,7 +83,12 @@ class FullDataViewController: NSViewController {
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
-        showCourseInfo(infoMsg: arrangement[id! - 1])
+        let obj = arrangement[id! - 1].components(separatedBy: specialSep)
+        if obj.count == 2 {
+            showCourseInfo(titleMsg: obj[0], infoMsg: obj[1])
+        } else {
+            showCourseInfo(titleMsg: "空教室", infoMsg: "这里什么都没有…")
+        }
     }
 
     @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
@@ -254,7 +260,7 @@ class FullDataViewController: NSViewController {
                         }
                         for lessonIndex in arr.startsAt...arr.endsAt {
                             drawBox(id: lessonIndex, population: cur.studentNumber)
-                            arrangement[lessonIndex - 1] = "课程：\(cur.name)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
+                            arrangement[lessonIndex - 1] = "\(cur.name)\(specialSep)开课院系：\(cur.holderSchool)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
                         }
                     }
                 } else {
@@ -265,7 +271,7 @@ class FullDataViewController: NSViewController {
                         }
                         for lessonIndex in arr.startsAt...arr.endsAt {
                             drawBox(id: lessonIndex, population: cur.studentNumber)
-                            arrangement[lessonIndex - 1] = "课程：\(cur.name)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
+                            arrangement[lessonIndex - 1] = "\(cur.name)\(specialSep)开课院系：\(cur.holderSchool)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
                         }
                     }
                 }
@@ -331,9 +337,9 @@ class FullDataViewController: NSViewController {
         }
     }
     
-    func showCourseInfo(infoMsg: String) {
+    func showCourseInfo(titleMsg: String, infoMsg: String) {
         let infoAlert: NSAlert = NSAlert()
-        infoAlert.messageText = "课程信息"
+        infoAlert.messageText = titleMsg
         infoAlert.informativeText = infoMsg
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational

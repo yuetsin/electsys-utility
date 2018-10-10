@@ -96,7 +96,7 @@
             <objects>
                 <windowController storyboardIdentifier="Manually Get HTML Window Controller" id="88d-t6-Cb0" sceneMemberID="viewController">
                     <window key="window" title="手动置入 HTML 文稿" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" titlebarAppearsTransparent="YES" id="upG-kO-Mzr">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
@@ -117,7 +117,7 @@
             <objects>
                 <windowController storyboardIdentifier="Resolve Window Controller" id="70G-YC-WoC" sceneMemberID="viewController">
                     <window key="window" title="课程信息" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" titlebarAppearsTransparent="YES" id="ya7-lu-fBn">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="333" width="500" height="406"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
@@ -2027,7 +2027,7 @@ Copyright © 2018 </string>
                                         </textView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="lkE-DH-sMA">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.00016254876462938882" horizontal="NO" id="lkE-DH-sMA">
                                     <rect key="frame" x="424" y="0.0" width="16" height="380"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -2058,7 +2058,7 @@ Copyright © 2018 </string>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Bcd-fE-xlE">
                                 <rect key="frame" x="18" y="204" width="425" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="请确保置入一份 electsys.sjtu.edu.cn/edu/newsboard/newsinside.html 单一且完整的 HTML 文稿拷贝。" id="K19-8k-xzH">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2112,7 +2112,7 @@ Copyright © 2018 </string>
                             </scrollView>
                             <button verticalHuggingPriority="750" id="pcs-so-Lhs">
                                 <rect key="frame" x="381" y="1" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lTk-H6-hnN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -2123,7 +2123,7 @@ Copyright © 2018 </string>
                             </button>
                             <button verticalHuggingPriority="750" id="Q3B-Nf-OHm">
                                 <rect key="frame" x="287" y="173" width="160" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="访问教学信息服务网" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="egr-fx-MSE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -2145,7 +2145,7 @@ Copyright © 2018 </string>
                             </button>
                             <button verticalHuggingPriority="750" id="WYG-kX-Bl6">
                                 <rect key="frame" x="315" y="1" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <buttonCell key="cell" type="push" title="好" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aWP-f1-z3A">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
