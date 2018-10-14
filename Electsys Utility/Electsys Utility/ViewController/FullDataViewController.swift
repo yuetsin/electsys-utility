@@ -13,6 +13,7 @@ import SwiftyJSON
 class FullDataViewController: NSViewController {
     
     let specialSep = "$_$"
+    
     var courses: [Curricula] = []
     var upperHall: [String] = []
     var middleHall: [String] = []
@@ -149,22 +150,22 @@ class FullDataViewController: NSViewController {
     @IBAction func pushPopListData(_ sender: NSPopUpButton) {
         roomSelector.removeAllItems()
         switch buildingSelector.selectedItem?.title {
-        case "闵行校区上院":
+        case "闵行校区上院"?:
             roomSelector.addItems(withTitles: upperHall)
             break
-        case "闵行校区中院":
+        case "闵行校区中院"?:
             roomSelector.addItems(withTitles: middleHall)
             break
-        case "闵行校区下院":
+        case "闵行校区下院"?:
             roomSelector.addItems(withTitles: lowerHall)
             break
-        case "闵行校区东上院":
+        case "闵行校区东上院"?:
             roomSelector.addItems(withTitles: eastUpperHall)
             break
-        case "闵行校区东中院":
+        case "闵行校区东中院"?:
             roomSelector.addItems(withTitles: eastMiddleHall)
             break
-        case "闵行校区东下院":
+        case "闵行校区东下院"?:
             roomSelector.addItems(withTitles: eastLowerHall)
             break
         default:
