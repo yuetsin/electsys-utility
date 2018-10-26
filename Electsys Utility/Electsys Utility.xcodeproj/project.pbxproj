@@ -11,6 +11,7 @@
 		8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A485214E0EC0008EC502 /* GalleryIcon.swift */; };
 		8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A487214E1787008EC502 /* JsonRequester.swift */; };
 		8A09A48A214E513C008EC502 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09A489214E513C008EC502 /* SwiftyJSON.framework */; };
+		8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */; };
 		8A397DC42140B69900AE297A /* Curricula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC32140B69900AE297A /* Curricula.swift */; };
 		8A397DC72140B87400AE297A /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC62140B87400AE297A /* Teacher.swift */; };
 		8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC82140B9C600AE297A /* CourseAnalyse.swift */; };
@@ -51,6 +52,7 @@
 		8A09A485214E0EC0008EC502 /* GalleryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryIcon.swift; sourceTree = "<group>"; };
 		8A09A487214E1787008EC502 /* JsonRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequester.swift; sourceTree = "<group>"; };
 		8A09A489214E513C008EC502 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithSeparator.swift; sourceTree = "<group>"; };
 		8A397DC32140B69900AE297A /* Curricula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curricula.swift; sourceTree = "<group>"; };
 		8A397DC62140B87400AE297A /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		8A397DC82140B9C600AE297A /* CourseAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAnalyse.swift; sourceTree = "<group>"; };
@@ -184,8 +186,8 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
-				8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */,
 				8A233761214A5738007F0957 /* Storyboard */,
+				8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */,
 				8A397DCC2140D7E400AE297A /* ExamSyncKits */,
 				8A09A484214E0E9C008EC502 /* GalleryKits */,
 				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
@@ -210,6 +212,7 @@
 				8ACB34652140143C002053D0 /* FullDataViewController.swift */,
 				8A397DCA2140D6E500AE297A /* ExamSyncViewController.swift */,
 				8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */,
+				8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
 				8A4A22F52136443D0064488C /* LoginHelper.swift in Sources */,
+				8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */,
 				8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */,
 				8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */,
 				8AAB6F582172FA4C00D0FF61 /* TransparentTitleWindowController.swift in Sources */,

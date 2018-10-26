@@ -136,7 +136,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     func checkDataInput(htmlData: String) {
 //        NSLog(htmlData)
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
-            htmlData.contains("本学期课程详细情况")) {
+            htmlData.contains("本学期课程详细情况") || htmlData.contains("节\\星期")) {
             startDataResolve(html: htmlData)
         } else {
             showErrorMessage(errorMsg: "置入 HTML 文件失败。\n获取的数据格式不正确。")

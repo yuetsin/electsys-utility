@@ -538,7 +538,7 @@ DQ
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="E1c-qL-YS6">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
-                                                <menu key="menu" id="eNB-c8-y7y"/>
+                                                <menu key="menu" id="eNB-c8-y7y" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target"/>
                                             </popUpButtonCell>
                                             <connections>
                                                 <action selector="updateBoxes:" target="Db8-rN-Brm" id="lri-6f-FUD"/>
@@ -1472,7 +1472,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="1.5" width="455" height="3456"/>
+                                            <rect key="frame" x="0.0" y="2" width="455" height="3456"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

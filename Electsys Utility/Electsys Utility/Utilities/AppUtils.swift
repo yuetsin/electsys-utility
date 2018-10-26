@@ -243,6 +243,24 @@ extension String {
     func deleteOccur(remove: String) -> String {
         return self.replacingOccurrences(of: remove, with: "")
     }
+    
+    func sanitize() -> String {
+        return (self.deleteOccur(remove: " ").deleteOccur(remove: "\t").deleteOccur(remove: "\n").deleteOccur(remove: "\r"))
+    }
+    
+    func positionOf(sub:String, backwards: Bool = false) -> Int {
+        var position = -1
+        if let range = range(of: sub, options: backwards ? .backwards : .literal ) {
+            if !range.isEmpty {
+                position = self.distance(from: startIndex, to: range.lowerBound)
+            }
+        }
+        return position
+    }
+    
+    func removeFloorCharacters() -> String {
+        return self.sanitize().deleteOccur(remove: "东").deleteOccur(remove: "上").deleteOccur(remove: "中").deleteOccur(remove: "下").deleteOccur(remove: "院")
+    }
 }
 
 //enum loginReturnCode {
@@ -270,17 +288,6 @@ protocol examQueryDelegate: NSObjectProtocol {
     func parseResponse(examData: String) -> ()
 }
 
-extension String {
-    func positionOf(sub:String, backwards: Bool = false) -> Int {
-        var position = -1
-        if let range = range(of: sub, options: backwards ? .backwards : .literal ) {
-            if !range.isEmpty {
-                position = self.distance(from: startIndex, to: range.lowerBound)
-            }
-        }
-        return position
-    }
-}
 
 extension NSMenuItem {
     func indexIn(_ array: [NSMenuItem]) -> Int {
@@ -321,3 +328,4 @@ extension Date {
         return date.components(separatedBy: " ").first!
     }
 }
+

@@ -151,22 +151,22 @@ class FullDataViewController: NSViewController {
         roomSelector.removeAllItems()
         switch buildingSelector.selectedItem?.title {
         case "闵行校区上院"?:
-            roomSelector.addItems(withTitles: upperHall)
+            roomSelector.addRoomItems(withTitles: upperHall)
             break
         case "闵行校区中院"?:
-            roomSelector.addItems(withTitles: middleHall)
+            roomSelector.addRoomItems(withTitles: middleHall)
             break
         case "闵行校区下院"?:
-            roomSelector.addItems(withTitles: lowerHall)
+            roomSelector.addRoomItems(withTitles: lowerHall)
             break
         case "闵行校区东上院"?:
-            roomSelector.addItems(withTitles: eastUpperHall)
+            roomSelector.addRoomItems(withTitles: eastUpperHall)
             break
         case "闵行校区东中院"?:
-            roomSelector.addItems(withTitles: eastMiddleHall)
+            roomSelector.addRoomItems(withTitles: eastMiddleHall)
             break
         case "闵行校区东下院"?:
-            roomSelector.addItems(withTitles: eastLowerHall)
+            roomSelector.addRoomItems(withTitles: eastLowerHall)
             break
         default:
             roomSelector.addItem(withTitle: "ˊ_>ˋ")
@@ -176,6 +176,7 @@ class FullDataViewController: NSViewController {
 
     
     func sortClassroom(_ str: String) {
+        let str = str.replacingOccurrences(of: "院", with: "院 ")
         if str.starts(with: "上院") {
             if !upperHall.contains(str) {
                 upperHall.append(str)
@@ -245,7 +246,7 @@ class FullDataViewController: NSViewController {
         let weekDay = dayToInt.index(of: (self.weekDaySelector.selectedItem?.title)!)
         detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
         
-        if let room = self.roomSelector.selectedItem?.title {
+        if let room = self.roomSelector.selectedItem?.title.sanitize() {
             for cur in courses {
                 if !cur.getRelatedClassroom().contains(room) {
                     continue
@@ -358,6 +359,26 @@ extension NSImage {
                  from: NSRect(origin: .zero, size: self.size),
                  operation: .color, fraction: 1)
         unlockFocus()
+    }
+}
+
+@objc extension NSPopUpButton {
+    func addRoomItems(withTitles items: [String]) {
+        var lastIndex: Int?
+        for item in items {
+            self.addItem(withTitle: item)
+            let curIndex: Int = Int(item.removeFloorCharacters().prefix(1))!
+//            print("cur: \(curIndex), last: \(lastIndex)")
+            if lastIndex != nil {
+                if curIndex != lastIndex {
+                    lastIndex = curIndex
+//                    print("should add sep")
+                    self.addItem(withTitle: "MY_MENU_SEPARATOR")
+                }
+            } else {
+                lastIndex = curIndex
+            }
+        }
     }
 }
 
