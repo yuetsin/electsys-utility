@@ -366,7 +366,6 @@ extension NSImage {
     func addRoomItems(withTitles items: [String]) {
         var lastIndex: Int?
         for item in items {
-            self.addItem(withTitle: item)
             let curIndex: Int = Int(item.removeFloorCharacters().prefix(1))!
 //            print("cur: \(curIndex), last: \(lastIndex)")
             if lastIndex != nil {
@@ -378,6 +377,7 @@ extension NSImage {
             } else {
                 lastIndex = curIndex
             }
+            self.addItem(withTitle: item)
         }
     }
 }
