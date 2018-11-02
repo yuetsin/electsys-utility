@@ -224,13 +224,13 @@ class FullDataViewController: NSViewController {
     
     func shrinkFrame() {
         var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 89)
+        frame.size = NSSize(width: 480, height: 129)
         self.view.window?.setFrame(frame, display: true, animate: true)
     }
     
     func expandFrame() {
         var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 317)
+        frame.size = NSSize(width: 480, height: 358)
         self.view.window?.setFrame(frame, display: true, animate: true)
     }
 
