@@ -227,13 +227,25 @@ class FullDataViewController: NSViewController {
     }
     
     func shrinkFrame() {
-        self.preferredContentSize = smallSize
+        
+        let frame = self.view.window!.frame
+        let heightDelta = frame.size.height - smallSize.height - 48
+        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
+        let size = NSSize(width: smallSize.width, height: smallSize.height + 48)
+        let newFrame = NSRect(origin: origin, size: size)
+        self.view.window?.setFrame(newFrame, display: true, animate: true)
+
     }
     
     func expandFrame() {
-        self.preferredContentSize = bigSize
-    }
 
+        let frame = self.view.window!.frame
+        let heightDelta = frame.size.height - bigSize.height - 48
+        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
+        let size = NSSize(width: bigSize.width, height: bigSize.height + 48)
+        let newFrame = NSRect(origin: origin, size: size)
+        self.view.window?.setFrame(newFrame, display: true, animate: true)
+    }
     
     @IBAction func updateBoxes(_ sender: NSPopUpButton) {
         for i in 1...12 {
