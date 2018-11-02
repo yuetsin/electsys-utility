@@ -22,6 +22,9 @@ class FullDataViewController: NSViewController {
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
+
+    let smallSize: NSSize = NSSize(width: 480, height: 79)
+    let bigSize: NSSize = NSSize(width: 480, height: 308)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,7 @@ class FullDataViewController: NSViewController {
         for year in 0...8 {
             yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
         }
+        self.preferredContentSize = smallSize
     }
     
     func setWeekPop(start: Int, end: Int) {
@@ -223,15 +227,11 @@ class FullDataViewController: NSViewController {
     }
     
     func shrinkFrame() {
-        var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 129)
-        self.view.window?.setFrame(frame, display: true, animate: true)
+        self.preferredContentSize = smallSize
     }
     
     func expandFrame() {
-        var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 358)
-        self.view.window?.setFrame(frame, display: true, animate: true)
+        self.preferredContentSize = bigSize
     }
 
     
