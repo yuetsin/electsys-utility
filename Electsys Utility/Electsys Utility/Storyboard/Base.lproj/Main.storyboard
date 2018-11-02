@@ -382,7 +382,6 @@ DQ
                         <tabViewItem label="按教师" identifier="" id="cUG-GF-m9i"/>
                         <tabViewItem label="按课名" id="bPu-RS-wky"/>
                     </tabViewItems>
-                    <viewControllerTransitionOptions key="transitionOptions" crossfade="YES" slideLeft="YES" slideForward="YES" allowUserInteraction="YES"/>
                     <tabView key="tabView" type="noTabsNoBorder" id="jLO-jJ-eMO">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2221,18 +2220,223 @@ DQ
             </objects>
             <point key="canvasLocation" x="266.5" y="746"/>
         </scene>
-        <!--View Controller-->
+        <!--Sort By Teacher View Controller-->
         <scene sceneID="15a-eN-GAV">
             <objects>
-                <viewController id="MQ0-gH-BzD" sceneMemberID="viewController">
-                    <view key="view" id="eBb-7H-tZc">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                <viewController id="MQ0-gH-BzD" customClass="SortByTeacherViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="eBb-7H-tZc">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="239"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="DGT-Kh-VXe">
+                                <rect key="frame" x="66" y="195" width="111" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MJh-G2-jZt">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="AC3-15-Vfk"/>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="yearPopTapped:" target="Q2K-06-gA8" id="Ujg-EC-Tgh"/>
+                                </connections>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="g1s-8q-KiQ">
+                                <rect key="frame" x="248" y="195" width="126" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ezR-Qz-Ubk" id="K4L-RG-OTs">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="F5n-DI-EYK">
+                                        <items>
+                                            <menuItem title="秋季学期" state="on" id="ezR-Qz-Ubk"/>
+                                            <menuItem title="春季学期" id="AKR-BM-EbB"/>
+                                            <menuItem title="夏季小学期" id="ngk-Ld-gIX"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="termPopTapped:" target="Q2K-06-gA8" id="N5J-lE-2mY"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="bzn-9f-OT3">
+                                <rect key="frame" x="18" y="200" width="44" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="Nlg-9O-W3P">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="Mk8-8k-6eN">
+                                <rect key="frame" x="141" y="134" width="233" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="不限" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="TNO-la-obN" id="VPu-4c-jxn">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="U0Y-lq-VQi" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
+                                        <items>
+                                            <menuItem title="不限" id="TNO-la-obN">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="yearPopTapped:" target="Q2K-06-gA8" id="AYK-zz-ieu"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="ySl-u7-dHz">
+                                <rect key="frame" x="66" y="139" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="院系：" id="4Zw-o0-Do8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="YGT-Oi-WcF">
+                                <rect key="frame" x="66" y="110" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="教师姓名：" id="1dq-WI-g98">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Lii-hE-1xs">
+                                <rect key="frame" x="200" y="200" width="44" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="vIZ-hr-ptn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" id="fWS-Qg-0M7">
+                                <rect key="frame" x="380" y="191" width="86" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="检索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YQS-mr-Rel">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startQuery:" target="MQ0-gH-BzD" id="1Pq-To-OEY"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="ru2-Ws-MLv">
+                                <rect key="frame" x="18" y="172" width="444" height="14"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="所有课程数据来自 finda-studyroom，一个 electsysq.sjtu.edu.cn 网站的 JSON 镜像。" id="hde-Ud-CK3">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" style="bar" id="RI4-0X-frP">
+                                <rect key="frame" x="20" y="179" width="440" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                            <box verticalHuggingPriority="750" misplaced="YES" alphaValue="0.90000000000000002" boxType="separator" id="lWC-X6-gOV">
+                                <rect key="frame" x="20" y="229" width="440" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </shadow>
+                            </box>
+                            <box verticalHuggingPriority="750" misplaced="YES" alphaValue="0.90000000000000002" boxType="separator" id="R7a-1F-ZuO">
+                                <rect key="frame" x="20" y="69" width="440" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="2">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </shadow>
+                            </box>
+                            <comboBox verticalHuggingPriority="750" misplaced="YES" id="CdJ-UG-b7Q">
+                                <rect key="frame" x="143" y="105" width="231" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="pjp-tF-lfq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Item 1</string>
+                                        <string>Item 2</string>
+                                        <string>Item 3</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="eLT-lu-X6U">
+                                <rect key="frame" x="141" y="77" width="233" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" title="不限" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="rRs-xB-6F1" id="3e0-FE-c7F">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="E1Z-nV-IeK" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
+                                        <items>
+                                            <menuItem title="不限" id="rRs-xB-6F1">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="yearPopTapped:" target="Q2K-06-gA8" id="gG4-Lc-ImB"/>
+                                </connections>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="Bc3-w2-vKW">
+                                <rect key="frame" x="141" y="13" width="233" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vsE-jK-7BC">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="LY5-BE-sbj"/>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="yearPopTapped:" target="Q2K-06-gA8" id="IdD-dY-VDG"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="ty6-Lw-N8a">
+                                <rect key="frame" x="66" y="82" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="职称：" id="Gwt-u2-EZG">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="tFw-YY-7md">
+                                <rect key="frame" x="18" y="46" width="444" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到关于「#NAME# #TITLE#」的 #COUNT# 条课程信息。" id="21J-nn-4oh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" id="ILx-53-IRA">
+                                <rect key="frame" x="380" y="9" width="86" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="详细…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eFR-Nu-fr5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="progressIndicator" destination="RI4-0X-frP" id="XKS-pi-H8F"/>
+                        <outlet property="schoolSelector" destination="Mk8-8k-6eN" id="NLu-ET-40d"/>
+                        <outlet property="teacherName" destination="CdJ-UG-b7Q" id="pZM-Px-b9d"/>
+                        <outlet property="termSelector" destination="g1s-8q-KiQ" id="hMv-gs-hMk"/>
+                        <outlet property="titleSelector" destination="eLT-lu-X6U" id="FD1-mL-4JH"/>
+                        <outlet property="yearSelector" destination="DGT-Kh-VXe" id="zQ9-hG-neN"/>
+                    </connections>
                 </viewController>
                 <customObject id="T6L-N1-3i4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1893" y="995"/>
+            <point key="canvasLocation" x="-1976" y="950.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="g91-Zj-5qD">

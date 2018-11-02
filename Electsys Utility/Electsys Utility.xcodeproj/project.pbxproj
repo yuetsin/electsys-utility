@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A04055D213984050060F93A /* SchoolDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04055C213984050060F93A /* SchoolDay.swift */; };
+		8A044782218C7FE500BAB188 /* SortByTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A044781218C7FE500BAB188 /* SortByTeacherViewController.swift */; };
 		8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A485214E0EC0008EC502 /* GalleryIcon.swift */; };
 		8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A487214E1787008EC502 /* JsonRequester.swift */; };
 		8A09A48A214E513C008EC502 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09A489214E513C008EC502 /* SwiftyJSON.framework */; };
@@ -49,6 +50,7 @@
 		4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Electsys_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A04055C213984050060F93A /* SchoolDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDay.swift; sourceTree = "<group>"; };
+		8A044781218C7FE500BAB188 /* SortByTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByTeacherViewController.swift; sourceTree = "<group>"; };
 		8A09A485214E0EC0008EC502 /* GalleryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryIcon.swift; sourceTree = "<group>"; };
 		8A09A487214E1787008EC502 /* JsonRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequester.swift; sourceTree = "<group>"; };
 		8A09A489214E513C008EC502 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +215,7 @@
 				8A397DCA2140D6E500AE297A /* ExamSyncViewController.swift */,
 				8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */,
 				8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */,
+				8A044781218C7FE500BAB188 /* SortByTeacherViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				8A397DD021410CFB00AE297A /* Exam.swift in Sources */,
 				8A4A22E321362EAF0064488C /* courseSync.xcdatamodeld in Sources */,
 				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
+				8A044782218C7FE500BAB188 /* SortByTeacherViewController.swift in Sources */,
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A397DC42140B69900AE297A /* Curricula.swift in Sources */,
 				8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */,
