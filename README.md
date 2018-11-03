@@ -1,3 +1,8 @@
+<div align=center>
+    <img width="150" height="150" src="https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Icons/Weiwei.png"/>
+</div>
+
+
 # Electsys Utility
 
 上海交通大学教务处实用程序
