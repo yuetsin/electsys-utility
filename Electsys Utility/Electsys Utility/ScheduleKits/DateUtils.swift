@@ -108,7 +108,7 @@ class CalendarHelper {
                     try self.eventStore.save(event, span: .thisEvent, commit: true)
                     self.delegate?.didWriteEvent(title: event.title)
                 } catch {
-                    print("Event could not save. Error: \(error as NSError).localizedDescription")
+                    print("Event could not be saved.")
                 }
             }
         }

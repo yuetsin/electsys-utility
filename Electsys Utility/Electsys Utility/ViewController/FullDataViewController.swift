@@ -9,6 +9,7 @@
 import Cocoa
 import Alamofire
 import SwiftyJSON
+import Regex
 
 class FullDataViewController: NSViewController {
     
@@ -16,7 +17,8 @@ class FullDataViewController: NSViewController {
     
     var courses: [Curricula] = []
     
-    var queryCourses: [Curricula] = []
+    var queryCoursesOnTeacher: [Curricula] = []
+    var queryCoursesOnName: [Curricula] = []
     
     var upperHall: [String] = []
     var middleHall: [String] = []
@@ -255,7 +257,7 @@ class FullDataViewController: NSViewController {
     }
 
     func startTeacherQuery() {
-        queryCourses.removeAll()
+        queryCoursesOnTeacher.removeAll()
         teacherResultSelector.removeAllItems()
         
         var limitSchool = holdingSchoolSelector.title
@@ -298,21 +300,21 @@ class FullDataViewController: NSViewController {
                 }
             }
             
-            queryCourses.append(cur)
+            queryCoursesOnTeacher.append(cur)
             teacherResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
         }
         teacherLabel.stringValue = "匹配到 \(teacherResultSelector.numberOfItems) 条课程信息。"
     }
     
     func startNameQuery() {
-        queryCourses.removeAll()
+        queryCoursesOnName.removeAll()
         classNameResultSelector.removeAllItems()
         let courseName = sanitize(classNameCombo.stringValue)
         for cur in courses {
             if !cur.name.contains(courseName) {
                 continue
             }
-            queryCourses.append(cur)
+            queryCoursesOnName.append(cur)
             classNameResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
         }
         classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
@@ -497,7 +499,57 @@ class FullDataViewController: NSViewController {
         }
     }
     
+    func displayDetail(_ classes: [Curricula]) {
+        let className = classes[0].name
+        let teacher = classes[0].teacherName + " " + classes[0].teacherTitle
+        let holder = classes[0].holderSchool
+        var target = ""
+        if classes[0].targetGrade != 0 {
+            target = "面向 \(classes[0].targetGrade) 级学生\n\n"
+        }
+        var schedule = "第 \(classes[0].startWeek) 至第 \(classes[0].endWeek) 周"
+        var both = "每周上课，\n"
+        var odd = "之中的单周：\n"
+        var even = "双周：\n"
+        var isCon: Bool = false
+        for cur in classes {
+            var tag: String = ""
+            if cur.isContinuous() {
+                isCon = true
+                for arr in cur.oddWeekArr {
+                    tag += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                }
+                tag += "\n"
+                both += tag
+            } else {
+                isCon = false
+                for arr in cur.oddWeekArr {
+                    odd += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                }
+                for arr in cur.evenWeekArr {
+                    even += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                }
+            }
+        }
+        
+        if isCon {
+            schedule += both
+        } else {
+            schedule += odd
+            schedule += "\n"
+            schedule += even
+        }
+        schedule.removeLast()
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.messageText = className
+        infoAlert.informativeText = "\(target)教师：\(teacher)\n开课院系：\(holder)\n授课安排：\n\(schedule)"
+        infoAlert.addButton(withTitle: "嗯")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+    }
+    
     @IBAction func switchSeg(_ sender: NSSegmentedControl) {
+        tabView.selectTabViewItem(at: sender.selectedSegment)
         if sender.selectedSegment == 0 {
             setLayoutType(.classroom)
         } else if sender.selectedSegment == 1 {
@@ -505,7 +557,47 @@ class FullDataViewController: NSViewController {
         } else if sender.selectedSegment == 2 {
             setLayoutType(.name)
         }
-        tabView.selectTabViewItem(at: sender.selectedSegment)
+    }
+    @IBAction func byNameDetail(_ sender: NSButton) {
+        let array = classNameResultSelector.titleOfSelectedItem?.replacingOccurrences(of: "，", with: " ").components(separatedBy: " ")
+        if array?.count != 3 {
+            return
+        }
+        var target: [Curricula] = []
+        for cur in queryCoursesOnName {
+            if cur.name != array![0] {
+                continue
+            }
+            if cur.teacherName != array![1] {
+                continue
+            }
+            if cur.teacherTitle != array![2] {
+                continue
+            }
+            target.append(cur)
+        }
+        displayDetail(target)
+    }
+    
+    @IBAction func detailByTeacher(_ sender: NSButton) {
+        let array = teacherResultSelector.titleOfSelectedItem?.replacingOccurrences(of: "，", with: " ").components(separatedBy: " ")
+        if array?.count != 3 {
+            return
+        }
+        var target: [Curricula] = []
+        for cur in queryCoursesOnTeacher {
+            if cur.name != array![0] {
+                continue
+            }
+            if cur.teacherName != array![1] {
+                continue
+            }
+            if cur.teacherTitle != array![2] {
+                continue
+            }
+            target.append(cur)
+        }
+        displayDetail(target)
     }
 }
 
