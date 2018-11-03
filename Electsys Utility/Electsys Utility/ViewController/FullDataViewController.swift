@@ -15,6 +15,7 @@ class FullDataViewController: NSViewController {
     let specialSep = "$_$"
     
     var courses: [Curricula] = []
+    
     var upperHall: [String] = []
     var middleHall: [String] = []
     var lowerHall: [String] = []
@@ -22,9 +23,11 @@ class FullDataViewController: NSViewController {
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
-
-    let smallSize: NSSize = NSSize(width: 480, height: 79)
-    let bigSize: NSSize = NSSize(width: 480, height: 308)
+    
+    var schools: [String] = []
+    var teachers: [String] = []
+    var titles: [String] = []
+    var classnames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,11 @@ class FullDataViewController: NSViewController {
     
     func clearLists() {
         courses.removeAll()
+        schools.removeAll()
+        titles.removeAll()
+        teachers.removeAll()
+        classnames.removeAll()
+        
         upperHall.removeAll()
         middleHall.removeAll()
         lowerHall.removeAll()
@@ -86,6 +94,20 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var detailBox: NSBox!
     
     @IBOutlet weak var tabView: NSTabView!
+    
+    
+    @IBOutlet weak var holdingSchoolSelector: NSPopUpButton!
+    @IBOutlet weak var teacherNameCombo: NSComboBox!
+    @IBOutlet weak var titleSelector: NSPopUpButton!
+    @IBOutlet weak var teacherResultSelector: NSPopUpButton!
+    @IBOutlet weak var teacherDetail: NSButton!
+    @IBOutlet weak var teacherLabel: NSTextField!
+    
+    @IBOutlet weak var classNameCombo: NSComboBox!
+    @IBOutlet weak var classNameLabel: NSTextField!
+    @IBOutlet weak var classNameResultSelector: NSPopUpButton!
+    @IBOutlet weak var classroomDetail: NSButton!
+    
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
@@ -130,6 +152,20 @@ class FullDataViewController: NSViewController {
                                 for classRoom in cur.getRelatedClassroom() {
                                     self.sortClassroom(classRoom)
                                 }
+                                if !(self.schools.contains(cur.holderSchool)) {
+                                    self.schools.append(cur.holderSchool)
+                                }
+                                if !(self.teachers.contains(cur.teacherName)) {
+                                    self.teachers.append(cur.teacherName)
+                                }
+                                if !(self.classnames.contains(cur.name)) {
+                                    self.classnames.append(cur.name)
+                                }
+                                if !(self.titles.contains(cur.teacherTitle)) {
+                                    if sanitize(cur.teacherTitle) != "" {
+                                        self.titles.append(cur.teacherTitle)
+                                    }
+                                }
                                 self.courses.append(cur)
                             }
                         }
@@ -144,6 +180,7 @@ class FullDataViewController: NSViewController {
                         self.progressIndicator.isHidden = true
                         self.sortLists()
                         self.pushPopListData(self.buildingSelector)
+                        self.setComboSource()
                         self.switchSeg(self.tabTitleSeg)
                         // success!
                     }
@@ -177,6 +214,27 @@ class FullDataViewController: NSViewController {
             roomSelector.addItem(withTitle: "ˊ_>ˋ")
         }
         updateBoxes(sender)
+    }
+    
+    func setComboSource() {
+        self.holdingSchoolSelector.removeAllItems()
+        self.holdingSchoolSelector.addItem(withTitle: "不限")
+        self.holdingSchoolSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
+        self.holdingSchoolSelector.addItems(withTitles: schools)
+        
+        self.teacherNameCombo.removeAllItems()
+        self.teacherNameCombo.addItems(withObjectValues: teachers)
+        
+        self.titleSelector.removeAllItems()
+        self.titleSelector.addItem(withTitle: "不限")
+        self.titleSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
+        self.titleSelector.addItems(withTitles: titles)
+        
+        self.classNameResultSelector.removeAllItems()
+        self.classNameLabel.stringValue = ""
+        
+        self.classNameCombo.removeAllItems()
+        self.classNameCombo.addItems(withObjectValues: classnames)
     }
 
     
@@ -349,12 +407,14 @@ class FullDataViewController: NSViewController {
         ]
     
     func setLayoutType(_ type: LayoutType) {
-        let frame = self.view.window!.frame
-        let heightDelta = frame.size.height - FullDataViewController.layoutTable[type.rawValue].height
-        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
-        let size = FullDataViewController.layoutTable[type.rawValue]
-        let newFrame = NSRect(origin: origin, size: size)
-        self.view.window?.setFrame(newFrame, display: true, animate: true)
+        let frame = self.view.window?.frame
+        if frame != nil {
+            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
+            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
+            let size = FullDataViewController.layoutTable[type.rawValue]
+            let newFrame = NSRect(origin: origin, size: size)
+            self.view.window?.setFrame(newFrame, display: true, animate: true)
+        }
     }
     
     @IBAction func switchSeg(_ sender: NSSegmentedControl) {
