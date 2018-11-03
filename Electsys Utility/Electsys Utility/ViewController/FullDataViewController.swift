@@ -16,6 +16,8 @@ class FullDataViewController: NSViewController {
     
     var courses: [Curricula] = []
     
+    var queryCourses: [Curricula] = []
+    
     var upperHall: [String] = []
     var middleHall: [String] = []
     var lowerHall: [String] = []
@@ -108,6 +110,7 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var classNameResultSelector: NSPopUpButton!
     @IBOutlet weak var classroomDetail: NSButton!
     
+    @IBOutlet weak var exactMatchChecker: NSButton!
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
@@ -137,6 +140,7 @@ class FullDataViewController: NSViewController {
 //        print(jsonUrl)
         self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false
+        
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
                 self.progressIndicator.isHidden = true
@@ -181,6 +185,7 @@ class FullDataViewController: NSViewController {
                         self.sortLists()
                         self.pushPopListData(self.buildingSelector)
                         self.setComboSource()
+                        self.startTeacherQuery()
                         self.switchSeg(self.tabTitleSeg)
                         // success!
                     }
@@ -216,6 +221,16 @@ class FullDataViewController: NSViewController {
         updateBoxes(sender)
     }
     
+    
+    @IBAction func updateQuery(_ sender: Any) {
+        startTeacherQuery()
+    }
+    
+
+    @IBAction func updateNameQuery(_ sender: Any) {
+        startNameQuery()
+    }
+    
     func setComboSource() {
         self.holdingSchoolSelector.removeAllItems()
         self.holdingSchoolSelector.addItem(withTitle: "不限")
@@ -229,14 +244,78 @@ class FullDataViewController: NSViewController {
         self.titleSelector.addItem(withTitle: "不限")
         self.titleSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
         self.titleSelector.addItems(withTitles: titles)
+        self.teacherLabel.stringValue = "请确定筛选条件。"
         
         self.classNameResultSelector.removeAllItems()
-        self.classNameLabel.stringValue = ""
+        self.classNameLabel.stringValue = "请确定筛选条件。"
         
         self.classNameCombo.removeAllItems()
         self.classNameCombo.addItems(withObjectValues: classnames)
     }
 
+    func startTeacherQuery() {
+        queryCourses.removeAll()
+        teacherResultSelector.removeAllItems()
+        
+        var limitSchool = holdingSchoolSelector.title
+        if limitSchool == "不限" {
+            limitSchool = ""
+        }
+        
+        var limitTitle = titleSelector.title
+        if limitTitle == "不限" {
+            limitTitle = ""
+        }
+        
+        let teacherName = sanitize(teacherNameCombo.stringValue)
+        
+        if sanitize(teacherName) == "" {
+            teacherLabel.stringValue = "请确定筛选条件。"
+            return
+        }
+        
+        for cur in courses {
+            if exactMatchChecker.state == .off {
+                if !cur.teacherName.contains(teacherName) {
+                    continue
+                }
+            } else {
+                if cur.teacherName != teacherName {
+                    continue
+                }
+            }
+            
+            if limitTitle != "" {
+                if cur.teacherTitle != limitTitle {
+                    continue
+                }
+            }
+            
+            if limitSchool != "" {
+                if cur.holderSchool != limitSchool {
+                    continue
+                }
+            }
+            
+            queryCourses.append(cur)
+            teacherResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+        }
+        teacherLabel.stringValue = "匹配到 \(teacherResultSelector.numberOfItems) 条课程信息。"
+    }
+    
+    func startNameQuery() {
+        queryCourses.removeAll()
+        classNameResultSelector.removeAllItems()
+        let courseName = sanitize(classNameCombo.stringValue)
+        for cur in courses {
+            if !cur.name.contains(courseName) {
+                continue
+            }
+            queryCourses.append(cur)
+            classNameResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+        }
+        classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
+    }
     
     func sortClassroom(_ str: String) {
         let str = str.replacingOccurrences(of: "院", with: "院 ")

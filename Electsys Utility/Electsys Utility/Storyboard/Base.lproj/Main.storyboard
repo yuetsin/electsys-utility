@@ -390,11 +390,11 @@ DQ
             <objects>
                 <viewController id="Q2K-06-gA8" customClass="FullDataViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" misplaced="YES" id="1i5-vo-FPn">
-                        <rect key="frame" x="0.0" y="0.0" width="504" height="342"/>
+                        <rect key="frame" x="0.0" y="0.0" width="504" height="291"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" id="hCp-aG-7zK">
-                                <rect key="frame" x="259" y="307" width="126" height="26"/>
+                                <rect key="frame" x="259" y="256" width="126" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="wOn-0V-00L" id="ew2-Fl-Rl1">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -412,7 +412,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="wbi-ir-hA5">
-                                <rect key="frame" x="18" y="312" width="44" height="17"/>
+                                <rect key="frame" x="18" y="261" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="qXU-6Q-oIT">
                                     <font key="font" metaFont="system"/>
@@ -421,7 +421,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="cO5-HU-pLF">
-                                <rect key="frame" x="211" y="312" width="44" height="17"/>
+                                <rect key="frame" x="211" y="261" width="44" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="TCV-IW-VE5">
                                     <font key="font" metaFont="system"/>
@@ -430,21 +430,18 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="H07-8N-Qv4">
-                                <rect key="frame" x="404" y="303" width="86" height="32"/>
+                                <rect key="frame" x="404" y="252" width="86" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="检索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ib4-ux-mIM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startQuery:" target="Q2K-06-gA8" id="73F-z4-hTH"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="f8k-GX-8wV">
-                                <rect key="frame" x="18" y="270" width="468" height="14"/>
+                                <rect key="frame" x="18" y="219" width="468" height="14"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="所有课程数据来自 finda-studyroom，一个 electsysq.sjtu.edu.cn 网站的 JSON 镜像。" id="GFw-39-muf">
                                     <font key="font" metaFont="smallSystem"/>
@@ -453,7 +450,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" id="25r-Tt-eJY">
-                                <rect key="frame" x="66" y="307" width="111" height="26"/>
+                                <rect key="frame" x="66" y="256" width="111" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bZK-6M-9tc">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -465,7 +462,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <tabView misplaced="YES" type="noTabsNoBorder" id="i1w-CT-yNz">
-                                <rect key="frame" x="0.0" y="-8" width="504" height="225"/>
+                                <rect key="frame" x="0.0" y="-59" width="504" height="225"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
@@ -879,6 +876,9 @@ DQ
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="updateQuery:" target="Q2K-06-gA8" id="NN6-BE-jU1"/>
+                                                    </connections>
                                                 </popUpButton>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="yJZ-Mb-kuW">
                                                     <rect key="frame" x="93" y="200" width="71" height="17"/>
@@ -899,13 +899,16 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <comboBox verticalHuggingPriority="750" misplaced="YES" id="pHs-uc-B5F">
-                                                    <rect key="frame" x="170" y="166" width="231" height="26"/>
+                                                    <rect key="frame" x="170" y="166" width="141" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" numberOfVisibleItems="5" id="gIo-Zo-3DO">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </comboBoxCell>
+                                                    <connections>
+                                                        <action selector="updateQuery:" target="Q2K-06-gA8" id="Fi8-Q3-J6m"/>
+                                                    </connections>
                                                 </comboBox>
                                                 <popUpButton verticalHuggingPriority="750" misplaced="YES" id="eSJ-ZA-5s4">
                                                     <rect key="frame" x="168" y="138" width="233" height="26"/>
@@ -921,6 +924,9 @@ DQ
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="updateQuery:" target="Q2K-06-gA8" id="buQ-NQ-vGI"/>
+                                                    </connections>
                                                 </popUpButton>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="0Vj-cR-Att">
                                                     <rect key="frame" x="93" y="143" width="71" height="17"/>
@@ -932,10 +938,10 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="hJy-14-LOU">
-                                                    <rect key="frame" x="30" y="109" width="444" height="17"/>
+                                                    <rect key="frame" x="30" y="104" width="444" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到关于「#NAME# #TITLE#」的 #COUNT# 条课程信息。" id="mF9-y3-WpM">
-                                                        <font key="font" metaFont="system"/>
+                                                        <font key="font" metaFont="system" size="11"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
@@ -957,6 +963,21 @@ DQ
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
+                                                <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="3Wg-nH-rat">
+                                                    <rect key="frame" x="32" y="127" width="439" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </box>
+                                                <button verticalHuggingPriority="750" misplaced="YES" id="pSO-3H-eDm">
+                                                    <rect key="frame" x="324" y="171" width="76" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="完全匹配" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nAJ-n9-eiB">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="updateQuery:" target="Q2K-06-gA8" id="aP7-3Y-Gba"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -973,6 +994,9 @@ DQ
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </comboBoxCell>
+                                                    <connections>
+                                                        <action selector="updateNameQuery:" target="Q2K-06-gA8" id="c2j-7R-suo"/>
+                                                    </connections>
                                                 </comboBox>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="oj1-sL-MJM">
                                                     <rect key="frame" x="72" y="192" width="115" height="17"/>
@@ -991,16 +1015,10 @@ DQ
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="fg3-NZ-bho"/>
                                                     </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="updateNameQuery:" target="Q2K-06-gA8" id="Msg-BN-4Hg"/>
+                                                    </connections>
                                                 </popUpButton>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="W8p-Zo-xXJ">
-                                                    <rect key="frame" x="30" y="162" width="444" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到 #COUNT# 条课程信息。" id="Mjl-Sg-TBZ">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <button verticalHuggingPriority="750" misplaced="YES" id="q1Z-iy-81u">
                                                     <rect key="frame" x="350" y="123" width="86" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1009,13 +1027,26 @@ DQ
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                 </button>
+                                                <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Lpx-EN-6ce">
+                                                    <rect key="frame" x="32" y="180" width="439" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </box>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="W8p-Zo-xXJ">
+                                                    <rect key="frame" x="29" y="156" width="444" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到 #COUNT# 条课程信息。" id="Mjl-Sg-TBZ">
+                                                        <font key="font" metaFont="system" size="11"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
                             <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="egx-SI-kXH">
-                                <rect key="frame" x="115" y="233" width="274" height="24"/>
+                                <rect key="frame" x="115" y="182" width="274" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="UT8-EW-UHG">
                                     <font key="font" metaFont="system"/>
@@ -1029,18 +1060,18 @@ DQ
                                     <action selector="switchSeg:" target="Q2K-06-gA8" id="Qjv-Vm-ggU"/>
                                 </connections>
                             </segmentedControl>
-                            <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Vwq-bY-cGz">
-                                <rect key="frame" x="32" y="217" width="439" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
                             <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Lcu-Rz-vMh">
-                                <rect key="frame" x="32" y="292" width="439" height="5"/>
+                                <rect key="frame" x="32" y="241" width="439" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
-                            <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="100" indeterminate="YES" style="bar" id="EiC-xp-p7C">
-                                <rect key="frame" x="20" y="285" width="464" height="20"/>
+                            <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="4" indeterminate="YES" style="bar" id="EiC-xp-p7C">
+                                <rect key="frame" x="20" y="234" width="464" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
+                            <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Vwq-bY-cGz">
+                                <rect key="frame" x="32" y="170" width="439" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
@@ -1052,6 +1083,7 @@ DQ
                         <outlet property="detailBox" destination="e7r-6v-yGv" id="npo-1k-R7u"/>
                         <outlet property="eightButton" destination="rLA-sP-bgD" id="vdo-Mo-rtB"/>
                         <outlet property="elevenButton" destination="S7C-KG-Wto" id="70q-ZX-I9N"/>
+                        <outlet property="exactMatchChecker" destination="pSO-3H-eDm" id="0DD-Q0-QVh"/>
                         <outlet property="fiveButton" destination="cIr-EZ-Ypl" id="PAz-a0-wn4"/>
                         <outlet property="fourButton" destination="7dc-od-fCn" id="zZ2-ay-XBy"/>
                         <outlet property="holdingSchoolSelector" destination="KQk-ig-vuY" id="k2p-OG-qbZ"/>
@@ -1081,7 +1113,7 @@ DQ
                 </viewController>
                 <customObject id="16l-Yi-oCI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1730" y="802"/>
+            <point key="canvasLocation" x="-1730" y="776.5"/>
         </scene>
         <!--Resolve View Controller-->
         <scene sceneID="iKi-s5-3ho">
