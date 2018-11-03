@@ -34,7 +34,6 @@ class FullDataViewController: NSViewController {
         for year in 0...8 {
             yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
         }
-        self.preferredContentSize = smallSize
     }
     
     func setWeekPop(start: Int, end: Int) {
@@ -55,7 +54,7 @@ class FullDataViewController: NSViewController {
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
         clearLists()
         getJson()
     }
@@ -82,9 +81,11 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var elevenButton: NSButton!
     @IBOutlet weak var twelveButton: NSButton!
     
+    @IBOutlet weak var tabTitleSeg: NSSegmentedControl!
     @IBOutlet weak var sortBox: NSBox!
     @IBOutlet weak var detailBox: NSBox!
     
+    @IBOutlet weak var tabView: NSTabView!
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
@@ -97,11 +98,11 @@ class FullDataViewController: NSViewController {
     }
 
     @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
     }
     
     @IBAction func termPopTapped(_ sender: NSPopUpButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
         if sender.selectedItem?.title == "夏季小学期" {
             setWeekPop(start: 19, end: 22)
         } else {
@@ -143,7 +144,7 @@ class FullDataViewController: NSViewController {
                         self.progressIndicator.isHidden = true
                         self.sortLists()
                         self.pushPopListData(self.buildingSelector)
-                        self.expandFrame()
+                        self.switchSeg(self.tabTitleSeg)
                         // success!
                     }
                 }
@@ -226,26 +227,6 @@ class FullDataViewController: NSViewController {
         eastLowerHall.sort()
     }
     
-    func shrinkFrame() {
-        
-        let frame = self.view.window!.frame
-        let heightDelta = frame.size.height - smallSize.height - 48
-        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
-        let size = NSSize(width: smallSize.width, height: smallSize.height + 48)
-        let newFrame = NSRect(origin: origin, size: size)
-        self.view.window?.setFrame(newFrame, display: true, animate: true)
-
-    }
-    
-    func expandFrame() {
-
-        let frame = self.view.window!.frame
-        let heightDelta = frame.size.height - bigSize.height - 48
-        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
-        let size = NSSize(width: bigSize.width, height: bigSize.height + 48)
-        let newFrame = NSRect(origin: origin, size: size)
-        self.view.window?.setFrame(newFrame, display: true, animate: true)
-    }
     
     @IBAction func updateBoxes(_ sender: NSPopUpButton) {
         for i in 1...12 {
@@ -359,6 +340,33 @@ class FullDataViewController: NSViewController {
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
+    
+    static let layoutTable: [NSSize] = [
+        NSSize(width: 504, height: 79),
+        NSSize(width: 504, height: 363 + 30),
+        NSSize(width: 504, height: 290 + 30),
+        NSSize(width: 504, height: 238 + 30)
+        ]
+    
+    func setLayoutType(_ type: LayoutType) {
+        let frame = self.view.window!.frame
+        let heightDelta = frame.size.height - FullDataViewController.layoutTable[type.rawValue].height
+        let origin = NSMakePoint(frame.origin.x, frame.origin.y + heightDelta)
+        let size = FullDataViewController.layoutTable[type.rawValue]
+        let newFrame = NSRect(origin: origin, size: size)
+        self.view.window?.setFrame(newFrame, display: true, animate: true)
+    }
+    
+    @IBAction func switchSeg(_ sender: NSSegmentedControl) {
+        if sender.selectedSegment == 0 {
+            setLayoutType(.classroom)
+        } else if sender.selectedSegment == 1 {
+            setLayoutType(.teacher)
+        } else if sender.selectedSegment == 2 {
+            setLayoutType(.name)
+        }
+        tabView.selectTabViewItem(at: sender.selectedSegment)
+    }
 }
 
 
@@ -393,4 +401,13 @@ extension NSImage {
         }
     }
 }
+
+
+enum LayoutType: Int {
+    case shrink = 0
+    case classroom = 1
+    case teacher = 2
+    case name = 3
+}
+
 

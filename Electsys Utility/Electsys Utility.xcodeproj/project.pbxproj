@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8A04055D213984050060F93A /* SchoolDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04055C213984050060F93A /* SchoolDay.swift */; };
-		8A044784218C88D400BAB188 /* AnimatedTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A044783218C88D400BAB188 /* AnimatedTabViewController.swift */; };
 		8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A485214E0EC0008EC502 /* GalleryIcon.swift */; };
 		8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A487214E1787008EC502 /* JsonRequester.swift */; };
 		8A09A48A214E513C008EC502 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09A489214E513C008EC502 /* SwiftyJSON.framework */; };
@@ -50,7 +49,6 @@
 		4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Electsys_Utility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C93767FDE3DFC555E7904CA /* Pods_courseSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_courseSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A04055C213984050060F93A /* SchoolDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDay.swift; sourceTree = "<group>"; };
-		8A044783218C88D400BAB188 /* AnimatedTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabViewController.swift; sourceTree = "<group>"; };
 		8A09A485214E0EC0008EC502 /* GalleryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryIcon.swift; sourceTree = "<group>"; };
 		8A09A487214E1787008EC502 /* JsonRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequester.swift; sourceTree = "<group>"; };
 		8A09A489214E513C008EC502 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +213,6 @@
 				8A397DCA2140D6E500AE297A /* ExamSyncViewController.swift */,
 				8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */,
 				8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */,
-				8A044783218C88D400BAB188 /* AnimatedTabViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -296,6 +293,7 @@
 				TargetAttributes = {
 					8A4A22D921362EAF0064488C = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -398,7 +396,6 @@
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
 				8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */,
 				8A397DC72140B87400AE297A /* Teacher.swift in Sources */,
-				8A044784218C88D400BAB188 /* AnimatedTabViewController.swift in Sources */,
 				8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
@@ -551,6 +548,7 @@
 			baseConfigurationReference = 9DC9CE2F64C043C009C22FAA /* Pods-Electsys Utility.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/courseSync.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -563,6 +561,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -572,6 +572,7 @@
 			baseConfigurationReference = 98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/courseSync.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
