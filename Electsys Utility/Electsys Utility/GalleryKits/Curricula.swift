@@ -43,6 +43,18 @@ class Curricula {
         }
         return classrooms
     }
+    
+    func isContinuous() -> Bool {
+        if oddWeekArr.count != evenWeekArr.count {
+            return false
+        }
+        for i in 0..<oddWeekArr.count {
+            if oddWeekArr[i] != evenWeekArr[i] {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 class Arrangement {
@@ -58,6 +70,13 @@ class Arrangement {
 
     var classroom = ""
 // 授课教室
+    
+    static func != (left: Arrangement, right: Arrangement) -> Bool {
+        return !(left.weekDay == right.weekDay) &&
+        (left.startsAt == right.startsAt) &&
+        (left.endsAt == right.endsAt) &&
+        (left.classroom == right.classroom)
+    }
 }
 
 enum Year: Int {
