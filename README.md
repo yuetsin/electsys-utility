@@ -38,8 +38,15 @@
 * [CrossroadRegex](https://github.com/crossroadlabs/Regex)
 
 # 屏幕截图
-## 查看教室安排情况
-![](https://raw.githubusercontent.com/yuxiqian/Electsys-Utility/master/Electsys%20Utility/Screenshots/教室使用情况界面.png)
+## 在课程库中筛选
+### 按教室
+![](https://raw.githubusercontent.com/yuxiqian/Electsys-Utility/master/Electsys%20Utility/Screenshots/按教室筛选.png)
+
+### 按教师
+![](https://raw.githubusercontent.com/yuxiqian/Electsys-Utility/master/Electsys%20Utility/Screenshots/按教师筛选.png)
+
+### 按课程名称
+![](https://raw.githubusercontent.com/yuxiqian/Electsys-Utility/master/Electsys%20Utility/Screenshots/按课名筛选.png)
 
 ## 同步课程到系统日历
 ![](https://raw.githubusercontent.com/yuxiqian/Electsys-Utility/master/Electsys%20Utility/Screenshots/系统日历.png)
