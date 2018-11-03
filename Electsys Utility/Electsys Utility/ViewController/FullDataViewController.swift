@@ -186,6 +186,7 @@ class FullDataViewController: NSViewController {
                         self.pushPopListData(self.buildingSelector)
                         self.setComboSource()
                         self.startTeacherQuery()
+                        self.startNameQuery()
                         self.switchSeg(self.tabTitleSeg)
                         // success!
                     }
