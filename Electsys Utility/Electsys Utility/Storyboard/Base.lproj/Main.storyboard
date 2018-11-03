@@ -2469,7 +2469,7 @@ DQ
         <scene sceneID="apW-nN-Pmh">
             <objects>
                 <windowController storyboardIdentifier="About Window Controller" id="U4b-Sh-jgP" customClass="TransparentTitleWindowController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="关于" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="SQg-1z-spS">
+                    <window key="window" title="关于" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" id="SQg-1z-spS">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="238" height="193"/>
