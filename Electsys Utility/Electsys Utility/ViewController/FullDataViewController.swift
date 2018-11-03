@@ -15,6 +15,9 @@ class FullDataViewController: NSViewController {
     let specialSep = "$_$"
     
     var courses: [Curricula] = []
+    
+    var queryCourses: [Curricula] = []
+    
     var upperHall: [String] = []
     var middleHall: [String] = []
     var lowerHall: [String] = []
@@ -22,6 +25,11 @@ class FullDataViewController: NSViewController {
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
+    
+    var schools: [String] = []
+    var teachers: [String] = []
+    var titles: [String] = []
+    var classnames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +50,11 @@ class FullDataViewController: NSViewController {
     
     func clearLists() {
         courses.removeAll()
+        schools.removeAll()
+        titles.removeAll()
+        teachers.removeAll()
+        classnames.removeAll()
+        
         upperHall.removeAll()
         middleHall.removeAll()
         lowerHall.removeAll()
@@ -51,7 +64,7 @@ class FullDataViewController: NSViewController {
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
         clearLists()
         getJson()
     }
@@ -78,9 +91,26 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var elevenButton: NSButton!
     @IBOutlet weak var twelveButton: NSButton!
     
+    @IBOutlet weak var tabTitleSeg: NSSegmentedControl!
     @IBOutlet weak var sortBox: NSBox!
     @IBOutlet weak var detailBox: NSBox!
     
+    @IBOutlet weak var tabView: NSTabView!
+    
+    
+    @IBOutlet weak var holdingSchoolSelector: NSPopUpButton!
+    @IBOutlet weak var teacherNameCombo: NSComboBox!
+    @IBOutlet weak var titleSelector: NSPopUpButton!
+    @IBOutlet weak var teacherResultSelector: NSPopUpButton!
+    @IBOutlet weak var teacherDetail: NSButton!
+    @IBOutlet weak var teacherLabel: NSTextField!
+    
+    @IBOutlet weak var classNameCombo: NSComboBox!
+    @IBOutlet weak var classNameLabel: NSTextField!
+    @IBOutlet weak var classNameResultSelector: NSPopUpButton!
+    @IBOutlet weak var classroomDetail: NSButton!
+    
+    @IBOutlet weak var exactMatchChecker: NSButton!
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
@@ -93,11 +123,11 @@ class FullDataViewController: NSViewController {
     }
 
     @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
     }
     
     @IBAction func termPopTapped(_ sender: NSPopUpButton) {
-        shrinkFrame()
+        setLayoutType(.shrink)
         if sender.selectedItem?.title == "夏季小学期" {
             setWeekPop(start: 19, end: 22)
         } else {
@@ -110,6 +140,7 @@ class FullDataViewController: NSViewController {
 //        print(jsonUrl)
         self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false
+        
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
                 self.progressIndicator.isHidden = true
@@ -125,6 +156,20 @@ class FullDataViewController: NSViewController {
                                 for classRoom in cur.getRelatedClassroom() {
                                     self.sortClassroom(classRoom)
                                 }
+                                if !(self.schools.contains(cur.holderSchool)) {
+                                    self.schools.append(cur.holderSchool)
+                                }
+                                if !(self.teachers.contains(cur.teacherName)) {
+                                    self.teachers.append(cur.teacherName)
+                                }
+                                if !(self.classnames.contains(cur.name)) {
+                                    self.classnames.append(cur.name)
+                                }
+                                if !(self.titles.contains(cur.teacherTitle)) {
+                                    if sanitize(cur.teacherTitle) != "" {
+                                        self.titles.append(cur.teacherTitle)
+                                    }
+                                }
                                 self.courses.append(cur)
                             }
                         }
@@ -139,7 +184,10 @@ class FullDataViewController: NSViewController {
                         self.progressIndicator.isHidden = true
                         self.sortLists()
                         self.pushPopListData(self.buildingSelector)
-                        self.expandFrame()
+                        self.setComboSource()
+                        self.startTeacherQuery()
+                        self.startNameQuery()
+                        self.switchSeg(self.tabTitleSeg)
                         // success!
                     }
                 }
@@ -173,7 +221,102 @@ class FullDataViewController: NSViewController {
         }
         updateBoxes(sender)
     }
+    
+    
+    @IBAction func updateQuery(_ sender: Any) {
+        startTeacherQuery()
+    }
+    
 
+    @IBAction func updateNameQuery(_ sender: Any) {
+        startNameQuery()
+    }
+    
+    func setComboSource() {
+        self.holdingSchoolSelector.removeAllItems()
+        self.holdingSchoolSelector.addItem(withTitle: "不限")
+        self.holdingSchoolSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
+        self.holdingSchoolSelector.addItems(withTitles: schools)
+        
+        self.teacherNameCombo.removeAllItems()
+        self.teacherNameCombo.addItems(withObjectValues: teachers)
+        
+        self.titleSelector.removeAllItems()
+        self.titleSelector.addItem(withTitle: "不限")
+        self.titleSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
+        self.titleSelector.addItems(withTitles: titles)
+        self.teacherLabel.stringValue = "请确定筛选条件。"
+        
+        self.classNameResultSelector.removeAllItems()
+        self.classNameLabel.stringValue = "请确定筛选条件。"
+        
+        self.classNameCombo.removeAllItems()
+        self.classNameCombo.addItems(withObjectValues: classnames)
+    }
+
+    func startTeacherQuery() {
+        queryCourses.removeAll()
+        teacherResultSelector.removeAllItems()
+        
+        var limitSchool = holdingSchoolSelector.title
+        if limitSchool == "不限" {
+            limitSchool = ""
+        }
+        
+        var limitTitle = titleSelector.title
+        if limitTitle == "不限" {
+            limitTitle = ""
+        }
+        
+        let teacherName = sanitize(teacherNameCombo.stringValue)
+        
+        if sanitize(teacherName) == "" {
+            teacherLabel.stringValue = "请确定筛选条件。"
+            return
+        }
+        
+        for cur in courses {
+            if exactMatchChecker.state == .off {
+                if !cur.teacherName.contains(teacherName) {
+                    continue
+                }
+            } else {
+                if cur.teacherName != teacherName {
+                    continue
+                }
+            }
+            
+            if limitTitle != "" {
+                if cur.teacherTitle != limitTitle {
+                    continue
+                }
+            }
+            
+            if limitSchool != "" {
+                if cur.holderSchool != limitSchool {
+                    continue
+                }
+            }
+            
+            queryCourses.append(cur)
+            teacherResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+        }
+        teacherLabel.stringValue = "匹配到 \(teacherResultSelector.numberOfItems) 条课程信息。"
+    }
+    
+    func startNameQuery() {
+        queryCourses.removeAll()
+        classNameResultSelector.removeAllItems()
+        let courseName = sanitize(classNameCombo.stringValue)
+        for cur in courses {
+            if !cur.name.contains(courseName) {
+                continue
+            }
+            queryCourses.append(cur)
+            classNameResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+        }
+        classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
+    }
     
     func sortClassroom(_ str: String) {
         let str = str.replacingOccurrences(of: "院", with: "院 ")
@@ -222,18 +365,6 @@ class FullDataViewController: NSViewController {
         eastLowerHall.sort()
     }
     
-    func shrinkFrame() {
-        var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 89)
-        self.view.window?.setFrame(frame, display: true, animate: true)
-    }
-    
-    func expandFrame() {
-        var frame: NSRect = (self.view.window?.frame)!
-        frame.size = NSSize(width: 480, height: 317)
-        self.view.window?.setFrame(frame, display: true, animate: true)
-    }
-
     
     @IBAction func updateBoxes(_ sender: NSPopUpButton) {
         for i in 1...12 {
@@ -347,6 +478,35 @@ class FullDataViewController: NSViewController {
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
+    
+    static let layoutTable: [NSSize] = [
+        NSSize(width: 504, height: 79),
+        NSSize(width: 504, height: 363 + 30),
+        NSSize(width: 504, height: 290 + 30),
+        NSSize(width: 504, height: 238 + 30)
+        ]
+    
+    func setLayoutType(_ type: LayoutType) {
+        let frame = self.view.window?.frame
+        if frame != nil {
+            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
+            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
+            let size = FullDataViewController.layoutTable[type.rawValue]
+            let newFrame = NSRect(origin: origin, size: size)
+            self.view.window?.setFrame(newFrame, display: true, animate: true)
+        }
+    }
+    
+    @IBAction func switchSeg(_ sender: NSSegmentedControl) {
+        if sender.selectedSegment == 0 {
+            setLayoutType(.classroom)
+        } else if sender.selectedSegment == 1 {
+            setLayoutType(.teacher)
+        } else if sender.selectedSegment == 2 {
+            setLayoutType(.name)
+        }
+        tabView.selectTabViewItem(at: sender.selectedSegment)
+    }
 }
 
 
@@ -381,4 +541,13 @@ extension NSImage {
         }
     }
 }
+
+
+enum LayoutType: Int {
+    case shrink = 0
+    case classroom = 1
+    case teacher = 2
+    case name = 3
+}
+
 

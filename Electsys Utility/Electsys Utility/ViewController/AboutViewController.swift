@@ -1,50 +1,45 @@
 //
-//  AppDelegate.swift
-//  courseSync
+//  AboutViewController.swift
+//  cai-yun
 //
-//  Created by yuxiqian on 2018/8/29.
+//  Created by yuxiqian on 2018/10/2.
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //
 
 import Cocoa
 
-@NSApplicationMain
-
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AboutViewController: NSViewController {
     
-    @IBOutlet var window: NSWindow!
     var windowController: NSWindowController?
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do view setup here.
+        
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
+        let pI = ProcessInfo.init()
+        let systemVersion = pI.operatingSystemVersionString
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+
+        self.versionLabel.stringValue = "App 版本 \(version ?? "未知") (\(build ?? "未知"))"
+        
+        self.systemLabel.stringValue = "运行在 macOS \(systemVersion)"
+        
     }
-  
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
-    
-    @IBAction func aboutWindow(_ sender: NSButton) {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "About Window Controller")) as? NSWindowController
-        windowController?.showWindow(sender)
-    }
-    
-    @IBAction func openCreditsWindow(_ sender: NSButton) {
+    @IBAction func turnCredits(_ sender: NSButton) {
         let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
         windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "Credits Window Controller")) as? NSWindowController
         windowController?.showWindow(sender)
     }
     
-    @IBAction func openGithubPage(_ sender: NSButton) {
+    @IBAction func goToGithubPages(_ sender: NSButton) {
         if let url = URL(string: "https://github.com/yuxiqian/Electsys-Utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }
     
-    @IBAction func mailAuthor(_ sender: NSButton) {
+    @IBAction func mailMe(_ sender: NSButton) {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
         let pI = ProcessInfo.init()
@@ -54,5 +49,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mailService.subject = "Electsys Utility Feedback"
         mailService.perform(withItems: ["\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
     }
+    
+    @IBAction func shutWindow(_ sender: NSButton) {
+        self.view.window?.close()
+    }
+    
+    
+    @IBOutlet weak var versionLabel: NSTextField!
+    @IBOutlet weak var systemLabel: NSTextField!
 }
-
