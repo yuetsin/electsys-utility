@@ -26,6 +26,8 @@ class FullDataViewController: NSViewController {
     var eastUpperHall: [String] = []
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
+    var jiaoYiBuilding: [String] = []
+    
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
     
     var schools: [String] = []
@@ -63,6 +65,7 @@ class FullDataViewController: NSViewController {
         eastUpperHall.removeAll()
         eastMiddleHall.removeAll()
         eastLowerHall.removeAll()
+        jiaoYiBuilding.removeAll()
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
@@ -218,6 +221,9 @@ class FullDataViewController: NSViewController {
         case "闵行校区东下院"?:
             roomSelector.addRoomItems(withTitles: eastLowerHall)
             break
+        case "徐汇校区教一楼"?:
+            roomSelector.addRoomItems(withTitles: jiaoYiBuilding)
+            break
         default:
             roomSelector.addItem(withTitle: "ˊ_>ˋ")
         }
@@ -346,6 +352,10 @@ class FullDataViewController: NSViewController {
             if !eastLowerHall.contains(str) {
                 eastLowerHall.append(str)
             }
+        } else if str.starts(with: "教一楼") {
+            if !jiaoYiBuilding.contains(str) {
+                jiaoYiBuilding.append(str)
+            }
         }
     }
     
@@ -365,6 +375,7 @@ class FullDataViewController: NSViewController {
         eastUpperHall.sort()
         eastMiddleHall.sort()
         eastLowerHall.sort()
+        jiaoYiBuilding.sort()
     }
     
     

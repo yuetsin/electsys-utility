@@ -444,7 +444,7 @@ DQ
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="f8k-GX-8wV">
                                 <rect key="frame" x="18" y="-16" width="468" height="14"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="所有课程数据来自 finda-studyroom，一个 electsysq.sjtu.edu.cn 网站的 JSON 镜像。" id="GFw-39-muf">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="所有课程数据来自 finda-studyroom，一个 electsysq.sjtu.edu.cn 网站的 JSON 镜像。" id="GFw-39-muf">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -771,7 +771,7 @@ DQ
                                                                 <popUpButtonCell key="cell" type="push" title="闵行校区上院" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HzX-NK-rXa" id="bqo-Db-Cfn">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
-                                                                    <menu key="menu" id="hFW-B3-Igc">
+                                                                    <menu key="menu" id="hFW-B3-Igc" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
                                                                         <items>
                                                                             <menuItem title="闵行校区上院" state="on" id="HzX-NK-rXa">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -782,6 +782,7 @@ DQ
                                                                             <menuItem title="闵行校区下院" id="SBs-nX-dZF">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="2wl-VR-l8J"/>
                                                                             <menuItem title="闵行校区东上院" id="AHo-0a-1sc">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
@@ -789,6 +790,10 @@ DQ
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区东下院" id="tar-zF-Cq5">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="awi-rQ-0jw"/>
+                                                                            <menuItem title="徐汇校区教一楼" id="Nty-ds-See">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
                                                                         </items>
@@ -1436,6 +1441,14 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" misplaced="YES" id="Ut0-ey-ZZl">
+                                <rect key="frame" x="347" y="136" width="137" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="导出 ics 文件…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8O6-92-MGx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1722,7 +1735,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="4" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="7" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

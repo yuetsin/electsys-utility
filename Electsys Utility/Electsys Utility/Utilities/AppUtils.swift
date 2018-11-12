@@ -259,7 +259,7 @@ extension String {
     }
     
     func removeFloorCharacters() -> String {
-        return self.sanitize().deleteOccur(remove: "东").deleteOccur(remove: "上").deleteOccur(remove: "中").deleteOccur(remove: "下").deleteOccur(remove: "院")
+        return self.sanitize().deleteOccur(remove: "东").deleteOccur(remove: "上").deleteOccur(remove: "中").deleteOccur(remove: "下").deleteOccur(remove: "院").deleteOccur(remove: "教一楼")
     }
 }
 
