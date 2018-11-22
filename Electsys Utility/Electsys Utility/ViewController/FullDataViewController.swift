@@ -278,8 +278,10 @@ class FullDataViewController: NSViewController {
         
         let teacherName = sanitize(teacherNameCombo.stringValue)
         
-        if sanitize(teacherName) == "" {
+        if teacherName == "" {
             teacherLabel.stringValue = "请确定筛选条件。"
+            teacherResultSelector.isEnabled = false
+            teacherDetail.isEnabled = false
             return
         }
         
@@ -309,13 +311,30 @@ class FullDataViewController: NSViewController {
             queryCoursesOnTeacher.append(cur)
             teacherResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
         }
+        if queryCoursesOnTeacher.count == 0 {
+            teacherLabel.stringValue = "没有符合条件的结果。"
+            teacherResultSelector.isEnabled = false
+            teacherDetail.isEnabled = false
+            return
+        }
+        
+        teacherResultSelector.isEnabled = true
+        teacherDetail.isEnabled = true
         teacherLabel.stringValue = "匹配到 \(teacherResultSelector.numberOfItems) 条课程信息。"
     }
     
     func startNameQuery() {
+        
         queryCoursesOnName.removeAll()
         classNameResultSelector.removeAllItems()
         let courseName = sanitize(classNameCombo.stringValue)
+        if courseName == "" {
+            classNameLabel.stringValue = "请确定筛选条件。"
+            classNameResultSelector.isEnabled = false
+            classroomDetail.isEnabled = false
+            return
+        }
+        
         for cur in courses {
             if !cur.name.contains(courseName) {
                 continue
@@ -323,6 +342,14 @@ class FullDataViewController: NSViewController {
             queryCoursesOnName.append(cur)
             classNameResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
         }
+        if queryCoursesOnName.count == 0 {
+            classNameLabel.stringValue = "没有符合条件的结果。"
+            classNameResultSelector.isEnabled = false
+            classroomDetail.isEnabled = false
+            return
+        }
+        classNameResultSelector.isEnabled = true
+        classroomDetail.isEnabled = true
         classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
     }
     
@@ -511,49 +538,48 @@ class FullDataViewController: NSViewController {
     }
     
     func displayDetail(_ classes: [Curricula]) {
+        for i in classes {
+            NSLog(i.identifier)
+        }
         let className = classes[0].name
         let teacher = classes[0].teacherName + " " + classes[0].teacherTitle
         let holder = classes[0].holderSchool
-        var target = ""
-        if classes[0].targetGrade != 0 {
-            target = "面向 \(classes[0].targetGrade) 级学生\n\n"
-        }
-        var schedule = "第 \(classes[0].startWeek) 至第 \(classes[0].endWeek) 周"
-        var both = "每周上课，\n"
-        var odd = "之中的单周：\n"
-        var even = "双周：\n"
-        var isCon: Bool = false
-        for cur in classes {
-            var tag: String = ""
-            if cur.isContinuous() {
-                isCon = true
-                for arr in cur.oddWeekArr {
-                    tag += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
-                }
-                tag += "\n"
-                both += tag
-            } else {
-                isCon = false
-                for arr in cur.oddWeekArr {
-                    odd += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
-                }
-                for arr in cur.evenWeekArr {
-                    even += "\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
-                }
-            }
-        }
         
-        if isCon {
-            schedule += both
-        } else {
-            schedule += odd
-            schedule += "\n"
-            schedule += even
-        }
-        schedule.removeLast()
+        var declare = ""
+        
+            for cur in classes {
+                var target = "课程 ID：\(cur.identifier)\n"
+                if cur.targetGrade != 0 {
+                    target += "\t面向 \(cur.targetGrade) 级学生\n"
+                }
+                var schedule = "\t第 \(cur.startWeek) 至第 \(cur.endWeek) 周"
+                let both = "每周上课，\n"
+                let odd = "之中的单周：\n"
+                let even = "\t双周：\n"
+                var tag = ""
+                if cur.isContinuous() {
+                    tag += both
+                    for arr in cur.oddWeekArr {
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                    }
+                } else {
+                    tag += odd
+                    for arr in cur.oddWeekArr {
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                    }
+                    for arr in cur.evenWeekArr {
+                        tag += even
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                    }
+                }
+                schedule += tag
+                target += schedule
+                declare += target + "\n"
+            }
+        declare.removeLast()
         let infoAlert: NSAlert = NSAlert()
         infoAlert.messageText = className
-        infoAlert.informativeText = "\(target)教师：\(teacher)\n开课院系：\(holder)\n授课安排：\n\(schedule)"
+        infoAlert.informativeText = "教师：\(teacher)\n开课院系：\(holder)\n\n\(declare)"
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
