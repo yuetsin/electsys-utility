@@ -62,6 +62,50 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="编辑" id="oUj-Iu-PEf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="编辑" id="rb1-gw-rwh">
+                                    <items>
+                                        <menuItem title="撤销" keyEquivalent="z" id="Rns-BM-Jz6">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="AOr-bC-Zfg"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="重做" keyEquivalent="Z" id="Pgf-0e-wGQ">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="vZh-BK-pWt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="7Je-VR-HcR"/>
+                                        <menuItem title="剪切" keyEquivalent="x" id="3ZX-FA-ViC">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="2gh-NI-x28"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="拷贝" keyEquivalent="c" id="gyf-Qm-Cb7">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="pSZ-gr-jFk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="粘贴" keyEquivalent="v" id="yUc-ZI-hcp">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="GhW-kD-yyq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="删除" id="VW0-B4-Chv">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="fPY-iz-8fh"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="全选" keyEquivalent="a" id="okd-en-IeH">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="esj-8o-vwk"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="窗口" id="xgQ-9s-WdJ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="窗口" id="VfE-F1-Exy">
@@ -1735,7 +1779,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="7.5" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="8" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
