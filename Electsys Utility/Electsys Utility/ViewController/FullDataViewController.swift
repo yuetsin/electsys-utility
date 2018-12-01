@@ -567,8 +567,8 @@ class FullDataViewController: NSViewController {
                     for arr in cur.oddWeekArr {
                         tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
                     }
+                    tag += even
                     for arr in cur.evenWeekArr {
-                        tag += even
                         tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
                     }
                 }
