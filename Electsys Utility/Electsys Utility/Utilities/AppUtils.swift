@@ -245,7 +245,7 @@ extension String {
     }
     
     func sanitize() -> String {
-        return (self.deleteOccur(remove: " ").deleteOccur(remove: "\t").deleteOccur(remove: "\n").deleteOccur(remove: "\r"))
+        return (self.deleteOccur(remove: " ").deleteOccur(remove: " ").deleteOccur(remove: "\t").deleteOccur(remove: "\n").deleteOccur(remove: "\r"))
     }
     
     func positionOf(sub:String, backwards: Bool = false) -> Int {
@@ -259,7 +259,7 @@ extension String {
     }
     
     func removeFloorCharacters() -> String {
-        return self.sanitize().deleteOccur(remove: "东").deleteOccur(remove: "上").deleteOccur(remove: "中").deleteOccur(remove: "下").deleteOccur(remove: "院").deleteOccur(remove: "教一楼")
+        return self.sanitize().deleteOccur(remove: "徐汇").deleteOccur(remove: "新上院N").deleteOccur(remove: "新上院S").deleteOccur(remove: "东").deleteOccur(remove: "上").deleteOccur(remove: "中").deleteOccur(remove: "下").deleteOccur(remove: "院").deleteOccur(remove: "教一楼").deleteOccur(remove: "陈瑞球楼").deleteOccur(remove: "工程馆").deleteOccur(remove: "杨咏曼楼")
     }
 }
 

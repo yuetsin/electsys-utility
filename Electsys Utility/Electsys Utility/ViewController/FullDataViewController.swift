@@ -26,7 +26,17 @@ class FullDataViewController: NSViewController {
     var eastUpperHall: [String] = []
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
-    var jiaoYiBuilding: [String] = []
+    var CRQBuilding: [String] = []
+    var YYMBuilding: [String] = []
+    var XuHuiCampus: [String] = []
+    var LuWanCampus: [String] = []
+    var FaHuaCampus: [String] = []
+    var QiBaoCampus: [String] = []
+    var OtherLand: [String] = []
+    var SMHC: [String] = []
+    var LinGangCampus: [String] = []
+    
+    var localTimeStamp: String = ""
     
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
     
@@ -65,7 +75,16 @@ class FullDataViewController: NSViewController {
         eastUpperHall.removeAll()
         eastMiddleHall.removeAll()
         eastLowerHall.removeAll()
-        jiaoYiBuilding.removeAll()
+        XuHuiCampus.removeAll()
+        CRQBuilding.removeAll()
+        XuHuiCampus.removeAll()
+        LuWanCampus.removeAll()
+        FaHuaCampus.removeAll()
+        QiBaoCampus.removeAll()
+        OtherLand.removeAll()
+        SMHC.removeAll()
+        YYMBuilding.removeAll()
+        LinGangCampus.removeAll()
     }
     
     @IBAction func startQuery(_ sender: NSButton) {
@@ -146,6 +165,8 @@ class FullDataViewController: NSViewController {
         self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false
         
+        localTimeStamp = ""
+        
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
                 self.progressIndicator.isHidden = true
@@ -155,6 +176,7 @@ class FullDataViewController: NSViewController {
                 DispatchQueue.global().async {
                     do {
                         let curricula = try JSON(data: response.data!)
+                        self.localTimeStamp = curricula["generate_time"].stringValue
                         if let curArray = curricula["data"].array {
                             for curJson in curArray {
                                 let cur = generateCur(curJson)
@@ -221,8 +243,32 @@ class FullDataViewController: NSViewController {
         case "闵行校区东下院"?:
             roomSelector.addRoomItems(withTitles: eastLowerHall)
             break
-        case "徐汇校区教一楼"?:
-            roomSelector.addRoomItems(withTitles: jiaoYiBuilding)
+        case "闵行校区陈瑞球楼"?:
+            roomSelector.addRoomItems(withTitles: CRQBuilding)
+            break
+        case "闵行校区杨咏曼楼"?:
+            roomSelector.addRoomItems(withTitles: YYMBuilding)
+            break
+        case "徐汇校区"?:
+            roomSelector.addRoomItems(withTitles: XuHuiCampus)
+            break
+        case "卢湾校区"?:
+            roomSelector.addRoomItems(withTitles: LuWanCampus)
+            break
+        case "法华校区"?:
+            roomSelector.addRoomItems(withTitles: FaHuaCampus)
+            break
+        case "七宝校区"?:
+            roomSelector.addRoomItems(withTitles: QiBaoCampus)
+            break
+        case "外地"?:
+            roomSelector.addRoomItems(withTitles: OtherLand)
+            break
+        case "上海市精神卫生中心"?:
+            roomSelector.addRoomItems(withTitles: SMHC)
+            break
+        case "临港校区"?:
+            roomSelector.addRoomItems(withTitles: LinGangCampus)
             break
         default:
             roomSelector.addItem(withTitle: "ˊ_>ˋ")
@@ -354,7 +400,7 @@ class FullDataViewController: NSViewController {
     }
     
     func sortClassroom(_ str: String) {
-        let str = str.replacingOccurrences(of: "院", with: "院 ")
+        let str = str.replacingOccurrences(of: "院", with: "院 ").replacingOccurrences(of: "楼", with: "楼 ").replacingOccurrences(of: "馆", with: "馆 ")
         if str.starts(with: "上院") {
             if !upperHall.contains(str) {
                 upperHall.append(str)
@@ -379,9 +425,41 @@ class FullDataViewController: NSViewController {
             if !eastLowerHall.contains(str) {
                 eastLowerHall.append(str)
             }
-        } else if str.starts(with: "教一楼") {
-            if !jiaoYiBuilding.contains(str) {
-                jiaoYiBuilding.append(str)
+        } else if str.contains("陈瑞球楼") {
+            if !CRQBuilding.contains(str) {
+                CRQBuilding.append(str)
+            }
+        } else if str.contains("杨咏曼楼") {
+            if !YYMBuilding.contains(str) {
+                YYMBuilding.append(str)
+            }
+        } else if str.contains("徐汇") {
+            if !XuHuiCampus.contains(str) {
+                XuHuiCampus.append(str)
+            }
+        } else if str.contains("卢湾") {
+            if !LuWanCampus.contains(str) {
+                LuWanCampus.append(str)
+            }
+        } else if str.contains("法华") {
+            if !FaHuaCampus.contains(str) {
+                FaHuaCampus.append(str)
+            }
+        } else if str.contains("七宝") {
+            if !QiBaoCampus.contains(str) {
+                QiBaoCampus.append(str)
+            }
+        } else if str.contains("外地") {
+            if !OtherLand.contains(str) {
+                OtherLand.append(str)
+            }
+        } else if str.contains("上海市精神卫生中心") {
+            if !SMHC.contains(str) {
+                SMHC.append(str)
+            }
+        } else if str.contains("临港") {
+            if !LinGangCampus.contains(str) {
+                LinGangCampus.append(str)
             }
         }
     }
@@ -402,7 +480,15 @@ class FullDataViewController: NSViewController {
         eastUpperHall.sort()
         eastMiddleHall.sort()
         eastLowerHall.sort()
-        jiaoYiBuilding.sort()
+        CRQBuilding.sort()
+        XuHuiCampus.sort()
+        LuWanCampus.sort()
+        FaHuaCampus.sort()
+        QiBaoCampus.sort()
+        OtherLand.sort()
+        SMHC.sort()
+        LinGangCampus.sort()
+        YYMBuilding.sort()
     }
     
     
@@ -421,6 +507,10 @@ class FullDataViewController: NSViewController {
             for cur in courses {
                 if !cur.getRelatedClassroom().contains(room) {
                     continue
+                }
+                
+                if cur.endWeek == 17 {
+                    
                 }
 
                 if cur.startWeek > currentWeek { continue }
@@ -552,6 +642,9 @@ class FullDataViewController: NSViewController {
                 if cur.targetGrade != 0 {
                     target += "\t面向 \(cur.targetGrade) 级学生\n"
                 }
+                if cur.notes != "" {
+                    target += "附注：\(cur.notes)\n"
+                }
                 var schedule = "\t第 \(cur.startWeek) 至第 \(cur.endWeek) 周"
                 let both = "每周上课，\n"
                 let odd = "之中的单周：\n"
@@ -577,6 +670,7 @@ class FullDataViewController: NSViewController {
                 declare += target + "\n"
             }
         declare.removeLast()
+        
         let infoAlert: NSAlert = NSAlert()
         infoAlert.messageText = className
         infoAlert.informativeText = "教师：\(teacher)\n开课院系：\(holder)\n\n\(declare)"
@@ -636,6 +730,24 @@ class FullDataViewController: NSViewController {
         }
         displayDetail(target)
     }
+    
+    @IBAction func getTimeStamp(_ sender: NSButton) {
+        if localTimeStamp != "" {
+            let infoAlert: NSAlert = NSAlert()
+            infoAlert.messageText = "数据详情"
+            infoAlert.informativeText = "生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
+            infoAlert.addButton(withTitle: "嗯")
+            infoAlert.alertStyle = NSAlert.Style.informational
+            infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        } else {
+            let infoAlert: NSAlert = NSAlert()
+            infoAlert.messageText = "数据详情"
+            infoAlert.informativeText = "生成时间：未知\n数据量：\(courses.count)"
+            infoAlert.addButton(withTitle: "嗯")
+            infoAlert.alertStyle = NSAlert.Style.informational
+            infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        }
+    }
 }
 
 
@@ -655,18 +767,25 @@ extension NSImage {
     func addRoomItems(withTitles items: [String]) {
         var lastIndex: Int?
         for item in items {
-            let curIndex: Int = Int(item.removeFloorCharacters().prefix(1))!
-//            print("cur: \(curIndex), last: \(lastIndex)")
-            if lastIndex != nil {
-                if curIndex != lastIndex {
-                    lastIndex = curIndex
-//                    print("should add sep")
-                    self.addItem(withTitle: "MY_MENU_SEPARATOR")
-                }
-            } else {
-                lastIndex = curIndex
+            if item.contains("校区") || item.contains("徐汇 (Med") {
+                continue
             }
-            self.addItem(withTitle: item)
+            let curIndex: Int? = Int(item.removeFloorCharacters().prefix(1))
+            if (curIndex != nil) {
+//            print("cur: \(curIndex), last: \(lastIndex)")
+                if lastIndex != nil {
+                    if curIndex! != lastIndex {
+                        lastIndex = curIndex!
+    //                    print("should add sep")
+                        self.addItem(withTitle: "MY_MENU_SEPARATOR")
+                    }
+                } else {
+                    lastIndex = curIndex
+                }
+                self.addItem(withTitle: item)
+            } else {
+                self.addItem(withTitle: item)
+            }
         }
     }
 }
