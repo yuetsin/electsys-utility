@@ -258,12 +258,8 @@ extension String {
         return position
     }
     
-    func removeFloorCharacters() -> String {
-        let scanner = Scanner(string: self)
-        scanner.scanUpToCharacters(from: CharacterSet.decimalDigits, into: nil)
-        var number: Int = 0
-        scanner.scanInt(&number)
-        return String(number)
+    func removeFloorCharacters(_ insane: Bool = false) -> String {
+        // rewrite this part. unfinished.
     }
 }
 

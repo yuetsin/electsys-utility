@@ -446,7 +446,7 @@ class FullDataViewController: NSViewController {
     }
     
     func sortClassroom(_ str: String) {
-        let numbersInStr = str.removeFloorCharacters()
+        let numbersInStr = str.removeFloorCharacters(true)
         let str = str.replacingOccurrences(of: numbersInStr, with: " " + numbersInStr)
         if str.starts(with: "上院") {
             if !upperHall.contains(str) {
@@ -817,17 +817,19 @@ extension NSImage {
         var lastIndex: Int?
         var lastBuilding: String?
         for item in items {
+            let analyseItem = item.sanitize()
             if item.contains("校区") {
                 continue
             }
             if item.count <= 2 {
                 continue
             }
-            let curIndex: Int? = Int(item.removeFloorCharacters().prefix(1))
-            let curBuilding: String? = item.replacingOccurrences(of: "\(item.removeFloorCharacters())", with: "")
+            let curIndex: Int? = Int(analyseItem.removeFloorCharacters().prefix(1))
+            let numericStr = analyseItem.removeFloorCharacters(true)
+            let curBuilding: String? = analyseItem.deleteOccur(remove: numericStr)
             if (curIndex != nil) {
 //            print("cur: \(curIndex), last: \(lastIndex)")
-                if lastIndex != nil {
+                if (lastIndex != nil) && (lastBuilding != nil) {
                     if (curIndex! != lastIndex) || (curBuilding != lastBuilding) {
                         lastIndex = curIndex!
                         lastBuilding = curBuilding!
@@ -836,10 +838,11 @@ extension NSImage {
                     }
                 } else {
                     lastIndex = curIndex
+                    lastBuilding = curBuilding
                 }
                 self.addItem(withTitle: item)
             } else {
-                self.addItem(withTitle: item)
+                 self.addItem(withTitle: item)
             }
         }
     }
