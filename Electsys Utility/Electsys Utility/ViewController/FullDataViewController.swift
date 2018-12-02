@@ -611,7 +611,7 @@ class FullDataViewController: NSViewController {
     
     static let layoutTable: [NSSize] = [
         NSSize(width: 504, height: 79),
-        NSSize(width: 504, height: 363 + 30),
+        NSSize(width: 536, height: 363 + 30),
         NSSize(width: 504, height: 290 + 30),
         NSSize(width: 504, height: 238 + 30)
         ]
@@ -768,6 +768,9 @@ extension NSImage {
         var lastIndex: Int?
         for item in items {
             if item.contains("校区") || item.contains("徐汇 (Med") {
+                continue
+            }
+            if item.count <= 2 {
                 continue
             }
             let curIndex: Int? = Int(item.removeFloorCharacters().prefix(1))

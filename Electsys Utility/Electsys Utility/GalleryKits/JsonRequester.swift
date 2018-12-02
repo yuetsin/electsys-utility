@@ -44,13 +44,14 @@ func generateCur(_ json: JSON) -> Curricula {
             a.weekDay = owa["week_day"].intValue
             a.startsAt = owa["start_from"].intValue
             a.endsAt = owa["end_at"].intValue
-            a.classroom = owa["classroom"].stringValue.replacingOccurrences(of: "教学一楼", with: "教一楼").replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆")
+            a.classroom = owa["classroom"].stringValue.replacingOccurrences(of: "教学一楼", with: "教一楼")
+            // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
-                a.classroom = splitedClassroom[2]
+                a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
             }
             if (sanitize(a.classroom) == "") {
-                a.classroom = splitedClassroom[0] + "校区"
+                a.classroom = splitedClassroom[0].sanitize() + "校区"
             }
             cur.oddWeekArr.append(a)
         }
@@ -62,13 +63,14 @@ func generateCur(_ json: JSON) -> Curricula {
             a.weekDay = ewa["week_day"].intValue
             a.startsAt = ewa["start_from"].intValue
             a.endsAt = ewa["end_at"].intValue
-            a.classroom = ewa["classroom"].stringValue
+            a.classroom = ewa["classroom"].stringValue.replacingOccurrences(of: "教学一楼", with: "教一楼")
+            // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
-                a.classroom = splitedClassroom[2]
+                a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
             }
             if (sanitize(a.classroom) == "") {
-                a.classroom = splitedClassroom[0] + "校区"
+                a.classroom = splitedClassroom[0].sanitize() + "校区"
             }
             cur.evenWeekArr.append(a)
         }
