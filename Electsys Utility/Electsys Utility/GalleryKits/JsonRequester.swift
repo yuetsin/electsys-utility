@@ -48,7 +48,11 @@ func generateCur(_ json: JSON) -> Curricula {
             // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
-                a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                if !splitedClassroom[2].starts(with: splitedClassroom[0].sanitize()) {
+                    a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                } else {
+                    a.classroom = splitedClassroom[2]
+                }
             }
             if (sanitize(a.classroom) == "") {
                 a.classroom = splitedClassroom[0].sanitize() + "校区"
@@ -67,7 +71,11 @@ func generateCur(_ json: JSON) -> Curricula {
             // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
-                a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                if !splitedClassroom[2].starts(with: splitedClassroom[0].sanitize()) {
+                    a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                } else {
+                    a.classroom = splitedClassroom[2]
+                }
             }
             if (sanitize(a.classroom) == "") {
                 a.classroom = splitedClassroom[0].sanitize() + "校区"
