@@ -202,7 +202,7 @@
                     <window key="window" title="条件检索" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" id="lHP-2O-S3K">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="480"/>
+                        <rect key="contentRect" x="528" y="336" width="480" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <value key="minSize" type="size" width="480" height="480"/>
                         <userDefinedRuntimeAttributes>
@@ -440,7 +440,7 @@ DQ
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" id="hCp-aG-7zK">
                                 <rect key="frame" x="259" y="21" width="126" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="wOn-0V-00L" id="ew2-Fl-Rl1">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -458,7 +458,7 @@ DQ
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="wbi-ir-hA5">
                                 <rect key="frame" x="18" y="26" width="44" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="qXU-6Q-oIT">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -467,7 +467,7 @@ DQ
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="cO5-HU-pLF">
                                 <rect key="frame" x="211" y="26" width="44" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="TCV-IW-VE5">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -476,7 +476,7 @@ DQ
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="H07-8N-Qv4">
                                 <rect key="frame" x="404" y="17" width="86" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="检索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ib4-ux-mIM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -496,7 +496,7 @@ DQ
                             </textField>
                             <popUpButton verticalHuggingPriority="750" misplaced="YES" id="25r-Tt-eJY">
                                 <rect key="frame" x="66" y="21" width="111" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bZK-6M-9tc">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -517,14 +517,14 @@ DQ
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <box misplaced="YES" title="教室占用情况" id="e7r-6v-yGv">
-                                                    <rect key="frame" x="30" y="7" width="446" height="107"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="17" y="7" width="470" height="107"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" id="mse-aA-reG">
-                                                        <rect key="frame" x="2" y="2" width="442" height="90"/>
+                                                        <rect key="frame" x="2" y="2" width="466" height="90"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <button identifier="1" id="Mci-J2-nag">
-                                                                <rect key="frame" x="16" y="31.5" width="25" height="25"/>
+                                                            <button identifier="1" misplaced="YES" id="Mci-J2-nag">
+                                                                <rect key="frame" x="44" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="ubL-6U-ZP1">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -534,8 +534,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="AL4-BW-Ioq"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="3" id="JJd-Nf-bzM">
-                                                                <rect key="frame" x="86" y="31.5" width="25" height="25"/>
+                                                            <button identifier="3" misplaced="YES" id="JJd-Nf-bzM">
+                                                                <rect key="frame" x="114" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="epp-L0-r0w">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -545,8 +545,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="ka4-MF-0Ij"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="2" id="LTo-0T-0HR">
-                                                                <rect key="frame" x="51" y="31.5" width="25" height="25"/>
+                                                            <button identifier="2" misplaced="YES" id="LTo-0T-0HR">
+                                                                <rect key="frame" x="79" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="E2q-oY-Wc6">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -556,8 +556,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="cof-6d-2UF"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="4" id="7dc-od-fCn">
-                                                                <rect key="frame" x="121" y="31.5" width="25" height="25"/>
+                                                            <button identifier="4" misplaced="YES" id="7dc-od-fCn">
+                                                                <rect key="frame" x="149" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fAb-2T-T2V">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -567,8 +567,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="rOd-1w-JyA"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="6" id="ihb-NZ-C0v">
-                                                                <rect key="frame" x="191" y="31.5" width="25" height="25"/>
+                                                            <button identifier="6" misplaced="YES" id="ihb-NZ-C0v">
+                                                                <rect key="frame" x="219" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="N0j-HP-Hgk">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -578,8 +578,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="Iq9-EC-3Nb"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="5" id="cIr-EZ-Ypl">
-                                                                <rect key="frame" x="156" y="31.5" width="25" height="25"/>
+                                                            <button identifier="5" misplaced="YES" id="cIr-EZ-Ypl">
+                                                                <rect key="frame" x="184" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="E9u-Ip-4lq">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -589,8 +589,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="wRf-m9-Ja4"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="7" id="sT7-fw-g8D">
-                                                                <rect key="frame" x="226" y="31.5" width="25" height="25"/>
+                                                            <button identifier="7" misplaced="YES" id="sT7-fw-g8D">
+                                                                <rect key="frame" x="254" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="n04-q4-wTn">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -600,8 +600,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="2CF-YX-zzc"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="9" id="VSP-Ie-wRg">
-                                                                <rect key="frame" x="296" y="31.5" width="25" height="25"/>
+                                                            <button identifier="9" misplaced="YES" id="VSP-Ie-wRg">
+                                                                <rect key="frame" x="324" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kNg-ce-MzQ">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -611,8 +611,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="xPa-iN-x76"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="8" id="rLA-sP-bgD">
-                                                                <rect key="frame" x="261" y="31.5" width="25" height="25"/>
+                                                            <button identifier="8" misplaced="YES" id="rLA-sP-bgD">
+                                                                <rect key="frame" x="289" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Dfn-b8-JBn">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -622,8 +622,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="P5h-95-D0J"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="10" id="2WK-qJ-Xgb">
-                                                                <rect key="frame" x="331" y="31.5" width="25" height="25"/>
+                                                            <button identifier="10" misplaced="YES" id="2WK-qJ-Xgb">
+                                                                <rect key="frame" x="359" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="T0g-ZI-Tu3">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -633,8 +633,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="zPM-2m-PXk"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="12" id="lzB-lk-OIk">
-                                                                <rect key="frame" x="401" y="31.5" width="25" height="25"/>
+                                                            <button identifier="12" misplaced="YES" id="lzB-lk-OIk">
+                                                                <rect key="frame" x="429" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2v7-pz-ZKa">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -644,8 +644,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="EXn-DA-opw"/>
                                                                 </connections>
                                                             </button>
-                                                            <button identifier="11" id="S7C-KG-Wto">
-                                                                <rect key="frame" x="366" y="31.5" width="25" height="25"/>
+                                                            <button identifier="11" misplaced="YES" id="S7C-KG-Wto">
+                                                                <rect key="frame" x="394" y="32" width="25" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTrashFull" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="402-pq-3uA">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -655,8 +655,8 @@ DQ
                                                                     <action selector="iconButtonTapped:" target="Q2K-06-gA8" id="cDv-uX-39b"/>
                                                                 </connections>
                                                             </button>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="z2R-Cn-hEF">
-                                                                <rect key="frame" x="10" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="z2R-Cn-hEF">
+                                                                <rect key="frame" x="38" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="1" id="QEg-3g-Qc1">
                                                                     <font key="font" metaFont="system"/>
@@ -664,8 +664,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7eZ-yf-l9K">
-                                                                <rect key="frame" x="18" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="7eZ-yf-l9K">
+                                                                <rect key="frame" x="46" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="8:00" id="VIg-YM-4jU">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -673,8 +673,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BGo-Xc-vzZ">
-                                                                <rect key="frame" x="88" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="BGo-Xc-vzZ">
+                                                                <rect key="frame" x="116" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="10:00" id="3c0-HC-sFf">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -682,8 +682,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="V7T-ta-dBM">
-                                                                <rect key="frame" x="160" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="V7T-ta-dBM">
+                                                                <rect key="frame" x="188" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="12:00" id="ZNb-Hq-NTV">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -691,8 +691,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="20T-NF-Nq8">
-                                                                <rect key="frame" x="228" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="20T-NF-Nq8">
+                                                                <rect key="frame" x="256" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="14:00" id="Cgk-g4-O0g">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -700,8 +700,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Aey-2c-qTb">
-                                                                <rect key="frame" x="298" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Aey-2c-qTb">
+                                                                <rect key="frame" x="326" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="16:00" id="1eG-q7-S7M">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -709,8 +709,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="150-2v-SEu">
-                                                                <rect key="frame" x="368" y="12.5" width="64" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="150-2v-SEu">
+                                                                <rect key="frame" x="396" y="13" width="64" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="18:00" id="h6d-Ya-nDs">
                                                                     <font key="font" metaFont="smallSystem"/>
@@ -718,8 +718,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="fG4-KU-7vz">
-                                                                <rect key="frame" x="80" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="fG4-KU-7vz">
+                                                                <rect key="frame" x="108" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="3" id="pfo-zM-o1q">
                                                                     <font key="font" metaFont="system"/>
@@ -727,8 +727,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LY4-Z5-TJI">
-                                                                <rect key="frame" x="150" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="LY4-Z5-TJI">
+                                                                <rect key="frame" x="178" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="5" id="hhe-un-qtK">
                                                                     <font key="font" metaFont="system"/>
@@ -736,8 +736,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9g0-9Z-kLl">
-                                                                <rect key="frame" x="220" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="9g0-9Z-kLl">
+                                                                <rect key="frame" x="248" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="7" id="GI3-Xw-EcA">
                                                                     <font key="font" metaFont="system"/>
@@ -745,8 +745,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OC9-LF-br4">
-                                                                <rect key="frame" x="290" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="OC9-LF-br4">
+                                                                <rect key="frame" x="318" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="9" id="Xwp-Ri-MmA">
                                                                     <font key="font" metaFont="system"/>
@@ -754,8 +754,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="7kj-0H-0dh">
-                                                                <rect key="frame" x="359" y="59.5" width="29" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="7kj-0H-0dh">
+                                                                <rect key="frame" x="387" y="60" width="29" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="11" id="uHT-pB-00e">
                                                                     <font key="font" metaFont="system"/>
@@ -767,10 +767,10 @@ DQ
                                                     </view>
                                                 </box>
                                                 <box misplaced="YES" title="筛选" id="Fd4-Qe-Dvo">
-                                                    <rect key="frame" x="29" y="118" width="446" height="97"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="17" y="118" width="471" height="97"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" id="tdQ-uB-Q7U">
-                                                        <rect key="frame" x="2" y="2" width="442" height="80"/>
+                                                        <rect key="frame" x="2" y="2" width="467" height="80"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="27E-Rg-pS3">
@@ -809,8 +809,8 @@ DQ
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <popUpButton verticalHuggingPriority="750" id="Ylt-w6-kes">
-                                                                <rect key="frame" x="80" y="41" width="130" height="26"/>
+                                                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="Ylt-w6-kes">
+                                                                <rect key="frame" x="80" y="41" width="149" height="26"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <popUpButtonCell key="cell" type="push" title="闵行校区上院" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="HzX-NK-rXa" id="bqo-Db-Cfn">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -837,7 +837,30 @@ DQ
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
                                                                             <menuItem isSeparatorItem="YES" id="awi-rQ-0jw"/>
-                                                                            <menuItem title="徐汇校区教一楼" id="Nty-ds-See">
+                                                                            <menuItem title="闵行校区陈瑞球楼" id="Nty-ds-See">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区杨咏曼楼" id="fv6-lF-sqE">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="FRs-Mh-4ee"/>
+                                                                            <menuItem title="徐汇校区" id="PnT-HP-xYY">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="卢湾校区" id="62W-p8-5XP">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="法华校区" id="C2r-nP-EyH">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="七宝校区" id="0ex-Ux-lCD">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="临港校区" id="2Ac-pm-v9s">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="9Je-TL-iRj"/>
+                                                                            <menuItem title="上海市精神卫生中心" id="dUF-FF-d2V">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
                                                                         </items>
@@ -847,9 +870,9 @@ DQ
                                                                     <action selector="pushPopListData:" target="Q2K-06-gA8" id="NFi-hp-JxH"/>
                                                                 </connections>
                                                             </popUpButton>
-                                                            <popUpButton verticalHuggingPriority="750" id="Hcu-Tc-DU8">
-                                                                <rect key="frame" x="295" y="41" width="130" height="26"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="Hcu-Tc-DU8">
+                                                                <rect key="frame" x="295" y="41" width="155" height="26"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="MmB-b2-FWN">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
@@ -859,9 +882,9 @@ DQ
                                                                     <action selector="updateBoxes:" target="Q2K-06-gA8" id="Rbz-yr-EsO"/>
                                                                 </connections>
                                                             </popUpButton>
-                                                            <popUpButton verticalHuggingPriority="750" id="cBx-RE-dzl">
-                                                                <rect key="frame" x="294" y="12" width="131" height="26"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="cBx-RE-dzl">
+                                                                <rect key="frame" x="294" y="12" width="156" height="26"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                 <popUpButtonCell key="cell" type="push" title="星期一" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="XQH-s8-tzV" id="HIh-pY-55u">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
@@ -889,8 +912,8 @@ DQ
                                                                     <action selector="updateBoxes:" target="Q2K-06-gA8" id="bkj-le-VZY"/>
                                                                 </connections>
                                                             </popUpButton>
-                                                            <popUpButton verticalHuggingPriority="750" id="Jqg-iO-zwJ">
-                                                                <rect key="frame" x="80" y="12" width="130" height="26"/>
+                                                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="Jqg-iO-zwJ">
+                                                                <rect key="frame" x="80" y="12" width="149" height="26"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="q9U-5f-Dtx">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1017,8 +1040,8 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="3Wg-nH-rat">
-                                                    <rect key="frame" x="32" y="127" width="439" height="5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="20" y="127" width="464" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <button verticalHuggingPriority="750" misplaced="YES" id="pSO-3H-eDm">
                                                     <rect key="frame" x="324" y="171" width="76" height="18"/>
@@ -1060,8 +1083,8 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Lpx-EN-6ce">
-                                                    <rect key="frame" x="32" y="180" width="439" height="5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="20" y="180" width="464" height="5"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="W8p-Zo-xXJ">
                                                     <rect key="frame" x="29" y="156" width="444" height="17"/>
@@ -1099,14 +1122,14 @@ DQ
                                 </tabViewItems>
                             </tabView>
                             <segmentedControl verticalHuggingPriority="750" misplaced="YES" id="egx-SI-kXH">
-                                <rect key="frame" x="115" y="-53" width="274" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="118.5" y="-53" width="268" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="UT8-EW-UHG">
                                     <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment label="按教室筛选" width="89" selected="YES" tag="1"/>
-                                        <segment label="按教师筛选" width="89"/>
-                                        <segment label="按课名筛选" width="88"/>
+                                        <segment label="按教室筛选" width="87" selected="YES" tag="1"/>
+                                        <segment label="按教师筛选" width="87"/>
+                                        <segment label="按课名筛选" width="86"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
@@ -1114,17 +1137,28 @@ DQ
                                 </connections>
                             </segmentedControl>
                             <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Lcu-Rz-vMh">
-                                <rect key="frame" x="32" y="6" width="439" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="22" y="6" width="460" height="5"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </box>
                             <progressIndicator hidden="YES" wantsLayer="YES" misplaced="YES" maxValue="4" indeterminate="YES" style="bar" id="EiC-xp-p7C">
                                 <rect key="frame" x="20" y="-1" width="464" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                             <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Vwq-bY-cGz">
-                                <rect key="frame" x="32" y="-65" width="439" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="20" y="-65" width="464" height="5"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </box>
+                            <button verticalHuggingPriority="750" misplaced="YES" id="brO-e5-9ID">
+                                <rect key="frame" x="461" y="-54" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" inset="2" id="ie0-Il-UtY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="getTimeStamp:" target="Q2K-06-gA8" id="kda-vJ-NZ9"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1779,7 +1813,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="8" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="8.5" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

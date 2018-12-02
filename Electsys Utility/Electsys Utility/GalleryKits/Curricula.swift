@@ -6,7 +6,7 @@
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //  
 //  ScheduleKits/Course.swift 用于处理「课程表内」相关的课程信息。
-//  Utility/Curricula.swift 用于处理教室信息之中的信息。
+//  GalleryKits/Curricula.swift 用于处理教室信息之中的信息。
 
 import Foundation
 
@@ -27,6 +27,7 @@ class Curricula {
     var endWeek: Int = 0
     var oddWeekArr: [Arrangement] = []
     var evenWeekArr: [Arrangement] = []
+    var notes: String = ""
     
     func getRelatedClassroom() -> [String] {
         var classrooms: [String] = []
@@ -89,6 +90,7 @@ enum Year: Int {
     case Y_2012_2013 = 2012
     case Y_2011_2012 = 2011
     case Y_2010_2011 = 2010
+    case __BAD_YEAR = 0
 }
 
 enum Term: Int {
