@@ -187,10 +187,14 @@ class FullDataViewController: NSViewController {
                                     self.schools.append(cur.holderSchool)
                                 }
                                 if !(self.teachers.contains(cur.teacherName)) {
-                                    self.teachers.append(cur.teacherName)
+                                    if cur.teacherName.sanitize() != "" {
+                                        self.teachers.append(cur.teacherName)
+                                    }
                                 }
                                 if !(self.classnames.contains(cur.name)) {
-                                    self.classnames.append(cur.name)
+                                    if cur.name.sanitize() != "" {
+                                        self.classnames.append(cur.name)
+                                    }
                                 }
                                 if !(self.titles.contains(cur.teacherTitle)) {
                                     if sanitize(cur.teacherTitle) != "" {
@@ -293,7 +297,7 @@ class FullDataViewController: NSViewController {
         self.holdingSchoolSelector.addItems(withTitles: schools)
         
         self.teacherNameCombo.removeAllItems()
-        self.teacherNameCombo.addItems(withObjectValues: teachers)
+        self.teacherNameCombo.addItems(withObjectValues: teachers.sorted().reversed())
         
         self.titleSelector.removeAllItems()
         self.titleSelector.addItem(withTitle: "不限")
@@ -509,9 +513,6 @@ class FullDataViewController: NSViewController {
                     continue
                 }
                 
-                if cur.endWeek == 17 {
-                    
-                }
 
                 if cur.startWeek > currentWeek { continue }
                 if cur.endWeek < currentWeek { continue }
@@ -613,7 +614,7 @@ class FullDataViewController: NSViewController {
         NSSize(width: 504, height: 79),
         NSSize(width: 536, height: 363 + 30),
         NSSize(width: 504, height: 290 + 30),
-        NSSize(width: 504, height: 238 + 30)
+        NSSize(width: 556, height: 242 + 30)
         ]
     
     func setLayoutType(_ type: LayoutType) {

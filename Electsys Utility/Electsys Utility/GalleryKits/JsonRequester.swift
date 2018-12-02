@@ -49,7 +49,11 @@ func generateCur(_ json: JSON) -> Curricula {
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
                 if !splitedClassroom[2].starts(with: splitedClassroom[0].sanitize()) {
-                    a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                    if splitedClassroom[0].sanitize() != "闵行" {
+                        a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                    } else {
+                        a.classroom = splitedClassroom[2]
+                    }
                 } else {
                     a.classroom = splitedClassroom[2]
                 }
@@ -72,7 +76,11 @@ func generateCur(_ json: JSON) -> Curricula {
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
                 if !splitedClassroom[2].starts(with: splitedClassroom[0].sanitize()) {
-                    a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                    if splitedClassroom[0].sanitize() != "闵行" {
+                        a.classroom = splitedClassroom[0].sanitize() + splitedClassroom[2]
+                    } else {
+                        a.classroom = splitedClassroom[2]
+                    }
                 } else {
                     a.classroom = splitedClassroom[2]
                 }

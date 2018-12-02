@@ -905,6 +905,12 @@ DQ
                                                                             <menuItem title="星期五" id="rix-Js-Qx0">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                                             </menuItem>
+                                                                            <menuItem title="星期六" id="Zhb-vr-szh">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期日" id="SNn-8m-U5V">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
                                                                         </items>
                                                                     </menu>
                                                                 </popUpButtonCell>
@@ -932,7 +938,7 @@ DQ
                                     </tabViewItem>
                                     <tabViewItem label="按教师检索" identifier="" id="Kqu-YP-yog">
                                         <view key="view" id="vFt-Vy-VBU">
-                                            <rect key="frame" x="0.0" y="0.0" width="504" height="225"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="225"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <popUpButton verticalHuggingPriority="750" misplaced="YES" id="KQk-ig-vuY">
@@ -1040,7 +1046,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="3Wg-nH-rat">
-                                                    <rect key="frame" x="20" y="127" width="464" height="5"/>
+                                                    <rect key="frame" x="20" y="127" width="516" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <button verticalHuggingPriority="750" misplaced="YES" id="pSO-3H-eDm">
@@ -1063,32 +1069,21 @@ DQ
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <popUpButton verticalHuggingPriority="750" misplaced="YES" id="9eT-pT-6Gx">
-                                                    <rect key="frame" x="84" y="127" width="251" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="60" y="127" width="232" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="8UB-OK-flQ">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="menu"/>
                                                         <menu key="menu" id="fg3-NZ-bho"/>
                                                     </popUpButtonCell>
                                                 </popUpButton>
-                                                <button verticalHuggingPriority="750" misplaced="YES" id="q1Z-iy-81u">
-                                                    <rect key="frame" x="350" y="123" width="86" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" title="详细…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B28-3e-gm7">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="byNameDetail:" target="Q2K-06-gA8" id="VgO-2f-Krm"/>
-                                                    </connections>
-                                                </button>
                                                 <box verticalHuggingPriority="750" misplaced="YES" boxType="separator" id="Lpx-EN-6ce">
                                                     <rect key="frame" x="20" y="180" width="464" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="W8p-Zo-xXJ">
-                                                    <rect key="frame" x="29" y="156" width="444" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="18" y="156" width="468" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到 #COUNT# 条课程信息。" id="Mjl-Sg-TBZ">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1096,8 +1091,8 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <comboBox verticalHuggingPriority="750" misplaced="YES" id="3XO-F9-yUx">
-                                                    <rect key="frame" x="192" y="194" width="240" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <rect key="frame" x="192" y="194" width="234" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" numberOfVisibleItems="5" id="xo2-uX-De6">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1116,6 +1111,17 @@ DQ
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <button verticalHuggingPriority="750" misplaced="YES" id="q1Z-iy-81u">
+                                                    <rect key="frame" x="343" y="123" width="86" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="详细…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B28-3e-gm7">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="byNameDetail:" target="Q2K-06-gA8" id="VgO-2f-Krm"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -1813,7 +1819,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="8.5" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="9" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
