@@ -819,49 +819,98 @@ DQ
                                                                         <items>
                                                                             <menuItem title="闵行校区上院" state="on" id="HzX-NK-rXa">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleUpperHall" id="2x1-1E-JKI"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区中院" id="V4c-1C-OcE">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleMiddleHall" id="OcS-Bn-KIV"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区下院" id="SBs-nX-dZF">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleLowerHall" id="aeX-Tu-f8X"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem isSeparatorItem="YES" id="2wl-VR-l8J"/>
                                                                             <menuItem title="闵行校区东上院" id="AHo-0a-1sc">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleEastUpperHall" id="UH3-g3-Egu"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区东中院" id="iYZ-Dg-kgt">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleEastMiddleHall" id="qy8-We-F2x"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区东下院" id="tar-zF-Cq5">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleEastLowerHall" id="6E7-Kz-cBc"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem isSeparatorItem="YES" id="awi-rQ-0jw"/>
                                                                             <menuItem title="闵行校区陈瑞球楼" id="Nty-ds-See">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleCRQBuilding" id="5nf-Qb-ua5"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="闵行校区杨咏曼楼" id="fv6-lF-sqE">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleYYMBuilding" id="TBY-Aj-zgT"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem isSeparatorItem="YES" id="FRs-Mh-4ee"/>
+                                                                            <menuItem title="其余闵行校区教学楼" id="PcO-YH-cty">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleMinHangCampus" id="PUO-et-gFX"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="uN5-D9-aOg"/>
                                                                             <menuItem title="徐汇校区" id="PnT-HP-xYY">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleXuHuiCampus" id="SU2-ne-DKd"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="卢湾校区" id="62W-p8-5XP">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleLuWanCampus" id="sv5-76-uKX"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="法华校区" id="C2r-nP-EyH">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleFaHuaCampus" id="sBh-mT-OBT"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="七宝校区" id="0ex-Ux-lCD">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleQiBaoCampus" id="JbS-t1-6zW"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem title="临港校区" id="2Ac-pm-v9s">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleLinGangCampus" id="wiv-fk-KJA"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                             <menuItem isSeparatorItem="YES" id="9Je-TL-iRj"/>
                                                                             <menuItem title="上海市精神卫生中心" id="dUF-FF-d2V">
                                                                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="Q2K-06-gA8" name="enabled" keyPath="self.toggleSMHC" id="OW9-in-L0v"/>
+                                                                                </connections>
                                                                             </menuItem>
                                                                         </items>
                                                                     </menu>
@@ -1069,7 +1118,7 @@ DQ
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <popUpButton verticalHuggingPriority="750" misplaced="YES" id="9eT-pT-6Gx">
-                                                    <rect key="frame" x="60" y="127" width="232" height="26"/>
+                                                    <rect key="frame" x="60" y="127" width="266" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="8UB-OK-flQ">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1205,6 +1254,7 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="16l-Yi-oCI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="wa7-2k-Qc7"/>
             </objects>
             <point key="canvasLocation" x="-1730" y="659"/>
         </scene>
@@ -1819,7 +1869,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="9" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="9.5" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

@@ -38,6 +38,10 @@ func generateCur(_ json: JSON) -> Curricula {
     cur.studentNumber = json["student_number"].intValue
     cur.notes = json["notes"].stringValue.deleteOccur(remove: "&nbsp").sanitize()
     
+    for i in 1...5 {
+        cur.notes = cur.notes.deleteOccur(remove: "(\(i))")
+    }
+    
     if let oddWeekArr = json["odd_week"].array {
         for owa in oddWeekArr {
             let a = Arrangement()
@@ -60,6 +64,9 @@ func generateCur(_ json: JSON) -> Curricula {
             }
             if (sanitize(a.classroom) == "") {
                 a.classroom = splitedClassroom[0].sanitize() + "校区"
+            }
+            if (a.classroom == "不安排教室") {
+                a.classroom = ""
             }
             cur.oddWeekArr.append(a)
         }
@@ -87,6 +94,9 @@ func generateCur(_ json: JSON) -> Curricula {
             }
             if (sanitize(a.classroom) == "") {
                 a.classroom = splitedClassroom[0].sanitize() + "校区"
+            }
+            if (a.classroom == "不安排教室") {
+                a.classroom = ""
             }
             cur.evenWeekArr.append(a)
         }

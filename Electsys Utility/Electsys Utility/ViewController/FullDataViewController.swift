@@ -26,6 +26,8 @@ class FullDataViewController: NSViewController {
     var eastUpperHall: [String] = []
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
+    
+    var MinHangCampus: [String] = []
     var CRQBuilding: [String] = []
     var YYMBuilding: [String] = []
     var XuHuiCampus: [String] = []
@@ -35,6 +37,23 @@ class FullDataViewController: NSViewController {
     var OtherLand: [String] = []
     var SMHC: [String] = []
     var LinGangCampus: [String] = []
+    
+    @objc dynamic var toggleUpperHall: Bool = true
+    @objc dynamic var toggleMiddleHall: Bool = true
+    @objc dynamic var toggleLowerHall: Bool = true
+    @objc dynamic var toggleEastUpperHall: Bool = true
+    @objc dynamic var toggleEastMiddleHall: Bool = true
+    @objc dynamic var toggleEastLowerHall: Bool = true
+    @objc dynamic var toggleMinHangCampus: Bool = true
+    @objc dynamic var toggleCRQBuilding: Bool = true
+    @objc dynamic var toggleYYMBuilding: Bool = true
+    @objc dynamic var toggleXuHuiCampus: Bool = true
+    @objc dynamic var toggleLuWanCampus: Bool = true
+    @objc dynamic var toggleFaHuaCampus: Bool = true
+    @objc dynamic var toggleQiBaoCampus: Bool = true
+    @objc dynamic var toggleOtherLand: Bool = true
+    @objc dynamic var toggleSMHC: Bool = true
+    @objc dynamic var toggleLinGangCampus: Bool = true
     
     var localTimeStamp: String = ""
     
@@ -76,6 +95,7 @@ class FullDataViewController: NSViewController {
         eastMiddleHall.removeAll()
         eastLowerHall.removeAll()
         XuHuiCampus.removeAll()
+        MinHangCampus.removeAll()
         CRQBuilding.removeAll()
         XuHuiCampus.removeAll()
         LuWanCampus.removeAll()
@@ -219,11 +239,30 @@ class FullDataViewController: NSViewController {
                         self.startTeacherQuery()
                         self.startNameQuery()
                         self.switchSeg(self.tabTitleSeg)
+                        self.updateEnableStat()
                         // success!
                     }
                 }
             }
         })
+    }
+    
+    func updateEnableStat() {
+        toggleUpperHall = upperHall != []
+        toggleMiddleHall = middleHall != []
+        toggleLowerHall = middleHall != []
+        toggleEastLowerHall = eastLowerHall != []
+        toggleEastMiddleHall = eastMiddleHall != []
+        toggleEastUpperHall = eastUpperHall != []
+        toggleCRQBuilding = CRQBuilding != []
+        toggleYYMBuilding = YYMBuilding != []
+        toggleMinHangCampus = MinHangCampus != []
+        toggleXuHuiCampus = XuHuiCampus != []
+        toggleLuWanCampus = LuWanCampus != []
+        toggleFaHuaCampus = FaHuaCampus != []
+        toggleQiBaoCampus = QiBaoCampus != []
+        toggleLinGangCampus = LinGangCampus != []
+        toggleSMHC = SMHC != []
     }
     
     @IBAction func pushPopListData(_ sender: NSPopUpButton) {
@@ -252,6 +291,9 @@ class FullDataViewController: NSViewController {
             break
         case "闵行校区杨咏曼楼"?:
             roomSelector.addRoomItems(withTitles: YYMBuilding)
+            break
+        case "其余闵行校区教学楼"?:
+            roomSelector.addRoomItems(withTitles: MinHangCampus)
             break
         case "徐汇校区"?:
             roomSelector.addRoomItems(withTitles: XuHuiCampus)
@@ -404,7 +446,8 @@ class FullDataViewController: NSViewController {
     }
     
     func sortClassroom(_ str: String) {
-        let str = str.replacingOccurrences(of: "院", with: "院 ").replacingOccurrences(of: "楼", with: "楼 ").replacingOccurrences(of: "馆", with: "馆 ")
+        let numbersInStr = str.removeFloorCharacters()
+        let str = str.replacingOccurrences(of: numbersInStr, with: " " + numbersInStr)
         if str.starts(with: "上院") {
             if !upperHall.contains(str) {
                 upperHall.append(str)
@@ -437,7 +480,7 @@ class FullDataViewController: NSViewController {
             if !YYMBuilding.contains(str) {
                 YYMBuilding.append(str)
             }
-        } else if str.contains("徐汇") {
+        } else if str.contains("徐汇") || str.contains("新上院") {
             if !XuHuiCampus.contains(str) {
                 XuHuiCampus.append(str)
             }
@@ -464,6 +507,10 @@ class FullDataViewController: NSViewController {
         } else if str.contains("临港") {
             if !LinGangCampus.contains(str) {
                 LinGangCampus.append(str)
+            }
+        } else {
+            if !MinHangCampus.contains(str) {
+                MinHangCampus.append(str)
             }
         }
     }
@@ -493,6 +540,7 @@ class FullDataViewController: NSViewController {
         SMHC.sort()
         LinGangCampus.sort()
         YYMBuilding.sort()
+        MinHangCampus.sort()
     }
     
     
@@ -767,19 +815,22 @@ extension NSImage {
 @objc extension NSPopUpButton {
     func addRoomItems(withTitles items: [String]) {
         var lastIndex: Int?
+        var lastBuilding: String?
         for item in items {
-            if item.contains("校区") || item.contains("徐汇 (Med") {
+            if item.contains("校区") {
                 continue
             }
             if item.count <= 2 {
                 continue
             }
             let curIndex: Int? = Int(item.removeFloorCharacters().prefix(1))
+            let curBuilding: String? = item.replacingOccurrences(of: "\(item.removeFloorCharacters())", with: "")
             if (curIndex != nil) {
 //            print("cur: \(curIndex), last: \(lastIndex)")
                 if lastIndex != nil {
-                    if curIndex! != lastIndex {
+                    if (curIndex! != lastIndex) || (curBuilding != lastBuilding) {
                         lastIndex = curIndex!
+                        lastBuilding = curBuilding!
     //                    print("should add sep")
                         self.addItem(withTitle: "MY_MENU_SEPARATOR")
                     }
