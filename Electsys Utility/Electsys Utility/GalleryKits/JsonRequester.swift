@@ -48,7 +48,7 @@ func generateCur(_ json: JSON) -> Curricula {
             a.weekDay = owa["week_day"].intValue
             a.startsAt = owa["start_from"].intValue
             a.endsAt = owa["end_at"].intValue
-            a.classroom = owa["classroom"].stringValue.replacingOccurrences(of: "教学一楼", with: "教一楼")
+            a.classroom = owa["classroom"].stringValue.replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "教学一楼", with: "教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆")
             // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {
@@ -78,7 +78,7 @@ func generateCur(_ json: JSON) -> Curricula {
             a.weekDay = ewa["week_day"].intValue
             a.startsAt = ewa["start_from"].intValue
             a.endsAt = ewa["end_at"].intValue
-            a.classroom = ewa["classroom"].stringValue.replacingOccurrences(of: "教学一楼", with: "教一楼")
+            a.classroom = ewa["classroom"].stringValue.replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "教学一楼", with: "教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆")
             // .replacingOccurrences(of: "教一楼", with: "徐汇教一楼").replacingOccurrences(of: "新上院", with: "徐汇新上院").replacingOccurrences(of: "工程馆", with: "徐汇工程馆").replacingOccurrences(of: "西二楼", with: "卢湾西二楼").replacingOccurrences(of: "图书馆", with: "卢湾图书馆")
             let splitedClassroom = a.classroom.components(separatedBy: CharacterSet(charactersIn: "(/)"))
             if (splitedClassroom.count >= 3) {

@@ -448,6 +448,12 @@ class FullDataViewController: NSViewController {
     func sortClassroom(_ str: String) {
         let numbersInStr = str.removeFloorCharacters(true)
         let str = str.replacingOccurrences(of: numbersInStr, with: " " + numbersInStr)
+        if str.sanitize() == "" {
+            return
+        }
+        if str.sanitize().count <= 2 {
+            return
+        }
         if str.starts(with: "上院") {
             if !upperHall.contains(str) {
                 upperHall.append(str)
@@ -480,7 +486,7 @@ class FullDataViewController: NSViewController {
             if !YYMBuilding.contains(str) {
                 YYMBuilding.append(str)
             }
-        } else if str.contains("徐汇") || str.contains("新上院") {
+        } else if str.contains("徐汇") || str.contains("新上院") || str.contains("教一楼") {
             if !XuHuiCampus.contains(str) {
                 XuHuiCampus.append(str)
             }
@@ -819,9 +825,6 @@ extension NSImage {
         for item in items {
             let analyseItem = item.sanitize()
             if item.contains("校区") {
-                continue
-            }
-            if item.count <= 2 {
                 continue
             }
             let curIndex: Int? = Int(analyseItem.removeFloorCharacters().prefix(1))
