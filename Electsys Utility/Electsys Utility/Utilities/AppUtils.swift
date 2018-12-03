@@ -259,7 +259,18 @@ extension String {
     }
     
     func removeFloorCharacters(_ insane: Bool = false) -> String {
-        // rewrite this part. unfinished.
+        var acceptedChars = "0123456789"
+        if insane {
+            acceptedChars += "-"
+        }
+        var result = ""
+        for i in self {
+            if acceptedChars.contains(i) {
+                break
+            }
+            result.append(i)
+        }
+        return self.deleteOccur(remove: result)
     }
 }
 
