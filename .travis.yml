@@ -1,5 +1,5 @@
 language: swift
 osx_image: xcode9.2
-xcode_workspace: Electsys Utility.xcworkspace
+xcode_workspace: Electsys Utility/Electsys Utility.xcworkspace
 xcode_scheme: Electsys Utility
 xcode_destination: platform=macOS
