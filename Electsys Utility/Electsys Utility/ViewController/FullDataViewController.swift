@@ -13,7 +13,11 @@ import Regex
 
 class FullDataViewController: NSViewController {
     
+    static let toolBarHeight = 56
+    
     let specialSep = "$_$"
+    
+    var shouldRequestBeta: Bool = false
     
     var courses: [Curricula] = []
     
@@ -74,6 +78,11 @@ class FullDataViewController: NSViewController {
         }
     }
     
+    func setEnableStats(_ stat: [Bool]) {
+        self.view.window?.toolbar?.items[0].isEnabled = stat[0]
+        self.view.window?.toolbar?.items[2].isEnabled = stat[1]
+    }
+    
     func setWeekPop(start: Int, end: Int) {
         weekSelector.removeAllItems()
         for i in start...end {
@@ -109,8 +118,13 @@ class FullDataViewController: NSViewController {
     
     @IBAction func startQuery(_ sender: NSButton) {
         setLayoutType(.shrink)
+        
+        yearSelector.isEnabled = false
+        termSelector.isEnabled = false
+        setEnableStats([false, false])
         clearLists()
         getJson()
+        
     }
     
     @IBOutlet weak var yearSelector: NSPopUpButton!
@@ -139,8 +153,6 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var sortBox: NSBox!
     @IBOutlet weak var detailBox: NSBox!
     
-    @IBOutlet weak var tabView: NSTabView!
-    
     
     @IBOutlet weak var holdingSchoolSelector: NSPopUpButton!
     @IBOutlet weak var teacherNameCombo: NSComboBox!
@@ -153,6 +165,7 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var classNameLabel: NSTextField!
     @IBOutlet weak var classNameResultSelector: NSPopUpButton!
     @IBOutlet weak var classroomDetail: NSButton!
+    @IBOutlet weak var tableView: NSTabView!
     
     @IBOutlet weak var exactMatchChecker: NSButton!
     
@@ -180,7 +193,13 @@ class FullDataViewController: NSViewController {
     }
     
     func getJson() {
-        let jsonUrl = "\(jsonHeader)\(yearSelector.selectedItem?.title.replacingOccurrences(of: "-", with: "_") ?? "__invalid__")_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
+        var jsonHead: String = ""
+        if shouldRequestBeta {
+            jsonHead = betaJsonHeader
+        } else {
+            jsonHead = stableJsonHeader
+        }
+        let jsonUrl = "\(jsonHead)\(yearSelector.selectedItem?.title.replacingOccurrences(of: "-", with: "_") ?? "__invalid__")_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
 //        print(jsonUrl)
         self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false
@@ -190,6 +209,9 @@ class FullDataViewController: NSViewController {
         Alamofire.request(jsonUrl).response(completionHandler: { response in
             if response.response == nil {
                 self.progressIndicator.isHidden = true
+                self.yearSelector.isEnabled = true
+                self.termSelector.isEnabled = true
+                self.setLayoutType(.shrink)
                 self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
                 return
             } else {
@@ -226,8 +248,12 @@ class FullDataViewController: NSViewController {
                         }
                     } catch {
                         DispatchQueue.main.async {
+                            self.setLayoutType(.shrink)
                             self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
                             self.progressIndicator.isHidden = true
+                            self.yearSelector.isEnabled = true
+                            self.termSelector.isEnabled = true
+                            
                         }
                         return
                     }
@@ -241,6 +267,9 @@ class FullDataViewController: NSViewController {
                         self.switchSeg(self.tabTitleSeg)
                         self.updateEnableStat()
                         // success!
+                        self.setEnableStats([true, true])
+                        self.yearSelector.isEnabled = true
+                        self.termSelector.isEnabled = true
                     }
                 }
             }
@@ -665,20 +694,27 @@ class FullDataViewController: NSViewController {
     }
     
     static let layoutTable: [NSSize] = [
-        NSSize(width: 504, height: 79),
-        NSSize(width: 536, height: 363 + 30),
-        NSSize(width: 504, height: 290 + 30),
-        NSSize(width: 556, height: 242 + 30)
+        NSSize(width: 504, height: 79 + toolBarHeight),
+        NSSize(width: 536, height: 363 + 30 + toolBarHeight),
+        NSSize(width: 504, height: 290 + 30 + toolBarHeight),
+        NSSize(width: 556, height: 242 + 30 + toolBarHeight)
         ]
     
     func setLayoutType(_ type: LayoutType) {
+        self.tableView.alphaValue = 0.0
         let frame = self.view.window?.frame
         if frame != nil {
             let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
             let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
             let size = FullDataViewController.layoutTable[type.rawValue]
             let newFrame = NSRect(origin: origin, size: size)
-            self.view.window?.setFrame(newFrame, display: true, animate: true)
+            self.view.window?.setFrame(newFrame, display: true, animate: true) 
+            NSAnimationContext.runAnimationGroup({ (context) in
+                self.tableView.animator().alphaValue = 1.0
+            }, completionHandler: nil)
+        }
+        if type == .shrink {
+            setEnableStats([true, false])
         }
     }
     
@@ -735,7 +771,7 @@ class FullDataViewController: NSViewController {
     }
     
     @IBAction func switchSeg(_ sender: NSSegmentedControl) {
-        tabView.selectTabViewItem(at: sender.selectedSegment)
+        tableView.selectTabViewItem(at: sender.selectedSegment)
         if sender.selectedSegment == 0 {
             setLayoutType(.classroom)
         } else if sender.selectedSegment == 1 {
@@ -786,11 +822,14 @@ class FullDataViewController: NSViewController {
         displayDetail(target)
     }
     
-    @IBAction func getTimeStamp(_ sender: NSButton) {
+    func showDataInfo() {
         if localTimeStamp != "" {
             let infoAlert: NSAlert = NSAlert()
             infoAlert.messageText = "数据详情"
-            infoAlert.informativeText = "生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
+            if shouldRequestBeta {
+                infoAlert.informativeText = "(Beta 数据)\n\n"
+            }
+            infoAlert.informativeText += "生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
@@ -802,6 +841,10 @@ class FullDataViewController: NSViewController {
             infoAlert.alertStyle = NSAlert.Style.informational
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
         }
+    }
+    
+    @IBAction func getTimeStamp(_ sender: NSButton) {
+        showDataInfo()
     }
 }
 

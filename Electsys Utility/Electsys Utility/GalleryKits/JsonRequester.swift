@@ -10,7 +10,9 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-let jsonHeader = "https://raw.githubusercontent.com/yuxiqian/finda-studyroom/master/json_output/"
+
+let betaJsonHeader = "https://raw.githubusercontent.com/yuxiqian/finda-studyroom/be-ta/json_output/"
+let stableJsonHeader = "https://raw.githubusercontent.com/yuxiqian/finda-studyroom/master/json_output/"
 
 func generateCur(_ json: JSON) -> Curricula {
     let cur = Curricula()

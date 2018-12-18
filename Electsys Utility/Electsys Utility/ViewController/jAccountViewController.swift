@@ -231,7 +231,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBAction func checkHistoryData(_ sender: NSButton) {
         // do something crazy
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Data Window Controller")) as? NSWindowController
+        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("FullDataWindowController")) as? FullDataWindowController
         windowController?.showWindow(self)
     }
 }

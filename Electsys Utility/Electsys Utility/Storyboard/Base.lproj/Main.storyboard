@@ -198,13 +198,33 @@
         <!--Window Controller-->
         <scene sceneID="TJd-pb-zEE">
             <objects>
-                <windowController storyboardIdentifier="Data Window Controller" id="uWJ-RP-KmP" customClass="TransparentTitleWindowController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="FullDataWindowController" id="uWJ-RP-KmP" customClass="FullDataWindowController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="条件检索" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="alertPanel" frameAutosaveName="" id="lHP-2O-S3K">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="528" y="336" width="480" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <value key="minSize" type="size" width="480" height="480"/>
+                        <toolbar key="toolbar" implicitIdentifier="8A0FAB66-4353-485A-862C-E06315299875" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="wlF-K5-GGL">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="p7y-sG-ccb"/>
+                                <toolbarItem implicitItemIdentifier="615FDF59-CC8C-4AFC-A52C-979894867BBD" label="使用 “Beta” 数据" paletteLabel="使用 “Beta” 数据" tag="-1" image="NSPreferencesGeneral" autovalidates="NO" selectable="YES" id="iI6-ay-4Ps">
+                                    <connections>
+                                        <action selector="switchBeta:" target="uWJ-RP-KmP" id="Yu1-cl-VRv"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="11385329-522D-45E1-BEE1-F4F1A9D1846A" label="数据信息" paletteLabel="数据信息" tag="-1" image="NSInfo" autovalidates="NO" id="O5W-dT-lmI">
+                                    <connections>
+                                        <action selector="showInfo:" target="uWJ-RP-KmP" id="lDi-US-0iJ"/>
+                                    </connections>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="iI6-ay-4Ps"/>
+                                <toolbarItem reference="p7y-sG-ccb"/>
+                                <toolbarItem reference="O5W-dT-lmI"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>
                         </userDefinedRuntimeAttributes>
@@ -213,6 +233,9 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="infoChecker" destination="O5W-dT-lmI" id="SbG-CH-1hJ"/>
+                        <outlet property="toolBar" destination="wlF-K5-GGL" id="sMz-li-aG1"/>
+                        <outlet property="useBetaSwitcher" destination="iI6-ay-4Ps" id="nQL-Mk-z5R"/>
                         <segue destination="Q2K-06-gA8" kind="relationship" relationship="window.shadowedContentViewController" id="qkK-ys-7Yi"/>
                     </connections>
                 </windowController>
@@ -475,7 +498,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="H07-8N-Qv4">
-                                <rect key="frame" x="404" y="17" width="86" height="32"/>
+                                <rect key="frame" x="404" y="18" width="86" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="检索" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ib4-ux-mIM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1203,17 +1226,6 @@ DQ
                                 <rect key="frame" x="20" y="-65" width="464" height="5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </box>
-                            <button verticalHuggingPriority="750" misplaced="YES" id="brO-e5-9ID">
-                                <rect key="frame" x="461" y="-54" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" inset="2" id="ie0-Il-UtY">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="getTimeStamp:" target="Q2K-06-gA8" id="kda-vJ-NZ9"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1237,7 +1249,7 @@ DQ
                         <outlet property="sixButton" destination="ihb-NZ-C0v" id="MjR-0b-xBM"/>
                         <outlet property="sortBox" destination="Fd4-Qe-Dvo" id="30Y-Jf-dWc"/>
                         <outlet property="tabTitleSeg" destination="egx-SI-kXH" id="uNQ-BW-PmZ"/>
-                        <outlet property="tabView" destination="i1w-CT-yNz" id="Krm-Qr-of4"/>
+                        <outlet property="tableView" destination="i1w-CT-yNz" id="OSL-zo-hna"/>
                         <outlet property="teacherDetail" destination="N4A-83-r69" id="6sm-0J-KUM"/>
                         <outlet property="teacherLabel" destination="hJy-14-LOU" id="19O-qu-1XN"/>
                         <outlet property="teacherNameCombo" destination="pHs-uc-B5F" id="6bB-BH-i98"/>
@@ -1869,7 +1881,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="9.5" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="12" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2738,7 +2750,9 @@ DQ
     </scenes>
     <resources>
         <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSInfo" width="32" height="32"/>
         <image name="NSLockUnlockedTemplate" width="10" height="14"/>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
         <image name="NSStopProgressTemplate" width="11" height="11"/>
