@@ -7,6 +7,10 @@
 
 上海交通大学教务处实用程序
 
+![](https://img.shields.io/badge/platform-macOS-brightgreen.svg)
+![](https://img.shields.io/badge/swift-v4.0-orange.svg)
+![](https://img.shields.io/badge/license-MIT-green.svg)
+
 # 功能
 
  - [x] 将教务处的课程表信息和你的日历同步。支持本地日历和 CalDAV 日历
