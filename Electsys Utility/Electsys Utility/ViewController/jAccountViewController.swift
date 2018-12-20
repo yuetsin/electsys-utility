@@ -106,7 +106,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         if let htmlWindow = windowController?.window {
             let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
             htmlViewController.delegate = self
-            self.view.window?.beginSheet(htmlWindow, completionHandler: nil)
+            windowController?.showWindow(self)
         }
     }
 

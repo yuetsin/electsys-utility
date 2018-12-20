@@ -1307,8 +1307,8 @@ DQ
                                     <action selector="updateRemindState:" target="qbp-Sd-AJM" id="fcN-A3-F9d"/>
                                 </connections>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" id="0a7-le-H5q">
-                                <rect key="frame" x="18" y="356" width="465" height="26"/>
+                            <popUpButton verticalHuggingPriority="750" misplaced="YES" id="0a7-le-H5q">
+                                <rect key="frame" x="20" y="356" width="463" height="26"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="YZa-gN-5JU">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1407,26 +1407,15 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" id="A0u-1l-fhz">
-                                            <rect key="frame" x="326" y="8" width="120" height="32"/>
+                                        <button verticalHuggingPriority="750" misplaced="YES" id="A0u-1l-fhz">
+                                            <rect key="frame" x="352" y="8" width="94" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="push" title="保存课程信息" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zcy-Kl-XoZ">
+                                            <buttonCell key="cell" type="push" title="确认更改" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zcy-Kl-XoZ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="saveInfo:" target="qbp-Sd-AJM" id="fqi-Y9-e9w"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="oEB-39-kNi">
-                                            <rect key="frame" x="232" y="8" width="94" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="push" title="删除此条" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bkv-8h-2Xz">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="removePiece:" target="qbp-Sd-AJM" id="53u-Ff-oX5"/>
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" id="IJf-if-37d">
@@ -1438,6 +1427,17 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button verticalHuggingPriority="750" misplaced="YES" id="oEB-39-kNi">
+                                            <rect key="frame" x="253" y="8" width="94" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <buttonCell key="cell" type="push" title="删除此条" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bkv-8h-2Xz">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="removePiece:" target="qbp-Sd-AJM" id="53u-Ff-oX5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </box>
@@ -1542,15 +1542,6 @@ DQ
                                     <action selector="startSync:" target="qbp-Sd-AJM" id="Tsf-NF-vXU"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="8j2-rZ-nAJ">
-                                <rect key="frame" x="18" y="391" width="189" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="已经成功导入 {0} 条课程信息。" id="ZK9-Fz-xuX">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <datePicker verticalHuggingPriority="750" id="mxZ-n4-J36">
                                 <rect key="frame" x="106" y="142" width="104" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1595,6 +1586,15 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="8j2-rZ-nAJ">
+                                <rect key="frame" x="22" y="388" width="189" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="已经成功导入 {0} 条课程信息。" id="ZK9-Fz-xuX">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -1881,7 +1881,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="12" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="12.5" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2504,19 +2504,10 @@ Copyright © 2018 </string>
                         <rect key="frame" x="0.0" y="0.0" width="461" height="286"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bTj-b7-BLM">
-                                <rect key="frame" x="18" y="249" width="249" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="bTj-b7-BLM">
+                                <rect key="frame" x="18" y="241" width="249" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="left" title="置入来自教学信息服务网的 HTML 文稿：" id="VF3-LK-O6h">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Bcd-fE-xlE">
-                                <rect key="frame" x="18" y="204" width="425" height="34"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" alignment="left" title="请确保置入一份 electsys.sjtu.edu.cn/edu/newsboard/newsinside.html 单一且完整的 HTML 文稿拷贝。" id="K19-8k-xzH">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2589,8 +2580,8 @@ Copyright © 2018 </string>
                                     <action selector="goToElectSys:" target="SHN-id-t8y" id="6P9-5c-6Lp"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" id="2Ga-bg-ccq">
-                                <rect key="frame" x="267" y="240" width="180" height="32"/>
+                            <button verticalHuggingPriority="750" misplaced="YES" id="2Ga-bg-ccq">
+                                <rect key="frame" x="267" y="232" width="180" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="浏览 newsinside.html..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cI7-zj-ihS">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2614,6 +2605,15 @@ DQ
                                     <action selector="OKAndClose:" target="SHN-id-t8y" id="yTU-EN-r9A"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="Bcd-fE-xlE">
+                                <rect key="frame" x="18" y="204" width="425" height="28"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" alignment="left" title="请确保置入一份 electsys.sjtu.edu.cn/edu/newsboard/newsinside.html 单一且完整的 HTML 文稿拷贝。" id="K19-8k-xzH">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="translatesAutoresizingMaskIntoConstraints" value="NO"/>

@@ -18,12 +18,11 @@ class htmlGetViewController: NSViewController {
         // Do view setup here.
     }
     
-    override func viewDidDisappear() {
-        let application = NSApplication.shared
-        application.stopModal()
-        self.delegate?.cancelDataInput()
-        super.viewDidDisappear()
-    }
+//    override func viewDidDisappear() {
+//        let application = NSApplication.shared
+//        application.stopModal()
+//        super.viewDidDisappear()
+//    }
     
     @IBOutlet var htmlContentField: NSTextView!
     
@@ -69,8 +68,8 @@ class htmlGetViewController: NSViewController {
     }
     
     @IBAction func cancelAndClose(_ sender: NSButton) {
-        self.view.window?.close()
         self.delegate?.cancelDataInput()
+        self.view.window?.close()
     }
     
     func showErrorMessage(errorMsg: String) {
