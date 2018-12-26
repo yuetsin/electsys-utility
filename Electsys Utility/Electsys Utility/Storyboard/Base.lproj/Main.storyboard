@@ -1267,6 +1267,7 @@ DQ
                 </viewController>
                 <customObject id="16l-Yi-oCI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="wa7-2k-Qc7"/>
+                <userDefaultsController id="C48-LL-2Fr"/>
             </objects>
             <point key="canvasLocation" x="-1730" y="659"/>
         </scene>
@@ -1881,7 +1882,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p1Q-cq-xgC">
-                                            <rect key="frame" x="0.0" y="12.5" width="455" height="3733"/>
+                                            <rect key="frame" x="0.0" y="13" width="455" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

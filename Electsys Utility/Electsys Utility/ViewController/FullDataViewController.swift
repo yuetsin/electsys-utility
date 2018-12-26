@@ -59,6 +59,7 @@ class FullDataViewController: NSViewController {
     @objc dynamic var toggleSMHC: Bool = true
     @objc dynamic var toggleLinGangCampus: Bool = true
     
+    
     var localTimeStamp: String = ""
     
     var arrangement: [String] = [String].init(repeating: "空教室", count: 14)

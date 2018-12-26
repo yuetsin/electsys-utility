@@ -44,7 +44,7 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>$(PRODUCT_NAME) calendar events</string>
+	<string>$(PRODUCT_NAME) 需要您的允许才能同步日历事件。</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 yuxiqian. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
