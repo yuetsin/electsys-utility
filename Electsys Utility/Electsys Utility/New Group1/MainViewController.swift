@@ -19,7 +19,8 @@ class MainViewController: NSViewController, NSSplitViewDelegate {
     
     
     @IBOutlet var splitView: NSSplitView!
-
+    @IBOutlet weak var containerView: NSView!
+    
     @IBOutlet weak var welcomeButton: NSButton!
     @IBOutlet weak var preferenceButton: NSButton!
     @IBOutlet weak var aboutButton: NSButton!
@@ -30,6 +31,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate {
     @IBOutlet weak var insertHtmlButton: NSButton!
     @IBOutlet weak var queryLibraryButton: NSButton!
     @IBOutlet weak var reportIssueButton: NSButton!
+    
+    
+    private var tabViewController: MainTabViewController?
     
     @IBAction func switchFeature(_ sender: NSButton) {
         
@@ -43,21 +47,27 @@ class MainViewController: NSViewController, NSSplitViewDelegate {
         insertHtmlButton.state = .off
         queryLibraryButton.state = .off
         reportIssueButton.state = .off
-        
-        sender.state = .on
-        
-        switch sender.tag {
-        case 3:
-            
-            break
-        default:
-            break
+    
+        if tabViewController == nil {
+            return
         }
+        tabViewController?.tabView.selectTabViewItem(at: sender.tag)
+        sender.state = .on
+    
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        tabViewController = segue.destinationController as? MainTabViewController
     }
     
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
         return 200
     }
+    
+    func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
+        return 200
+    }
+    
     
     func splitView(_ splitView: NSSplitView, resizeSubviewsWithOldSize oldSize: NSSize) {
         let oldWidth: CGFloat = (splitView.arrangedSubviews.first?.frame.size.width)!
