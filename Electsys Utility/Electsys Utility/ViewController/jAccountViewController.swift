@@ -11,13 +11,16 @@ import Cocoa
 import Kanna
 import Alamofire
 
-class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDelegate {
+class jAccountViewController: NSViewController, loginHelperDelegate {
+
+//    var windowController: NSWindowController?
     
-    var windowController: NSWindowController?
-    
+    var loginSession: Login?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginSession = Login()
+        loginSession?.delegate = self
         loadingIcon.startAnimation(self)
         removeCookie()
         updateCaptcha(refreshCaptchaButton)
@@ -40,11 +43,11 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     @IBOutlet weak var loginButton: NSButton!
     @IBOutlet weak var refreshCaptchaButton: NSButton!
     @IBOutlet weak var resetButton: NSButton!
-    @IBOutlet weak var manualOpenButton: NSButton!
+//    @IBOutlet weak var manualOpenButton: NSButton!
     @IBOutlet weak var loadingIcon: NSProgressIndicator!
-    @IBOutlet weak var expandButton: NSButton!
-    @IBOutlet weak var operationSelector: NSPopUpButton!
-    @IBOutlet weak var checkHistoryButton: NSButton!
+//    @IBOutlet weak var expandButton: NSButton!
+//    @IBOutlet weak var operationSelector: NSPopUpButton!
+//    @IBOutlet weak var checkHistoryButton: NSButton!
     
     @IBAction func loginButtonClicked(_ sender: NSButton) {
         if self.userNameField.stringValue == "" ||
@@ -55,29 +58,21 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         }
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
         disableUI()
-        let loginSession = Login()
-        loginSession.delegate = self
-        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
+        
+//        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
             DispatchQueue.global().async {
-                loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
+                self.loginSession?.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
             }
-        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
-            DispatchQueue.global().async {
-                loginSession.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2], isLegacy: false)
-            }
-        }
+//        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
+//            DispatchQueue.global().async {
+//                self.loginSession?.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2], isLegacy: false)
+//            }
+//        }
     }
     
     @IBAction func updateCaptcha(_ sender: NSButton) {
         self.captchaTextField.stringValue = ""
-        Alamofire.request(captchaUrl).responseData { response in
-            let captchaImageObject = NSImage(data: response.data!)
-            if captchaImageObject != nil {
-                self.captchaImage.image = captchaImageObject
-            } else {
-                self.showErrorMessage(errorMsg: "未能成功加载验证码图片。\n检查你的网络连接。")
-            }
-        }
+        loginSession?.updateCaptcha()
     }
     
     @IBAction func resetInput(_ sender: NSButton) {
@@ -97,18 +92,22 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         }
     }
     
+    func setCaptchaImage(image: NSImage) {
+        self.captchaImage.image = image
+    }
+
 
     
-    @IBAction func manualLoadHTML(_ sender: NSButton) {
-        disableUI()
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Manually Get HTML Window Controller")) as? NSWindowController
-        if let htmlWindow = windowController?.window {
-            let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
-            htmlViewController.delegate = self
-            self.view.window?.beginSheet(htmlWindow, completionHandler: nil)
-        }
-    }
+//    @IBAction func manualLoadHTML(_ sender: NSButton) {
+//        disableUI()
+//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Manually Get HTML Window Controller")) as? NSWindowController
+//        if let htmlWindow = windowController?.window {
+//            let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
+//            htmlViewController.delegate = self
+//            self.view.window?.beginSheet(htmlWindow, completionHandler: nil)
+//        }
+//    }
 
     
     func validateLoginResult(htmlData: String) {
@@ -116,7 +115,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
             htmlData.contains("本学期课程详细情况")) {
 //        success!
-            startDataResolve(html: htmlData)
+//            startDataResolve(html: htmlData)
         } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
             showErrorMessage(errorMsg: "登录失败。\n请求过于频繁，请至少等待 30 秒后再次尝试。")
             resumeUI()
@@ -137,7 +136,7 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
 //        NSLog(htmlData)
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
             htmlData.contains("本学期课程详细情况") || htmlData.contains("节\\星期")) {
-            startDataResolve(html: htmlData)
+//            startDataResolve(html: htmlData)
         } else {
             showErrorMessage(errorMsg: "置入 HTML 文件失败。\n获取的数据格式不正确。")
             resumeUI()
@@ -148,25 +147,25 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
     func cancelDataInput() {
         resumeUI()
     }
-    
-    func startDataResolve(html: String) {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve Window Controller")) as? NSWindowController
-        if let resolveWindow = windowController?.window {
-            let resolveViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve View Controller")) as! ResolveViewController
-            resolveViewController.htmlDoc = html
-            resolveWindow.contentViewController = resolveViewController
-            windowController?.showWindow(self)
-            self.view.window?.orderOut(self)
-        }
-    }
-    
-    func syncExamInfo() {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Sync Exam Window Controller")) as? NSWindowController
-        windowController?.showWindow(self)
-        self.view.window?.orderOut(self)
-    }
+//
+//    func startDataResolve(html: String) {
+//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve Window Controller")) as? NSWindowController
+//        if let resolveWindow = windowController?.window {
+//            let resolveViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve View Controller")) as! ResolveViewController
+//            resolveViewController.htmlDoc = html
+//            resolveWindow.contentViewController = resolveViewController
+//            windowController?.showWindow(self)
+//            self.view.window?.orderOut(self)
+//        }
+//    }
+//
+//    func syncExamInfo() {
+//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Sync Exam Window Controller")) as? NSWindowController
+//        windowController?.showWindow(self)
+//        self.view.window?.orderOut(self)
+//    }
     
 
     func disableUI() {
@@ -176,10 +175,10 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         loginButton.isEnabled = false
         resetButton.isEnabled = false
         refreshCaptchaButton.isEnabled = false
-        manualOpenButton.isEnabled = false
+//        manualOpenButton.isEnabled = false
         captchaImage.isEnabled = false
-        operationSelector.isEnabled = false
-        checkHistoryButton.isEnabled = false
+//        operationSelector.isEnabled = false
+//        checkHistoryButton.isEnabled = false
         loadingIcon.isHidden = false
     }
     
@@ -191,13 +190,13 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         resetButton.isEnabled = true
         refreshCaptchaButton.isEnabled = true
         captchaImage.isEnabled = true
-        operationSelector.isEnabled = true
-        checkHistoryButton.isEnabled = true
+//        operationSelector.isEnabled = true
+//        checkHistoryButton.isEnabled = true
         loadingIcon.isHidden = true
         updateCaptcha(refreshCaptchaButton)
-        if operationSelector.selectedItem!.title == "同步课程表到系统日历" {
-            manualOpenButton.isEnabled = true
-        }
+//        if operationSelector.selectedItem!.title == "同步课程表到系统日历" {
+//            manualOpenButton.isEnabled = true
+//        }
     }
 
     func showErrorMessage(errorMsg: String) {
@@ -209,31 +208,32 @@ class jAccountViewController: NSViewController, requestHtmlDelegate, inputHtmlDe
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
-    @IBAction func onExpand(_ sender: NSButton) {
-        var frame: NSRect = (self.view.window?.frame)!
-        if sender.state == .on {
-            frame.size = NSSize(width: 260, height: 318)
-        } else {
-            frame.size = NSSize(width: 260, height: 230)
-        }
-        self.view.window?.setFrame(frame, display: true, animate: true)
-    }
     
+//    @IBAction func onExpand(_ sender: NSButton) {
+//        var frame: NSRect = (self.view.window?.frame)!
+//        if sender.state == .on {
+//            frame.size = NSSize(width: 260, height: 318)
+//        } else {
+//            frame.size = NSSize(width: 260, height: 230)
+//        }
+//        self.view.window?.setFrame(frame, display: true, animate: true)
+//    }
     
-    @IBAction func operationSelectorPopped(_ sender: NSPopUpButton) {
-        if sender.selectedItem!.title == "同步课程表到系统日历" {
-            self.manualOpenButton.isEnabled = true
-        } else {
-            self.manualOpenButton.isEnabled = false
-        }
-    }
+//
+//    @IBAction func operationSelectorPopped(_ sender: NSPopUpButton) {
+//        if sender.selectedItem!.title == "同步课程表到系统日历" {
+//            self.manualOpenButton.isEnabled = true
+//        } else {
+//            self.manualOpenButton.isEnabled = false
+//        }
+//    }
     
-    @IBAction func checkHistoryData(_ sender: NSButton) {
-        // do something crazy
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("FullDataWindowController")) as? FullDataWindowController
-        windowController?.showWindow(self)
-    }
+//    @IBAction func checkHistoryData(_ sender: NSButton) {
+//        // do something crazy
+//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("FullDataWindowController")) as? FullDataWindowController
+//        windowController?.showWindow(self)
+//    }
 }
 
 

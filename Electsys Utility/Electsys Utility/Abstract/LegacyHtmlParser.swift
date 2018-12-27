@@ -1,5 +1,5 @@
 //
-//  HtmlParser.swift
+//  LegacyHtmlParser.swift
 //  Sync Utility
 //
 //  Created by yuxiqian on 2018/8/31.
