@@ -18,7 +18,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     var loginSession: Login?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+//        super.viewDidLoad()
         loginSession = Login()
         loginSession?.delegate = self
         loadingIcon.startAnimation(self)
