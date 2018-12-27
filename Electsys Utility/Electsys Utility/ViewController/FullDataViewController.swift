@@ -702,17 +702,17 @@ class FullDataViewController: NSViewController {
     
     func setLayoutType(_ type: LayoutType) {
         self.tableView.alphaValue = 0.0
-        let frame = self.view.window?.frame
-        if frame != nil {
-            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
-            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
-            let size = FullDataViewController.layoutTable[type.rawValue]
-            let newFrame = NSRect(origin: origin, size: size)
-            self.view.window?.setFrame(newFrame, display: true, animate: true) 
+//        let frame = self.view.window?.frame
+//        if frame != nil {
+//            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
+//            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
+//            let size = FullDataViewController.layoutTable[type.rawValue]
+//            let newFrame = NSRect(origin: origin, size: size)
+//            self.view.window?.setFrame(newFrame, display: true, animate: true)
             NSAnimationContext.runAnimationGroup({ (context) in
                 self.tableView.animator().alphaValue = 1.0
             }, completionHandler: nil)
-        }
+//        }
         if type == .shrink {
             setEnableStats([true, false])
         }
