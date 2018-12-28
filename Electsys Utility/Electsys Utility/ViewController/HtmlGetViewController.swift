@@ -18,6 +18,11 @@ class htmlGetViewController: NSViewController {
         // Do view setup here.
     }
     
+    override func viewWillDisappear() {
+        delegate = nil
+    }
+    
+    
     override func viewDidDisappear() {
         let application = NSApplication.shared
         application.stopModal()

@@ -16,8 +16,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //    var windowController: NSWindowController?
     
     var loginSession: Login?
-    
-    weak var delegate: readInHTMLDelegate?
+    var htmlDelegate: readInHTMLDelegate?
+    var UIDelegate: UIManagerDelegate?
     
     override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -27,6 +27,12 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         removeCookie()
         updateCaptcha(refreshCaptchaButton)
 //        openRequestPanel()
+    }
+    
+    override func viewWillDisappear() {
+        htmlDelegate = nil
+        UIDelegate = nil
+
     }
     
     override var representedObject: Any? {
@@ -60,6 +66,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         }
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
         disableUI()
+        self.loginSession = Login()
+        self.loginSession?.delegate = self
         
 //        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
             DispatchQueue.global().async {
@@ -117,19 +125,25 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
             htmlData.contains("本学期课程详细情况")) {
 //        success!
-            self.delegate?.eatHTML(data: htmlData)
+            self.htmlDelegate?.htmlDoc = htmlData
+            self.UIDelegate?.unlockIcon()
+            self.UIDelegate?.switchToPage(index: 4)
         } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
             showErrorMessage(errorMsg: "登录失败。\n请求过于频繁，请至少等待 30 秒后再次尝试。")
+            self.UIDelegate?.lockIcon()
             resumeUI()
         }
         else if (htmlData.contains("上海交通大学统一身份认证")) {
             showErrorMessage(errorMsg: "登录失败。\n用户名、密码和验证码中有至少一项不正确。")
+            self.UIDelegate?.lockIcon()
             resumeUI()
         } else if (!htmlData.isEmpty) {
             showErrorMessage(errorMsg: "登录失败。\n访问被拒绝。请重启应用后再次尝试。")
+            self.UIDelegate?.lockIcon()
             resumeUI()
         } else {
             showErrorMessage(errorMsg: "登录失败。\n检查你的网络连接。")
+            self.UIDelegate?.lockIcon()
             resumeUI()
         }
     }
@@ -210,6 +224,9 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
     }
     
+    func failedToLoadCaptcha() {
+        showErrorMessage(errorMsg: "获取验证码时发生错误。\n请检查您的网络连接。")
+    }
     
 //    @IBAction func onExpand(_ sender: NSButton) {
 //        var frame: NSRect = (self.view.window?.frame)!

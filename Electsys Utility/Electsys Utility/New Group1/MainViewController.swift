@@ -2,31 +2,28 @@
 //  MainViewController.swift
 //  Electsys Utility
 //
-//  Created by 法好 on 2018/12/27.
-//  Copyright © 2018年 yuxiqian. All rights reserved.
+//  Created by yuxiqian on 2018/12/27.
+//  Copyright © 2018 yuxiqian. All rights reserved.
 //
 
 import Cocoa
 
-class MainViewController: NSViewController, NSSplitViewDelegate {
+class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
         registerDelegate()
     }
     
     fileprivate func registerDelegate() {
         splitView.delegate = self
-        
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("New.Storyboard"), bundle: nil)
-        let jAccountVC = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("jAccountVC")) as? jAccountViewController
-        let ResolveVC = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ResolveVC")) as? ResolveViewController
-        jAccountVC?.delegate = ResolveVC
     }
     
-    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        // Prepare for segue
+        tabViewController = segue.destinationController as? MainTabViewController
+    }
     
     @IBOutlet var splitView: NSSplitView!
     @IBOutlet weak var containerView: NSView!
@@ -63,11 +60,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate {
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
-    
-    }
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        tabViewController = segue.destinationController as? MainTabViewController
+        tabViewController?.childViewControllers[sender.tag].becomeFirstResponder()
     }
     
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
@@ -84,4 +77,48 @@ class MainViewController: NSViewController, NSSplitViewDelegate {
         splitView.adjustSubviews()
         splitView.setPosition(oldWidth, ofDividerAt: 0)
     }
+    
+    func unlockIcon() {
+        loginJAccountButton.image = NSImage(imageLiteralResourceName: "NSLockUnlockedTemplate")
+        syncCourseTableButton.isEnabled = true
+        syncTestInfoButton.isEnabled = true
+        getScoreButton.isEnabled = true
+    }
+    
+    func lockIcon() {
+        loginJAccountButton.image = NSImage(imageLiteralResourceName: "NSLockLockedTemplate")
+        syncCourseTableButton.isEnabled = false
+        syncTestInfoButton.isEnabled = false
+        getScoreButton.isEnabled = false
+    }
+    
+    func switchToPage(index: Int) {
+        welcomeButton.state = .off
+        preferenceButton.state = .off
+        aboutButton.state = .off
+        loginJAccountButton.state = .off
+        syncCourseTableButton.state = .off
+        syncTestInfoButton.state = .off
+        getScoreButton.state = .off
+        insertHtmlButton.state = .off
+        queryLibraryButton.state = .off
+        reportIssueButton.state = .off
+        
+        (self.view.viewWithTag(index) as! NSButton).state = .on
+        
+        if tabViewController == nil {
+            return
+        }
+    
+        tabViewController?.tabView.selectTabViewItem(at: index)
+        tabViewController?.childViewControllers[index].becomeFirstResponder()
+    }
 }
+
+
+protocol UIManagerDelegate: NSObjectProtocol {
+    func unlockIcon() -> ()
+    func lockIcon() -> ()
+    func switchToPage(index: Int) -> ()
+}
+

@@ -11,23 +11,9 @@ import EventKit
 
 class ResolveViewController: NSViewController, writeCalendarDelegate, readInHTMLDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+    override func viewWillAppear() {
+        super.viewWillAppear()
         //        print(self.htmlDoc)
-//        initializeInfo()
-        self.startWeekSelector.dateValue = Date()
-        onDatePicked(startWeekSelector)
-        self.loadingRing.startAnimation(self)
-        self.loadingTextField.stringValue = ""
-        self.courseIdentifierField.isEnabled = false
-        self.courseScoreField.isEnabled = false
-        self.courseTimeField.isEnabled = false
-    }
-    
-    func eatHTML(data: String) {
-        print("Gotta \(data)")
-        self.htmlDoc = data
         initializeInfo()
         self.startWeekSelector.dateValue = Date()
         onDatePicked(startWeekSelector)
@@ -343,5 +329,5 @@ protocol writeCalendarDelegate: NSObjectProtocol {
 }
 
 protocol readInHTMLDelegate: NSObjectProtocol {
-    func eatHTML(data: String) -> ()
+    var htmlDoc: String { get set }
 }

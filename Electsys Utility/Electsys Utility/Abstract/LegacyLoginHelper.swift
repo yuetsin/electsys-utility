@@ -28,7 +28,7 @@ class Login {
             var responseHtml: String = ""
             Alamofire.request(loginUrl).response(completionHandler: { response in
                 if response.response == nil {
-                    self.delegate?.validateLoginResult(htmlData: responseHtml)
+                    self.delegate?.validateLoginResult(htmlData: "")
                     return
                 }
                 let responseItem = response.response!
@@ -36,6 +36,7 @@ class Login {
                 if responseItem.url != nil {
                     jumpToUrl = responseItem.url!.absoluteString
                 } else {
+                    self.delegate?.validateLoginResult(htmlData: "")
                     return
                 }
                 let sID = parseRequest(requestUrl: jumpToUrl, parseType: "sid")
@@ -80,6 +81,7 @@ class Login {
                 self.delegate?.setCaptchaImage(image: captchaImageObject!)
             } else {
                 self.delegate?.setCaptchaImage(image: NSImage(imageLiteralResourceName: "NSStopProgressTemplate"))
+                self.delegate?.failedToLoadCaptcha()
             }
         }
     }
@@ -89,5 +91,6 @@ protocol loginHelperDelegate: NSObjectProtocol {
     func validateLoginResult(htmlData: String) -> ()
 //    func syncExamInfo() -> ()
     func setCaptchaImage(image: NSImage) -> ()
+    func failedToLoadCaptcha() -> ()
 }
 

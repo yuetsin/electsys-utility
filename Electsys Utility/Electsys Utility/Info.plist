@@ -48,7 +48,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 yuxiqian. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
-	<string>New.Storyboard</string>
+	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

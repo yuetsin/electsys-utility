@@ -11,8 +11,6 @@ import Foundation
 import Regex
 
 
-
-
 func parseCourseSheet(_ docContent: String,
 //                      _ courseInfoArray: inout [Course],
                       _ displayWeek: inout [Day],
