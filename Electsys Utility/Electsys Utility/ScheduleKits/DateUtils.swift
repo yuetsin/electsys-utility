@@ -38,14 +38,14 @@ class CalendarHelper {
                     source.sourceType.rawValue == type.rawValue
                     }.first
                 if newCalendar.source == nil {
-                    self.delegate?.showError(error: "哎呀！Sync Utility 未得到充分授权。\n重新启动并再次尝试。")
+                    self.delegate?.showError(error: "哎呀！Sync Utility 无法创建这个日历。\n请检查 Calendar.app 的账户权限。")
                     return
                 }
                 do {
                     try self.eventStore.saveCalendar(newCalendar, commit: true)
                     self.calendar = newCalendar
                 } catch {
-                    self.delegate?.showError(error: "哎呀！Sync Utility 未能创建指定的日历。\n重新启动并再次尝试。")
+                    self.delegate?.showError(error: "哎呀！Sync Utility 无法保存到指定的日历。\n请检查 Calendar.app 的账户权限。")
                 }
             }
             self.delegate?.startWriteCalendar()

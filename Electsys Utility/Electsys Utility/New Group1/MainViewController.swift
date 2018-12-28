@@ -14,6 +14,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         super.viewDidLoad()
         // Do view setup here.
         registerDelegate()
+        lockIcon()
     }
     
     fileprivate func registerDelegate() {
