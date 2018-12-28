@@ -9,11 +9,10 @@
 import Cocoa
 import EventKit
 
-class ResolveViewController: NSViewController, writeCalendarDelegate {
+class ResolveViewController: NSViewController, writeCalendarDelegate, readInHTMLDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+    override func viewWillAppear() {
+        super.viewWillAppear()
         //        print(self.htmlDoc)
         initializeInfo()
         self.startWeekSelector.dateValue = Date()
@@ -327,4 +326,8 @@ protocol writeCalendarDelegate: NSObjectProtocol {
     func didWriteEvent(title: String) -> ()
     func startWriteCalendar() -> ()
     func showError(error: String) -> ()
+}
+
+protocol readInHTMLDelegate: NSObjectProtocol {
+    var htmlDoc: String { get set }
 }

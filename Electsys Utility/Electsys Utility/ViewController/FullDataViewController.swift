@@ -631,54 +631,72 @@ class FullDataViewController: NSViewController {
     
     func drawBox(id: Int, population: Int = -1) {
         var color: NSColor?
+        var description: String = ""
         if population == -1 {
             color = getColor(name: "empty")
+            description = "空教室"
         } else if population < 25 {
             color = getColor(name: "light")
+            description = "没什么人"
         } else if population < 50 {
             color = getColor(name: "medium")
+            description = "有点人"
         } else if population < 100 {
             color = getColor(name: "heavy")
+            description = "人很多"
         } else {
             color = getColor(name: "full")
+            description = "人满"
         }
         let colorBox = NSImage(color: color!, size: NSSize(width: 25, height: 25))
         switch id {
         case 1:
             oneButton.image = colorBox
+            oneButton.alternateTitle = "第一节课：" + description
             break
         case 2:
             twoButton.image = colorBox
+            twoButton.alternateTitle = "第二节课：" + description
             break
         case 3:
             threeButton.image = colorBox
+            threeButton.alternateTitle = "第三节课：" + description
             break
         case 4:
             fourButton.image = colorBox
+            fourButton.alternateTitle = "第四节课：" + description
             break
         case 5:
             fiveButton.image = colorBox
+            fiveButton.alternateTitle = "第五节课：" + description
             break
         case 6:
             sixButton.image = colorBox
+            sixButton.alternateTitle = "第六节课：" + description
             break
         case 7:
             sevenButton.image = colorBox
+            sevenButton.alternateTitle = "第七节课：" + description
             break
         case 8:
             eightButton.image = colorBox
+            eightButton.alternateTitle = "第八节课：" + description
             break
         case 9:
             nineButton.image = colorBox
+            nineButton.alternateTitle = "第九节课：" + description
             break
         case 10:
             tenButton.image = colorBox
+            tenButton.alternateTitle = "第十节课：" + description
             break
         case 11:
             elevenButton.image = colorBox
+            elevenButton.alternateTitle = "第十一节课：" + description
             break
         case 12:
             twelveButton.image = colorBox
+            twelveButton.alternateTitle = "第十二节课：" + description
             break
         default:
             break
@@ -703,17 +721,17 @@ class FullDataViewController: NSViewController {
     
     func setLayoutType(_ type: LayoutType) {
         self.tableView.alphaValue = 0.0
-        let frame = self.view.window?.frame
-        if frame != nil {
-            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
-            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
-            let size = FullDataViewController.layoutTable[type.rawValue]
-            let newFrame = NSRect(origin: origin, size: size)
-            self.view.window?.setFrame(newFrame, display: true, animate: true) 
+//        let frame = self.view.window?.frame
+//        if frame != nil {
+//            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
+//            let origin = NSMakePoint(frame!.origin.x, frame!.origin.y + heightDelta)
+//            let size = FullDataViewController.layoutTable[type.rawValue]
+//            let newFrame = NSRect(origin: origin, size: size)
+//            self.view.window?.setFrame(newFrame, display: true, animate: true)
             NSAnimationContext.runAnimationGroup({ (context) in
                 self.tableView.animator().alphaValue = 1.0
             }, completionHandler: nil)
-        }
+//        }
         if type == .shrink {
             setEnableStats([true, false])
         }
