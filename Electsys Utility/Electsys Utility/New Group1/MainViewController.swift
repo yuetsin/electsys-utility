@@ -9,11 +9,21 @@
 import Cocoa
 
 class MainViewController: NSViewController, NSSplitViewDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        registerDelegate()
+    }
+    
+    fileprivate func registerDelegate() {
         splitView.delegate = self
+        
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("New.Storyboard"), bundle: nil)
+        let jAccountVC = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("jAccountVC")) as? jAccountViewController
+        let ResolveVC = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ResolveVC")) as? ResolveViewController
+        jAccountVC?.delegate = ResolveVC
     }
     
     

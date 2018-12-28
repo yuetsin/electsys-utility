@@ -17,6 +17,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     
     var loginSession: Login?
     
+    weak var delegate: readInHTMLDelegate?
+    
     override func viewDidLoad() {
 //        super.viewDidLoad()
         loginSession = Login()
@@ -115,7 +117,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
             htmlData.contains("本学期课程详细情况")) {
 //        success!
-//            startDataResolve(html: htmlData)
+            self.delegate?.eatHTML(data: htmlData)
         } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
             showErrorMessage(errorMsg: "登录失败。\n请求过于频繁，请至少等待 30 秒后再次尝试。")
             resumeUI()
