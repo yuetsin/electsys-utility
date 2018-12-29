@@ -93,8 +93,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 
     func removeCookie() {
         let cookieStorage = HTTPCookieStorage.shared
-        
         cookieStorage.removeCookies(since: Date.init(timeIntervalSinceNow: -1000.0))
+        loginSession?.logOut()
     }
 
     func setCaptchaImage(image: NSImage) {
