@@ -21,7 +21,6 @@
 		8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */; };
 		8A397DD021410CFB00AE297A /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DCF21410CFB00AE297A /* Exam.swift */; };
 		8A44513121366418000156BD /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44513021366418000156BD /* AppUtils.swift */; };
-		8A49F6A521D4B8FD00010816 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49F6A421D4B8FD00010816 /* MainViewController.swift */; };
 		8A49F6AA21D4C47700010816 /* CurriculaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A49F6A921D4C47700010816 /* CurriculaHelper.swift */; };
 		8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DD21362EAF0064488C /* AppDelegate.swift */; };
 		8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22DF21362EAF0064488C /* jAccountViewController.swift */; };
@@ -38,9 +37,10 @@
 		8AA627A2214A5B72003906BD /* Regex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A3214A5B72003906BD /* Regex.framework */; };
 		8AA627A4214A5B75003906BD /* Kanna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A5214A5B75003906BD /* Kanna.framework */; };
 		8AA627A8214A5C3E003906BD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A7214A5C3E003906BD /* Cocoa.framework */; };
+		8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA79CE421D70F1E007D272B /* MainTabViewController.swift */; };
+		8AA79CE721D70F1E007D272B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA79CE521D70F1E007D272B /* MainViewController.swift */; };
 		8AAB6F582172FA4C00D0FF61 /* TransparentTitleWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */; };
 		8AAD7F1C21D4D05C0019E9F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD7F1B21D4D05C0019E9F8 /* Main.storyboard */; };
-		8AAD7F1E21D4EAEB0019E9F8 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAD7F1D21D4EAEB0019E9F8 /* MainTabViewController.swift */; };
 		8AB589C9214B7F300088B190 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
 		8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB34652140143C002053D0 /* FullDataViewController.swift */; };
 		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
@@ -67,7 +67,6 @@
 		8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSyncHelper.swift; sourceTree = "<group>"; };
 		8A397DCF21410CFB00AE297A /* Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exam.swift; sourceTree = "<group>"; };
 		8A44513021366418000156BD /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		8A49F6A421D4B8FD00010816 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A49F6A921D4C47700010816 /* CurriculaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculaHelper.swift; sourceTree = "<group>"; };
 		8A4A22DA21362EAF0064488C /* Electsys Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Electsys Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4A22DD21362EAF0064488C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,9 +89,10 @@
 		8AA627A3214A5B72003906BD /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA627A5214A5B75003906BD /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA627A7214A5C3E003906BD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8AA79CE421D70F1E007D272B /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabViewController.swift; path = "Electsys Utility/UIKits/MainTabViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8AA79CE521D70F1E007D272B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "Electsys Utility/UIKits/MainViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentTitleWindowController.swift; sourceTree = "<group>"; };
 		8AAD7F1B21D4D05C0019E9F8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8AAD7F1D21D4EAEB0019E9F8 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		8ACB34652140143C002053D0 /* FullDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataViewController.swift; sourceTree = "<group>"; };
 		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
 		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 		8A49F6A321D4B8CE00010816 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8A49F6A421D4B8FD00010816 /* MainViewController.swift */,
-				8AAD7F1D21D4EAEB0019E9F8 /* MainTabViewController.swift */,
+				8AA79CE421D70F1E007D272B /* MainTabViewController.swift */,
+				8AA79CE521D70F1E007D272B /* MainViewController.swift */,
 			);
 			name = UI;
 			path = "New Group1";
@@ -428,13 +428,13 @@
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
 				8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */,
 				8A397DC72140B87400AE297A /* Teacher.swift in Sources */,
-				8AAD7F1E21D4EAEB0019E9F8 /* MainTabViewController.swift in Sources */,
 				8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */,
+				8AA79CE721D70F1E007D272B /* MainViewController.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
 				8A044789218D40D800BAB188 /* AboutViewController.swift in Sources */,
-				8A49F6A521D4B8FD00010816 /* MainViewController.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
+				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
 				8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
 				8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */,

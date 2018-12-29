@@ -253,4 +253,23 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("FullDataWindowController")) as? FullDataWindowController
 //        windowController?.showWindow(self)
 //    }
+    
+    @IBAction func goToElectsysNew(_ sender: NSButton) {
+        if let url = URL(string: "http://i.sjtu.edu.cn/"), NSWorkspace.shared.open(url) {
+            // successfully opened
+        }
+    }
+    
+    @IBAction func goToElectsysLegacy(_ sender: NSButton) {
+        if let url = URL(string: "http://electsys.sjtu.edu.cn"), NSWorkspace.shared.open(url) {
+            // successfully opened
+        }
+    }
+    
+    
+    func forceResetAccount() {
+        showErrorMessage(errorMsg: "登录信息已过期，请您重新登录。")
+        resetInput(resetButton)
+        resumeUI()
+    }
 }

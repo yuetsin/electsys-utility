@@ -13,10 +13,15 @@ class MainTabViewController: NSTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        (self.childViewControllers[3] as! jAccountViewController).UIDelegate = (self.parent as! MainViewController)
-        (self.childViewControllers[3] as! jAccountViewController).htmlDelegate = (self.childViewControllers[4] as! ResolveViewController)
     }
     
+    override func viewWillAppear() {
+        (self.childViewControllers[3] as! jAccountViewController).UIDelegate = (self.parent as! MainViewController)
+        (self.childViewControllers[3] as! jAccountViewController).htmlDelegate = (self.childViewControllers[4] as! ResolveViewController)
+        
+         (self.childViewControllers[5] as! ExamSyncViewController).accountDelegate = (self.childViewControllers[3] as! jAccountViewController)
+         (self.childViewControllers[5] as! ExamSyncViewController).UIDelegate = (self.parent as! MainViewController)
+    }
     @IBOutlet weak var featureTabView: NSTabView!
 
 }

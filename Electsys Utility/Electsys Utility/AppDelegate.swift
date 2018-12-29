@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "About Window Controller")) as? NSWindowController
 //        windowController?.showWindow(sender)
 //    }
-//
+
 //    @IBAction func openCreditsWindow(_ sender: NSButton) {
 //        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
 //        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "Credits Window Controller")) as? NSWindowController

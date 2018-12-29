@@ -19,6 +19,10 @@ class ExamSync {
     func getExamData(year: Year, term: Term) {
 
         Alamofire.request(examRequestUrl).responseData(completionHandler: { response in
+            if response.response == nil {
+                self.delegate?.parseResponse(examData: "")
+                return
+            }
             // 从这个页面中获取 __VIEWSTATE、__VIEWSTATEGENERATOR 和 __EVENTVALIDATION。
             let realOutput = String(data: response.data!, encoding: .utf8)!
             //                        print(realOutput)

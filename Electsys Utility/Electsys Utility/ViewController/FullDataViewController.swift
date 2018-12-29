@@ -42,6 +42,8 @@ class FullDataViewController: NSViewController {
     var SMHC: [String] = []
     var LinGangCampus: [String] = []
     
+    var possibleUrl: String = "未知"
+    
     @objc dynamic var toggleUpperHall: Bool = true
     @objc dynamic var toggleMiddleHall: Bool = true
     @objc dynamic var toggleLowerHall: Bool = true
@@ -77,11 +79,14 @@ class FullDataViewController: NSViewController {
         for year in 0...8 {
             yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
         }
+        tabTitleSeg.isEnabled = false
+        showMoreButton.isEnabled = false
+        tableView.selectTabViewItem(at: 3)
     }
     
     func setEnableStats(_ stat: [Bool]) {
-        self.view.window?.toolbar?.items[0].isEnabled = stat[0]
-        self.view.window?.toolbar?.items[2].isEnabled = stat[1]
+        betaSelector.isEnabled = stat[0]
+        showMoreButton.isEnabled = stat[1]
     }
     
     func setWeekPop(start: Int, end: Int) {
@@ -127,6 +132,7 @@ class FullDataViewController: NSViewController {
         getJson()
         
     }
+
     
     @IBOutlet weak var yearSelector: NSPopUpButton!
     @IBOutlet weak var termSelector: NSPopUpButton!
@@ -168,6 +174,8 @@ class FullDataViewController: NSViewController {
     @IBOutlet weak var classroomDetail: NSButton!
     @IBOutlet weak var tableView: NSTabView!
     
+    @IBOutlet weak var betaSelector: NSButton!
+    @IBOutlet weak var showMoreButton: NSButton!
     @IBOutlet weak var exactMatchChecker: NSButton!
     
     @IBAction func iconButtonTapped(_ sender: NSButton) {
@@ -182,6 +190,11 @@ class FullDataViewController: NSViewController {
 
     @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
         setLayoutType(.shrink)
+    }
+    
+    @IBAction func betaTapped(_ sender: NSButton) {
+        setLayoutType(.shrink)
+        shouldRequestBeta = (sender.state == .on)
     }
     
     @IBAction func termPopTapped(_ sender: NSPopUpButton) {
@@ -216,6 +229,7 @@ class FullDataViewController: NSViewController {
                 self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
                 return
             } else {
+                self.possibleUrl = jsonUrl
                 DispatchQueue.global().async {
                     do {
                         let curricula = try JSON(data: response.data!)
@@ -720,7 +734,7 @@ class FullDataViewController: NSViewController {
         ]
     
     func setLayoutType(_ type: LayoutType) {
-        self.tableView.alphaValue = 0.0
+//        self.tableView.alphaValue = 0.0
 //        let frame = self.view.window?.frame
 //        if frame != nil {
 //            let heightDelta = frame!.size.height - FullDataViewController.layoutTable[type.rawValue].height
@@ -728,12 +742,19 @@ class FullDataViewController: NSViewController {
 //            let size = FullDataViewController.layoutTable[type.rawValue]
 //            let newFrame = NSRect(origin: origin, size: size)
 //            self.view.window?.setFrame(newFrame, display: true, animate: true)
-            NSAnimationContext.runAnimationGroup({ (context) in
-                self.tableView.animator().alphaValue = 1.0
-            }, completionHandler: nil)
-//        }
+//            NSAnimationContext.runAnimationGroup({ (context) in
+//                self.tableView.animator().alphaValue = 1.0
+//            }, completionHandler: nil)
+////        }
         if type == .shrink {
             setEnableStats([true, false])
+            tableView.selectTabViewItem(at: 3)
+            tabTitleSeg.isEnabled = false
+            showMoreButton.isEnabled = false
+        } else {
+            tabTitleSeg.isEnabled = true
+            showMoreButton.isEnabled = true
+            tableView.selectTabViewItem(at: tabTitleSeg.selectedSegment)
         }
     }
     
@@ -763,16 +784,31 @@ class FullDataViewController: NSViewController {
                 if cur.isContinuous() {
                     tag += both
                     for arr in cur.oddWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
+                        if arr.classroom != "" {
+                            tag += "，在\(arr.classroom)\n"
+                        } else {
+                            tag += "\n"
+                        }
                     }
                 } else {
                     tag += odd
                     for arr in cur.oddWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
+                        if arr.classroom != "" {
+                            tag += "，在\(arr.classroom)\n"
+                        } else {
+                            tag += "\n"
+                        }
                     }
                     tag += even
                     for arr in cur.evenWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节，在\(arr.classroom)\n"
+                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
+                        if arr.classroom != "" {
+                            tag += "，在\(arr.classroom)\n"
+                        } else {
+                            tag += "\n"
+                        }
                     }
                 }
                 schedule += tag
@@ -848,14 +884,14 @@ class FullDataViewController: NSViewController {
             if shouldRequestBeta {
                 infoAlert.informativeText = "(Beta 数据)\n\n"
             }
-            infoAlert.informativeText += "生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
+            infoAlert.informativeText += "来源：\(possibleUrl)\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
         } else {
             let infoAlert: NSAlert = NSAlert()
             infoAlert.messageText = "数据详情"
-            infoAlert.informativeText = "生成时间：未知\n数据量：\(courses.count)"
+            infoAlert.informativeText = "来源：\(possibleUrl)\n\n生成时间：未知\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)

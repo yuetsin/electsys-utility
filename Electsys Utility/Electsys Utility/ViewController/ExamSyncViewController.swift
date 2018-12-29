@@ -16,6 +16,8 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     var exams: [Exam] = []
     var helper: CalendarHelper?
     var shouldRemind: Bool = true
+    var accountDelegate: loginHelperDelegate?
+    var UIDelegate: UIManagerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +33,16 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
         let studentID: String = getByXpath(examData, "//*[@id=\"lblXh\"]")
         let studentName: String = getByXpath(examData, "//*[@id=\"lblXm\"]")
         let studentMajor: String = getByXpath(examData, "//*[@id=\"lblZy\"]")
-        showInfoMessage(infoMsg: "请确认个人信息：\n\(studentMajor)专业\(studentName)，学号 \(studentID)。")
+        
+        if studentID != "0" || studentName != "0" || studentMajor != "0" {
+            showInfoMessage(infoMsg: "请确认个人信息：\n\(studentMajor)专业\(studentName)，学号 \(studentID)。")
 //        print(examData)
-    
+        } else {
+            self.UIDelegate?.switchToPage(index: 3)
+            self.accountDelegate?.forceResetAccount()
+            self.UIDelegate?.lockIcon()
+            return
+        }
         if let html = try? HTML(html: examData, encoding: .utf8) {
             testInfo.removeAllItems()
             for item in html.xpath("//*[@id=\"gridMain\"]/tr[position()>1]") {

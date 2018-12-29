@@ -92,5 +92,6 @@ protocol loginHelperDelegate: NSObjectProtocol {
 //    func syncExamInfo() -> ()
     func setCaptchaImage(image: NSImage) -> ()
     func failedToLoadCaptcha() -> ()
+    func forceResetAccount() -> ()
 }
 
