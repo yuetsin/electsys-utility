@@ -13,7 +13,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet var window: NSWindow!
-    var windowController: NSWindowController?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
+    
 //
 //    @IBAction func aboutWindow(_ sender: NSButton) {
 //        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)

@@ -19,6 +19,10 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     var htmlDelegate: readInHTMLDelegate?
     var UIDelegate: UIManagerDelegate?
 
+    override func viewWillAppear() {
+        checkAvailability()
+    }
+    
     override func viewDidLoad() {
 //        super.viewDidLoad()
         loginSession = Login()
@@ -27,12 +31,6 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         removeCookie()
         updateCaptcha(refreshCaptchaButton)
 //        openRequestPanel()
-    }
-
-    override func viewWillDisappear() {
-        htmlDelegate = nil
-        UIDelegate = nil
-
     }
 
     override var representedObject: Any? {
@@ -95,11 +93,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 
     func removeCookie() {
         let cookieStorage = HTTPCookieStorage.shared
-        if let cookies = cookieStorage.cookies(for: URL(string: electSysUrl)!) {
-            for cookie in cookies {
-                cookieStorage.deleteCookie(cookie)
-            }
-        }
+        
+        cookieStorage.removeCookies(since: Date.init(timeIntervalSinceNow: -1000.0))
     }
 
     func setCaptchaImage(image: NSImage) {
@@ -138,7 +133,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
             self.UIDelegate?.lockIcon()
             resumeUI()
         } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登录失败。\n访问被拒绝。请重启应用后再次尝试。")
+            showErrorMessage(errorMsg: "登录失败。\n频繁的访问被拒绝。请重启应用后再次尝试。")
             self.UIDelegate?.lockIcon()
             resumeUI()
         } else {
@@ -268,8 +263,48 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     
     
     func forceResetAccount() {
-        showErrorMessage(errorMsg: "登录信息已过期，请您重新登录。")
-        resetInput(resetButton)
-        resumeUI()
+        self.UIDelegate?.lockIcon()
+        DispatchQueue.main.async {
+            if (self.loginButton.isEnabled) {
+                self.resumeUI()
+            } else {
+                self.showErrorMessage(errorMsg: "登录信息已过期，请您重新登录。")
+                self.resetInput(self.resetButton)
+                self.resumeUI()
+            }
+        }
+    }
+    
+    func setSuccessful() {
+        DispatchQueue.main.async {
+            self.loadingIcon.isHidden = true
+            let infoAlert: NSAlert = NSAlert()
+            infoAlert.messageText = "提示"
+            infoAlert.informativeText = "您已经以 \(self.userNameField.stringValue) 的身份登录。"
+            infoAlert.alertStyle = NSAlert.Style.informational
+            infoAlert.addButton(withTitle: "嗯")
+            infoAlert.addButton(withTitle: "切换账号")
+            infoAlert.beginSheetModal(for: self.view.window!) { (returnCode) in
+                if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
+                    self.resetInput(self.resetButton)
+                    self.resumeUI()
+                    self.UIDelegate?.lockIcon()
+                }
+            }
+        }
+    }
+    
+    func checkAvailability() {
+        Alamofire.request(sdtLeftUrl).responseData(completionHandler: { response in
+            if response.response == nil {
+                self.forceResetAccount()
+            } else if (!String(data: response.data!, encoding: .utf8)!.contains("学生请用统一身份登陆")) {
+//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
+                self.setSuccessful()
+            } else {
+//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
+                self.forceResetAccount()
+            }
+        })
     }
 }

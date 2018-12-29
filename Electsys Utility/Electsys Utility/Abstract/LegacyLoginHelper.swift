@@ -94,4 +94,3 @@ protocol loginHelperDelegate: NSObjectProtocol {
     func failedToLoadCaptcha() -> ()
     func forceResetAccount() -> ()
 }
-
