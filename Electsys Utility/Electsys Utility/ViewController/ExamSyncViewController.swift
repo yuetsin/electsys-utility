@@ -30,6 +30,7 @@ class ExamSyncViewController: NSViewController, examQueryDelegate, writeCalendar
     
     func parseResponse(examData: String) {
         resumeUI()
+        exams = []
         let studentID: String = getByXpath(examData, "//*[@id=\"lblXh\"]")
         let studentName: String = getByXpath(examData, "//*[@id=\"lblXm\"]")
         let studentMajor: String = getByXpath(examData, "//*[@id=\"lblZy\"]")
