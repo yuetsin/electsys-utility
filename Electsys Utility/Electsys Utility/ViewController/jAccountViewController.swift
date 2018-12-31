@@ -31,6 +31,13 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         removeCookie()
         updateCaptcha(refreshCaptchaButton)
 //        openRequestPanel()
+        
+        setAccessibilityLabel()
+    }
+    
+    func setAccessibilityLabel() {
+        accessNewElectsys.setAccessibilityLabel("访问新版教学信息服务网")
+        accessLegacyElectsys.setAccessibilityLabel("访问旧版教学信息服务网")
     }
 
     override var representedObject: Any? {
@@ -42,6 +49,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //    var requestDelegate: requestHtmlDelegate?
 //    var inputDelegate: inputHtmlDelegate?
 
+    @IBOutlet weak var accessNewElectsys: NSButton!
+    @IBOutlet weak var accessLegacyElectsys: NSButton!
     @IBOutlet weak var userNameField: NSTextField!
     @IBOutlet weak var passwordField: NSSecureTextField!
     @IBOutlet weak var captchaTextField: NSTextField!

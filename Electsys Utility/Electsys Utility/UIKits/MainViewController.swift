@@ -15,10 +15,37 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         // Do view setup here.
         registerDelegate()
         lockIcon()
+        setAccessibilityLabel()
     }
     
     fileprivate func registerDelegate() {
         splitView.delegate = self
+    }
+    
+    func setAccessibilityLabel() {
+        tabViewController?.childViewControllers[0].view.setAccessibilityParent(aboutButton)
+        tabViewController?.childViewControllers[1].view.setAccessibilityParent(preferenceButton)
+        tabViewController?.childViewControllers[2].view.setAccessibilityParent(creditsButton)
+        tabViewController?.childViewControllers[3].view.setAccessibilityParent(loginJAccountButton)
+        tabViewController?.childViewControllers[4].view.setAccessibilityParent(syncCourseTableButton)
+        tabViewController?.childViewControllers[5].view.setAccessibilityParent(syncTestInfoButton)
+        tabViewController?.childViewControllers[6].view.setAccessibilityParent(getScoreButton)
+        tabViewController?.childViewControllers[7].view.setAccessibilityParent(insertHtmlButton)
+        tabViewController?.childViewControllers[8].view.setAccessibilityParent(queryLibraryButton)
+        tabViewController?.childViewControllers[9].view.setAccessibilityParent(reportIssueButton)
+        
+        aboutButton.setAccessibilityLabel("切换到关于窗格")
+        preferenceButton.setAccessibilityLabel("切换到偏好设置窗格")
+        creditsButton.setAccessibilityLabel("切换到致谢窗格")
+        
+        loginJAccountButton.setAccessibilityLabel("切换到 jAccount 登录窗格")
+        syncCourseTableButton.setAccessibilityLabel("切换到课程表同步窗格")
+        syncTestInfoButton.setAccessibilityLabel("切换到考试信息同步窗格")
+        getScoreButton.setAccessibilityLabel("切换到成绩查询窗格")
+        
+        insertHtmlButton.setAccessibilityLabel("切换到离线同步窗格")
+        queryLibraryButton.setAccessibilityLabel("切换到查询课程库窗格")
+        reportIssueButton.setAccessibilityLabel("切换到问题报告窗格")
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -29,9 +56,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     @IBOutlet var splitView: NSSplitView!
     @IBOutlet weak var containerView: NSView!
     
-    @IBOutlet weak var welcomeButton: NSButton!
-    @IBOutlet weak var preferenceButton: NSButton!
     @IBOutlet weak var aboutButton: NSButton!
+    @IBOutlet weak var preferenceButton: NSButton!
+    @IBOutlet weak var creditsButton: NSButton!
     @IBOutlet weak var loginJAccountButton: NSButton!
     @IBOutlet weak var syncCourseTableButton: NSButton!
     @IBOutlet weak var syncTestInfoButton: NSButton!
@@ -45,9 +72,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     
     @IBAction func switchFeature(_ sender: NSButton) {
         
-        welcomeButton.state = .off
-        preferenceButton.state = .off
         aboutButton.state = .off
+        preferenceButton.state = .off
+        creditsButton.state = .off
         loginJAccountButton.state = .off
         syncCourseTableButton.state = .off
         syncTestInfoButton.state = .off
@@ -94,9 +121,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     }
     
     func switchToPage(index: Int) {
-        welcomeButton.state = .off
-        preferenceButton.state = .off
         aboutButton.state = .off
+        preferenceButton.state = .off
+        creditsButton.state = .off
         loginJAccountButton.state = .off
         syncCourseTableButton.state = .off
         syncTestInfoButton.state = .off

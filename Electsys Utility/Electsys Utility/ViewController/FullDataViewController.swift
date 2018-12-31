@@ -666,51 +666,51 @@ class FullDataViewController: NSViewController {
         switch id {
         case 1:
             oneButton.image = colorBox
-            oneButton.alternateTitle = "第一节课：" + description
+            oneButton.setAccessibilityLabel("第一节课：" + description)
             break
         case 2:
             twoButton.image = colorBox
-            twoButton.alternateTitle = "第二节课：" + description
+            twoButton.setAccessibilityLabel("第二节课：" + description)
             break
         case 3:
             threeButton.image = colorBox
-            threeButton.alternateTitle = "第三节课：" + description
+            threeButton.setAccessibilityLabel("第三节课：" + description)
             break
         case 4:
             fourButton.image = colorBox
-            fourButton.alternateTitle = "第四节课：" + description
+            fourButton.setAccessibilityLabel("第四节课：" + description)
             break
         case 5:
             fiveButton.image = colorBox
-            fiveButton.alternateTitle = "第五节课：" + description
+            fiveButton.setAccessibilityLabel("第五节课：" + description)
             break
         case 6:
             sixButton.image = colorBox
-            sixButton.alternateTitle = "第六节课：" + description
+            sixButton.setAccessibilityLabel("第六节课：" + description)
             break
         case 7:
             sevenButton.image = colorBox
-            sevenButton.alternateTitle = "第七节课：" + description
+            sevenButton.setAccessibilityLabel("第七节课：" + description)
             break
         case 8:
             eightButton.image = colorBox
-            eightButton.alternateTitle = "第八节课：" + description
+            eightButton.setAccessibilityLabel("第八节课：" + description)
             break
         case 9:
             nineButton.image = colorBox
-            nineButton.alternateTitle = "第九节课：" + description
+            nineButton.setAccessibilityLabel("第九节课：" + description)
             break
         case 10:
             tenButton.image = colorBox
-            tenButton.alternateTitle = "第十节课：" + description
+            tenButton.setAccessibilityLabel("第十节课：" + description)
             break
         case 11:
             elevenButton.image = colorBox
-            elevenButton.alternateTitle = "第十一节课：" + description
+            elevenButton.setAccessibilityLabel("第十一节课：" + description)
             break
         case 12:
             twelveButton.image = colorBox
-            twelveButton.alternateTitle = "第十二节课：" + description
+            twelveButton.setAccessibilityLabel("第十二节课：" + description)
             break
         default:
             break
