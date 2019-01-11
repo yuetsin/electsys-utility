@@ -54,6 +54,8 @@ class Login {
                     "captcha": captchaWord
                 ]
 
+                
+
                 Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.httpBody).responseData(completionHandler: { response in
                     responseHtml = String(data: response.data!, encoding: .utf8)!
                     if (responseHtml.contains("上海交通大学教学信息服务网－学生服务平台")) {
