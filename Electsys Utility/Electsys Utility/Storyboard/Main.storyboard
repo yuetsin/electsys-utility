@@ -449,234 +449,84 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-om-Y3T">
+                                <rect key="frame" x="147" y="343" width="98" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="使用 Beta 数据" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Hru-lo-WCJ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="betaTapped:" target="TQl-q7-iQX" id="gcS-uD-0In"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-Q1-NwR">
+                                <rect key="frame" x="299" y="14" width="74" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="getTimeStamp:" target="TQl-q7-iQX" id="tiv-pD-0Q0"/>
+                                </connections>
+                            </button>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MY-ux-ZRP">
+                                <rect key="frame" x="255" y="372" width="165" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-qV-FnA">
+                                        <rect key="frame" x="42" y="-3" width="126" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="iyQ-6f-kKj">
+                                                <items>
+                                                    <menuItem title="秋季学期" state="on" id="fJg-yu-pA9"/>
+                                                    <menuItem title="春季学期" id="gUS-bO-F5O"/>
+                                                    <menuItem title="夏季小学期" id="VTR-V1-awe"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="termPopTapped:" target="TQl-q7-iQX" id="1et-SD-rU6"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-xB-H4t">
+                                        <rect key="frame" x="-2" y="2" width="44" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="RXY-CP-ae2">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
+                                <rect key="frame" x="278" y="343" width="86" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
+                                </connections>
+                            </button>
                             <tabView fixedFrame="YES" type="noTabsBezelBorder" initialItem="D5L-BO-xHA" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-jW-pBa">
-                                <rect key="frame" x="16" y="60" width="462" height="274"/>
+                                <rect key="frame" x="16" y="43" width="462" height="255"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="按教室检索" identifier="" id="D5L-BO-xHA">
-                                        <view key="view" ambiguous="YES" id="PjG-lf-KZN">
-                                            <rect key="frame" x="10" y="7" width="442" height="254"/>
+                                        <view key="view" id="PjG-lf-KZN">
+                                            <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <box fixedFrame="YES" title="筛选" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-ac-fFz">
-                                                    <rect key="frame" x="-3" y="142" width="448" height="97"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <view key="contentView" id="W3N-BN-wng">
-                                                        <rect key="frame" x="3" y="3" width="442" height="79"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-el-bhQ">
-                                                                <rect key="frame" x="16" y="45" width="49" height="14"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="教学楼：" id="5PQ-13-f96">
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4r3-Qz-zgo">
-                                                                <rect key="frame" x="18" y="15" width="46" height="14"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="周数：" id="mE5-yi-iP3">
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcm-wE-kka">
-                                                                <rect key="frame" x="68" y="40" width="148" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <popUpButtonCell key="cell" type="push" title="闵行校区上院" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="yqh-AS-j3n" id="Ht7-0c-xR1">
-                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <menu key="menu" id="ugq-ra-CAV" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
-                                                                        <items>
-                                                                            <menuItem title="闵行校区上院" state="on" id="yqh-AS-j3n">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleUpperHall" id="Quj-l3-9I5"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="闵行校区中院" id="2dB-Jl-H7A">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleMiddleHall" id="IMs-GL-MXO"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="闵行校区下院" id="hpp-hS-zOH">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLowerHall" id="jzi-ql-kk9"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem isSeparatorItem="YES" id="sXb-Xv-bEy"/>
-                                                                            <menuItem title="闵行校区东上院" id="dYt-p1-OUh">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastUpperHall" id="Gku-tc-7qO"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="闵行校区东中院" id="XaN-ko-FJR">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastMiddleHall" id="luH-kr-wZZ"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="闵行校区东下院" id="sXL-hL-0aK">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastLowerHall" id="5rQ-tJ-Sfb"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem isSeparatorItem="YES" id="mxU-xX-FrC"/>
-                                                                            <menuItem title="闵行校区陈瑞球楼" id="2u2-mI-0k2">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleCRQBuilding" id="9YI-7E-LRu"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="闵行校区杨咏曼楼" id="DhG-V3-XJE">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleYYMBuilding" id="wiG-bv-9Vx"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem isSeparatorItem="YES" id="hc7-LJ-OfO"/>
-                                                                            <menuItem title="其余闵行校区教学楼" id="nSy-dE-dDf">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleMinHangCampus" id="fP9-6M-wls"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem isSeparatorItem="YES" id="Wcm-9L-fy3"/>
-                                                                            <menuItem title="徐汇校区" id="2O5-ht-vfZ">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleXuHuiCampus" id="tR0-wW-omh"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="卢湾校区" id="ySh-fi-Xv9">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLuWanCampus" id="ADd-y7-1HU"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="法华校区" id="x3d-v8-lfd">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleFaHuaCampus" id="7d4-06-2Hz"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="七宝校区" id="gmN-It-ifJ">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleQiBaoCampus" id="zDT-WH-9hO"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem title="临港校区" id="jCE-Dk-lj7">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLinGangCampus" id="LQD-1x-G5S"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                            <menuItem isSeparatorItem="YES" id="Ilh-Bw-Jaj"/>
-                                                                            <menuItem title="上海市精神卫生中心" id="HVK-2A-JwQ">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                                <connections>
-                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleSMHC" id="TKs-qT-VP4"/>
-                                                                                </connections>
-                                                                            </menuItem>
-                                                                        </items>
-                                                                    </menu>
-                                                                </popUpButtonCell>
-                                                                <connections>
-                                                                    <action selector="pushPopListData:" target="TQl-q7-iQX" id="gtm-1L-wJx"/>
-                                                                </connections>
-                                                            </popUpButton>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-bn-UoO">
-                                                                <rect key="frame" x="68" y="11" width="148" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="wGb-AC-yzR">
-                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <menu key="menu" id="wve-ph-7Jc"/>
-                                                                </popUpButtonCell>
-                                                                <connections>
-                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="cqZ-SK-4h9"/>
-                                                                </connections>
-                                                            </popUpButton>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-tj-Pki">
-                                                                <rect key="frame" x="230" y="15" width="44" height="14"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="星期：" id="2Yg-L9-xsg">
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Lg-9L-Qo1">
-                                                                <rect key="frame" x="230" y="45" width="44" height="14"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="教室：" id="acW-q1-QSb">
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-Cs-8Kc">
-                                                                <rect key="frame" x="274" y="40" width="151" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="HX2-2d-ipR">
-                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <menu key="menu" id="WE5-8t-3Uc" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target"/>
-                                                                </popUpButtonCell>
-                                                                <connections>
-                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="JRZ-u0-BgM"/>
-                                                                </connections>
-                                                            </popUpButton>
-                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-Xc-j3x">
-                                                                <rect key="frame" x="274" y="11" width="151" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                <popUpButtonCell key="cell" type="push" title="星期一" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Zg5-EN-XTq" id="O1Y-ge-wna">
-                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                    <font key="font" metaFont="smallSystem"/>
-                                                                    <menu key="menu" id="CE8-Y2-yw6">
-                                                                        <items>
-                                                                            <menuItem title="星期一" state="on" id="Zg5-EN-XTq">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期二" id="TDC-kH-Nwx">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期三" id="99h-lG-lmS">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期四" id="o1X-2u-8vi">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期五" id="0Ps-CT-gKQ">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期六" id="O3d-NQ-fPb">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                            <menuItem title="星期日" id="gju-rE-VGw">
-                                                                                <modifierMask key="keyEquivalentModifierMask"/>
-                                                                            </menuItem>
-                                                                        </items>
-                                                                    </menu>
-                                                                </popUpButtonCell>
-                                                                <connections>
-                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="zb3-F9-qsA"/>
-                                                                </connections>
-                                                            </popUpButton>
-                                                        </subviews>
-                                                    </view>
-                                                </box>
                                                 <box fixedFrame="YES" title="教室占用情况" translatesAutoresizingMaskIntoConstraints="NO" id="fX6-jN-ftI">
-                                                    <rect key="frame" x="-3" y="25" width="448" height="108"/>
+                                                    <rect key="frame" x="-3" y="9" width="448" height="108"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" id="Pzm-jw-GKj">
                                                         <rect key="frame" x="3" y="3" width="442" height="90"/>
@@ -925,16 +775,232 @@ DQ
                                                         </subviews>
                                                     </view>
                                                 </box>
+                                                <box fixedFrame="YES" title="筛选" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-ac-fFz">
+                                                    <rect key="frame" x="-3" y="121" width="448" height="97"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" id="W3N-BN-wng">
+                                                        <rect key="frame" x="3" y="3" width="442" height="79"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-el-bhQ">
+                                                                <rect key="frame" x="16" y="45" width="49" height="14"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="教学楼：" id="5PQ-13-f96">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4r3-Qz-zgo">
+                                                                <rect key="frame" x="18" y="15" width="46" height="14"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="周数：" id="mE5-yi-iP3">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcm-wE-kka">
+                                                                <rect key="frame" x="68" y="40" width="148" height="22"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <popUpButtonCell key="cell" type="push" title="闵行校区上院" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="yqh-AS-j3n" id="Ht7-0c-xR1">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <menu key="menu" id="ugq-ra-CAV" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
+                                                                        <items>
+                                                                            <menuItem title="闵行校区上院" state="on" id="yqh-AS-j3n">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleUpperHall" id="Quj-l3-9I5"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区中院" id="2dB-Jl-H7A">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleMiddleHall" id="IMs-GL-MXO"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区下院" id="hpp-hS-zOH">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLowerHall" id="jzi-ql-kk9"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="sXb-Xv-bEy"/>
+                                                                            <menuItem title="闵行校区东上院" id="dYt-p1-OUh">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastUpperHall" id="Gku-tc-7qO"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区东中院" id="XaN-ko-FJR">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastMiddleHall" id="luH-kr-wZZ"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区东下院" id="sXL-hL-0aK">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleEastLowerHall" id="5rQ-tJ-Sfb"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="mxU-xX-FrC"/>
+                                                                            <menuItem title="闵行校区陈瑞球楼" id="2u2-mI-0k2">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleCRQBuilding" id="9YI-7E-LRu"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="闵行校区杨咏曼楼" id="DhG-V3-XJE">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleYYMBuilding" id="wiG-bv-9Vx"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="hc7-LJ-OfO"/>
+                                                                            <menuItem title="其余闵行校区教学楼" id="nSy-dE-dDf">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleMinHangCampus" id="fP9-6M-wls"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="Wcm-9L-fy3"/>
+                                                                            <menuItem title="徐汇校区" id="2O5-ht-vfZ">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleXuHuiCampus" id="tR0-wW-omh"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="卢湾校区" id="ySh-fi-Xv9">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLuWanCampus" id="ADd-y7-1HU"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="法华校区" id="x3d-v8-lfd">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleFaHuaCampus" id="7d4-06-2Hz"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="七宝校区" id="gmN-It-ifJ">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleQiBaoCampus" id="zDT-WH-9hO"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem title="临港校区" id="jCE-Dk-lj7">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleLinGangCampus" id="LQD-1x-G5S"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                            <menuItem isSeparatorItem="YES" id="Ilh-Bw-Jaj"/>
+                                                                            <menuItem title="上海市精神卫生中心" id="HVK-2A-JwQ">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                                <connections>
+                                                                                    <binding destination="TQl-q7-iQX" name="enabled" keyPath="self.toggleSMHC" id="TKs-qT-VP4"/>
+                                                                                </connections>
+                                                                            </menuItem>
+                                                                        </items>
+                                                                    </menu>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="pushPopListData:" target="TQl-q7-iQX" id="gtm-1L-wJx"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-bn-UoO">
+                                                                <rect key="frame" x="68" y="11" width="148" height="22"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="wGb-AC-yzR">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <menu key="menu" id="wve-ph-7Jc"/>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="cqZ-SK-4h9"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-tj-Pki">
+                                                                <rect key="frame" x="230" y="15" width="44" height="14"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="星期：" id="2Yg-L9-xsg">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Lg-9L-Qo1">
+                                                                <rect key="frame" x="230" y="45" width="44" height="14"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="教室：" id="acW-q1-QSb">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-Cs-8Kc">
+                                                                <rect key="frame" x="274" y="40" width="151" height="22"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="HX2-2d-ipR">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <menu key="menu" id="WE5-8t-3Uc" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target"/>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="JRZ-u0-BgM"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                            <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-Xc-j3x">
+                                                                <rect key="frame" x="274" y="11" width="151" height="22"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                <popUpButtonCell key="cell" type="push" title="星期一" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Zg5-EN-XTq" id="O1Y-ge-wna">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <menu key="menu" id="CE8-Y2-yw6">
+                                                                        <items>
+                                                                            <menuItem title="星期一" state="on" id="Zg5-EN-XTq">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期二" id="TDC-kH-Nwx">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期三" id="99h-lG-lmS">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期四" id="o1X-2u-8vi">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期五" id="0Ps-CT-gKQ">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期六" id="O3d-NQ-fPb">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                            <menuItem title="星期日" id="gju-rE-VGw">
+                                                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                                            </menuItem>
+                                                                        </items>
+                                                                    </menu>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="updateBoxes:" target="TQl-q7-iQX" id="zb3-F9-qsA"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                        </subviews>
+                                                    </view>
+                                                </box>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="按教师检索" identifier="" id="Pwd-O3-5YE">
                                         <view key="view" id="bbh-PO-otZ">
-                                            <rect key="frame" x="10" y="7" width="442" height="254"/>
+                                            <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWn-IY-p1h">
-                                                    <rect key="frame" x="-1" y="129" width="444" height="17"/>
+                                                    <rect key="frame" x="-1" y="99" width="444" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到关于「#NAME# #TITLE#」的 #COUNT# 条课程信息。" id="pl0-Oz-AzO">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -943,7 +1009,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oFF-kv-6Tt">
-                                                    <rect key="frame" x="334" y="97" width="84" height="28"/>
+                                                    <rect key="frame" x="334" y="67" width="84" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="push" title="详细…" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fyS-5z-THh">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -954,11 +1020,11 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-ce-D3w">
-                                                    <rect key="frame" x="20" y="152" width="402" height="25"/>
+                                                    <rect key="frame" x="20" y="122" width="402" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-fB-UXj">
-                                                    <rect key="frame" x="27" y="100" width="307" height="22"/>
+                                                    <rect key="frame" x="27" y="70" width="307" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="8Bt-CA-gUS">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -967,7 +1033,7 @@ DQ
                                                     </popUpButtonCell>
                                                 </popUpButton>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwL-EV-dTG">
-                                                    <rect key="frame" x="68" y="223" width="71" height="14"/>
+                                                    <rect key="frame" x="68" y="193" width="71" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="院系：" id="qtn-mv-QbJ">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -976,7 +1042,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-Py-Ayd">
-                                                    <rect key="frame" x="68" y="198" width="71" height="14"/>
+                                                    <rect key="frame" x="68" y="168" width="71" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="教师姓名：" id="CtI-nH-rCb">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -985,7 +1051,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bwg-jI-hw2">
-                                                    <rect key="frame" x="145" y="193" width="141" height="22"/>
+                                                    <rect key="frame" x="145" y="163" width="141" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" numberOfVisibleItems="5" id="jfK-d2-6dC">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -997,7 +1063,7 @@ DQ
                                                     </connections>
                                                 </comboBox>
                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQG-qo-Pbn">
-                                                    <rect key="frame" x="142" y="168" width="234" height="22"/>
+                                                    <rect key="frame" x="142" y="138" width="234" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <popUpButtonCell key="cell" type="push" title="不限" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="q0I-gS-4UV" id="8dO-Mm-Sbr">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1015,7 +1081,7 @@ DQ
                                                     </connections>
                                                 </popUpButton>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="unW-91-7Bb">
-                                                    <rect key="frame" x="68" y="173" width="71" height="14"/>
+                                                    <rect key="frame" x="68" y="143" width="71" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="职称：" id="Ws6-Fb-Jef">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -1024,7 +1090,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9k-0Y-mPx">
-                                                    <rect key="frame" x="142" y="218" width="234" height="22"/>
+                                                    <rect key="frame" x="142" y="188" width="234" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <popUpButtonCell key="cell" type="push" title="不限" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="kaU-El-3Nv" id="lof-5K-Wxp">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1042,7 +1108,7 @@ DQ
                                                     </connections>
                                                 </popUpButton>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACQ-W5-vR2">
-                                                    <rect key="frame" x="298" y="196" width="77" height="20"/>
+                                                    <rect key="frame" x="298" y="166" width="77" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="check" title="完全匹配" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Wwo-c6-FkH">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1056,21 +1122,12 @@ DQ
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="按课名检索" identifier="" id="Op3-2Z-VbF">
-                                        <view key="view" id="cIc-S6-jWk">
-                                            <rect key="frame" x="10" y="7" width="442" height="254"/>
+                                        <view key="view" ambiguous="YES" id="cIc-S6-jWk">
+                                            <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-6x-SiT">
-                                                    <rect key="frame" x="24" y="152" width="312" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="fJV-b9-xpX">
-                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <menu key="menu" id="d8k-bE-J6r"/>
-                                                    </popUpButtonCell>
-                                                </popUpButton>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-L9-GRI">
-                                                    <rect key="frame" x="336" y="149" width="84" height="28"/>
+                                                    <rect key="frame" x="336" y="115" width="84" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="push" title="详细…" bezelStyle="rounded" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xcf-7U-YwX">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1081,11 +1138,11 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="QXE-WB-bmx">
-                                                    <rect key="frame" x="20" y="204" width="402" height="5"/>
+                                                    <rect key="frame" x="20" y="170" width="402" height="5"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </box>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-Bw-o6X">
-                                                    <rect key="frame" x="18" y="181" width="406" height="17"/>
+                                                    <rect key="frame" x="18" y="147" width="406" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="找到 #COUNT# 条课程信息。" id="nlB-Hw-5Vy">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -1094,7 +1151,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4K-hX-nZU">
-                                                    <rect key="frame" x="196" y="218" width="172" height="22"/>
+                                                    <rect key="frame" x="196" y="184" width="172" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" numberOfVisibleItems="5" id="Vrj-pG-SYg">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -1106,7 +1163,7 @@ DQ
                                                     </connections>
                                                 </comboBox>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zb6-ti-EBS">
-                                                    <rect key="frame" x="75" y="223" width="115" height="14"/>
+                                                    <rect key="frame" x="75" y="189" width="115" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="课程名称关键字：" id="x2w-EV-LxE">
                                                         <font key="font" metaFont="smallSystem"/>
@@ -1114,16 +1171,25 @@ DQ
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-6x-SiT">
+                                                    <rect key="frame" x="24" y="119" width="312" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="fJV-b9-xpX">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <menu key="menu" id="d8k-bE-J6r"/>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="PlaceHolder" identifier="" id="nJR-9s-qUY">
                                         <view key="view" id="bBZ-gJ-mPy">
-                                            <rect key="frame" x="10" y="7" width="442" height="254"/>
+                                            <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46F-gv-Dk5">
-                                                    <rect key="frame" x="108" y="102" width="227" height="67"/>
+                                                    <rect key="frame" x="108" y="83" width="227" height="67"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="等待数据" id="5l9-aB-EOf">
                                                         <font key="font" metaFont="system" size="52"/>
@@ -1136,87 +1202,25 @@ DQ
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-om-Y3T">
-                                <rect key="frame" x="147" y="343" width="98" height="20"/>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Nzo-vM-oAH">
+                                <rect key="frame" x="19" y="334" width="455" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="使用 Beta 数据" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Hru-lo-WCJ">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="smallSystem"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="betaTapped:" target="TQl-q7-iQX" id="gcS-uD-0In"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-Q1-NwR">
-                                <rect key="frame" x="299" y="14" width="81" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="systemBold" size="12"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="getTimeStamp:" target="TQl-q7-iQX" id="tiv-pD-0Q0"/>
-                                </connections>
-                            </button>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MY-ux-ZRP">
-                                <rect key="frame" x="255" y="372" width="165" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-qV-FnA">
-                                        <rect key="frame" x="42" y="-3" width="126" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="menu"/>
-                                            <menu key="menu" id="iyQ-6f-kKj">
-                                                <items>
-                                                    <menuItem title="秋季学期" state="on" id="fJg-yu-pA9"/>
-                                                    <menuItem title="春季学期" id="gUS-bO-F5O"/>
-                                                    <menuItem title="夏季小学期" id="VTR-V1-awe"/>
-                                                </items>
-                                            </menu>
-                                        </popUpButtonCell>
-                                        <connections>
-                                            <action selector="termPopTapped:" target="TQl-q7-iQX" id="1et-SD-rU6"/>
-                                        </connections>
-                                    </popUpButton>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-xB-H4t">
-                                        <rect key="frame" x="-2" y="2" width="44" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="RXY-CP-ae2">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </subviews>
-                            </customView>
+                            </box>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bAH-O2-KgA">
-                                <rect key="frame" x="90" y="43" width="315" height="18"/>
+                                <rect key="frame" x="120" y="306" width="275" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectOne" id="pKx-0I-HQs">
-                                    <font key="font" metaFont="smallSystem"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectOne" id="pKx-0I-HQs">
+                                    <font key="font" metaFont="cellTitle"/>
                                     <segments>
-                                        <segment label="按教室筛选" toolTip="选择筛选方式" image="NSTouchBarBookmarksTemplate" width="104" selected="YES" tag="1"/>
-                                        <segment label="按教师筛选" image="NSTouchBarUserGroupTemplate" width="103"/>
-                                        <segment label="按课名筛选" image="NSTouchBarSidebarTemplate" width="102"/>
+                                        <segment label="按教室筛选" toolTip="选择筛选方式" width="91" selected="YES" tag="1"/>
+                                        <segment label="按教师筛选" width="90"/>
+                                        <segment label="按课名筛选" width="88"/>
                                     </segments>
                                 </segmentedCell>
                                 <connections>
                                     <action selector="switchSeg:" target="TQl-q7-iQX" id="lqU-jB-Hgn"/>
                                 </connections>
                             </segmentedControl>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
-                                <rect key="frame" x="278" y="343" width="86" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1816,7 +1820,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="wQr-7q-agb">
-                                            <rect key="frame" x="0.0" y="25" width="494" height="3733"/>
+                                            <rect key="frame" x="0.0" y="27" width="494" height="3733"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2854,12 +2858,9 @@ Copyright © 2018 </string>
         <image name="NSRightFacingTriangleTemplate" width="9" height="12"/>
         <image name="NSShareTemplate" width="11" height="16"/>
         <image name="NSStopProgressTemplate" width="11" height="11"/>
-        <image name="NSTouchBarBookmarksTemplate" width="22" height="30"/>
         <image name="NSTouchBarMailTemplate" width="21" height="30"/>
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
-        <image name="NSTouchBarSidebarTemplate" width="22" height="30"/>
         <image name="NSTouchBarTagIconTemplate" width="23" height="30"/>
-        <image name="NSTouchBarUserGroupTemplate" width="24" height="30"/>
         <image name="NSTrashFull" width="32" height="32"/>
     </resources>
 </document>
