@@ -521,7 +521,7 @@ DQ
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="按教室检索" identifier="" id="D5L-BO-xHA">
-                                        <view key="view" id="PjG-lf-KZN">
+                                        <view key="view" ambiguous="YES" id="PjG-lf-KZN">
                                             <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -1122,7 +1122,7 @@ DQ
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="按课名检索" identifier="" id="Op3-2Z-VbF">
-                                        <view key="view" ambiguous="YES" id="cIc-S6-jWk">
+                                        <view key="view" id="cIc-S6-jWk">
                                             <rect key="frame" x="10" y="7" width="442" height="235"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -2389,7 +2389,7 @@ Copyright © 2018 </string>
                                     <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="WQO-k1-7fo">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.00015006002400960383" horizontal="NO" id="WQO-k1-7fo">
                                     <rect key="frame" x="478" y="0.0" width="16" height="401"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
