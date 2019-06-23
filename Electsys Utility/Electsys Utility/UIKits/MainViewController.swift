@@ -23,16 +23,16 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     }
     
     func setAccessibilityLabel() {
-        tabViewController?.childViewControllers[0].view.setAccessibilityParent(aboutButton)
-        tabViewController?.childViewControllers[1].view.setAccessibilityParent(preferenceButton)
-        tabViewController?.childViewControllers[2].view.setAccessibilityParent(creditsButton)
-        tabViewController?.childViewControllers[3].view.setAccessibilityParent(loginJAccountButton)
-        tabViewController?.childViewControllers[4].view.setAccessibilityParent(syncCourseTableButton)
-        tabViewController?.childViewControllers[5].view.setAccessibilityParent(syncTestInfoButton)
-        tabViewController?.childViewControllers[6].view.setAccessibilityParent(getScoreButton)
-        tabViewController?.childViewControllers[7].view.setAccessibilityParent(insertHtmlButton)
-        tabViewController?.childViewControllers[8].view.setAccessibilityParent(queryLibraryButton)
-        tabViewController?.childViewControllers[9].view.setAccessibilityParent(reportIssueButton)
+        tabViewController?.children[0].view.setAccessibilityParent(aboutButton)
+        tabViewController?.children[1].view.setAccessibilityParent(preferenceButton)
+        tabViewController?.children[2].view.setAccessibilityParent(creditsButton)
+        tabViewController?.children[3].view.setAccessibilityParent(loginJAccountButton)
+        tabViewController?.children[4].view.setAccessibilityParent(syncCourseTableButton)
+        tabViewController?.children[5].view.setAccessibilityParent(syncTestInfoButton)
+        tabViewController?.children[6].view.setAccessibilityParent(getScoreButton)
+        tabViewController?.children[7].view.setAccessibilityParent(insertHtmlButton)
+        tabViewController?.children[8].view.setAccessibilityParent(queryLibraryButton)
+        tabViewController?.children[9].view.setAccessibilityParent(reportIssueButton)
         
         aboutButton.setAccessibilityLabel("切换到关于窗格")
         preferenceButton.setAccessibilityLabel("切换到偏好设置窗格")
@@ -88,7 +88,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
-        tabViewController?.childViewControllers[sender.tag].becomeFirstResponder()
+        tabViewController?.children[sender.tag].becomeFirstResponder()
     }
     
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
@@ -139,7 +139,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
     
         tabViewController?.tabView.selectTabViewItem(at: index)
-        tabViewController?.childViewControllers[index].becomeFirstResponder()
+        tabViewController?.children[index].becomeFirstResponder()
     }
 }
 

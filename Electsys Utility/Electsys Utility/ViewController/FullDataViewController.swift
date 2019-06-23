@@ -602,7 +602,7 @@ class FullDataViewController: NSViewController {
 
         
         let currentWeek = hanToInt(self.weekSelector.selectedItem?.title)
-        let weekDay = dayToInt.index(of: (self.weekDaySelector.selectedItem?.title)!)
+        let weekDay = dayToInt.firstIndex(of: (self.weekDaySelector.selectedItem?.title)!)
         detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
         
         if let room = self.roomSelector.selectedItem?.title.sanitize() {
