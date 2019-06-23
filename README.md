@@ -8,7 +8,7 @@
 上海交通大学教务处实用程序
 
 ![](https://img.shields.io/badge/platform-macOS-brightgreen.svg)
-![](https://img.shields.io/badge/swift-v4.0-orange.svg)
+![](https://img.shields.io/badge/swift-v5.0-orange.svg)
 ![](https://img.shields.io/badge/license-MIT-green.svg)
 
 # 功能
