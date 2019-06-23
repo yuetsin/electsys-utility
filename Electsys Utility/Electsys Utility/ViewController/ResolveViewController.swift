@@ -159,7 +159,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, readInHTML
         for day in self.displayWeek {
             for item in day.children {
                 if removeCourse == item {
-                    if let index = day.children.index(of: item) {
+                    if let index = day.children.firstIndex(of: item) {
                         day.children.remove(at: index)
                     }
                 }

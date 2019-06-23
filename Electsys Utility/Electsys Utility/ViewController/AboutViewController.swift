@@ -28,8 +28,8 @@ class AboutViewController: NSViewController {
         
     }
     @IBAction func turnCredits(_ sender: NSButton) {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "Credits Window Controller")) as? NSWindowController
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        windowController = storyboard.instantiateController(withIdentifier: "Credits Window Controller") as? NSWindowController
         windowController?.showWindow(sender)
     }
     
