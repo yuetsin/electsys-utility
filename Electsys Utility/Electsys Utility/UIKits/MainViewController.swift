@@ -18,6 +18,12 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         setAccessibilityLabel()
     }
     
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        NSLog("Bye")
+        NSApplication.shared.terminate(self)
+    }
+    
     fileprivate func registerDelegate() {
         splitView.delegate = self
     }
@@ -118,6 +124,14 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         syncCourseTableButton.isEnabled = false
         syncTestInfoButton.isEnabled = false
         getScoreButton.isEnabled = false
+    }
+    
+    func visitAboutPage() {
+        switchToPage(index: 0)
+    }
+    
+    func visitCreditsPage() {
+        switchToPage(index: 2)
     }
     
     func switchToPage(index: Int) {

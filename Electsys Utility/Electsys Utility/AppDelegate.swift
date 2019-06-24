@@ -9,10 +9,13 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class NSAppDelegate: NSObject, NSApplicationDelegate {
+    
+    @IBOutlet var window: NSWindow!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        window = NSApplication.shared.windows.first
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -39,6 +42,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let url = URL(string: "https://github.com/yuxiqian/Electsys-Utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
+    }
+    
+    @IBAction func visitAboutPage(_ sender: NSButton) {
+        (window.contentViewController as! MainViewController).visitAboutPage()
     }
     
     @IBAction func mailAuthor(_ sender: NSButton) {
