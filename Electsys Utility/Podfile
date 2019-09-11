@@ -1,8 +1,9 @@
 platform :macos, '10.12’
 target 'Electsys Utility' do
   use_frameworks!
-  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftyJSON'
   pod 'CrossroadRegex'
   pod 'Kanna', '~> 4.0.0'
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire'
+  pod 'Alamofire-SwiftyJSON'
 end

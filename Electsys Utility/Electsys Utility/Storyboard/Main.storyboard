@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14810.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14865.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -226,7 +226,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="Mac 上的本地日历" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="LjI-p0-pLT" id="qpE-bR-EXq">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="d3Z-Gc-dfv">
                                         <items>
                                             <menuItem title="CalDAV 或 iCloud 日历" id="0eu-Wp-u7U"/>
@@ -318,7 +318,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="yUA-8Z-snf" id="vET-fz-wAe">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="OBL-RW-5PB">
                                                 <items>
                                                     <menuItem title="秋季学期" state="on" id="yUA-8Z-snf"/>
@@ -347,7 +347,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="8FS-Sa-IvO" id="grz-W5-cV1">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="wMw-C2-9Ln">
                                                 <items>
                                                     <menuItem title="..." state="on" id="8FS-Sa-IvO"/>
@@ -371,7 +371,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundRect" title="查询考试信息" alternateTitle="查询考试信息" bezelStyle="roundedRect" image="NSRevealFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2yE-KP-coj">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startRequest:" target="dPQ-eP-W3b" id="4gU-ms-uV0"/>
@@ -421,7 +421,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bZO-Ub-j6u">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="zMH-hi-DXR"/>
                                         </popUpButtonCell>
                                         <connections>
@@ -483,7 +483,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="menu"/>
                                             <menu key="menu" id="iyQ-6f-kKj">
                                                 <items>
                                                     <menuItem title="秋季学期" state="on" id="fJg-yu-pA9"/>
@@ -512,7 +512,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
@@ -1294,7 +1294,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="上课前 10 分钟" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="CGp-S6-IpX" id="5eM-E3-ybR">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="uEB-Np-12X">
                                         <items>
                                             <menuItem title="上课前 15 分钟" id="ZV9-BR-GaP"/>
@@ -1474,7 +1474,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="Mac 上的本地日历" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="wR8-wh-hZP" id="o3P-l6-Hhu">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="D7z-qb-wjp">
                                         <items>
                                             <menuItem title="CalDAV 或 iCloud 日历" id="nVZ-2G-cJg"/>
@@ -1534,7 +1534,7 @@ DQ
                                 <rect key="frame" x="22" y="103" width="456" height="34"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="charWrapping" title="Start week indicator placeholder_Start week indicator placeholder_Start week indicator placeholder_" id="clS-L2-vyl">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1693,7 +1693,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-e7-SF6">
-                                        <rect key="frame" x="346.5" y="237" width="41" height="25"/>
+                                        <rect key="frame" x="346.5" y="237" width="42" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" alternateTitle="刷新验证码" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Due-8h-B29">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1753,7 +1753,7 @@ DQ
                                         <rect key="frame" x="18" y="96" width="480" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" alignment="center" title="你的信息仅会被发送给 SJTU NIC。 请确保在安全的网络环境中操作。" id="GJ1-jc-xf4">
-                                            <font key="font" metaFont="label" size="12"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -2710,7 +2710,7 @@ Copyright © 2018 </string>
                                 <rect key="frame" x="145" y="193" width="205" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="$(PRODUCT_BUNDLE_IDENTIFIER)" id="cKc-wG-PCh">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -2743,7 +2743,7 @@ Copyright © 2018 </string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundRect" title="GitHub 页面" alternateTitle="访问 GitHub 页面" bezelStyle="roundedRect" image="NSRightFacingTriangleTemplate" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7h-rC-AQm">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="goToGithubPages:" target="hhI-IL-P8i" id="APj-Ae-XNg"/>
@@ -2794,7 +2794,248 @@ Copyright © 2018 </string>
                 </viewController>
                 <customObject id="QHI-XO-KMk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498" y="369"/>
+            <point key="canvasLocation" x="1460" y="315"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="5Zi-Bg-pbO">
+            <objects>
+                <windowController id="GbB-GS-Off" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jhq-mY-CVn">
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="258" width="480" height="161"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <value key="minSize" type="size" width="480" height="161"/>
+                        <value key="maxSize" type="size" width="480" height="161"/>
+                        <connections>
+                            <outlet property="delegate" destination="GbB-GS-Off" id="0zj-9O-rP0"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Iu3-c5-YlT" kind="relationship" relationship="window.shadowedContentViewController" id="76q-UV-74p"/>
+                    </connections>
+                </windowController>
+                <customObject id="c2Q-55-YQg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3540" y="178"/>
+        </scene>
+        <!--Term Selecting View Controller-->
+        <scene sceneID="lF4-JC-ecq">
+            <objects>
+                <viewController id="Iu3-c5-YlT" customClass="TermSelectingViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ek0-Ed-gXn" customClass="NSVisualEffectView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="161"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XL-gW-8Po">
+                                <rect key="frame" x="117" y="20" width="246" height="121"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ma2-F3-7Pd">
+                                        <rect key="frame" x="0.0" y="53" width="246" height="68"/>
+                                        <subviews>
+                                            <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TON-he-sw3">
+                                                <rect key="frame" x="0.0" y="27" width="246" height="41"/>
+                                                <subviews>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHE-9a-27I">
+                                                        <rect key="frame" x="26" y="17" width="194" height="24"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-ue-g8X">
+                                                                <rect key="frame" x="-2" y="4" width="44" height="16"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="Ugi-yu-c7f">
+                                                                    <font key="font" metaFont="systemBold"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-ED-2Ok">
+                                                                <rect key="frame" x="46" y="-2" width="151" height="25"/>
+                                                                <popUpButtonCell key="cell" type="push" title="2019 至 2020 学年" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lFe-lS-JZl" id="HgC-LG-qW1">
+                                                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="system"/>
+                                                                    <menu key="menu" id="C3z-QV-viW">
+                                                                        <items>
+                                                                            <menuItem title="2019 至 2020 学年" state="on" id="lFe-lS-JZl"/>
+                                                                            <menuItem title="Item 2" id="v1Q-eF-ati"/>
+                                                                            <menuItem title="Item 3" id="eqr-Dk-lhS"/>
+                                                                        </items>
+                                                                    </menu>
+                                                                </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="yearPopUpButtonTapped:" target="Iu3-c5-YlT" id="Yo5-eI-sm4"/>
+                                                                </connections>
+                                                            </popUpButton>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="X5f-ue-g8X" firstAttribute="baseline" secondItem="dhF-ED-2Ok" secondAttribute="firstBaseline" id="1Zt-8n-8Py"/>
+                                                            <constraint firstItem="dhF-ED-2Ok" firstAttribute="top" secondItem="sHE-9a-27I" secondAttribute="top" constant="2" id="EL6-Fc-5sQ"/>
+                                                            <constraint firstItem="dhF-ED-2Ok" firstAttribute="baseline" secondItem="X5f-ue-g8X" secondAttribute="firstBaseline" id="GOq-3p-ayF"/>
+                                                            <constraint firstItem="dhF-ED-2Ok" firstAttribute="leading" secondItem="X5f-ue-g8X" secondAttribute="trailing" constant="8" id="KRR-d4-FGu"/>
+                                                            <constraint firstItem="X5f-ue-g8X" firstAttribute="centerY" secondItem="sHE-9a-27I" secondAttribute="centerY" id="cmV-ee-Ls0"/>
+                                                        </constraints>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mH8-TD-ZbY">
+                                                        <rect key="frame" x="-2" y="0.0" width="250" height="15"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="指始于 2019 年秋季，终于 2020 年夏季的学年。" id="Ie0-D4-0Ul">
+                                                            <font key="font" metaFont="system" size="11"/>
+                                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kih-LD-Tvo">
+                                                <rect key="frame" x="49" y="0.0" width="148" height="21"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw9-b7-iuK">
+                                                        <rect key="frame" x="-2" y="3" width="44" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="JFD-WN-HZE">
+                                                            <font key="font" metaFont="systemBold"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-8A-5Mi">
+                                                        <rect key="frame" x="46" y="-3" width="105" height="25"/>
+                                                        <popUpButtonCell key="cell" type="push" title="夏季小学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ZDf-e9-IHj" id="7mi-Tl-qfz">
+                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <menu key="menu" id="Blh-F4-K2f">
+                                                                <items>
+                                                                    <menuItem title="秋季学期" id="IdU-vQ-eQC"/>
+                                                                    <menuItem title="春季学期" id="k10-el-q6Y"/>
+                                                                    <menuItem title="夏季小学期" state="on" id="ZDf-e9-IHj"/>
+                                                                </items>
+                                                            </menu>
+                                                        </popUpButtonCell>
+                                                    </popUpButton>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="cw9-b7-iuK" firstAttribute="baseline" secondItem="xeZ-8A-5Mi" secondAttribute="firstBaseline" id="224-my-hvT"/>
+                                                    <constraint firstItem="xeZ-8A-5Mi" firstAttribute="top" secondItem="kih-LD-Tvo" secondAttribute="top" id="TAE-2Z-pXP"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xeZ-8A-5Mi" secondAttribute="bottom" id="iAm-RA-4U3"/>
+                                                </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-1M-ZGy">
+                                        <rect key="frame" x="0.0" y="29" width="246" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="6cB-cC-HBw"/>
+                                            <constraint firstAttribute="width" constant="242" id="xWf-hZ-aoS"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="您当前正以「akaza_akari」的身份登录。" id="LxB-3h-GSM">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-ig-PEO">
+                                        <rect key="frame" x="69" y="0.0" width="108" height="21"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-af-FdG">
+                                                <rect key="frame" x="-6" y="-7" width="54" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="42" id="qg9-y5-FHC"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="push" title="好" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6dW-Vs-1GV">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="OKButtonTapped:" target="Iu3-c5-YlT" id="2dh-dr-q8l"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="trJ-fY-Rxr">
+                                                <rect key="frame" x="48" y="-7" width="66" height="32"/>
+                                                <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCS-Pq-WvC">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" target="Iu3-c5-YlT" id="aMs-s0-CIG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f7q-1M-ZGy" firstAttribute="centerX" secondItem="aZc-ig-PEO" secondAttribute="centerX" id="7xr-pz-Xf1"/>
+                                    <constraint firstItem="f7q-1M-ZGy" firstAttribute="leading" secondItem="2XL-gW-8Po" secondAttribute="leading" constant="2" id="MSX-vC-goX"/>
+                                    <constraint firstItem="aZc-ig-PEO" firstAttribute="top" secondItem="2XL-gW-8Po" secondAttribute="top" constant="100" id="QEq-UQ-KV5"/>
+                                    <constraint firstItem="aZc-ig-PEO" firstAttribute="leading" secondItem="2XL-gW-8Po" secondAttribute="leading" constant="69" id="iJi-jo-CgW"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2XL-gW-8Po" firstAttribute="centerX" secondItem="Ek0-Ed-gXn" secondAttribute="centerX" id="gIE-wT-Nzr"/>
+                            <constraint firstItem="2XL-gW-8Po" firstAttribute="top" secondItem="Ek0-Ed-gXn" secondAttribute="top" constant="20" id="r6f-fi-7N2"/>
+                            <constraint firstAttribute="bottom" secondItem="2XL-gW-8Po" secondAttribute="bottom" constant="20" id="vFH-pe-C5x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="OKButton" destination="yc5-af-FdG" id="wCb-gb-1VH"/>
+                        <outlet property="authenticationPromptTextField" destination="f7q-1M-ZGy" id="e1R-f2-MV9"/>
+                        <outlet property="cancelButton" destination="trJ-fY-Rxr" id="Qkv-ku-uf1"/>
+                        <outlet property="termPopUpSelector" destination="xeZ-8A-5Mi" id="Jfx-Y3-eYh"/>
+                        <outlet property="yearPopUpSelector" destination="dhF-ED-2Ok" id="vLO-WV-GNK"/>
+                        <outlet property="yearPromptTextField" destination="mH8-TD-ZbY" id="PJA-qq-K9B"/>
+                    </connections>
+                </viewController>
+                <customObject id="fqw-IW-YDh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3540" y="523.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wm7-ZU-C9N">
@@ -2825,7 +3066,7 @@ Copyright © 2018 </string>
             <objects>
                 <viewController id="cK7-dQ-kWQ" sceneMemberID="viewController">
                     <view key="view" id="aMd-iy-szc">
-                        <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
+                        <rect key="frame" x="0.0" y="0.0" width="494" height="471"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6k-i3-rbg">
@@ -2837,144 +3078,131 @@ Copyright © 2018 </string>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9G0-eR-EvG">
-                                <rect key="frame" x="85" y="316" width="387" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0a-Si-Ho4">
-                                <rect key="frame" x="30" y="312" width="49" height="14"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="问题类型" id="q24-p6-LaQ">
-                                    <font key="font" metaFont="message" size="11"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ivv-mP-hAe">
-                                <rect key="frame" x="129" y="392" width="343" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LNK-pg-YYq">
-                                <rect key="frame" x="18" y="388" width="105" height="15"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="通过 GitHub 报告" id="dHe-sf-Ht6">
-                                    <font key="font" size="13" name="HelveticaNeue"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="DS5-Pc-TZC">
-                                <rect key="frame" x="132" y="338" width="340" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rIO-kk-Q7q">
-                                <rect key="frame" x="18" y="333" width="108" height="15"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="通过电子邮件报告" id="Sjd-Wu-kko">
-                                    <font key="font" size="13" name="HelveticaNeue"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="9CC-KH-OIm">
-                                <rect key="frame" x="85" y="268" width="387" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IGM-Zz-lgU">
-                                <rect key="frame" x="30" y="264" width="49" height="14"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="详细描述" id="iJD-Zb-sPq">
-                                    <font key="font" metaFont="message" size="11"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkU-MP-seD">
-                                <rect key="frame" x="43" y="285" width="104" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="radio" title="App 功能问题" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Al8-UK-mrB">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJ1-8j-54l">
-                                <rect key="frame" x="152" y="285" width="102" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="radio" title="课程数据问题" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="d0a-tL-tHs">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yZP-cN-6Zi">
-                                <rect key="frame" x="259" y="285" width="49" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="radio" title="其他" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aaH-if-J13">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4On-Cc-0tc">
-                                <rect key="frame" x="26" y="351" width="185" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="前往 GitHub Issues 地址" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aGD-Cd-FC3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNy-j2-PD4">
-                                <rect key="frame" x="40" y="13" width="147" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="通过电子邮件发送" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jsd-gg-PPe">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-I4-7WX">
-                                <rect key="frame" x="46" y="38" width="426" height="195"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="正文内容" drawsBackground="YES" id="zBX-tC-lmq">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8W-pg-uTf">
-                                <rect key="frame" x="46" y="235" width="426" height="21"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="邮件主题" drawsBackground="YES" id="zsT-6C-nYS">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-x7-A80">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-x7-A80">
                                 <rect key="frame" x="178" y="413" width="54" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="版本 0.8" id="Tdl-sr-mHs">
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-5N-HCi">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-5N-HCi">
                                 <rect key="frame" x="228" y="413" width="81" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="on macOS 10.15" id="aNp-QS-cRR">
                                     <font key="font" metaFont="system" size="10"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <box fixedFrame="YES" title="通过 GitHub 报告" translatesAutoresizingMaskIntoConstraints="NO" id="xeS-u5-oFe">
+                                <rect key="frame" x="17" y="337" width="458" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="nmi-8C-8A1">
+                                    <rect key="frame" x="3" y="3" width="452" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4On-Cc-0tc">
+                                            <rect key="frame" x="20" y="14" width="158" height="19"/>
+                                            <buttonCell key="cell" type="recessed" title="前往 GitHub Issues…" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aGD-Cd-FC3">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="4On-Cc-0tc" secondAttribute="bottom" constant="15" id="ScR-MV-9Dy"/>
+                                        <constraint firstItem="4On-Cc-0tc" firstAttribute="top" secondItem="nmi-8C-8A1" secondAttribute="top" constant="14" id="YvW-Ei-bAe"/>
+                                        <constraint firstItem="4On-Cc-0tc" firstAttribute="leading" secondItem="nmi-8C-8A1" secondAttribute="leading" constant="20" id="jpL-9Z-jVZ"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <box fixedFrame="YES" title="通过电子邮件报告" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-mZ-saG">
+                                <rect key="frame" x="17" y="16" width="460" height="317"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="hjd-dF-gB8">
+                                    <rect key="frame" x="3" y="3" width="454" height="299"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-I4-7WX">
+                                            <rect key="frame" x="20" y="38" width="414" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="正文内容" drawsBackground="YES" id="zBX-tC-lmq">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8W-pg-uTf">
+                                            <rect key="frame" x="20" y="240" width="414" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="邮件主题" drawsBackground="YES" id="zsT-6C-nYS">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-cK-vdM">
+                                            <rect key="frame" x="20" y="269" width="262" height="16"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LkU-MP-seD">
+                                                    <rect key="frame" x="-1" y="-1" width="104" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="43u-4n-67n"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="radio" title="App 功能问题" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="Al8-UK-mrB">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AJ1-8j-54l">
+                                                    <rect key="frame" x="108" y="-1" width="102" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="课程数据问题" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="d0a-tL-tHs">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yZP-cN-6Zi">
+                                                    <rect key="frame" x="215" y="-1" width="49" height="18"/>
+                                                    <buttonCell key="cell" type="radio" title="其他" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aaH-if-J13">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNy-j2-PD4">
+                                            <rect key="frame" x="20" y="11" width="105" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="recessed" title="发送电子邮件" bezelStyle="recessed" image="NSShareTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jsd-gg-PPe">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RUx-cK-vdM" firstAttribute="leading" secondItem="hjd-dF-gB8" secondAttribute="leading" constant="20" id="CnJ-OB-V4A"/>
+                                        <constraint firstItem="RUx-cK-vdM" firstAttribute="top" secondItem="hjd-dF-gB8" secondAttribute="top" constant="14" id="U3w-Lk-ctw"/>
+                                    </constraints>
+                                </view>
+                            </box>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="DsT-5N-HCi" firstAttribute="leading" secondItem="0FA-x7-A80" secondAttribute="trailing" id="15D-NS-vYn"/>
-                            <constraint firstItem="0FA-x7-A80" firstAttribute="leading" secondItem="aMd-iy-szc" secondAttribute="leading" constant="180" id="Gea-Qu-8z8"/>
-                            <constraint firstItem="DsT-5N-HCi" firstAttribute="top" secondItem="aMd-iy-szc" secondAttribute="top" constant="43" id="Qa3-cb-URW"/>
-                            <constraint firstItem="0FA-x7-A80" firstAttribute="top" secondItem="aMd-iy-szc" secondAttribute="top" constant="41" id="Wch-IM-lTN"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="Fmk-V6-Rux" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="1701.5"/>
+            <point key="canvasLocation" x="1926" y="1702.5"/>
         </scene>
         <!--Html Get View Controller-->
         <scene sceneID="o7e-x0-MUL">
