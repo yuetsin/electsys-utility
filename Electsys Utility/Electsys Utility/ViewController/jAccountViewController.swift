@@ -14,8 +14,6 @@ import Kanna
 class jAccountViewController: NSViewController, loginHelperDelegate {
 //    var windowController: NSWindowController?
 
-    var loginHelper = LoginHelper()
-
     var htmlDelegate: readInHTMLDelegate?
     var UIDelegate: UIManagerDelegate?
 
@@ -25,11 +23,9 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 
     override func viewDidLoad() {
 //        super.viewDidLoad()
-        loginSession = Login()
-        loginSession?.delegate = self
+
         loadingIcon.startAnimation(self)
-        removeCookie()
-        updateCaptcha(refreshCaptchaButton)
+        
 //        openRequestPanel()
 
         setAccessibilityLabel()
@@ -76,11 +72,17 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 
 //        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
 
-        loginHelper?.attemptLogin(username: accountParams[0],
+        LoginHelper.attemptLogin(username: accountParams[0],
                                   password: accountParams[1],
                                   captcha: accountParams[2],
-                                  handler: { _ in
-
+                                  handler: { success in
+                                    if success {
+                                        self.UIDelegate?.unlockIcon()
+                                    } else {
+                                        self.UIDelegate?.lockIcon()
+                                        self.resumeUI()
+                                    }
+                                    
         })
 
 //        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
@@ -93,7 +95,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     @IBAction func updateCaptcha(_ sender: NSButton) {
         captchaTextField.stringValue = ""
 
-        loginHelper.requestCaptcha({ image in
+        LoginHelper.requestCaptcha({ image in
             self.captchaImage.image = image
         })
     }
@@ -297,16 +299,16 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     }
 
     func checkAvailability() {
-        Alamofire.request(sdtLeftUrl).responseData(completionHandler: { response in
-            if response.response == nil {
-                self.forceResetAccount()
-            } else if !String(data: response.data!, encoding: .utf8)!.contains("学生请用统一身份登陆") {
-//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
-                self.setSuccessful()
-            } else {
-//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
-                self.forceResetAccount()
-            }
-        })
+//        Alamofire.request(sdtLeftUrl).responseData(completionHandler: { response in
+////            if response.response == nil {
+////                self.forceResetAccount()
+////            } else if !String(data: response.data!, encoding: .utf8)!.contains("学生请用统一身份登陆") {
+//////                print("Gotta \(String(data: response.data!, encoding: .utf8))")
+            self.setSuccessful()
+////            } else {
+//////                print("Gotta \(String(data: response.data!, encoding: .utf8))")
+////                self.forceResetAccount()
+////            }
+//        })
     }
 }

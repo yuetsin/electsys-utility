@@ -13,16 +13,12 @@ import Alamofire_SwiftyJSON
 
 class LoginHelper {
     
-    init() {
-        initRedirectUrl()
-    }
+    static var sID: String?
+    static var client: String?
+    static var returnUrl: String?
+    static var se: String?
     
-    var sID: String?
-    var client: String?
-    var returnUrl: String?
-    var se: String?
-    
-    fileprivate func initRedirectUrl(handler: (() -> ())? = nil) {
+    static func initRedirectUrl(handler: (() -> ())? = nil) {
         Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
@@ -30,16 +26,16 @@ class LoginHelper {
                 return
             }
             
-            self.sID = parseRequest(requestUrl: redirectURL!, parseType: "sid")
-            self.client = parseRequest(requestUrl: redirectURL!, parseType: "client")
-            self.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
-            self.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
+            LoginHelper.sID = parseRequest(requestUrl: redirectURL!, parseType: "sid")
+            LoginHelper.client = parseRequest(requestUrl: redirectURL!, parseType: "client")
+            LoginHelper.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
+            LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
             
-            NSLog("\nsID: \(self.sID ?? "nil") \nclient: \(self.client ?? "nil")\nretUrl: \(self.returnUrl ?? "nil") \nse: \(self.se ?? "nil")")
+            NSLog("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
         }
     }
     
-    func requestCaptcha(_ handler: @escaping (NSImage) -> ()) {
+    static func requestCaptcha(_ handler: @escaping (NSImage) -> ()) {
         Alamofire.request(captchaUrl).responseData { response in
             let captchaImageObject = NSImage(data: response.data!)
             if captchaImageObject != nil {
@@ -48,9 +44,9 @@ class LoginHelper {
         }
     }
     
-    func attemptLogin(username: String, password: String, captcha: String, handler: @escaping (_ success: Bool) -> ()) {
-        if sID == nil || client == nil || returnUrl == nil || se == nil {
-            initRedirectUrl(handler: {
+    static func attemptLogin(username: String, password: String, captcha: String, handler: @escaping (_ success: Bool) -> ()) {
+        if sID == nil || LoginHelper.client == nil || LoginHelper.returnUrl == nil || se == nil {
+            LoginHelper.initRedirectUrl(handler: {
                 self.performLogin(username, password, captcha, handler)
             })
         } else {
@@ -58,15 +54,15 @@ class LoginHelper {
         }
     }
     
-    fileprivate func performLogin(_ username: String, _ password: String, _ captcha: String, _ handler: @escaping (_ success: Bool) -> ()) {
-        assert(!(sID == nil || client == nil || returnUrl == nil || se == nil))
+    fileprivate static func performLogin(_ username: String, _ password: String, _ captcha: String, _ handler: @escaping (_ success: Bool) -> ()) {
+        assert(!(sID == nil || LoginHelper.client == nil || returnUrl == nil || se == nil))
         
         let postParams: Parameters = [
-            "sid": sID!,
-            "returl": returnUrl!,
-            "se": se!,
+            "sid": LoginHelper.sID!,
+            "returl": LoginHelper.returnUrl!,
+            "se": LoginHelper.se!,
             /* 'v': "" */
-            "client": client!,
+            "client": LoginHelper.client!,
             "user": username,
             "pass": password,
             "captcha": captcha
