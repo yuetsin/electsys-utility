@@ -1630,7 +1630,7 @@ DQ
                 </viewController>
                 <customObject id="ob6-nj-oSy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427" y="811"/>
+            <point key="canvasLocation" x="1427" y="810.5"/>
         </scene>
         <!--jAccount-->
         <scene sceneID="HCn-hR-mrE">
@@ -2816,7 +2816,7 @@ Copyright © 2018 </string>
                                                             <rect key="frame" x="126" y="-3" width="145" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="课名及教师" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0fl-yk-JUu" id="44u-oP-13x">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                                <font key="font" metaFont="menu"/>
                                                                 <menu key="menu" id="74V-Qn-bv5">
                                                                     <items>
                                                                         <menuItem title="课名及教师" state="on" id="0fl-yk-JUu"/>
@@ -2851,7 +2851,7 @@ Copyright © 2018 </string>
                                                             <rect key="frame" x="126" y="-3" width="184" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="上海交通大学 4.3 制" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5A1-P9-GyH" id="NQz-lP-AUr">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="system"/>
+                                                                <font key="font" metaFont="menu"/>
                                                                 <menu key="menu" id="HiC-AJ-0Ut">
                                                                     <items>
                                                                         <menuItem title="标准 4.0 制" id="iAo-B8-wWs"/>
@@ -3022,7 +3022,7 @@ Copyright © 2018 </string>
         <!--Window Controller-->
         <scene sceneID="5Zi-Bg-pbO">
             <objects>
-                <windowController id="GbB-GS-Off" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Year and Term Selection Window" id="GbB-GS-Off" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jhq-mY-CVn">
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="258" width="480" height="161"/>

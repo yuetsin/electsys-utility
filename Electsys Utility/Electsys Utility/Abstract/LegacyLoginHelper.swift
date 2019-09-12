@@ -25,7 +25,6 @@ class Login {
     func attempt(userName: String, password: String, captchaWord: String, isLegacy: Bool = true) {
         if isLegacy {
             // Legacy stuff
-            
             var responseHtml: String = ""
             Alamofire.request(loginUrl).response(completionHandler: { response in
                 if response.response == nil {
@@ -53,9 +52,6 @@ class Login {
                     "pass": password,
                     "captcha": captchaWord
                 ]
-
-                
-
                 Alamofire.request(postUrl, method: .post, parameters: postParams, encoding: URLEncoding.httpBody).responseData(completionHandler: { response in
                     responseHtml = String(data: response.data!, encoding: .utf8)!
                     if (responseHtml.contains("上海交通大学教学信息服务网－学生服务平台")) {
