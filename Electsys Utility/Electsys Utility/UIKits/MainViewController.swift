@@ -94,6 +94,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
+        
+        self.view.window?.makeFirstResponder(sender)
+        
         tabViewController?.children[sender.tag].becomeFirstResponder()
     }
     
