@@ -66,10 +66,8 @@ class LoginHelper {
     }
     
     static func attemptLogin(username: String, password: String, captcha: String, handler: @escaping (_ success: Bool) -> ()) {
-        LoginHelper.logOut(handler: {
-            LoginHelper.initRedirectUrl(handler: {
-                self.performLogin(username, password, captcha, handler)
-            })
+        LoginHelper.initRedirectUrl(handler: {
+            self.performLogin(username, password, captcha, handler)
         })
     }
     
