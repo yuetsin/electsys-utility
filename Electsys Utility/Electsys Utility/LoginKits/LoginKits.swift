@@ -19,7 +19,7 @@ class LoginHelper {
     static var se: String?
     
     static var lastLoginUserName: String = "{null}"
-    static var lastLoginTimeStamp: String = ""
+    static var lastLoginTimeStamp: String?
     
     static func initRedirectUrl(handler: (() -> ())? = nil) {
         Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
@@ -40,13 +40,14 @@ class LoginHelper {
     }
     
     static func checkLoginAvailability(_ handler: @escaping (Bool) -> ()) {
-        Alamofire.request(LoginConst.mainPageUrl, method: .get).response { response in
+        Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
 //            let responseStr = String(data: response.data!, encoding: .utf8)
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
                 handler(false)
-            } else if redirectURL == LoginConst.mainPageUrl {
+            } else if redirectURL?.contains(LoginConst.mainPageUrl) ?? false {
                 NSLog("good redirectURL: \(redirectURL!)")
+                LoginHelper.lastLoginTimeStamp = redirectURL?.replacingOccurrences(of: "http://i.sjtu.edu.cn/xtgl/index_initMenu.html?jsdm=xs&_t=", with: "")
                 handler(true)
             } else {
                 NSLog("bad redirectURL: \(redirectURL!)")
@@ -65,8 +66,10 @@ class LoginHelper {
     }
     
     static func attemptLogin(username: String, password: String, captcha: String, handler: @escaping (_ success: Bool) -> ()) {
-        LoginHelper.initRedirectUrl(handler: {
-            self.performLogin(username, password, captcha, handler)
+        LoginHelper.logOut(handler: {
+            LoginHelper.initRedirectUrl(handler: {
+                self.performLogin(username, password, captcha, handler)
+            })
         })
     }
     
@@ -86,6 +89,7 @@ class LoginHelper {
         
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
+            let responseStr = String(data: response.data!, encoding: .utf8)
             NSLog("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 NSLog("login post failure")
@@ -93,7 +97,7 @@ class LoginHelper {
                 LoginHelper.removeCookie()
                 handler(false)
             } else {
-//                let responseStr = String(data: response.data!, encoding: .utf8)
+                
                 NSLog("login complete! check validation...")
                 
                 LoginHelper.checkLoginAvailability({ result in
@@ -112,20 +116,27 @@ class LoginHelper {
         }
     }
     
-    static func logOut() {
+    static func logOut(handler: (() -> ())? = nil) {
             let getParams: Parameters = [
-                "t": Date().milliStamp,
+                "t": LoginHelper.lastLoginTimeStamp ?? Date().milliStamp,
                 "login_type": ""
             ]
             LoginHelper.lastLoginUserName = "{null}"
         Alamofire.request(LoginConst.logOutUrl, method: .get, parameters: getParams).response { _ in
             LoginHelper.removeCookie()
+            handler?()
         }
     }
     
     static func removeCookie() {
         let cstorage = HTTPCookieStorage.shared
-        if let cookies = cstorage.cookies(for: URL(string: LoginConst.mainPageUrl)!) {
+        if let cookies = cstorage.cookies(for: URL(string: "http://i.sjtu.edu.cn")!) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
+        
+        if let cookies = cstorage.cookies(for: URL(string: "https://jaccount.sjtu.edu.cn")!) {
             for cookie in cookies {
                 cstorage.deleteCookie(cookie)
             }
