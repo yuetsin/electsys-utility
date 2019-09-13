@@ -83,9 +83,31 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
                                   captcha: accountParams[2],
                                   handler: { success in
                                     if success {
+                                        self.loadingIcon.isHidden = true
+                                        let infoAlert: NSAlert = NSAlert()
+                                        infoAlert.messageText = "提示"
+                                        infoAlert.informativeText = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
+                                        infoAlert.alertStyle = NSAlert.Style.informational
+                                        infoAlert.addButton(withTitle: "嗯")
+                                        infoAlert.addButton(withTitle: "切换账号")
+                                        infoAlert.beginSheetModal(for: self.view.window!) { returnCode in
+                                            if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
+                                                self.resetInput(self.resetButton)
+                                                self.resumeUI()
+                                                self.UIDelegate?.lockIcon()
+                                                LoginHelper.logOut()
+                                            }
+                                        }
                                         self.UIDelegate?.unlockIcon()
                                     } else {
                                         self.UIDelegate?.lockIcon()
+                                        LoginHelper.lastLoginUserName = "{null}"
+                                        let infoAlert: NSAlert = NSAlert()
+                                        infoAlert.messageText = "提示"
+                                        infoAlert.informativeText = "登录请求失败。请检查您的输入信息后，再试一次。"
+                                        infoAlert.alertStyle = NSAlert.Style.informational
+                                        infoAlert.addButton(withTitle: "嗯")
+                                        infoAlert.beginSheetModal(for: self.view.window!)
                                         self.resumeUI()
                                     }
         })

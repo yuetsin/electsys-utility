@@ -35,6 +35,7 @@ class LoginHelper {
             LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
             
             NSLog("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
+            handler?()
         }
     }
     
@@ -64,13 +65,9 @@ class LoginHelper {
     }
     
     static func attemptLogin(username: String, password: String, captcha: String, handler: @escaping (_ success: Bool) -> ()) {
-        if sID == nil || LoginHelper.client == nil || LoginHelper.returnUrl == nil || se == nil {
-            LoginHelper.initRedirectUrl(handler: {
-                self.performLogin(username, password, captcha, handler)
-            })
-        } else {
-            performLogin(username, password, captcha, handler)
-        }
+        LoginHelper.initRedirectUrl(handler: {
+            self.performLogin(username, password, captcha, handler)
+        })
     }
     
     fileprivate static func performLogin(_ username: String, _ password: String, _ captcha: String, _ handler: @escaping (_ success: Bool) -> ()) {
@@ -92,35 +89,46 @@ class LoginHelper {
             NSLog("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 NSLog("login post failure")
+                LoginHelper.lastLoginUserName = "{null}"
+                LoginHelper.removeCookie()
                 handler(false)
             } else {
-                let responseStr = String(data: response.data!, encoding: .utf8)
-                NSLog("login complete!")
-                LoginHelper.lastLoginUserName = username
-                handler(true)
+//                let responseStr = String(data: response.data!, encoding: .utf8)
+                NSLog("login complete! check validation...")
+                
+                LoginHelper.checkLoginAvailability({ result in
+                    if result {
+                        NSLog("good login session")
+                        LoginHelper.lastLoginUserName = username
+                        handler(true)
+                    } else {
+                        NSLog("bad login session")
+                        LoginHelper.lastLoginUserName = "{null}"
+                        LoginHelper.removeCookie()
+                        handler(false)
+                    }
+                })
             }
         }
     }
     
     static func logOut() {
-
             let getParams: Parameters = [
                 "t": Date().milliStamp,
                 "login_type": ""
             ]
             LoginHelper.lastLoginUserName = "{null}"
-            Alamofire.request(LoginConst.logOutUrl, method: .get, parameters: getParams).response { _ in
-                LoginHelper.removeCookie()
-                LoginHelper.sID = nil
-                LoginHelper.client = nil
-                LoginHelper.returnUrl = nil
-                LoginHelper.se = nil
-                LoginHelper.initRedirectUrl()
-            }
+        Alamofire.request(LoginConst.logOutUrl, method: .get, parameters: getParams).response { _ in
+            LoginHelper.removeCookie()
+        }
     }
     
     static func removeCookie() {
-        let cookieStorage = HTTPCookieStorage.shared
-        cookieStorage.removeCookies(since: Date(timeIntervalSinceNow: -1000.0))
+        let cstorage = HTTPCookieStorage.shared
+        if let cookies = cstorage.cookies(for: URL(string: LoginConst.mainPageUrl)!) {
+            for cookie in cookies {
+                cstorage.deleteCookie(cookie)
+            }
+        }
     }
 }

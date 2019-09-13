@@ -16,7 +16,6 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         window = NSApplication.shared.windows.first
-        LoginHelper.initRedirectUrl()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
