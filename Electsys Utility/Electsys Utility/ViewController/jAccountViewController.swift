@@ -20,6 +20,8 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         // reset
     }
     
+    @IBOutlet weak var blurView: RMBlurredView!
+    
 //    var windowController: NSWindowController?
 
     var htmlDelegate: readInHTMLDelegate?
@@ -35,6 +37,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         loadingIcon.startAnimation(self)
 //        openRequestPanel()
         setAccessibilityLabel()
+        blurView.alphaValue = 0.0
     }
 
     func setAccessibilityLabel() {
@@ -171,6 +174,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     }
 
     func disableUI() {
+//        blurFadeIn()
         userNameField.isEnabled = false
         passwordField.isEnabled = false
         captchaTextField.isEnabled = false
@@ -185,6 +189,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     }
 
     func resumeUI() {
+//        blurFadeOut()
         userNameField.isEnabled = true
         passwordField.isEnabled = true
         captchaTextField.isEnabled = true

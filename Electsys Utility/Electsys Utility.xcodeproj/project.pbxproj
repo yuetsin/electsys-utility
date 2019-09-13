@@ -12,9 +12,11 @@
 		8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A485214E0EC0008EC502 /* GalleryIcon.swift */; };
 		8A09A488214E1787008EC502 /* JsonRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A09A487214E1787008EC502 /* JsonRequester.swift */; };
 		8A09A48A214E513C008EC502 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A09A489214E513C008EC502 /* SwiftyJSON.framework */; };
-		8A0AE463232A004400CE9E3A /* AnimatedBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE462232A004400CE9E3A /* AnimatedBlurView.swift */; };
 		8A0AE466232A016200CE9E3A /* LoginKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE465232A016200CE9E3A /* LoginKits.swift */; };
 		8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE467232A017600CE9E3A /* LoginConst.swift */; };
+		8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A17ADAB232BAF530077DDCF /* RMBlurredView.m */; };
+		8A17ADB0232BAF540077DDCF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8A17ADAD232BAF540077DDCF /* LICENSE */; };
+		8A17ADB1232BAF540077DDCF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8A17ADAE232BAF540077DDCF /* README.md */; };
 		8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */; };
 		8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */; };
 		8A397DC42140B69900AE297A /* Curricula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC32140B69900AE297A /* Curricula.swift */; };
@@ -62,9 +64,13 @@
 		8A09A485214E0EC0008EC502 /* GalleryIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryIcon.swift; sourceTree = "<group>"; };
 		8A09A487214E1787008EC502 /* JsonRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRequester.swift; sourceTree = "<group>"; };
 		8A09A489214E513C008EC502 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A0AE462232A004400CE9E3A /* AnimatedBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedBlurView.swift; sourceTree = "<group>"; };
 		8A0AE465232A016200CE9E3A /* LoginKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginKits.swift; sourceTree = "<group>"; };
 		8A0AE467232A017600CE9E3A /* LoginConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConst.swift; sourceTree = "<group>"; };
+		8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Electsys Utility-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A17ADAB232BAF530077DDCF /* RMBlurredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBlurredView.m; sourceTree = "<group>"; };
+		8A17ADAC232BAF540077DDCF /* RMBlurredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBlurredView.h; sourceTree = "<group>"; };
+		8A17ADAD232BAF540077DDCF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8A17ADAE232BAF540077DDCF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithSeparator.swift; sourceTree = "<group>"; };
 		8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataWindowController.swift; sourceTree = "<group>"; };
 		8A397DC32140B69900AE297A /* Curricula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curricula.swift; sourceTree = "<group>"; };
@@ -160,7 +166,11 @@
 		8A0AE461232A003900CE9E3A /* BlurView */ = {
 			isa = PBXGroup;
 			children = (
-				8A0AE462232A004400CE9E3A /* AnimatedBlurView.swift */,
+				8A17ADAD232BAF540077DDCF /* LICENSE */,
+				8A17ADAE232BAF540077DDCF /* README.md */,
+				8A17ADAC232BAF540077DDCF /* RMBlurredView.h */,
+				8A17ADAB232BAF530077DDCF /* RMBlurredView.m */,
+				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
 			);
 			path = BlurView;
 			sourceTree = "<group>";
@@ -391,7 +401,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A17ADB0232BAF540077DDCF /* LICENSE in Resources */,
 				8AAD7F1C21D4D05C0019E9F8 /* Main.storyboard in Resources */,
+				8A17ADB1232BAF540077DDCF /* README.md in Resources */,
 				8A4A22E521362EB00064488C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +480,7 @@
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
+				8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */,
 				8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
 				8AB95213232936D80034C304 /* TermSelectingViewController.swift in Sources */,
@@ -477,7 +490,6 @@
 				8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */,
 				8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
-				8A0AE463232A004400CE9E3A /* AnimatedBlurView.swift in Sources */,
 				8A49F6AA21D4C47700010816 /* CurriculaHelper.swift in Sources */,
 				8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */,
 				8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */,
@@ -626,7 +638,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlurView/Electsys Utility-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -651,7 +663,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlurView/Electsys Utility-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

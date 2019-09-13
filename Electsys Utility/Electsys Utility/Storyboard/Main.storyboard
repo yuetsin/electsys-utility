@@ -1792,6 +1792,10 @@ DQ
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yry-5g-JId" customClass="RMBlurredView">
+                                        <rect key="frame" x="20" y="72" width="476" height="308"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </customView>
                                 </subviews>
                             </customView>
                         </subviews>
@@ -1802,6 +1806,7 @@ DQ
                     <connections>
                         <outlet property="accessLegacyElectsys" destination="COR-1x-Io6" id="hmz-Am-MYK"/>
                         <outlet property="accessNewElectsys" destination="ckA-jG-1ka" id="NNT-Kz-WNA"/>
+                        <outlet property="blurView" destination="yry-5g-JId" id="gbj-va-0TS"/>
                         <outlet property="captchaImage" destination="SdH-dO-y5t" id="nBm-K2-WAH"/>
                         <outlet property="captchaTextField" destination="4jn-LR-nMK" id="Hq7-jH-bdj"/>
                         <outlet property="loadingIcon" destination="z9g-m1-I9D" id="eoE-EH-I2f"/>
