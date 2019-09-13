@@ -1752,7 +1752,7 @@ DQ
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-xI-w2W">
                                         <rect key="frame" x="18" y="96" width="480" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" alignment="center" title="你的信息仅会被发送给 SJTU NIC。 请确保在安全的网络环境中操作。" id="GJ1-jc-xf4">
+                                        <textFieldCell key="cell" alignment="center" title="你的信息仅会被发送给 SJTU NIC。 请确保正在安全的网络环境中操作。" id="GJ1-jc-xf4">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1783,6 +1783,15 @@ DQ
                                             </allowedInputSourceLocales>
                                         </secureTextFieldCell>
                                     </secureTextField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jk-4t-DjM">
+                                        <rect key="frame" x="114" y="6" width="298" height="13"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" alignment="center" title="旧版教学信息服务网已于 2019 年 8 月停止更新与维护。" id="r81-6O-U79">
+                                            <font key="font" metaFont="message" size="11"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </customView>
                         </subviews>
@@ -1805,7 +1814,7 @@ DQ
                 </viewController>
                 <customObject id="Vcd-WM-onh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="811"/>
+            <point key="canvasLocation" x="906" y="810.5"/>
         </scene>
         <!--致谢-->
         <scene sceneID="bNR-HU-hTp">
@@ -2914,7 +2923,7 @@ Copyright © 2018 </string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Kh-YSX">
-                                            <rect key="frame" x="148" y="10" width="291" height="14"/>
+                                            <rect key="frame" x="159" y="11" width="280" height="14"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除自动填充的用户名和密码。" id="dvi-00-FzS">
                                                 <font key="font" metaFont="message" size="11"/>
@@ -2990,11 +2999,11 @@ Copyright © 2018 </string>
                                             </subviews>
                                         </customView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-3s-Eh4">
-                                            <rect key="frame" x="20" y="8" width="122" height="17"/>
+                                            <rect key="frame" x="20" y="8" width="133" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="inline" title="清除本地密码缓存" bezelStyle="inline" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
+                                            <buttonCell key="cell" type="recessed" title="清除本地密码缓存" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystemBold"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
                                         </button>
                                     </subviews>
@@ -3008,11 +3017,11 @@ Copyright © 2018 </string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-Uz-hDg">
-                                            <rect key="frame" x="20" y="67" width="103" height="16"/>
+                                            <rect key="frame" x="20" y="67" width="111" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="inline" title="清除 Cookies" bezelStyle="inline" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RiG-2x-GC7">
+                                            <buttonCell key="cell" type="recessed" title="清除 Cookies" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RiG-2x-GC7">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystemBold"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FB-a7-u6w">
@@ -3034,11 +3043,11 @@ Copyright © 2018 </string>
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eKY-dX-4Ev">
-                                            <rect key="frame" x="20" y="27" width="179" height="16"/>
+                                            <rect key="frame" x="20" y="27" width="194" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="inline" title="查看流化的应用程序诊断信息" bezelStyle="inline" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbf-O7-sfL">
+                                            <buttonCell key="cell" type="recessed" title="查看流化的应用程序诊断信息" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbf-O7-sfL">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystemBold"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
                                         </button>
                                     </subviews>
