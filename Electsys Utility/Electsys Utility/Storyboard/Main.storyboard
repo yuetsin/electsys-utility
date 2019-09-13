@@ -2966,7 +2966,7 @@ Copyright © 2018 </string>
                                             </subviews>
                                         </customView>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mvz-cT-t2H">
-                                            <rect key="frame" x="119" y="58" width="238" height="21"/>
+                                            <rect key="frame" x="119" y="57" width="238" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6RW-9G-dL2">
@@ -3016,7 +3016,7 @@ Copyright © 2018 </string>
                                             </buttonCell>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FB-a7-u6w">
-                                            <rect key="frame" x="44" y="51" width="393" height="14"/>
+                                            <rect key="frame" x="44" y="50" width="393" height="14"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除与 SJTU NIC 通信过程中产生的 HTTP Cookies。" id="TCi-Sj-OEg">
                                                 <font key="font" metaFont="message" size="11"/>
