@@ -40,7 +40,7 @@ extension String {
 
 func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpression.Options = []) -> String {
     var toBeSplit = requestUrl.removingPercentEncoding ?? ""
-    let splitKeyWord = ["?sid=", "&returl=", "&se="]
+    let splitKeyWord = ["?sid=", "&client=", "&returl=", "&se="]
     var splitedRequest: [String] = []
     for item in splitKeyWord {
         let componentsOfString = toBeSplit.components(separatedBy: item)
@@ -57,13 +57,17 @@ func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpre
         if splitedRequest.count > 1 {
             return splitedRequest[1]
         }
-    case "returl":
+    case "client":
         if splitedRequest.count > 2 {
             return splitedRequest[2]
         }
-    case "se":
+    case "returl":
         if splitedRequest.count > 3 {
             return splitedRequest[3]
+        }
+    case "se":
+        if splitedRequest.count > 4 {
+            return splitedRequest[4]
         }
     default:
         if splitedRequest.count > 1 {
@@ -340,3 +344,22 @@ extension Date {
     }
 }
 
+extension Date {
+
+    /// 获取当前 秒级 时间戳 - 10位
+    var timeStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
+    }
+
+    /// 获取当前 毫秒级 时间戳 - 13位
+    var milliStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let millisecond = CLongLong(round(timeInterval*1000))
+        return "\(millisecond)"
+    }
+    //————————————————
+    //版权声明：本文为CSDN博主「PlutusCattt」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+    //原文链接：https://blog.csdn.net/jhy835239104/article/details/80106266
+}

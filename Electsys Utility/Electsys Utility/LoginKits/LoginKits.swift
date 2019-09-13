@@ -18,6 +18,9 @@ class LoginHelper {
     static var returnUrl: String?
     static var se: String?
     
+    static var lastLoginUserName: String = "{null}"
+    static var lastLoginTimeStamp: String = ""
+    
     static func initRedirectUrl(handler: (() -> ())? = nil) {
         Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
             let redirectURL = response.response?.url?.absoluteString
@@ -32,6 +35,22 @@ class LoginHelper {
             LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
             
             NSLog("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
+        }
+    }
+    
+    static func checkLoginAvailability(_ handler: @escaping (Bool) -> ()) {
+        Alamofire.request(LoginConst.mainPageUrl, method: .get).response { response in
+//            let responseStr = String(data: response.data!, encoding: .utf8)
+            let redirectURL = response.response?.url?.absoluteString
+            if redirectURL == nil {
+                handler(false)
+            } else if redirectURL == LoginConst.mainPageUrl {
+                NSLog("good redirectURL: \(redirectURL!)")
+                handler(true)
+            } else {
+                NSLog("bad redirectURL: \(redirectURL!)")
+                handler(false)
+            }
         }
     }
     
@@ -70,22 +89,37 @@ class LoginHelper {
         
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
+            NSLog("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 NSLog("login post failure")
                 handler(false)
             } else {
-                NSLog("login success!")
+                let responseStr = String(data: response.data!, encoding: .utf8)
+                NSLog("login complete!")
+                LoginHelper.lastLoginUserName = username
                 handler(true)
             }
         }
     }
     
-    func logOut() {
-        Alamofire.request(LoginConst.logOutUrl, method: .post)
+    static func logOut() {
+
+            let getParams: Parameters = [
+                "t": Date().milliStamp,
+                "login_type": ""
+            ]
+            LoginHelper.lastLoginUserName = "{null}"
+            Alamofire.request(LoginConst.logOutUrl, method: .get, parameters: getParams).response { _ in
+                LoginHelper.removeCookie()
+                LoginHelper.sID = nil
+                LoginHelper.client = nil
+                LoginHelper.returnUrl = nil
+                LoginHelper.se = nil
+                LoginHelper.initRedirectUrl()
+            }
     }
     
-    func removeCookie() {
-        logOut()
+    static func removeCookie() {
         let cookieStorage = HTTPCookieStorage.shared
         cookieStorage.removeCookies(since: Date(timeIntervalSinceNow: -1000.0))
     }
