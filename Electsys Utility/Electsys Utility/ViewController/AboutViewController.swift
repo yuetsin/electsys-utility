@@ -28,9 +28,11 @@ class AboutViewController: NSViewController {
         
     }
     @IBAction func turnCredits(_ sender: NSButton) {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        windowController = storyboard.instantiateController(withIdentifier: "Credits Window Controller") as? NSWindowController
-        windowController?.showWindow(sender)
+//        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+//        windowController = storyboard.instantiateController(withIdentifier: "Credits Window Controller") as? NSWindowController
+//        windowController?.showWindow(sender)
+        (self.view.window?.contentViewController as! MainViewController).visitCreditsPage()
+//        (self.parent as! MainViewController).visitCreditsPage()
     }
     
     @IBAction func goToGithubPages(_ sender: NSButton) {

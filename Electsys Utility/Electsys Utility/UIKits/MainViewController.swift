@@ -16,6 +16,13 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         registerDelegate()
         lockIcon()
         setAccessibilityLabel()
+        self.view.window?.makeFirstResponder(aboutButton)
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        NSLog("Bye")
+        NSApplication.shared.terminate(self)
     }
     
     fileprivate func registerDelegate() {
@@ -88,6 +95,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
+        
+        self.view.window?.makeFirstResponder(sender)
+        
         tabViewController?.children[sender.tag].becomeFirstResponder()
     }
     
@@ -120,6 +130,14 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         getScoreButton.isEnabled = false
     }
     
+    func visitAboutPage() {
+        switchToPage(index: 0)
+    }
+    
+    func visitCreditsPage() {
+        switchToPage(index: 2)
+    }
+    
     func switchToPage(index: Int) {
         aboutButton.state = .off
         preferenceButton.state = .off
@@ -137,6 +155,8 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         if tabViewController == nil {
             return
         }
+        
+        self.view.window?.makeFirstResponder(self.view.viewWithTag(index) as! NSButton)
     
         tabViewController?.tabView.selectTabViewItem(at: index)
         tabViewController?.children[index].becomeFirstResponder()

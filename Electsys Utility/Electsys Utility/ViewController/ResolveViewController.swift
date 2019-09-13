@@ -22,6 +22,17 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, readInHTML
         self.courseIdentifierField.isEnabled = false
         self.courseScoreField.isEnabled = false
         self.courseTimeField.isEnabled = false
+        
+        openYearTermSelectionPanel()
+    }
+    
+    func openYearTermSelectionPanel() {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Year and Term Selection Window")) as! NSWindowController
+        
+        if let window = windowController.window {
+            self.view.window?.beginSheet(window, completionHandler: nil)
+        }
     }
     
     var htmlDoc: String = ""

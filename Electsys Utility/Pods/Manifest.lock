@@ -1,28 +1,34 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.9.0)
+  - Alamofire-SwiftyJSON (3.0.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0.0)
   - CrossroadRegex (1.1.0)
-  - Kanna (4.0.1)
-  - SwiftyJSON (4.1.0)
+  - Kanna (4.0.3)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.0)
+  - Alamofire
+  - Alamofire-SwiftyJSON
   - CrossroadRegex
   - Kanna (~> 4.0.0)
-  - SwiftyJSON (~> 4.0)
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Alamofire-SwiftyJSON
     - CrossroadRegex
     - Kanna
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
-  Kanna: 15569a2331b79782a1753cf280c8e69e2a033654
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 9bd60482ffd46c358037005e531d6fe735b49443
+PODFILE CHECKSUM: 7a874e4bef55dc4e1ac39a6b04cee4bc8fb06bc5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

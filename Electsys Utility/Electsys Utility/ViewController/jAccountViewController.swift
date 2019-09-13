@@ -6,35 +6,40 @@
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //
 
-import Foundation
-import Cocoa
-import Kanna
 import Alamofire
+import Cocoa
+import Foundation
+import Kanna
 
 class jAccountViewController: NSViewController, loginHelperDelegate {
-
+    func validateLoginResult(htmlData: String) {
+        // reset
+    }
+    
+    func forceResetAccount() {
+        // reset
+    }
+    
+    @IBOutlet weak var blurView: RMBlurredView!
+    
 //    var windowController: NSWindowController?
 
-    var loginSession: Login?
     var htmlDelegate: readInHTMLDelegate?
     var UIDelegate: UIManagerDelegate?
 
     override func viewWillAppear() {
-        checkAvailability()
+        checkLoginStatus()
+        updateCaptcha(refreshCaptchaButton)
     }
-    
+
     override func viewDidLoad() {
 //        super.viewDidLoad()
-        loginSession = Login()
-        loginSession?.delegate = self
         loadingIcon.startAnimation(self)
-        removeCookie()
-        updateCaptcha(refreshCaptchaButton)
 //        openRequestPanel()
-        
         setAccessibilityLabel()
+        blurView.alphaValue = 0.0
     }
-    
+
     func setAccessibilityLabel() {
         accessNewElectsys.setAccessibilityLabel("访问新版教学信息服务网")
         accessLegacyElectsys.setAccessibilityLabel("访问旧版教学信息服务网")
@@ -49,47 +54,112 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //    var requestDelegate: requestHtmlDelegate?
 //    var inputDelegate: inputHtmlDelegate?
 
-    @IBOutlet weak var accessNewElectsys: NSButton!
-    @IBOutlet weak var accessLegacyElectsys: NSButton!
-    @IBOutlet weak var userNameField: NSTextField!
-    @IBOutlet weak var passwordField: NSSecureTextField!
-    @IBOutlet weak var captchaTextField: NSTextField!
-    @IBOutlet weak var captchaImage: NSImageView!
-    @IBOutlet weak var loginButton: NSButton!
-    @IBOutlet weak var refreshCaptchaButton: NSButton!
-    @IBOutlet weak var resetButton: NSButton!
+    @IBOutlet var accessNewElectsys: NSButton!
+    @IBOutlet var accessLegacyElectsys: NSButton!
+    @IBOutlet var userNameField: NSTextField!
+    @IBOutlet var passwordField: NSSecureTextField!
+    @IBOutlet var captchaTextField: NSTextField!
+    @IBOutlet var captchaImage: NSImageView!
+    @IBOutlet var loginButton: NSButton!
+    @IBOutlet var refreshCaptchaButton: NSButton!
+    @IBOutlet var resetButton: NSButton!
 //    @IBOutlet weak var manualOpenButton: NSButton!
-    @IBOutlet weak var loadingIcon: NSProgressIndicator!
+    @IBOutlet var loadingIcon: NSProgressIndicator!
 //    @IBOutlet weak var expandButton: NSButton!
 //    @IBOutlet weak var operationSelector: NSPopUpButton!
 //    @IBOutlet weak var checkHistoryButton: NSButton!
 
     @IBAction func loginButtonClicked(_ sender: NSButton) {
-        if self.userNameField.stringValue == "" ||
-            self.passwordField.stringValue == "" ||
-            self.captchaTextField.stringValue == "" {
+        if userNameField.stringValue == "" ||
+            passwordField.stringValue == "" ||
+            captchaTextField.stringValue == "" {
             showErrorMessage(errorMsg: "请完整填写所有信息。")
             return
         }
         let accountParams = [self.userNameField.stringValue, self.passwordField.stringValue, self.captchaTextField.stringValue]
         disableUI()
-        self.loginSession = Login()
-        self.loginSession?.delegate = self
 
 //        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
-            DispatchQueue.global().async {
-                self.loginSession?.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2])
-            }
+
+        LoginHelper.attemptLogin(username: accountParams[0],
+                                  password: accountParams[1],
+                                  captcha: accountParams[2],
+                                  handler: { success in
+                                    if success {
+                                        self.loadingIcon.isHidden = true
+                                        let infoAlert: NSAlert = NSAlert()
+                                        infoAlert.messageText = "提示"
+                                        infoAlert.informativeText = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
+                                        infoAlert.alertStyle = NSAlert.Style.informational
+                                        infoAlert.addButton(withTitle: "嗯")
+                                        infoAlert.addButton(withTitle: "切换账号")
+                                        infoAlert.beginSheetModal(for: self.view.window!) { returnCode in
+                                            if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
+                                                self.resetInput(self.resetButton)
+                                                self.resumeUI()
+                                                self.UIDelegate?.lockIcon()
+                                                LoginHelper.logOut()
+                                            }
+                                        }
+                                        self.UIDelegate?.unlockIcon()
+                                    } else {
+                                        self.UIDelegate?.lockIcon()
+                                        LoginHelper.lastLoginUserName = "{null}"
+                                        let infoAlert: NSAlert = NSAlert()
+                                        infoAlert.messageText = "提示"
+                                        infoAlert.informativeText = "登录请求失败。请检查您的输入信息后，再试一次。"
+                                        infoAlert.alertStyle = NSAlert.Style.informational
+                                        infoAlert.addButton(withTitle: "嗯")
+                                        infoAlert.beginSheetModal(for: self.view.window!)
+                                        self.resumeUI()
+                                    }
+        })
+
 //        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
 //            DispatchQueue.global().async {
 //                self.loginSession?.attempt(userName: accountParams[0], password: accountParams[1], captchaWord: accountParams[2], isLegacy: false)
 //            }
 //        }
     }
+    
+    func checkLoginStatus() {
+        LoginHelper.checkLoginAvailability({ status in
+            if status {
+                self.loadingIcon.isHidden = true
+                let infoAlert: NSAlert = NSAlert()
+                infoAlert.messageText = "提示"
+                infoAlert.informativeText = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
+                infoAlert.alertStyle = NSAlert.Style.informational
+                infoAlert.addButton(withTitle: "嗯")
+                infoAlert.addButton(withTitle: "切换账号")
+                infoAlert.beginSheetModal(for: self.view.window!) { returnCode in
+                    if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
+                        self.resetInput(self.resetButton)
+                        self.resumeUI()
+                        self.UIDelegate?.lockIcon()
+                        LoginHelper.logOut()
+                    }
+                }
+            } else {
+                if LoginHelper.lastLoginUserName != "{null}" {
+                    LoginHelper.lastLoginUserName = "{null}"
+                    let infoAlert: NSAlert = NSAlert()
+                    infoAlert.messageText = "提示"
+                    infoAlert.informativeText = "用户「\(LoginHelper.lastLoginUserName)」的登录身份已过期，请重新登录。"
+                    infoAlert.alertStyle = NSAlert.Style.informational
+                    infoAlert.addButton(withTitle: "嗯")
+                    infoAlert.beginSheetModal(for: self.view.window!)
+                }
+            }
+        })
+    }
 
     @IBAction func updateCaptcha(_ sender: NSButton) {
-        self.captchaTextField.stringValue = ""
-        loginSession?.updateCaptcha()
+        captchaTextField.stringValue = ""
+
+        LoginHelper.requestCaptcha({ image in
+            self.captchaImage.image = image
+        })
     }
 
     @IBAction func resetInput(_ sender: NSButton) {
@@ -97,98 +167,14 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         passwordField.stringValue = ""
         captchaTextField.stringValue = ""
         updateCaptcha(refreshCaptchaButton)
-        removeCookie()
-    }
-
-    func removeCookie() {
-        let cookieStorage = HTTPCookieStorage.shared
-        cookieStorage.removeCookies(since: Date.init(timeIntervalSinceNow: -1000.0))
-        loginSession?.logOut()
     }
 
     func setCaptchaImage(image: NSImage) {
-        self.captchaImage.image = image
+        captchaImage.image = image
     }
-
-
-
-//    @IBAction func manualLoadHTML(_ sender: NSButton) {
-//        disableUI()
-//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Manually Get HTML Window Controller")) as? NSWindowController
-//        if let htmlWindow = windowController?.window {
-//            let htmlViewController = htmlWindow.contentViewController as! htmlGetViewController
-//            htmlViewController.delegate = self
-//            self.view.window?.beginSheet(htmlWindow, completionHandler: nil)
-//        }
-//    }
-
-
-    func validateLoginResult(htmlData: String) {
-//        print(htmlData)
-        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
-            htmlData.contains("本学期课程详细情况")) {
-//        success!
-            self.htmlDelegate?.htmlDoc = htmlData
-            self.UIDelegate?.unlockIcon()
-            self.UIDelegate?.switchToPage(index: 4)
-        } else if (htmlData.contains("请勿频繁登陆本网站，以免服务器过载。请30秒后再登陆。")) {
-            showErrorMessage(errorMsg: "登录失败。\n请求过于频繁，请至少等待 30 秒后再次尝试。")
-            self.UIDelegate?.lockIcon()
-            resumeUI()
-        }
-        else if (htmlData.contains("上海交通大学统一身份认证")) {
-            showErrorMessage(errorMsg: "登录失败。\n用户名、密码和验证码中有至少一项不正确。")
-            self.UIDelegate?.lockIcon()
-            resumeUI()
-        } else if (!htmlData.isEmpty) {
-            showErrorMessage(errorMsg: "登录失败。\n频繁的访问被拒绝。请重启应用后再次尝试。")
-            self.UIDelegate?.lockIcon()
-            resumeUI()
-        } else {
-            showErrorMessage(errorMsg: "登录失败。\n检查你的网络连接。")
-            self.UIDelegate?.lockIcon()
-            resumeUI()
-        }
-    }
-
-    func checkDataInput(htmlData: String) {
-//        NSLog(htmlData)
-        if (htmlData.contains("上海交通大学教学信息服务网－学生服务平台") ||
-            htmlData.contains("本学期课程详细情况") || htmlData.contains("节\\星期")) {
-//            startDataResolve(html: htmlData)
-        } else {
-            showErrorMessage(errorMsg: "置入 HTML 文件失败。\n获取的数据格式不正确。")
-            resumeUI()
-        }
-    }
-
-
-    func cancelDataInput() {
-        resumeUI()
-    }
-//
-//    func startDataResolve(html: String) {
-//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve Window Controller")) as? NSWindowController
-//        if let resolveWindow = windowController?.window {
-//            let resolveViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Resolve View Controller")) as! ResolveViewController
-//            resolveViewController.htmlDoc = html
-//            resolveWindow.contentViewController = resolveViewController
-//            windowController?.showWindow(self)
-//            self.view.window?.orderOut(self)
-//        }
-//    }
-//
-//    func syncExamInfo() {
-//        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-//        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Sync Exam Window Controller")) as? NSWindowController
-//        windowController?.showWindow(self)
-//        self.view.window?.orderOut(self)
-//    }
-
 
     func disableUI() {
+//        blurFadeIn()
         userNameField.isEnabled = false
         passwordField.isEnabled = false
         captchaTextField.isEnabled = false
@@ -203,6 +189,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     }
 
     func resumeUI() {
+//        blurFadeOut()
         userNameField.isEnabled = true
         passwordField.isEnabled = true
         captchaTextField.isEnabled = true
@@ -225,7 +212,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         errorAlert.informativeText = errorMsg
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
-        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
     }
 
     func failedToLoadCaptcha() {
@@ -257,63 +244,17 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("FullDataWindowController")) as? FullDataWindowController
 //        windowController?.showWindow(self)
 //    }
-    
+
     @IBAction func goToElectsysNew(_ sender: NSButton) {
         if let url = URL(string: "http://i.sjtu.edu.cn/"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }
-    
+
     @IBAction func goToElectsysLegacy(_ sender: NSButton) {
         if let url = URL(string: "http://electsys.sjtu.edu.cn"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }
-    
-    
-    func forceResetAccount() {
-        self.UIDelegate?.lockIcon()
-        DispatchQueue.main.async {
-            if (self.loginButton.isEnabled) {
-                self.resumeUI()
-            } else {
-                self.showErrorMessage(errorMsg: "登录信息已过期，请您重新登录。")
-                self.resetInput(self.resetButton)
-                self.resumeUI()
-            }
-        }
-    }
-    
-    func setSuccessful() {
-        DispatchQueue.main.async {
-            self.loadingIcon.isHidden = true
-            let infoAlert: NSAlert = NSAlert()
-            infoAlert.messageText = "提示"
-            infoAlert.informativeText = "您已经以 \(self.userNameField.stringValue) 的身份登录。"
-            infoAlert.alertStyle = NSAlert.Style.informational
-            infoAlert.addButton(withTitle: "嗯")
-            infoAlert.addButton(withTitle: "切换账号")
-            infoAlert.beginSheetModal(for: self.view.window!) { (returnCode) in
-                if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
-                    self.resetInput(self.resetButton)
-                    self.resumeUI()
-                    self.UIDelegate?.lockIcon()
-                }
-            }
-        }
-    }
-    
-    func checkAvailability() {
-        Alamofire.request(sdtLeftUrl).responseData(completionHandler: { response in
-            if response.response == nil {
-                self.forceResetAccount()
-            } else if (!String(data: response.data!, encoding: .utf8)!.contains("学生请用统一身份登陆")) {
-//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
-                self.setSuccessful()
-            } else {
-//                print("Gotta \(String(data: response.data!, encoding: .utf8))")
-                self.forceResetAccount()
-            }
-        })
-    }
+
 }
