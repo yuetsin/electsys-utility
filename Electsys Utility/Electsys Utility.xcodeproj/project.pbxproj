@@ -25,6 +25,7 @@
 		8A27D73C232E538E005AF5CA /* ScoreConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D73B232E538E005AF5CA /* ScoreConst.swift */; };
 		8A27D73E232E5394005AF5CA /* NGScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D73D232E5394005AF5CA /* NGScore.swift */; };
 		8A27D740232E5640005AF5CA /* ScoreQueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D73F232E5640005AF5CA /* ScoreQueryViewController.swift */; };
+		8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D759232E61A3005AF5CA /* GPAKits.swift */; };
 		8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */; };
 		8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F6232E1AC100FA0786 /* CourseKits.swift */; };
 		8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F8232E1B0C00FA0786 /* CourseConst.swift */; };
@@ -91,6 +92,7 @@
 		8A27D73B232E538E005AF5CA /* ScoreConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreConst.swift; sourceTree = "<group>"; };
 		8A27D73D232E5394005AF5CA /* NGScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGScore.swift; sourceTree = "<group>"; };
 		8A27D73F232E5640005AF5CA /* ScoreQueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreQueryViewController.swift; sourceTree = "<group>"; };
+		8A27D759232E61A3005AF5CA /* GPAKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAKits.swift; sourceTree = "<group>"; };
 		8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataWindowController.swift; sourceTree = "<group>"; };
 		8A3598F6232E1AC100FA0786 /* CourseKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseKits.swift; sourceTree = "<group>"; };
 		8A3598F8232E1B0C00FA0786 /* CourseConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConst.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				8A27D739232E5388005AF5CA /* ScoreKits.swift */,
 				8A27D73B232E538E005AF5CA /* ScoreConst.swift */,
 				8A27D73D232E5394005AF5CA /* NGScore.swift */,
+				8A27D759232E61A3005AF5CA /* GPAKits.swift */,
 			);
 			path = ScoreKits;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
 				8A359900232E1D9A00FA0786 /* PreferenceKits.swift in Sources */,
 				8AB95213232936D80034C304 /* TermSelectingViewController.swift in Sources */,
+				8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */,
 				8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */,
 				8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */,
 				8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */,

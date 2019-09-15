@@ -36,7 +36,7 @@ class AboutViewController: NSViewController {
     }
     
     @IBAction func goToGithubPages(_ sender: NSButton) {
-        if let url = URL(string: "https://github.com/yuxiqian/Electsys-Utility"), NSWorkspace.shared.open(url) {
+        if let url = URL(string: "https://github.com/yuetsin/electsys-utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }

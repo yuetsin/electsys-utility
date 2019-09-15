@@ -18,4 +18,5 @@ struct NGScore {
     var status: String?
     /* It's likely that's not a number but an level */
     var finalScore: Int?
+    var credit: Float?
 }

@@ -46,7 +46,8 @@ class ScoreKits {
                                                   courseCode: scoreObject["kch"].stringValue,
                                                   courseName: scoreObject["kcmc"].stringValue,
                                                   status: scoreObject["ksxz"].stringValue,
-                                                  finalScore: scoreObject["bfzcj"].intValue))
+                                                  finalScore: scoreObject["bfzcj"].intValue,
+                                                  credit: scoreObject["xf"].floatValue))
                     }
                     handler(scoreSheet)
                 } else {

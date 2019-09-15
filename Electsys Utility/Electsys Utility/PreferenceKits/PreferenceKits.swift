@@ -25,12 +25,12 @@ enum CourseNameDisplayStrategy {
     case nameOnly
 }
 
-enum GPACalculationStrategy {
-    case Normal_4_0
-    case Improved_4_0_A
-    case Improved_4_0_B
-    case PKU_4_0
-    case Canadian_4_3
-    case USTC_4_3
-    case SJTU_4_3
+enum GPACalculationStrategy: Int {
+    case Normal_4_0 = 0
+    case Improved_4_0_A = 1
+    case Improved_4_0_B = 2
+    case PKU_4_0 = 3
+    case Canadian_4_3 = 4
+    case USTC_4_3 = 5
+    case SJTU_4_3 = 6
 }
