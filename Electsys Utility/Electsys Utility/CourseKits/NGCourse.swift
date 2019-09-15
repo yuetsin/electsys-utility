@@ -47,6 +47,17 @@ struct NGCourse {
         return identifier
     }
     
+    func generateCourseName() -> String {
+        if PreferenceKits.courseDisplayStrategy == .nameOnly {
+            return "\(courseName)"
+        } else if PreferenceKits.courseDisplayStrategy == .nameAndTeacher {
+            return "\(courseName)，\(courseTeacher.joined(separator: "、"))"
+        } else if PreferenceKits.courseDisplayStrategy == .codeNameAndTeacher {
+            return "\(courseCode) - \(courseName)，\(courseTeacher.joined(separator: "、"))"
+        }
+        return ""
+    }
+    
     func getTime() -> String {
         var timeString = ""
         if self.weekStartsAt == self.weekEndsAt {

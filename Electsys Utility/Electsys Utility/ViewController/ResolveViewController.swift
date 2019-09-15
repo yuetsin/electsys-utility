@@ -192,9 +192,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         if index == nil || index == -1 {
             return
         }
-        var displayCourse = courseList[index!]
-        displayCourse.courseName = courseNameField.stringValue
-        displayCourse.courseRoom = courseRoomField.stringValue
+
+        courseList[index!].courseName = courseNameField.stringValue
+        courseList[index!].courseRoom = courseRoomField.stringValue
         updatePopUpSelector(at: index!)
     }
 
@@ -220,7 +220,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     //    }
     @IBAction func startSync(_ sender: NSButton) {
         if courseList.count == 0 {
-            showError(error: "没有任何待同步的课表。")
+            showErrorMessageNormal(errorMsg: "没有任何待同步的课表。")
             return
         }
         inputCounter = 0
@@ -252,6 +252,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 
         if courseList.count == 0 {
             promptTextField.stringValue = "目前没有任何课程信息。"
+            view.window?.makeFirstResponder(blurredView)
             blurredView.isHidden = false
             promptTextField.isEnabled = false
             courseNameField.stringValue = ""
@@ -285,7 +286,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
                                           shift: course.shiftWeek) {
                     self.expectedCounter += 1
                     self.calendarHelper!.addToCalendar(date: self.startDate!.convertWeekToDate(week: week, weekday: course.courseDay),
-                                                       title: course.courseName,
+                                                       title: course.generateCourseName(),
                                                        place: course.courseRoom,
                                                        start: defaultLessonTime[course.dayStartsAt],
                                                        end: defaultLessonTime[course.dayEndsAt].getTime(passed: durationMinutesOfLesson),
@@ -332,6 +333,15 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
                 openRequestPanel()
             }
         }
+    }
+    
+    func showErrorMessageNormal(errorMsg: String) {
+        let errorAlert: NSAlert = NSAlert()
+        errorAlert.informativeText = errorMsg
+        errorAlert.messageText = "出错啦"
+        errorAlert.addButton(withTitle: "嗯")
+        errorAlert.alertStyle = NSAlert.Style.informational
+        errorAlert.beginSheetModal(for: view.window!)
     }
 
     func showError(error: String) {
