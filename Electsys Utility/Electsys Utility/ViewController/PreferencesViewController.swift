@@ -66,6 +66,17 @@ class PreferencesViewController: NSViewController {
         PreferenceKits.autoFillUserName = ""
         PreferenceKits.autoFillPassWord = ""
         PreferenceKits.savePreferences()
+        
+        showNormalMessage(infoMsg: "已成功清除凭据缓存。")
+    }
+    
+    func showNormalMessage(infoMsg: String) {
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.informativeText = infoMsg
+        infoAlert.messageText = "提示"
+        infoAlert.addButton(withTitle: "嗯")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: view.window!)
     }
     
     func readPreferences() {

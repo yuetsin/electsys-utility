@@ -3075,7 +3075,7 @@ Copyright © 2018 </string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Kh-YSX">
-                                            <rect key="frame" x="159" y="11" width="280" height="14"/>
+                                            <rect key="frame" x="134" y="11" width="305" height="14"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除明文保存的的用户凭据。" id="dvi-00-FzS">
                                                 <font key="font" metaFont="message" size="11"/>
@@ -3156,17 +3156,6 @@ Copyright © 2018 </string>
                                                 </textField>
                                             </subviews>
                                         </customView>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-3s-Eh4">
-                                            <rect key="frame" x="20" y="8" width="133" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="清除本地密码缓存" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="systemBold" size="12"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
-                                            </connections>
-                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0As-78-p3P">
                                             <rect key="frame" x="365" y="33" width="64" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -3176,6 +3165,17 @@ Copyright © 2018 </string>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="saveCredentialButtonTapped:" target="wO9-Wp-BTu" id="BoV-dU-zkZ"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-3s-Eh4">
+                                            <rect key="frame" x="20" y="8" width="108" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="recessed" title="清除凭据缓存" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
                                             </connections>
                                         </button>
                                     </subviews>
