@@ -3159,9 +3159,12 @@ Copyright © 2018 </string>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0As-78-p3P">
                                             <rect key="frame" x="365" y="33" width="64" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qbj-PV-sth">
+                                            <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="controlContent"/>
+                                                <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="saveCredentialButtonTapped:" target="wO9-Wp-BTu" id="BoV-dU-zkZ"/>
@@ -3940,5 +3943,6 @@ DQ
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
         <image name="NSTouchBarTagIconTemplate" width="23" height="30"/>
         <image name="NSTrashFull" width="32" height="32"/>
+        <sound name="Funk"/>
     </resources>
 </document>
