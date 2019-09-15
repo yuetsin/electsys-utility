@@ -48,14 +48,22 @@ class CourseKits {
                         let teachers = courseObject["xm"].stringValue.components(separatedBy: ",")
                         let teacherTitles = courseObject["zcmc"].stringValue.components(separatedBy: ",")
                         
-                        let dayArrangeList = courseObject["jcs"].stringValue.components(separatedBy: "-")
+                        var dayArrangeList = courseObject["jcs"].stringValue.components(separatedBy: "-")
                         if dayArrangeList.count != 2 {
+                            if dayArrangeList.count == 1 {
+                                dayArrangeList.append(dayArrangeList[0])
+                            } else {
+                                continue
+                            }
+                        }
+                        
+                        var weekArrangeList = courseObject["zcd"].stringValue.components(separatedBy: CharacterSet(charactersIn: "-周"))
+                        if weekArrangeList.count < 2 {
                             continue
                         }
                         
-                        let weekArrangeList = courseObject["zcd"].stringValue.components(separatedBy: CharacterSet(charactersIn: "-周"))
-                        if weekArrangeList.count < 2 {
-                            continue
+                        if weekArrangeList[1] == "" {
+                            weekArrangeList[1] = weekArrangeList[0]
                         }
                         
                         var dualType = ShiftWeekType.Both
