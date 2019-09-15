@@ -19,6 +19,11 @@
 		8A17ADB1232BAF540077DDCF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8A17ADAE232BAF540077DDCF /* README.md */; };
 		8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */; };
 		8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */; };
+		8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F6232E1AC100FA0786 /* CourseKits.swift */; };
+		8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F8232E1B0C00FA0786 /* CourseConst.swift */; };
+		8A3598FC232E1C9300FA0786 /* IdentityKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598FB232E1C9300FA0786 /* IdentityKits.swift */; };
+		8A359900232E1D9A00FA0786 /* PreferenceKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598FF232E1D9A00FA0786 /* PreferenceKits.swift */; };
+		8A359902232E25B000FA0786 /* NGCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A359901232E25B000FA0786 /* NGCourse.swift */; };
 		8A397DC42140B69900AE297A /* Curricula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC32140B69900AE297A /* Curricula.swift */; };
 		8A397DC72140B87400AE297A /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC62140B87400AE297A /* Teacher.swift */; };
 		8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A397DC82140B9C600AE297A /* CourseAnalyse.swift */; };
@@ -73,6 +78,11 @@
 		8A17ADAE232BAF540077DDCF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithSeparator.swift; sourceTree = "<group>"; };
 		8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataWindowController.swift; sourceTree = "<group>"; };
+		8A3598F6232E1AC100FA0786 /* CourseKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseKits.swift; sourceTree = "<group>"; };
+		8A3598F8232E1B0C00FA0786 /* CourseConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConst.swift; sourceTree = "<group>"; };
+		8A3598FB232E1C9300FA0786 /* IdentityKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityKits.swift; sourceTree = "<group>"; };
+		8A3598FF232E1D9A00FA0786 /* PreferenceKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKits.swift; sourceTree = "<group>"; };
+		8A359901232E25B000FA0786 /* NGCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGCourse.swift; sourceTree = "<group>"; };
 		8A397DC32140B69900AE297A /* Curricula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curricula.swift; sourceTree = "<group>"; };
 		8A397DC62140B87400AE297A /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		8A397DC82140B9C600AE297A /* CourseAnalyse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAnalyse.swift; sourceTree = "<group>"; };
@@ -192,6 +202,32 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		8A3598F5232E1A9700FA0786 /* CourseKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A3598F6232E1AC100FA0786 /* CourseKits.swift */,
+				8A3598F8232E1B0C00FA0786 /* CourseConst.swift */,
+				8A359901232E25B000FA0786 /* NGCourse.swift */,
+			);
+			path = CourseKits;
+			sourceTree = "<group>";
+		};
+		8A3598FA232E1C8600FA0786 /* IdentityKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A3598FB232E1C9300FA0786 /* IdentityKits.swift */,
+			);
+			path = IdentityKits;
+			sourceTree = "<group>";
+		};
+		8A3598FD232E1D8100FA0786 /* PreferenceKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A3598FF232E1D9A00FA0786 /* PreferenceKits.swift */,
+			);
+			path = PreferenceKits;
+			sourceTree = "<group>";
+		};
 		8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,13 +238,13 @@
 			path = Deprecated_DataGrabKits;
 			sourceTree = "<group>";
 		};
-		8A397DCC2140D7E400AE297A /* ExamSyncKits */ = {
+		8A397DCC2140D7E400AE297A /* LegacyExamSyncKits */ = {
 			isa = PBXGroup;
 			children = (
 				8A397DCD2140D7F400AE297A /* ExamSyncHelper.swift */,
 				8A397DCF21410CFB00AE297A /* Exam.swift */,
 			);
-			path = ExamSyncKits;
+			path = LegacyExamSyncKits;
 			sourceTree = "<group>";
 		};
 		8A49F6A321D4B8CE00010816 /* UI */ = {
@@ -253,15 +289,18 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A3598FD232E1D8100FA0786 /* PreferenceKits */,
+				8A3598FA232E1C8600FA0786 /* IdentityKits */,
+				8A3598F5232E1A9700FA0786 /* CourseKits */,
 				8A0AE464232A015500CE9E3A /* LoginKits */,
 				8A9F395521F4B8CA00827EC8 /* Electsys Utility.entitlements */,
 				8A49F6A621D4C44B00010816 /* Abstract */,
 				8A49F6A321D4B8CE00010816 /* UI */,
 				8A233761214A5738007F0957 /* Storyboard */,
 				8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */,
-				8A397DCC2140D7E400AE297A /* ExamSyncKits */,
+				8A397DCC2140D7E400AE297A /* LegacyExamSyncKits */,
 				8A09A484214E0E9C008EC502 /* GalleryKits */,
-				8AB4A34D21375FDE00F7F382 /* ScheduleKits */,
+				8AB4A34D21375FDE00F7F382 /* LegacyScheduleKits */,
 				8A4A22F3213644140064488C /* Utilities */,
 				8A4A22F2213631F20064488C /* ViewController */,
 				8A4A22DD21362EAF0064488C /* AppDelegate.swift */,
@@ -299,7 +338,7 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		8AB4A34D21375FDE00F7F382 /* ScheduleKits */ = {
+		8AB4A34D21375FDE00F7F382 /* LegacyScheduleKits */ = {
 			isa = PBXGroup;
 			children = (
 				8A6E58A82138054D00FF38CF /* Course.swift */,
@@ -308,7 +347,7 @@
 				8AD04CFC213BC40200D59DB1 /* DateUtils.swift */,
 				8ACEEB05213CB04200A7776E /* RandomNames.swift */,
 			);
-			path = ScheduleKits;
+			path = LegacyScheduleKits;
 			sourceTree = "<group>";
 		};
 		CEBAC5F7F8148695C76C2836 /* Frameworks */ = {
@@ -476,19 +515,24 @@
 				8AA79CE721D70F1E007D272B /* MainViewController.swift in Sources */,
 				8A0AE466232A016200CE9E3A /* LoginKits.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
+				8A3598FC232E1C9300FA0786 /* IdentityKits.swift in Sources */,
 				8A044789218D40D800BAB188 /* AboutViewController.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
+				8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
 				8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */,
 				8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
+				8A359900232E1D9A00FA0786 /* PreferenceKits.swift in Sources */,
 				8AB95213232936D80034C304 /* TermSelectingViewController.swift in Sources */,
 				8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */,
+				8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */,
 				8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */,
 				8A04055D213984050060F93A /* SchoolDay.swift in Sources */,
 				8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */,
 				8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */,
+				8A359902232E25B000FA0786 /* NGCourse.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
 				8A49F6AA21D4C47700010816 /* CurriculaHelper.swift in Sources */,
 				8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */,
