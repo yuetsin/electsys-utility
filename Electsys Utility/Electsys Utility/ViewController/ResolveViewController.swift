@@ -253,6 +253,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         if courseList.count == 0 {
             promptTextField.stringValue = "目前没有任何课程信息。"
             view.window?.makeFirstResponder(blurredView)
+            blurredView.blurRadius = 3.0
             blurredView.isHidden = false
             promptTextField.isEnabled = false
             courseNameField.stringValue = ""
@@ -264,6 +265,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         }
         
         blurredView.isHidden = true
+        blurredView.blurRadius = 0.0
 
         promptTextField.isEnabled = true
         promptTextField.stringValue = "现有 \(courseList.count) 条课程信息。"
