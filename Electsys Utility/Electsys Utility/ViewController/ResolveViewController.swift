@@ -10,7 +10,7 @@ import Cocoa
 import EventKit
 
 class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate {
-
+    
     func successCourseDataTransfer(data: [NGCourse]) {
         courseList = data
         updatePopUpSelector()
@@ -20,7 +20,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         NSLog("bad request type")
     }
 
-    func successScoreDataTransfer(data: [String]) {
+    func successScoreDataTransfer(data: [NGScore]) {
         NSLog("bad request type")
     }
     
