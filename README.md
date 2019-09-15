@@ -53,7 +53,11 @@
 
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 
+* [Alamofire-SwiftyJSON](https://github.com/SwiftyJSON/Alamofire-SwiftyJSON)
+
 * [CrossroadRegex](https://github.com/crossroadlabs/Regex)
+
+* [RMBlurredView](https://github.com/raffael/RMBlurredView)
 
 # 屏幕截图
 ## 在课程库中筛选
