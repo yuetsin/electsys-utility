@@ -2938,10 +2938,10 @@ Copyright © 2018 </string>
             </objects>
             <point key="canvasLocation" x="-132" y="809.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Preferences View Controller-->
         <scene sceneID="KtE-9M-3PC">
             <objects>
-                <viewController id="wO9-Wp-BTu" sceneMemberID="viewController">
+                <viewController id="wO9-Wp-BTu" customClass="PreferencesViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="0Bw-No-rFg">
                         <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2980,6 +2980,9 @@ Copyright © 2018 </string>
                                                                     </items>
                                                                 </menu>
                                                             </popUpButtonCell>
+                                                            <connections>
+                                                                <action selector="generalStylePopUpButtonTapped:" target="wO9-Wp-BTu" id="lHM-mv-qPX"/>
+                                                            </connections>
                                                         </popUpButton>
                                                     </subviews>
                                                     <visibilityPriorities>
@@ -3019,6 +3022,9 @@ Copyright © 2018 </string>
                                                                     </items>
                                                                 </menu>
                                                             </popUpButtonCell>
+                                                            <connections>
+                                                                <action selector="gpaPopUpButtonTapped:" target="wO9-Wp-BTu" id="J87-hQ-Gk9"/>
+                                                            </connections>
                                                         </popUpButton>
                                                     </subviews>
                                                     <visibilityPriorities>
@@ -3071,7 +3077,7 @@ Copyright © 2018 </string>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Kh-YSX">
                                             <rect key="frame" x="159" y="11" width="280" height="14"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除自动填充的用户名和密码。" id="dvi-00-FzS">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除明文保存的的用户凭据。" id="dvi-00-FzS">
                                                 <font key="font" metaFont="message" size="11"/>
                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -3084,6 +3090,9 @@ Copyright © 2018 </string>
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="hideCheckBoxChecked:" target="wO9-Wp-BTu" id="PIC-Df-Pa9"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xE9-aI-wzA">
                                             <rect key="frame" x="90" y="81" width="155" height="18"/>
@@ -3092,6 +3101,9 @@ Copyright © 2018 </string>
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="autoFillBoxChecked:" target="wO9-Wp-BTu" id="9oH-6m-KqD"/>
+                                            </connections>
                                         </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyv-x9-GOz">
                                             <rect key="frame" x="133" y="32" width="224" height="21"/>
@@ -3151,6 +3163,20 @@ Copyright © 2018 </string>
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0As-78-p3P">
+                                            <rect key="frame" x="365" y="33" width="64" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qbj-PV-sth">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="controlContent"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="saveCredentialButtonTapped:" target="wO9-Wp-BTu" id="BoV-dU-zkZ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -3201,6 +3227,15 @@ Copyright © 2018 </string>
                             </box>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="autoFillTokenChecker" destination="xE9-aI-wzA" id="DRM-oo-625"/>
+                        <outlet property="galleryDisplayStylePopUpSelector" destination="C2H-43-guT" id="YYO-9G-6yJ"/>
+                        <outlet property="gpaCalculatingStrategyPopUpSelector" destination="rGh-90-gHQ" id="Otq-8R-xHv"/>
+                        <outlet property="hidePersonalInfoChecker" destination="o13-Fg-4H6" id="iUK-wO-WLo"/>
+                        <outlet property="passWordToken" destination="ZTS-O3-LDJ" id="wv6-sC-wr4"/>
+                        <outlet property="saveCredentialButton" destination="0As-78-p3P" id="2U7-BU-jkx"/>
+                        <outlet property="userNameToken" destination="8oi-dK-Vi9" id="4X3-7v-UaI"/>
+                    </connections>
                 </viewController>
                 <customObject id="QHI-XO-KMk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

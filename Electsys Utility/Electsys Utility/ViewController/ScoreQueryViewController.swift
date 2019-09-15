@@ -266,7 +266,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             text = "\(item.finalScore ?? 0)"
             cellIdentifier = CellIdentifiers.ScoreCell
         } else if tableColumn == tableView.tableColumns[4] {
-            text = String(format: "%.2f", item.scorePoint ?? "0.0")
+            text = String(format: "%.1f", item.scorePoint ?? "0.0")
             cellIdentifier = CellIdentifiers.PointCell
         }
 

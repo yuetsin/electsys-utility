@@ -35,6 +35,13 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         loadingIcon.startAnimation(self)
 //        openRequestPanel()
         setAccessibilityLabel()
+        
+        PreferenceKits.readPreferences()
+        
+        if PreferenceKits.autoFillTokens {
+            userNameField.stringValue = PreferenceKits.autoFillUserName
+            passwordField.stringValue = PreferenceKits.autoFillPassWord
+        }
     }
 
     func setAccessibilityLabel() {
