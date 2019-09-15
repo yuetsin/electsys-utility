@@ -23,6 +23,13 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     func successScoreDataTransfer(data: [String]) {
         NSLog("bad request type")
     }
+    
+    func shutWindow() {
+        if openedWindow != nil {
+            view.window?.endSheet(openedWindow!)
+            openedWindow = nil
+        }
+    }
 
     override func viewDidLoad() {
         updatePopUpSelector()
@@ -30,9 +37,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         onDatePicked(startWeekSelector)
         loadingRing.startAnimation(self)
         loadingTextField.stringValue = ""
-        courseIdentifierField.isEnabled = false
-        courseScoreField.isEnabled = false
-        courseTimeField.isEnabled = false
+//        courseIdentifierField.isEnabled = false
+//        courseScoreField.isEnabled = false
+//        courseTimeField.isEnabled = false
     }
 
     override func viewDidAppear() {
@@ -42,6 +49,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             openYearTermSelectionPanel()
         }
     }
+    
+    var openedWindow: NSWindow?
 
     func openYearTermSelectionPanel() {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
@@ -51,6 +60,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             (window.contentViewController as! TermSelectingViewController).successDelegate = self
             (window.contentViewController as! TermSelectingViewController).requestType = .course
             view.window?.beginSheet(window, completionHandler: nil)
+            openedWindow = window
         }
     }
 
@@ -65,7 +75,6 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 
     @IBOutlet var coursePopUpList: NSPopUpButton!
     @IBOutlet var promptTextField: NSTextField!
-    @IBOutlet var willLoadSummerBox: NSButton!
     @IBOutlet var willRemindBox: NSButton!
     @IBOutlet var remindTypeSelector: NSPopUpButton!
     @IBOutlet var startWeekSelector: NSDatePicker!
@@ -83,10 +92,10 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     @IBOutlet var courseTimeField: NSTextField!
     @IBOutlet var loadingTextField: NSTextField!
     @IBOutlet var diceButton: NSButton!
-
+    @IBOutlet weak var blurredView: RMBlurredView!
+    
     func disableUI() {
         coursePopUpList.isEnabled = false
-        willLoadSummerBox.isEnabled = false
         willRemindBox.isEnabled = false
         remindTypeSelector.isEnabled = false
         startWeekSelector.isEnabled = false
@@ -102,7 +111,6 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 
     func resumeUI() {
         coursePopUpList.isEnabled = true
-        willLoadSummerBox.isEnabled = true
         willRemindBox.isEnabled = true
         remindTypeSelector.isEnabled = true
         startWeekSelector.isEnabled = true
@@ -146,6 +154,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 
     @IBAction func restartAnalyse(_ sender: NSButton) {
         loadingTextField.stringValue = ""
+        courseList.removeAll()
+        updatePopUpSelector()
+        openYearTermSelectionPanel()
     }
 
     @IBAction func makeRandomName(_ sender: NSButton) {
@@ -194,11 +205,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 //            print("Date: \(startDate.getStringExpression()), weekday: \(startDate.getWeekDay())")
         }
         startWeekIndicator.stringValue =
-            "以 \(startDate.getStringExpression())，星期一作为主学期第一周的开始。"
-        if willLoadSummerBox.state == .on {
-            startWeekIndicator.stringValue +=
-                "\n同时以 \(startDate.addingTimeInterval(secondsInEighteenWeeks).getStringExpression())，星期一作为暑期小学期的开始。"
-        }
+            "以 \(startDate.getStringExpression())，星期一作为此学期第一周的开始。"
+        
         self.startDate = startDate
     }
 
@@ -211,9 +219,16 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     //                      remindType: .tenMinutes)
     //    }
     @IBAction func startSync(_ sender: NSButton) {
+        if courseList.count == 0 {
+            showError(error: "没有任何待同步的课表。")
+            return
+        }
         inputCounter = 0
         expectedCounter = 0
         print("课表的名字：\(calendarTextField.stringValue)")
+        if calendarTextField.stringValue == "" {
+            calendarTextField.stringValue = "jAccount 同步"
+        }
         switch syncAccountType.selectedItem!.title {
         case "CalDAV 或 iCloud 日历":
             calendarHelper = CalendarHelper(name: calendarTextField.stringValue,
@@ -237,6 +252,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
 
         if courseList.count == 0 {
             promptTextField.stringValue = "目前没有任何课程信息。"
+            blurredView.isHidden = false
             promptTextField.isEnabled = false
             courseNameField.stringValue = ""
             courseRoomField.stringValue = ""
@@ -245,6 +261,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             courseTimeField.stringValue = ""
             return
         }
+        
+        blurredView.isHidden = true
 
         promptTextField.isEnabled = true
         promptTextField.stringValue = "现有 \(courseList.count) 条课程信息。"
@@ -286,7 +304,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         let displayCourse = courseList[index!]
         courseNameField.stringValue = displayCourse.courseName
         courseRoomField.stringValue = displayCourse.courseRoom
-        courseIdentifierField.stringValue = displayCourse.courseIdentifier
+        courseIdentifierField.stringValue = displayCourse.courseCode
         courseScoreField.stringValue = String(format: "%.1f", arguments: [displayCourse.courseScore])
         courseTimeField.stringValue = displayCourse.getTime()
     }

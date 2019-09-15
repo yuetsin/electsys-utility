@@ -50,7 +50,7 @@ class TermSelectingViewController: NSViewController {
     var failureDelegate: PageNavigationDelegate?
 
     @IBAction func cancelButtonTapped(_ sender: NSButton) {
-        view.window?.close()
+        self.successDelegate?.shutWindow()
     }
 
     @IBAction func OKButtonTapped(_ sender: NSButton) {
@@ -61,7 +61,7 @@ class TermSelectingViewController: NSViewController {
             CourseKits.requestCourseTable(year: actualYear, term: actualTerm,
                                           handler: { courses in
                                             self.successDelegate?.successCourseDataTransfer(data: courses)
-                                            self.view.window?.close()
+                                            self.successDelegate?.shutWindow()
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的课表信息。\n错误代码：\(errCode)")
@@ -95,6 +95,7 @@ protocol YearAndTermSelectionDelegate {
     func successCourseDataTransfer(data: [NGCourse]) -> Void
     func successExamDataTransfer(data: [Exam]) -> Void
     func successScoreDataTransfer(data: [String /* TODO: Add Score Class */ ]) -> Void
+    func shutWindow() -> Void
 }
 
 protocol PageNavigationDelegate {
