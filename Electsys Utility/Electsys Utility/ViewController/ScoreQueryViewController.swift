@@ -50,6 +50,9 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         tableView.tableColumns[3].sortDescriptorPrototype = sortByScore
         tableView.tableColumns[4].sortDescriptorPrototype = sortByPoint
 
+        tableView.target = self
+        tableView.doubleAction = #selector(tableViewDoubleClick(_:))
+        
         super.viewDidLoad()
     }
 
@@ -227,6 +230,23 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             break
         }
     }
+    
+    @objc func tableViewDoubleClick(_ sender: AnyObject) {
+        if tableView.selectedRow < 0 || tableView.selectedRow >= scoreList.count {
+            return
+        }
+        let scoreObject = scoreList[tableView.selectedRow]
+        InspectorKits.showProperties(properties: [
+            Property(name: "课程代码", value: scoreObject.courseCode ?? "N/A"),
+            Property(name: "课程名称", value: scoreObject.courseName ?? "N/A"),
+            Property(name: "开课院系", value: scoreObject.holderSchool ?? "N/A"),
+            Property(name: "课程教师", value: scoreObject.teacher ?? "N/A"),
+            Property(name: "学分", value: String.init(format: "%.1f", scoreObject.credit ?? 0.0)),
+            Property(name: "最终成绩", value: "\(scoreObject.finalScore ?? 0)"),
+            Property(name: "绩点", value: String.init(format: "%.1f",  scoreObject.scorePoint ?? 0.0) ),
+            Property(name: "考试性质", value: scoreObject.status ?? "N/A")
+        ])
+    }
 
     // MARK: - NSTableViewDelegate and NSTableViewDataSource
 
@@ -254,7 +274,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         let item = scoreList[row]
 
         if tableColumn == tableView.tableColumns[0] {
-            text = "\(item.courseName ?? "课程名称")（\(String(format: "%.1f", item.credit ?? 0.0)) 学分）"
+            text = item.courseName ?? "课程名称"
             cellIdentifier = CellIdentifiers.NameCell
         } else if tableColumn == tableView.tableColumns[1] {
             text = item.courseCode ?? "课号"

@@ -77,7 +77,7 @@ class FullDataViewController: NSViewController {
         setWeekPop(start: 1, end: 16)
         // Do view setup here.
         for year in 0...8 {
-            yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2018 - year)!))
+            yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2019 - year)!))
         }
         tabTitleSeg.isEnabled = false
         showMoreButton.isEnabled = false

@@ -28,6 +28,12 @@
 		8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D759232E61A3005AF5CA /* GPAKits.swift */; };
 		8A27D75C232E7A92005AF5CA /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D75B232E7A92005AF5CA /* PreferencesViewController.swift */; };
 		8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */; };
+		8A33CF02232F1E8B00BD6826 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */; };
+		8A33CF04232F1E8B00BD6826 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */; };
+		8A33CF05232F1E8B00BD6826 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEFA232F1E8A00BD6826 /* TableView.swift */; };
+		8A33CF08232F1E8B00BD6826 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEFF232F1E8A00BD6826 /* BaseView.swift */; };
+		8A33CF0B232F1F3B00BD6826 /* InspectorKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CF0A232F1F3B00BD6826 /* InspectorKits.swift */; };
+		8A33CF0F232F1F9C00BD6826 /* InspectedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CF0E232F1F9C00BD6826 /* InspectedProperties.swift */; };
 		8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F6232E1AC100FA0786 /* CourseKits.swift */; };
 		8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598F8232E1B0C00FA0786 /* CourseConst.swift */; };
 		8A3598FC232E1C9300FA0786 /* IdentityKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3598FB232E1C9300FA0786 /* IdentityKits.swift */; };
@@ -95,6 +101,12 @@
 		8A27D759232E61A3005AF5CA /* GPAKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAKits.swift; sourceTree = "<group>"; };
 		8A27D75B232E7A92005AF5CA /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataWindowController.swift; sourceTree = "<group>"; };
+		8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
+		8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		8A33CEFA232F1E8A00BD6826 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		8A33CEFF232F1E8A00BD6826 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		8A33CF0A232F1F3B00BD6826 /* InspectorKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorKits.swift; sourceTree = "<group>"; };
+		8A33CF0E232F1F9C00BD6826 /* InspectedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectedProperties.swift; sourceTree = "<group>"; };
 		8A3598F6232E1AC100FA0786 /* CourseKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseKits.swift; sourceTree = "<group>"; };
 		8A3598F8232E1B0C00FA0786 /* CourseConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConst.swift; sourceTree = "<group>"; };
 		8A3598FB232E1C9300FA0786 /* IdentityKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityKits.swift; sourceTree = "<group>"; };
@@ -238,6 +250,43 @@
 			path = ScoreKits;
 			sourceTree = "<group>";
 		};
+		8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8A33CEF5232F1E8A00BD6826 /* Adapter */,
+				8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */,
+				8A33CEFA232F1E8A00BD6826 /* TableView.swift */,
+				8A33CEFE232F1E8A00BD6826 /* Base */,
+			);
+			name = AdaptableTableView;
+			path = "../../../../../../../../Users/yue/Downloads/NSTableView-master/AdaptableTableView";
+			sourceTree = "<group>";
+		};
+		8A33CEF5232F1E8A00BD6826 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		8A33CEFE232F1E8A00BD6826 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8A33CEFF232F1E8A00BD6826 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8A33CF09232F1F2F00BD6826 /* InspectorKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A33CF0A232F1F3B00BD6826 /* InspectorKits.swift */,
+				8A33CF0E232F1F9C00BD6826 /* InspectedProperties.swift */,
+			);
+			path = InspectorKits;
+			sourceTree = "<group>";
+		};
 		8A3598F5232E1A9700FA0786 /* CourseKits */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +355,8 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
+				8A33CF09232F1F2F00BD6826 /* InspectorKits */,
+				8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */,
 				8A0AE461232A003900CE9E3A /* BlurView */,
 				8A4A22DC21362EAF0064488C /* Electsys Utility */,
 				8A4A22DB21362EAF0064488C /* Products */,
@@ -551,6 +602,7 @@
 				8A397DC72140B87400AE297A /* Teacher.swift in Sources */,
 				8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */,
 				8A27D75C232E7A92005AF5CA /* PreferencesViewController.swift in Sources */,
+				8A33CF0B232F1F3B00BD6826 /* InspectorKits.swift in Sources */,
 				8AA79CE721D70F1E007D272B /* MainViewController.swift in Sources */,
 				8A0AE466232A016200CE9E3A /* LoginKits.swift in Sources */,
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
@@ -558,6 +610,10 @@
 				8A044789218D40D800BAB188 /* AboutViewController.swift in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
+				8A33CF0F232F1F9C00BD6826 /* InspectedProperties.swift in Sources */,
+				8A33CF04232F1E8B00BD6826 /* TableViewController.swift in Sources */,
+				8A33CF02232F1E8B00BD6826 /* AdapterTableView.swift in Sources */,
+				8A33CF05232F1E8B00BD6826 /* TableView.swift in Sources */,
 				8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
 				8A27D733232E51D8005AF5CA /* ExamKits.swift in Sources */,
@@ -569,6 +625,7 @@
 				8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */,
 				8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */,
 				8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */,
+				8A33CF08232F1E8B00BD6826 /* BaseView.swift in Sources */,
 				8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */,
 				8A04055D213984050060F93A /* SchoolDay.swift in Sources */,
 				8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */,
@@ -719,7 +776,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
@@ -744,7 +801,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 69;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";

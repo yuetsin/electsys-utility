@@ -48,6 +48,13 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         if courseList.count == 0 {
             openYearTermSelectionPanel()
         }
+        
+        PreferenceKits.readPreferences()
+        if PreferenceKits.hidePersonalInfo {
+            showPersonalInfoButton.isHidden = true
+        } else {
+            showPersonalInfoButton.isHidden = false
+        }
     }
     
     var openedWindow: NSWindow?
@@ -93,6 +100,53 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     @IBOutlet var loadingTextField: NSTextField!
     @IBOutlet var diceButton: NSButton!
     @IBOutlet weak var blurredView: RMBlurredView!
+    @IBOutlet weak var showPersonalInfoButton: NSButton!
+    @IBOutlet weak var showInspectorButton: NSButton!
+    
+    @IBAction func showInspector(_ sender: NSButton) {
+        if coursePopUpList.indexOfSelectedItem < 0 || coursePopUpList.indexOfSelectedItem >= courseList.count {
+            return
+        }
+        
+        let courseObject = courseList[coursePopUpList.indexOfSelectedItem]
+        
+        var shiftWeekProperty = Property(name: "行课安排", value: "每周上课")
+        if courseObject.shiftWeek == .OddWeekOnly {
+            shiftWeekProperty.value = "仅单数周上课"
+        } else if courseObject.shiftWeek == .EvenWeekOnly {
+            shiftWeekProperty.value = "仅双数周上课"
+        }
+        InspectorKits.showProperties(properties: [
+            Property(name: "课号", value: courseObject.courseCode),
+            Property(name: "教学班 ID", value: courseObject.courseIdentifier),
+            Property(name: "课名", value: courseObject.courseName),
+            Property(name: "教室", value: courseObject.courseRoom),
+            Property(name: "学分", value: String.init(format: "%.1f", courseObject.courseScore)),
+            Property(name: "教师", value: courseObject.courseTeacher.joined(separator: "、")),
+            Property(name: "教师职称", value: courseObject.courseTeacherTitle.joined(separator: "、")),
+            Property(name: "上课时间", value: "\(defaultLessonTime[courseObject.dayStartsAt].getTimeString())"),
+            Property(name: "下课时间", value: "\(defaultLessonTime[courseObject.dayEndsAt].getTimeString(passed: durationMinutesOfLesson))"),
+            Property(name: "备注信息", value: courseObject.notes),
+            Property(name: "开始周数", value: "第 \(courseObject.weekStartsAt) 周"),
+            Property(name: "结束周数", value: "第 \(courseObject.weekEndsAt) 周"),
+            shiftWeekProperty
+        ])
+    }
+    
+    @IBAction func showPersonalInfo(_ sender: NSButton) {
+        if PreferenceKits.hidePersonalInfo {
+            showErrorMessageNormal(errorMsg: "当前的安全设置不允许显示个人信息。")
+            return
+        }
+        if IdentityKits.studentId == nil || IdentityKits.studentName == nil || IdentityKits.studentNameEn == nil {
+            showErrorMessageNormal(errorMsg: "未能获取个人信息。")
+            return
+        }
+        
+        InspectorKits.showProperties(properties: [Property(name: "姓名", value: IdentityKits.studentName!),
+                                                  Property(name: "英文名", value: IdentityKits.studentNameEn!),
+                                                  Property(name: "学号", value: IdentityKits.studentId!)])
+    }
     
     func disableUI() {
         coursePopUpList.isEnabled = false
@@ -256,6 +310,8 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             blurredView.blurRadius = 3.0
             blurredView.isHidden = false
             promptTextField.isEnabled = false
+            showPersonalInfoButton.isEnabled = false
+            showInspectorButton.isEnabled = false
             courseNameField.stringValue = ""
             courseRoomField.stringValue = ""
             courseIdentifierField.stringValue = ""
@@ -264,9 +320,15 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             return
         }
         
+        showInspectorButton.isEnabled = true
         blurredView.isHidden = true
         blurredView.blurRadius = 0.0
-
+        
+        if IdentityKits.studentId == nil || IdentityKits.studentName == nil || IdentityKits.studentNameEn == nil {
+            showPersonalInfoButton.isEnabled = false
+        } else {
+            showPersonalInfoButton.isEnabled = true
+        }
         promptTextField.isEnabled = true
         promptTextField.stringValue = "现有 \(courseList.count) 条课程信息。"
 

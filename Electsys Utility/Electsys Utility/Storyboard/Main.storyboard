@@ -1239,7 +1239,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="课程信息" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Wv-dmM">
+                            <box fixedFrame="YES" title="更正信息" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-Wv-dmM">
                                 <rect key="frame" x="18" y="223" width="458" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Quy-8p-X52">
@@ -1353,9 +1353,8 @@ DQ
                                             <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSTouchBarComposeTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8LH-no-MT5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="cellTitle"/>
-                                                <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
+                                                <string key="keyEquivalent">s</string>
+                                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="saveInfo:" target="Jkb-pL-zEg" id="Y7p-En-kfC"/>
@@ -1516,7 +1515,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             </progressIndicator>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2re-wN-Ptw">
-                                <rect key="frame" x="17" y="355" width="460" height="22"/>
+                                <rect key="frame" x="17" y="355" width="429" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" alternateTitle="查看全部课程" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="27w-eW-3gH">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1536,10 +1535,31 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G2t-LV-te1">
+                                <rect key="frame" x="445" y="358" width="28" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSTouchBarGetInfoTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Ah-2r-P6X">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystem"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showInspector:" target="Jkb-pL-zEg" id="AOs-HX-eAe"/>
+                                </connections>
+                            </button>
                             <customView hidden="YES" focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pe-i8-KEz" customClass="RMBlurredView">
                                 <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BUZ-ao-fSx">
+                                <rect key="frame" x="350" y="385" width="93" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="个人信息" bezelStyle="recessed" image="NSTouchBarTagIconTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gqa-sV-pPY">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="systemBold" size="12"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showPersonalInfo:" target="Jkb-pL-zEg" id="E78-e7-tSM"/>
+                                </connections>
+                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iBk-As-9JX">
                                 <rect key="frame" x="18" y="409" width="136" height="30"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="同步课程表" id="sY0-jk-kbv">
@@ -1568,8 +1588,10 @@ DQ
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="BUZ-ao-fSx" firstAttribute="leading" secondItem="3Jc-zn-2QH" secondAttribute="trailing" constant="4" id="EvG-fT-Fwp"/>
                             <constraint firstItem="Pjq-7e-ey3" firstAttribute="leading" secondItem="8dd-3Q-CNY" secondAttribute="leading" constant="20" id="I5k-RO-DUc"/>
                             <constraint firstItem="3Jc-zn-2QH" firstAttribute="centerY" secondItem="Pjq-7e-ey3" secondAttribute="centerY" id="LxL-ic-c2B"/>
+                            <constraint firstItem="BUZ-ao-fSx" firstAttribute="centerY" secondItem="3Jc-zn-2QH" secondAttribute="centerY" id="eQF-PR-eL6"/>
                             <constraint firstItem="Pjq-7e-ey3" firstAttribute="top" secondItem="iBk-As-9JX" secondAttribute="bottom" constant="6" id="fPx-tm-n84"/>
                             <constraint firstItem="iBk-As-9JX" firstAttribute="top" secondItem="8dd-3Q-CNY" secondAttribute="top" constant="30" id="iLK-vw-dOX"/>
                             <constraint firstItem="iBk-As-9JX" firstAttribute="leading" secondItem="8dd-3Q-CNY" secondAttribute="leading" constant="20" id="kj5-5K-kc8"/>
@@ -1591,6 +1613,8 @@ DQ
                         <outlet property="promptTextField" destination="Pjq-7e-ey3" id="Qj1-6i-Hyb"/>
                         <outlet property="relsamaHouwyButton" destination="3Jc-zn-2QH" id="Ksa-Pu-gE9"/>
                         <outlet property="remindTypeSelector" destination="GLH-HA-SAb" id="i0G-VL-4UI"/>
+                        <outlet property="showInspectorButton" destination="G2t-LV-te1" id="Dck-hh-DMj"/>
+                        <outlet property="showPersonalInfoButton" destination="BUZ-ao-fSx" id="jbl-Eh-X8m"/>
                         <outlet property="startSyncButton" destination="fsG-2Y-Mj7" id="zxN-nd-REm"/>
                         <outlet property="startWeekIndicator" destination="1XB-lx-NcJ" id="A5M-6n-QfA"/>
                         <outlet property="startWeekSelector" destination="j2G-bT-xYw" id="ujv-0d-92E"/>
@@ -3161,7 +3185,7 @@ Copyright © 2018 </string>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="controlContent"/>
+                                                <font key="font" metaFont="cellTitle"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -3198,6 +3222,9 @@ DQ
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="removeLocalCookies:" target="wO9-Wp-BTu" id="MVn-2h-LMd"/>
+                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FB-a7-u6w">
                                             <rect key="frame" x="44" y="50" width="393" height="14"/>
@@ -3224,6 +3251,9 @@ DQ
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="showLoggings:" target="wO9-Wp-BTu" id="kUp-1o-8za"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -3465,6 +3495,40 @@ DQ
                 <customObject id="fqw-IW-YDh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3490.5" y="534.5"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="V17-wY-JJI">
+            <objects>
+                <windowController storyboardIdentifier="InspectorWindowController" id="Vg4-fl-uFP" sceneMemberID="viewController">
+                    <window key="window" title="属性检查器" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="jee-KJ-Uu2">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <connections>
+                            <outlet property="delegate" destination="Vg4-fl-uFP" id="d2I-uP-Bf1"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Ofd-49-eEU" kind="relationship" relationship="window.shadowedContentViewController" id="G1X-6B-WVC"/>
+                    </connections>
+                </windowController>
+                <customObject id="jO2-zS-b3x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3610" y="901"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="ur0-A4-3SA">
+            <objects>
+                <viewController id="Ofd-49-eEU" customClass="TableViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gnH-YH-9Ek" customClass="NSVisualEffectView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="DV3-yK-EdH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4188" y="798"/>
         </scene>
         <!--Score Query View Controller-->
         <scene sceneID="wm7-ZU-C9N">
@@ -3938,6 +4002,7 @@ DQ
         <image name="NSStopProgressTemplate" width="11" height="11"/>
         <image name="NSTouchBarComposeTemplate" width="21" height="30"/>
         <image name="NSTouchBarDeleteTemplate" width="15" height="30"/>
+        <image name="NSTouchBarGetInfoTemplate" width="18" height="30"/>
         <image name="NSTouchBarHistoryTemplate" width="18" height="30"/>
         <image name="NSTouchBarMailTemplate" width="21" height="30"/>
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
