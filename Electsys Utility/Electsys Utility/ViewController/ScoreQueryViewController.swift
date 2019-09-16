@@ -72,15 +72,18 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
 
     func successCourseDataTransfer(data: [NGCourse]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
 
     func successExamDataTransfer(data: [Exam]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
 
     func successScoreDataTransfer(data: [NGScore]) {
         scoreList = data
         updateTableViewContents()
+        self.dismiss(sheetViewController)
     }
 
     func shutWindow() {

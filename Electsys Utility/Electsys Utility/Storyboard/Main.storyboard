@@ -1854,9 +1854,9 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-fs-P7r">
-                                        <rect key="frame" x="62" y="367" width="436" height="16"/>
+                                        <rect key="frame" x="62" y="367" width="350" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="您尚未登录。" id="he8-jX-mg9">
+                                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" title="您尚未登录。" id="he8-jX-mg9">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1868,7 +1868,7 @@ DQ
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSStatusNone" id="S0j-Lo-heD"/>
                                     </imageView>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vDX-Kh-Tcb">
-                                        <rect key="frame" x="432" y="365" width="64" height="19"/>
+                                        <rect key="frame" x="418" y="365" width="64" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundRect" title="切换账号" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WvI-Sc-JO9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

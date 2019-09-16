@@ -14,14 +14,17 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     func successCourseDataTransfer(data: [NGCourse]) {
         courseList = data
         updatePopUpSelector()
+        self.dismiss(sheetViewController)
     }
 
     func successExamDataTransfer(data: [Exam]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
 
     func successScoreDataTransfer(data: [NGScore]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
     
     func shutWindow() {

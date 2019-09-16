@@ -60,7 +60,7 @@ class TermSelectingViewController: NSViewController {
             CourseKits.requestCourseTable(year: actualYear, term: actualTerm,
                                           handler: { courses in
                                             self.successDelegate?.successCourseDataTransfer(data: courses)
-                                            self.successDelegate?.shutWindow()
+//                                            self.successDelegate?.shutWindow()
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的课表信息。\n错误代码：\(errCode)")
@@ -74,7 +74,7 @@ class TermSelectingViewController: NSViewController {
             ScoreKits.requestScoreData(year: actualYear, term: actualTerm,
                                           handler: { scores in
                                             self.successDelegate?.successScoreDataTransfer(data: scores)
-                                            self.successDelegate?.shutWindow()
+//                                            self.successDelegate?.shutWindow()
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的成绩单。\n错误代码：\(errCode)")
