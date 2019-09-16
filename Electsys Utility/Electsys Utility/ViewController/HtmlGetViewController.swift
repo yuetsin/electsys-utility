@@ -79,6 +79,9 @@ class htmlGetViewController: NSViewController {
     }
 
     func showErrorMessage(errorMsg: String) {
+        if self.view.window! == nil {
+            return
+        }
         let errorAlert: NSAlert = NSAlert()
         errorAlert.informativeText = errorMsg
         errorAlert.messageText = "出错啦"

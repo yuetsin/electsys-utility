@@ -14,21 +14,21 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     func successCourseDataTransfer(data: [NGCourse]) {
         courseList = data
         updatePopUpSelector()
+        self.dismiss(sheetViewController)
     }
 
     func successExamDataTransfer(data: [Exam]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
 
     func successScoreDataTransfer(data: [NGScore]) {
         NSLog("bad request type")
+        self.dismiss(sheetViewController)
     }
     
     func shutWindow() {
-        if openedWindow != nil {
-            view.window?.endSheet(openedWindow!)
-            openedWindow = nil
-        }
+        self.dismiss(sheetViewController)
     }
 
     override func viewDidLoad() {
@@ -56,20 +56,20 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             showPersonalInfoButton.isHidden = false
         }
     }
-    
-    var openedWindow: NSWindow?
+
 
     func openYearTermSelectionPanel() {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Year and Term Selection Window")) as! NSWindowController
-
-        if let window = windowController.window {
-            (window.contentViewController as! TermSelectingViewController).successDelegate = self
-            (window.contentViewController as! TermSelectingViewController).requestType = .course
-            view.window?.beginSheet(window, completionHandler: nil)
-            openedWindow = window
-        }
+        sheetViewController.successDelegate = self
+        sheetViewController.requestType = .course
+        self.presentAsSheet(sheetViewController)
     }
+    
+    lazy var sheetViewController: TermSelectingViewController = {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("YearAndTermViewController"))
+        as! TermSelectingViewController
+    }()
+
 
     var htmlDoc: String = ""
     var courseList: [NGCourse] = []

@@ -15,11 +15,11 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     func validateLoginResult(htmlData: String) {
         // reset
     }
-    
+
     func forceResetAccount() {
         // reset
     }
-    
+
 //    var windowController: NSWindowController?
 
     var htmlDelegate: readInHTMLDelegate?
@@ -28,6 +28,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
     override func viewWillAppear() {
         checkLoginStatus()
         updateCaptcha(refreshCaptchaButton)
+        switchAccountButton.isHidden = true
     }
 
     override func viewDidLoad() {
@@ -35,9 +36,11 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         loadingIcon.startAnimation(self)
 //        openRequestPanel()
         setAccessibilityLabel()
-        
+        successImage.image = NSImage(named: "NSStatusNone")
+        loginStateText.stringValue = "您尚未登录。"
+
         PreferenceKits.readPreferences()
-        
+
         if PreferenceKits.autoFillTokens {
             userNameField.stringValue = PreferenceKits.autoFillUserName
             passwordField.stringValue = PreferenceKits.autoFillPassWord
@@ -72,7 +75,10 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //    @IBOutlet weak var expandButton: NSButton!
 //    @IBOutlet weak var operationSelector: NSPopUpButton!
 //    @IBOutlet weak var checkHistoryButton: NSButton!
-
+    @IBOutlet var successImage: NSImageView!
+    @IBOutlet var loginStateText: NSTextField!
+    @IBOutlet weak var switchAccountButton: NSButton!
+    
     @IBAction func loginButtonClicked(_ sender: NSButton) {
         if userNameField.stringValue == "" ||
             passwordField.stringValue == "" ||
@@ -86,37 +92,22 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //        if self.operationSelector.selectedItem!.title == "同步课程表到系统日历" {
 
         LoginHelper.attemptLogin(username: accountParams[0],
-                                  password: accountParams[1],
-                                  captcha: accountParams[2],
-                                  handler: { success in
-                                    if success {
-                                        self.loadingIcon.isHidden = true
-                                        let infoAlert: NSAlert = NSAlert()
-                                        infoAlert.messageText = "提示"
-                                        infoAlert.informativeText = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
-                                        infoAlert.alertStyle = NSAlert.Style.informational
-                                        infoAlert.addButton(withTitle: "嗯")
-                                        infoAlert.addButton(withTitle: "切换账号")
-                                        infoAlert.beginSheetModal(for: self.view.window!) { returnCode in
-                                            if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
-                                                self.resetInput(self.resetButton)
-                                                self.resumeUI()
-                                                self.UIDelegate?.lockIcon()
-                                                LoginHelper.logOut()
-                                            }
-                                        }
-                                        self.UIDelegate?.unlockIcon()
-                                    } else {
-                                        self.UIDelegate?.lockIcon()
-                                        LoginHelper.lastLoginUserName = "{null}"
-                                        let infoAlert: NSAlert = NSAlert()
-                                        infoAlert.messageText = "提示"
-                                        infoAlert.informativeText = "登录请求失败。请检查您的输入信息后，再试一次。"
-                                        infoAlert.alertStyle = NSAlert.Style.informational
-                                        infoAlert.addButton(withTitle: "嗯")
-                                        infoAlert.beginSheetModal(for: self.view.window!)
-                                        self.resumeUI()
-                                    }
+                                 password: accountParams[1],
+                                 captcha: accountParams[2],
+                                 handler: { success in
+                                     if success {
+                                         self.loadingIcon.isHidden = true
+                                         self.successImage.image = NSImage(named: "NSStatusAvailable")
+                                         self.loginStateText.stringValue = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
+                                        self.switchAccountButton.isHidden = false
+                                         self.UIDelegate?.unlockIcon()
+                                     } else {
+                                         self.UIDelegate?.lockIcon()
+                                         LoginHelper.lastLoginUserName = "{null}"
+                                         self.successImage.image = NSImage(named: "NSStatusUnavailable")
+                                         self.loginStateText.stringValue = "登录请求失败。请检查您的输入信息后，再试一次。"
+                                         self.resumeUI()
+                                     }
         })
 
 //        } else if self.operationSelector.selectedItem!.title == "同步考试安排到系统日历" {
@@ -125,37 +116,38 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //            }
 //        }
     }
-    
+
+    @IBAction func switchUser(_ sender: NSButton) {
+        resetInput(resetButton)
+        resumeUI()
+        UIDelegate?.lockIcon()
+        LoginHelper.logOut()
+    }
+
     func checkLoginStatus() {
+        successImage.image = NSImage(named: "NSStatusPartiallyAvailable")
+        loginStateText.stringValue = "正在检查您的登录状态…"
         LoginHelper.checkLoginAvailability({ status in
             if status {
                 self.loadingIcon.isHidden = true
-                let infoAlert: NSAlert = NSAlert()
-                infoAlert.messageText = "提示"
-                infoAlert.informativeText = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
-                infoAlert.alertStyle = NSAlert.Style.informational
-                infoAlert.addButton(withTitle: "嗯")
-                infoAlert.addButton(withTitle: "切换账号")
-                infoAlert.beginSheetModal(for: self.view.window!) { returnCode in
-                    if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
-                        self.resetInput(self.resetButton)
-                        self.resumeUI()
-                        self.UIDelegate?.lockIcon()
-                        LoginHelper.logOut()
-                    }
-                }
+                self.successImage.image = NSImage(named: "NSStatusAvailable")
+                self.loginStateText.stringValue = "您已作为「\(LoginHelper.lastLoginUserName)」登录。"
+                self.switchAccountButton.isHidden = false
             } else {
                 if LoginHelper.lastLoginUserName != "{null}" {
-                    
-                    let infoAlert: NSAlert = NSAlert()
-                    infoAlert.messageText = "提示"
-                    infoAlert.informativeText = "用户「\(LoginHelper.lastLoginUserName)」的登录身份已过期，请重新登录。"
-                    
-                    infoAlert.alertStyle = NSAlert.Style.informational
-                    infoAlert.addButton(withTitle: "嗯")
-                    infoAlert.beginSheetModal(for: self.view.window!)
+                    self.UIDelegate?.lockIcon()
+                    self.successImage.image = NSImage(named: "NSStatusUnavailable")
+                    self.loginStateText.stringValue = "用户「\(LoginHelper.lastLoginUserName)」的登录身份已过期，请重新登录。"
+
+                    if self.view.window == nil {
+                        LoginHelper.lastLoginUserName = "{null}"
+                        self.resumeUI()
+                    }
                     LoginHelper.lastLoginUserName = "{null}"
                     self.resumeUI()
+                } else {
+                    self.successImage.image = NSImage(named: "NSStatusNone")
+                    self.loginStateText.stringValue = "您尚未登录。"
                 }
             }
         })
@@ -197,6 +189,9 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 
     func resumeUI() {
 //        blurFadeOut()
+
+        successImage.image = NSImage(named: "NSStatusNone")
+        loginStateText.stringValue = "您尚未登录。"
         userNameField.isEnabled = true
         passwordField.isEnabled = true
         captchaTextField.isEnabled = true
@@ -263,5 +258,4 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
             // successfully opened
         }
     }
-
 }

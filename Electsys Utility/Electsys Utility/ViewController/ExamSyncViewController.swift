@@ -77,6 +77,10 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate {
             errorAlert.addButton(withTitle: "嗯")
             errorAlert.addButton(withTitle: "打开系统偏好设置")
             errorAlert.alertStyle = NSAlert.Style.informational
+            if self.view.window! == nil {
+                self.resumeUI()
+                return
+            }
             errorAlert.beginSheetModal(for: self.view.window!) { (returnCode) in
                 if returnCode == NSApplication.ModalResponse.alertSecondButtonReturn {
                     openRequestPanel()
@@ -107,6 +111,9 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate {
     }
     
     func showInfoMessage(infoMsg: String) {
+        if view.window == nil {
+            return
+        }
         let errorAlert: NSAlert = NSAlert()
         errorAlert.informativeText = infoMsg
         errorAlert.messageText = "提示"

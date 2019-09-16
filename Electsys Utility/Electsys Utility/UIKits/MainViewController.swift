@@ -21,8 +21,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
-        NSLog("Bye")
-        NSApplication.shared.terminate(self)
     }
     
     fileprivate func registerDelegate() {
@@ -128,6 +126,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         syncCourseTableButton.isEnabled = false
         syncTestInfoButton.isEnabled = false
         getScoreButton.isEnabled = false
+        self.view.window?.makeFirstResponder(aboutButton)
     }
     
     func visitAboutPage() {
