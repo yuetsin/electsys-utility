@@ -3653,7 +3653,7 @@ DQ
                 </windowController>
                 <customObject id="jO2-zS-b3x" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3610" y="901"/>
+            <point key="canvasLocation" x="3762" y="1177"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="ur0-A4-3SA">
