@@ -76,9 +76,21 @@ class FullDataViewController: NSViewController {
         progressIndicator.startAnimation(nil)
         setWeekPop(start: 1, end: 16)
         // Do view setup here.
-        for year in 0...8 {
-            yearSelector.addItem(withTitle: ConvertToString(Year(rawValue: 2019 - year)!))
+                let date = Date()
+        let calendar = Calendar.current
+        var year = calendar.component(.year, from: date)
+
+        yearSelector.removeAllItems()
+
+        if year < 2019 {
+            year = 2019
+            // fallback as year 2019
         }
+
+        for iteratedYear in (1996 ... year).reversed() {
+            yearSelector.addItem(withTitle: "\(iteratedYear) 至 \(iteratedYear + 1) 学年")
+        }
+        
         tabTitleSeg.isEnabled = false
         showMoreButton.isEnabled = false
         tableView.selectTabViewItem(at: 3)
@@ -213,7 +225,7 @@ class FullDataViewController: NSViewController {
         } else {
             jsonHead = stableJsonHeader
         }
-        let jsonUrl = "\(jsonHead)\(yearSelector.selectedItem?.title.replacingOccurrences(of: "-", with: "_") ?? "__invalid__")_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
+        let jsonUrl = "\(jsonHead)\((yearSelector.selectedItem?.title.replacingOccurrences(of: " 学年", with: "") as AnyObject).replacingOccurrences(of: " 至 ", with: "_") )_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
 //        print(jsonUrl)
         self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
         self.progressIndicator.isHidden = false

@@ -18,7 +18,7 @@ class Curricula {
     var teacherTitle: String = ""
     var identifier: String = ""
     var creditScore: Float = 0.0
-    var year: Year = .Y_2017_2018
+    var year: Year = .Y_2019_2020
     var targetGrade: Int = 0
     var term: Term = .Spring
     var studentNumber: Int = 0
@@ -81,6 +81,7 @@ class Arrangement {
 }
 
 enum Year: Int {
+    case Y_2019_2020 = 2019
     case Y_2018_2019 = 2018
     case Y_2017_2018 = 2017
     case Y_2016_2017 = 2016

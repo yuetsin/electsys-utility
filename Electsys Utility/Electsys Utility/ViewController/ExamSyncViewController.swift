@@ -21,6 +21,10 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate {
         // Do view setup here.
     }
     
+    override func viewDidAppear() {
+        showInfoMessage(infoMsg: "由于新版教学信息服务网尚在迁移中，同步考试安排功能暂不可用。")
+    }
+    
     
     @IBOutlet weak var testInfo: NSPopUpButton!
     @IBOutlet weak var syncTo: NSPopUpButton!
