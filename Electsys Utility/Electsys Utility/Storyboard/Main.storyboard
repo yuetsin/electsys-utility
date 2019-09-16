@@ -2939,17 +2939,6 @@ Copyright © 2018 </string>
                                     <action selector="turnCredits:" target="hhI-IL-P8i" id="mBL-WC-jxo"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HJF-b9-GB6">
-                                <rect key="frame" x="198" y="50" width="98" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundRect" title="发邮件给我" alternateTitle="发邮件给作者" bezelStyle="roundedRect" image="NSTouchBarMailTemplate" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gSV-Lo-vLq">
-                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="mailMe:" target="hhI-IL-P8i" id="6fw-YQ-aiH"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -3816,10 +3805,10 @@ DQ
             </objects>
             <point key="canvasLocation" x="1397" y="1701.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed Back View Controller-->
         <scene sceneID="fND-rI-GOE">
             <objects>
-                <viewController id="cK7-dQ-kWQ" sceneMemberID="viewController">
+                <viewController id="cK7-dQ-kWQ" customClass="FeedBackViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aMd-iy-szc">
                         <rect key="frame" x="0.0" y="0.0" width="494" height="471"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3833,21 +3822,11 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-x7-A80">
-                                <rect key="frame" x="178" y="413" width="54" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="版本 0.8" id="Tdl-sr-mHs">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-x7-A80">
+                                <rect key="frame" x="178" y="413" width="80" height="15"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="版本 0.9ffffff" id="Tdl-sr-mHs">
                                     <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsT-5N-HCi">
-                                <rect key="frame" x="228" y="413" width="81" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="on macOS 10.15" id="aNp-QS-cRR">
-                                    <font key="font" metaFont="system" size="10"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -3864,6 +3843,9 @@ DQ
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="visitGitHubIssuePages:" target="cK7-dQ-kWQ" id="6Wu-82-HcX"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -3910,6 +3892,9 @@ DQ
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="switchIssueType:" target="cK7-dQ-kWQ" id="N8n-zn-H8s"/>
+                                                    </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AJ1-8j-54l">
                                                     <rect key="frame" x="108" y="-1" width="102" height="18"/>
@@ -3917,6 +3902,9 @@ DQ
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="switchIssueType:" target="cK7-dQ-kWQ" id="mTB-B6-GyW"/>
+                                                    </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yZP-cN-6Zi">
                                                     <rect key="frame" x="215" y="-1" width="49" height="18"/>
@@ -3924,6 +3912,9 @@ DQ
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="switchIssueType:" target="cK7-dQ-kWQ" id="IG8-vj-qWq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <visibilityPriorities>
@@ -3944,6 +3935,9 @@ DQ
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="sendEmail:" target="cK7-dQ-kWQ" id="8qf-ZP-mlx"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -3953,7 +3947,16 @@ DQ
                                 </view>
                             </box>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="0FA-x7-A80" firstAttribute="top" secondItem="aMd-iy-szc" secondAttribute="top" constant="43" id="4Ul-Yz-eNK"/>
+                            <constraint firstItem="0FA-x7-A80" firstAttribute="leading" secondItem="aMd-iy-szc" secondAttribute="leading" constant="180" id="lQ7-Kj-w6P"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentField" destination="Bte-I4-7WX" id="XbV-J0-16U"/>
+                        <outlet property="subjectField" destination="X8W-pg-uTf" id="C1T-ea-Lr6"/>
+                        <outlet property="versionField" destination="0FA-x7-A80" id="lzf-SO-A9Q"/>
+                    </connections>
                 </viewController>
                 <customObject id="Fmk-V6-Rux" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4004,7 +4007,6 @@ DQ
         <image name="NSTouchBarDeleteTemplate" width="15" height="30"/>
         <image name="NSTouchBarGetInfoTemplate" width="18" height="30"/>
         <image name="NSTouchBarHistoryTemplate" width="18" height="30"/>
-        <image name="NSTouchBarMailTemplate" width="21" height="30"/>
         <image name="NSTouchBarSearchTemplate" width="19" height="30"/>
         <image name="NSTouchBarTagIconTemplate" width="23" height="30"/>
         <image name="NSTrashFull" width="32" height="32"/>
