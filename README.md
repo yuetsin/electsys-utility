@@ -1,5 +1,5 @@
 <div align=center>
-    <img width="150" height="150" src="https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Icons/Weiwei.png"/>
+    <img width="150" height="150" src="https://raw.githubusercontent.com/yuetsin/electsys-utility/master/Electsys%20Utility/Icons/Weiwei.png"/>
 </div>
 
 
@@ -8,9 +8,10 @@
 上海交通大学教务处实用程序
 
 [![Actions Status](https://github.com/yuetsin/electsys-utility/workflows/CI/badge.svg)](https://github.com/yuetsin/electsys-utility/actions)
-![](https://img.shields.io/badge/platform-macOS-brightgreen.svg)
-![](https://img.shields.io/badge/swift-v5.0-orange.svg)
-![](https://img.shields.io/badge/license-MIT-green.svg)
+![GitHub release](https://img.shields.io/github/release/yuetsin/electsys-utility.svg?style=flat-square)
+![App Platform: macOS 10.12 and above](https://img.shields.io/badge/macOS-10.12%2B-brightgreen?style=flat-square)
+![Swift Version: 5.0](https://img.shields.io/badge/swift-v5.0-orange.svg?style=flat-square)
+![License: MIT](https://img.shields.io/badge/license-MIT-grey.svg?style=flat-square)
 
 # 功能
 
@@ -26,28 +27,15 @@
 
 # 已知问题
 
-* 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱同步的日历）时会产生异常。
+* 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱同步的日历）时会产生异常。请尽量使用 iCloud 或 Outlook 提供的 CalDAV 服务。
 
 * 2017 年秋季学期开始前，教务处对部分教室的门牌号进行了调整。由于缺乏必要信息，无法给出进一步提示。
 
 * 在 2016 到 2017 年的春季学期教改并产生暑期小学期之前，每个学期并不只有 16 个星期。
 
-* ~~部分暑期小学期的课程未能在 json 数据中列出。~~
+# 致谢
 
-* ~~研究生课程及陈瑞球楼信息无法显示。~~
-
-* ~~当未得到系统日历充分授权时会反应过度。~~
-
-# 起因
-
-* 受够了 ×× 课程表和 ×× 格子之后，希望可以获得一个方便稳定的方式来给自己课程提示。
-> (虽然写起来并不方便，用起来也并不稳定……)
-
-* 又因为难以在工作日找到自习教室，还想知道每间教室的课程安排ˊ_>ˋ
-
-# 第三方库使用
-
-* [Kanna](https://github.com/tid-kijyun/Kanna)
+* [tid-kijyun/Kanna](https://github.com/tid-kijyun/Kanna)
 
 * [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
 
@@ -55,9 +43,11 @@
 
 * [Alamofire-SwiftyJSON](https://github.com/SwiftyJSON/Alamofire-SwiftyJSON)
 
-* [CrossroadRegex](https://github.com/crossroadlabs/Regex)
+* [crossroadlabs/CrossroadRegex](https://github.com/crossroadlabs/Regex)
 
-* [RMBlurredView](https://github.com/raffael/RMBlurredView)
+* [raffael/RMBlurredView](https://github.com/raffael/RMBlurredView)
+
+* [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
 # 屏幕截图
 ## 在课程库中筛选
