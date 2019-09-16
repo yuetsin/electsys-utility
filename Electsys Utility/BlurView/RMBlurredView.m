@@ -9,7 +9,7 @@
 
 #define kRMBlurredViewDefaultTintColor [NSColor colorWithCalibratedWhite:1.0 alpha:0.0]
 #define kRMBlurredViewDefaultSaturationFactor 2.0
-#define kRMBlurredViewDefaultBlurRadius 5.0
+#define kRMBlurredViewDefaultBlurRadius 3.0
 
 @implementation RMBlurredView
 

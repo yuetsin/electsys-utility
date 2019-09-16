@@ -35,6 +35,13 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         loadingIcon.startAnimation(self)
 //        openRequestPanel()
         setAccessibilityLabel()
+        
+        PreferenceKits.readPreferences()
+        
+        if PreferenceKits.autoFillTokens {
+            userNameField.stringValue = PreferenceKits.autoFillUserName
+            passwordField.stringValue = PreferenceKits.autoFillPassWord
+        }
     }
 
     func setAccessibilityLabel() {
@@ -139,13 +146,16 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
                 }
             } else {
                 if LoginHelper.lastLoginUserName != "{null}" {
-                    LoginHelper.lastLoginUserName = "{null}"
+                    
                     let infoAlert: NSAlert = NSAlert()
                     infoAlert.messageText = "提示"
                     infoAlert.informativeText = "用户「\(LoginHelper.lastLoginUserName)」的登录身份已过期，请重新登录。"
+                    
                     infoAlert.alertStyle = NSAlert.Style.informational
                     infoAlert.addButton(withTitle: "嗯")
                     infoAlert.beginSheetModal(for: self.view.window!)
+                    LoginHelper.lastLoginUserName = "{null}"
+                    self.resumeUI()
                 }
             }
         })

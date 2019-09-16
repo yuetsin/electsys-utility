@@ -70,6 +70,16 @@ class TermSelectingViewController: NSViewController {
         case .exam:
             break
         case .score:
+            let actualYear = 1995 + yearPopUpSelector.numberOfItems - yearPopUpSelector.indexOfSelectedItem
+            let actualTerm = termPopUpSelector.indexOfSelectedItem + 1
+            ScoreKits.requestScoreData(year: actualYear, term: actualTerm,
+                                          handler: { scores in
+                                            self.successDelegate?.successScoreDataTransfer(data: scores)
+                                            self.successDelegate?.shutWindow()
+                                          },
+                                          failure: { errCode in
+                                              self.showErrorMessage(errorMsg: "未能获取此学期的成绩单。\n错误代码：\(errCode)")
+            })
             break
         default:
             break
@@ -94,7 +104,7 @@ class TermSelectingViewController: NSViewController {
 protocol YearAndTermSelectionDelegate {
     func successCourseDataTransfer(data: [NGCourse]) -> Void
     func successExamDataTransfer(data: [Exam]) -> Void
-    func successScoreDataTransfer(data: [String /* TODO: Add Score Class */ ]) -> Void
+    func successScoreDataTransfer(data: [NGScore]) -> Void
     func shutWindow() -> Void
 }
 

@@ -17,6 +17,7 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         window = NSApplication.shared.windows.first
         LoginHelper.initRedirectUrl()
+        PreferenceKits.registerPreferenceKeys()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -40,7 +41,7 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
 //    }
     
     @IBAction func openGithubPage(_ sender: NSButton) {
-        if let url = URL(string: "https://github.com/yuxiqian/Electsys-Utility"), NSWorkspace.shared.open(url) {
+        if let url = URL(string: "https://github.com/yuetsin/electsys-utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }

@@ -26,6 +26,7 @@ class LoginHelper {
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
                 NSLog("failed to get 302 redirect url")
+                handler?()
                 return
             }
             

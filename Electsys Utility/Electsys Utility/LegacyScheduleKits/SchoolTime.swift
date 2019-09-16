@@ -70,6 +70,6 @@ let defaultLessonTime: [Time] = [Time("0:00"),
     Time("8:00"), Time("8:55"), Time("10:00"), Time("10:55"),
     Time("12:00"), Time("12:55"), Time("14:00"), Time("14:55"),
     Time("16:00"), Time("16:55"), Time("18:00"), Time("18:55"),
-    Time("20:00"), Time("20:55")
+    Time("20:00"), Time("20:55"), Time("0:00"), Time("0:00"), Time("0:00"), Time("0:00")
 ]
 

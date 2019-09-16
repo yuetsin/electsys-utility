@@ -1,18 +1,17 @@
 //
-//  CourseKits.swift
+//  ExamKits.swift
 //  Electsys Utility
 //
 //  Created by 法好 on 2019/9/15.
 //  Copyright © 2019 yuxiqian. All rights reserved.
 //
-
 import Foundation
 import Alamofire
 import Alamofire_SwiftyJSON
 import SwiftyJSON
 
-class CourseKits {
-    static func requestCourseTable(year: Int, term: Int,
+class ExamKits {
+    static func requestExamTable(year: Int, term: Int,
                                    handler: @escaping ([NGCourse]) -> Void,
                                    failure: @escaping (Int) -> Void) {
         // 1 - "3"
