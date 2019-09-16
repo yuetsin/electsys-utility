@@ -63,6 +63,12 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         updateTableViewContents()
         super.viewDidAppear()
     }
+    
+    lazy var sheetViewController: TermSelectingViewController = {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("YearAndTermViewController"))
+        as! TermSelectingViewController
+    }()
 
     func successCourseDataTransfer(data: [NGCourse]) {
         NSLog("bad request type")
@@ -78,10 +84,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
     }
 
     func shutWindow() {
-        if openedWindow != nil {
-            view.window?.endSheet(openedWindow!)
-            openedWindow = nil
-        }
+        self.dismiss(sheetViewController)
     }
 
     func updateTableViewContents() {
@@ -102,15 +105,9 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
     }
 
     func openYearTermSelectionPanel() {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Year and Term Selection Window")) as! NSWindowController
-
-        if let window = windowController.window {
-            (window.contentViewController as! TermSelectingViewController).successDelegate = self
-            (window.contentViewController as! TermSelectingViewController).requestType = .score
-            view.window?.beginSheet(window, completionHandler: nil)
-            openedWindow = window
-        }
+        sheetViewController.successDelegate = self
+        sheetViewController.requestType = .score
+        self.presentAsSheet(sheetViewController)
     }
 
     func showErrorMessageNormal(errorMsg: String) {

@@ -354,7 +354,7 @@ DQ
                 </viewController>
                 <customObject id="cEh-3H-EwZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="810.5"/>
+            <point key="canvasLocation" x="2022" y="811"/>
         </scene>
         <!--Full Data View Controller-->
         <scene sceneID="Tb5-g5-9PB">
@@ -1291,7 +1291,7 @@ DQ
                 <customObject id="Z83-4c-ByD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="nXp-Jn-0B5"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="810.5"/>
+            <point key="canvasLocation" x="2561" y="811"/>
         </scene>
         <!--Resolve View Controller-->
         <scene sceneID="YEX-Pq-FR1">
@@ -3398,12 +3398,12 @@ DQ
                 </windowController>
                 <customObject id="c2Q-55-YQg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3540" y="178"/>
+            <point key="canvasLocation" x="1999" y="68"/>
         </scene>
         <!--Term Selecting View Controller-->
         <scene sceneID="lF4-JC-ecq">
             <objects>
-                <viewController id="Iu3-c5-YlT" customClass="TermSelectingViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YearAndTermViewController" id="Iu3-c5-YlT" customClass="TermSelectingViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Ek0-Ed-gXn" customClass="NSVisualEffectView">
                         <rect key="frame" x="0.0" y="0.0" width="381" height="183"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3598,7 +3598,7 @@ DQ
                 </viewController>
                 <customObject id="fqw-IW-YDh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3490.5" y="534.5"/>
+            <point key="canvasLocation" x="2000" y="399"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="V17-wY-JJI">
@@ -4112,7 +4112,7 @@ DQ
                 </viewController>
                 <customObject id="Rke-nZ-q90" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="810.5"/>
+            <point key="canvasLocation" x="3251" y="809"/>
         </scene>
     </scenes>
     <resources>

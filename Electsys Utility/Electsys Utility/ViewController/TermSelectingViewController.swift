@@ -13,7 +13,6 @@ class TermSelectingViewController: NSViewController {
     @IBOutlet var termPopUpSelector: NSPopUpButton!
 
     @IBOutlet var yearPromptTextField: NSTextField!
-    @IBOutlet var authenticationPromptTextField: NSTextField!
     @IBOutlet var OKButton: NSButton!
     @IBOutlet var cancelButton: NSButton!
 
