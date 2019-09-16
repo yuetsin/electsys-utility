@@ -73,7 +73,10 @@ class LoginHelper {
     }
     
     fileprivate static func performLogin(_ username: String, _ password: String, _ captcha: String, _ handler: @escaping (_ success: Bool) -> ()) {
-        assert(!(sID == nil || LoginHelper.client == nil || returnUrl == nil || se == nil))
+        if (sID == nil || LoginHelper.client == nil || returnUrl == nil || se == nil) {
+            handler(false)
+            return
+        }
         
         let postParams: Parameters = [
             "sid": LoginHelper.sID!,

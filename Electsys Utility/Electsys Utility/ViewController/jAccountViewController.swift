@@ -146,7 +146,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
                 }
             } else {
                 if LoginHelper.lastLoginUserName != "{null}" {
-                    
+                    self.UIDelegate?.lockIcon()
                     let infoAlert: NSAlert = NSAlert()
                     infoAlert.messageText = "提示"
                     infoAlert.informativeText = "用户「\(LoginHelper.lastLoginUserName)」的登录身份已过期，请重新登录。"
@@ -155,6 +155,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
                     infoAlert.addButton(withTitle: "嗯")
                     infoAlert.beginSheetModal(for: self.view.window!)
                     LoginHelper.lastLoginUserName = "{null}"
+                    
                     self.resumeUI()
                 }
             }
