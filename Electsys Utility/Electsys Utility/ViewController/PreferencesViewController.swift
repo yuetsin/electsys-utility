@@ -67,7 +67,7 @@ class PreferencesViewController: NSViewController {
             PreferenceKits.autoFillTokens = false
             PreferenceKits.autoFillUserName = ""
             PreferenceKits.autoFillPassWord = ""
-            PreferenceKits.savePreferences()
+            PreferenceKits.removeCertificates()
 
             self.showNormalMessage(infoMsg: "已成功清除凭据缓存。")
         })

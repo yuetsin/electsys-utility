@@ -50,6 +50,12 @@ class PreferenceKits {
             UserDefaults.standard.set(PreferenceKits.autoFillPassWord, forKey: "autoFillPassWord")
         }
     }
+
+    static func removeCertificates() {
+        UserDefaults.standard.set(false, forKey: "autoFillTokens")
+        UserDefaults.standard.set("", forKey: "autoFillUserName")
+        UserDefaults.standard.set("", forKey: "autoFillPassWord")
+    }
 }
 
 enum CourseNameDisplayStrategy: Int {
