@@ -8,7 +8,7 @@
 上海交通大学教务处实用程序
 
 [![Actions Status](https://github.com/yuetsin/electsys-utility/workflows/CI/badge.svg)](https://github.com/yuetsin/electsys-utility/actions)
-![GitHub release](https://img.shields.io/github/release/yuetsin/electsys-utility.svg?style=flat-square)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/yuetsin/electsys-utility?include_prereleases)
 ![App Platform: macOS 10.12 and above](https://img.shields.io/badge/macOS-10.12%2B-brightgreen?style=flat-square)
 ![Swift Version: 5.0](https://img.shields.io/badge/swift-v5.0-orange.svg?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/license-MIT-grey.svg?style=flat-square)
