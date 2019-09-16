@@ -50,7 +50,8 @@
 * [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
 # 屏幕截图
-## 在课程库中筛选
+## 免登录浏览课程库
+
 ### 按教室
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按教室筛选.png)
 
@@ -63,17 +64,18 @@
 ## 同步课程到系统日历
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/系统日历.png)
 
-## 同步方式 A
+## 使用 jAccount 登录
 > 通过 jAccount 账号和密码来获取课程信息、考试安排
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/登录界面.png)
 
-## 同步方式 B
-> 不想暴露密码的话，也可以手动置入 newsinside.html
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/手动置入页面.png)
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/登录界面.png)
 
 ## 同步课程信息和考试安排
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/课程同步页面.png)
 
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/考试同步页面.png)
 
-> (P.S.点 🎲 按钮可以……)
+## 查看成绩单
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/成绩单页面.png)
+
+## 属性检查器
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/属性检查器.png)
