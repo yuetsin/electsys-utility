@@ -11,7 +11,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/yuetsin/electsys-utility?include_prereleases&style=flat-square)
 ![App Platform: macOS 10.12 and above](https://img.shields.io/badge/macOS-10.12%2B-brightgreen?style=flat-square)
 ![Swift Version: 5.0](https://img.shields.io/badge/swift-v5.0-orange.svg?style=flat-square)
-![License: MIT](https://img.shields.io/badge/license-MIT-grey.svg?style=flat-square)
+![GitHub](https://img.shields.io/github/license/yuetsin/electsys-utility?color=grey&style=flat-square)
 
 # 功能
 
