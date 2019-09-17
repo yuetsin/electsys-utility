@@ -239,7 +239,6 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         InspectorKits.showProperties(properties: [
             Property(name: "课程代码", value: scoreObject.courseCode ?? "N/A"),
             Property(name: "课程名称", value: scoreObject.courseName ?? "N/A"),
-            Property(name: "开课院系", value: scoreObject.holderSchool ?? "N/A"),
             Property(name: "课程教师", value: scoreObject.teacher ?? "N/A"),
             Property(name: "学分", value: String.init(format: "%.1f", scoreObject.credit ?? 0.0)),
             Property(name: "最终成绩", value: "\(scoreObject.finalScore ?? 0)"),

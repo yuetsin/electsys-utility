@@ -56,6 +56,7 @@
 		8A6E58A92138054D00FF38CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E58A82138054D00FF38CF /* Course.swift */; };
 		8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */; };
 		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
+		8A8EE6DA2330D5E0007DD732 /* ArrayBeautify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EE6D92330D5E0007DD732 /* ArrayBeautify.swift */; };
 		8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96D489214026F4009E90CA /* CourseQuery.swift */; };
 		8AA6279F214A5B68003906BD /* Pods_Electsys_Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5FA8F674795185F8E7B92 /* Pods_Electsys_Utility.framework */; };
 		8AA627A0214A5B6F003906BD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA627A1214A5B6F003906BD /* Alamofire.framework */; };
@@ -132,6 +133,7 @@
 		8A6E58A82138054D00FF38CF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlGetViewController.swift; sourceTree = "<group>"; };
 		8A7F528A2137D65A00FBA008 /* SchoolTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTime.swift; sourceTree = "<group>"; };
+		8A8EE6D92330D5E0007DD732 /* ArrayBeautify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBeautify.swift; sourceTree = "<group>"; };
 		8A96D489214026F4009E90CA /* CourseQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseQuery.swift; sourceTree = "<group>"; };
 		8A96E4B02139788A00B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				8A44513021366418000156BD /* AppUtils.swift */,
+				8A8EE6D92330D5E0007DD732 /* ArrayBeautify.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				8A27D73E232E5394005AF5CA /* NGScore.swift in Sources */,
 				8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */,
 				8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */,
+				8A8EE6DA2330D5E0007DD732 /* ArrayBeautify.swift in Sources */,
 				8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */,
 				8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */,
 				8A27D73A232E5388005AF5CA /* ScoreKits.swift in Sources */,

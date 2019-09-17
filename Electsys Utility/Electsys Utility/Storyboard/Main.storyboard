@@ -962,7 +962,7 @@ DQ
                                                     </popUpButtonCell>
                                                 </popUpButton>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwL-EV-dTG">
-                                                    <rect key="frame" x="68" y="193" width="71" height="14"/>
+                                                    <rect key="frame" x="68" y="159" width="71" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="院系：" id="qtn-mv-QbJ">
                                                         <font key="font" metaFont="message" size="11"/>
@@ -971,7 +971,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-Py-Ayd">
-                                                    <rect key="frame" x="68" y="168" width="71" height="14"/>
+                                                    <rect key="frame" x="68" y="134" width="71" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="教师姓名：" id="CtI-nH-rCb">
                                                         <font key="font" metaFont="message" size="11"/>
@@ -980,7 +980,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bwg-jI-hw2">
-                                                    <rect key="frame" x="147" y="163" width="149" height="22"/>
+                                                    <rect key="frame" x="147" y="129" width="149" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" buttonBordered="NO" numberOfVisibleItems="5" id="jfK-d2-6dC">
                                                         <font key="font" metaFont="smallSystemBold"/>
@@ -991,35 +991,8 @@ DQ
                                                         <action selector="updateQuery:" target="TQl-q7-iQX" id="Civ-ZJ-7HV"/>
                                                     </connections>
                                                 </comboBox>
-                                                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQG-qo-Pbn">
-                                                    <rect key="frame" x="145" y="140" width="228" height="19"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <popUpButtonCell key="cell" type="recessed" title="不限" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="q0I-gS-4UV" id="8dO-Mm-Sbr">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                        <font key="font" metaFont="smallSystemBold"/>
-                                                        <menu key="menu" id="d2K-mY-tiy" customClass="MenuWithSeparator" customModule="Electsys_Utility" customModuleProvider="target">
-                                                            <items>
-                                                                <menuItem title="不限" id="q0I-gS-4UV">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                </menuItem>
-                                                            </items>
-                                                        </menu>
-                                                    </popUpButtonCell>
-                                                    <connections>
-                                                        <action selector="updateQuery:" target="TQl-q7-iQX" id="yUO-Xz-fgj"/>
-                                                    </connections>
-                                                </popUpButton>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="unW-91-7Bb">
-                                                    <rect key="frame" x="68" y="143" width="71" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" alignment="right" title="职称：" id="Ws6-Fb-Jef">
-                                                        <font key="font" metaFont="message" size="11"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9k-0Y-mPx">
-                                                    <rect key="frame" x="145" y="190" width="228" height="19"/>
+                                                    <rect key="frame" x="145" y="156" width="228" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <popUpButtonCell key="cell" type="recessed" title="不限" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" altersStateOfSelectedItem="NO" selectedItem="kaU-El-3Nv" id="lof-5K-Wxp">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -1037,7 +1010,7 @@ DQ
                                                     </connections>
                                                 </popUpButton>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACQ-W5-vR2">
-                                                    <rect key="frame" x="298" y="166" width="77" height="20"/>
+                                                    <rect key="frame" x="298" y="132" width="77" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="check" title="完全匹配" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Wwo-c6-FkH">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1281,7 +1254,6 @@ DQ
                         <outlet property="tenButton" destination="HyH-lT-hW8" id="eY8-Fz-ZAO"/>
                         <outlet property="termSelector" destination="xwD-qV-FnA" id="uEj-PO-kpo"/>
                         <outlet property="threeButton" destination="Pox-aL-MhO" id="mYK-yw-Lpe"/>
-                        <outlet property="titleSelector" destination="XQG-qo-Pbn" id="yk0-Xh-FoX"/>
                         <outlet property="twelveButton" destination="Hgj-ju-zvJ" id="mLH-rb-BOv"/>
                         <outlet property="twoButton" destination="Dso-wX-LkP" id="f49-Jg-keB"/>
                         <outlet property="weekDaySelector" destination="V0Y-Xc-j3x" id="r1L-RG-HNw"/>
@@ -1400,7 +1372,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-Ln-ECt">
-                                            <rect key="frame" x="341" y="13" width="41" height="19"/>
+                                            <rect key="frame" x="342" y="13" width="41" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSTouchBarDeleteTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cov-Ad-wel">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

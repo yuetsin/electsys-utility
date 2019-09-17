@@ -12,6 +12,19 @@ import Foundation
 import SwiftyJSON
 
 class GalleryKits {
+    static let emptyCurriculum = NGCurriculum(identifier: "",
+                                              code: "",
+                                              holderSchool: "",
+                                              name: "",
+                                              year: 0,
+                                              term: 0,
+                                              targetGrade: 0,
+                                              teacher: [],
+                                              credit: 0.0,
+                                              arrangements: [],
+                                              studentNumber: 0,
+                                              notes: "")
+
     fileprivate static let betaJsonHeader = "https://raw.githubusercontent.com/yuetsin/NG-Course/be-ta/release/"
     fileprivate static let stableJsonHeader = "https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/"
 
@@ -32,7 +45,7 @@ class GalleryKits {
                 let jsonResp = responseJSON.value
                 if jsonResp != nil {
                     let timeStamp = jsonResp?["generate_time"].stringValue
-                    
+
                     var curricula: [NGCurriculum] = []
                     for curObject in jsonResp?["data"].arrayValue ?? [] {
                         var arrangements: [NGArrangements] = []
@@ -45,13 +58,16 @@ class GalleryKits {
                             for sessionObj in arrObject["sessions"].arrayValue {
                                 sessionsInt.append(sessionObj.intValue)
                             }
-                            arrangements.append(NGArrangements(weeks: weeksInt,
-                                                               weekDay: arrObject["week_day"].intValue,
-                                                               sessions: sessionsInt,
-                                                               campus: arrObject["campus"].stringValue,
-                                                               classroom: arrObject["classroom"].stringValue))
+                            let arrangement = NGArrangements(weeks: weeksInt,
+                                                             weekDay: arrObject["week_day"].intValue,
+                                                             sessions: sessionsInt,
+                                                             campus: arrObject["campus"].stringValue,
+                                                             classroom: arrObject["classroom"].stringValue)
+                            if !arrangements.contains(arrangement) {
+                                arrangements.append(arrangement)
+                            }
                         }
-                        
+
                         var teachersLiteral: [String] = []
                         for teacherObject in curObject["teacher"].arrayValue {
                             teachersLiteral.append(teacherObject.stringValue)

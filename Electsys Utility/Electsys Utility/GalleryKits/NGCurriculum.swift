@@ -8,13 +8,27 @@
 
 import Foundation
 
-struct NGArrangements {
+class NGArrangements: Equatable {
+    static func == (lhs: NGArrangements, rhs: NGArrangements) -> Bool {
+        return lhs.weeks == rhs.weeks && lhs.weekDay == rhs.weekDay
+            && lhs.sessions == rhs.sessions && lhs.campus == rhs.campus
+            && lhs.classroom == rhs.classroom
+    }
+
+    internal init(weeks: [Int], weekDay: Int, sessions: [Int], campus: String, classroom: String) {
+        self.weeks = weeks
+        self.weekDay = weekDay
+        self.sessions = sessions
+        self.campus = campus
+        self.classroom = classroom
+    }
+
     var weeks: [Int]
     var weekDay: Int
     var sessions: [Int]
     var campus: String
     var classroom: String
-    
+
     func getWeeksInterpreter() -> String {
         var weeksStr: [String] = []
         for week in weeks {
@@ -22,7 +36,7 @@ struct NGArrangements {
         }
         return "第 " + weeksStr.joined(separator: "、") + " 周"
     }
-    
+
     func getSessionsInterpreter() -> String {
         var sessionsStr: [String] = []
         for session in sessions {
@@ -32,7 +46,26 @@ struct NGArrangements {
     }
 }
 
-struct NGCurriculum {
+class NGCurriculum: Equatable {
+    static func == (lhs: NGCurriculum, rhs: NGCurriculum) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+
+    internal init(identifier: String, code: String, holderSchool: String, name: String, year: Int, term: Int, targetGrade: Int, teacher: [String], credit: Double, arrangements: [NGArrangements], studentNumber: Int, notes: String) {
+        self.identifier = identifier
+        self.code = code
+        self.holderSchool = holderSchool
+        self.name = name
+        self.year = year
+        self.term = term
+        self.targetGrade = targetGrade
+        self.teacher = teacher
+        self.credit = credit
+        self.arrangements = arrangements
+        self.studentNumber = studentNumber
+        self.notes = notes
+    }
+
     var identifier: String
     var code: String
     var holderSchool: String
