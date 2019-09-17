@@ -133,7 +133,6 @@
 		8A96E4B22139789000B476E0 /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B42139789300B476E0 /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A96E4B62139789900B476E0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A9F395521F4B8CA00827EC8 /* Electsys Utility.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Electsys Utility.entitlements"; sourceTree = "<group>"; };
 		8AA627A1214A5B6F003906BD /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA627A3214A5B72003906BD /* Regex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Regex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AA627A5214A5B75003906BD /* Kanna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kanna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,7 +350,6 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
-				8A33CF09232F1F2F00BD6826 /* InspectorKits */,
 				8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */,
 				8A0AE461232A003900CE9E3A /* BlurView */,
 				8A4A22DC21362EAF0064488C /* Electsys Utility */,
@@ -372,13 +370,13 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A33CF09232F1F2F00BD6826 /* InspectorKits */,
 				8A27D738232E537E005AF5CA /* ScoreKits */,
 				8A27D731232E51CD005AF5CA /* ExamKits */,
 				8A3598FD232E1D8100FA0786 /* PreferenceKits */,
 				8A3598FA232E1C8600FA0786 /* IdentityKits */,
 				8A3598F5232E1A9700FA0786 /* CourseKits */,
 				8A0AE464232A015500CE9E3A /* LoginKits */,
-				8A9F395521F4B8CA00827EC8 /* Electsys Utility.entitlements */,
 				8A49F6A621D4C44B00010816 /* LegacyLoginKits */,
 				8A49F6A321D4B8CE00010816 /* UI */,
 				8A233761214A5738007F0957 /* Storyboard */,
@@ -485,7 +483,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = yuxiqian;
 				TargetAttributes = {
 					8A4A22D921362EAF0064488C = {
@@ -769,7 +767,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/Electsys Utility.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 71;
@@ -795,7 +793,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Electsys Utility/Electsys Utility.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 71;

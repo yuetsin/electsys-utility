@@ -1872,7 +1872,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundRect" title="切换账号" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WvI-Sc-JO9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="controlContent"/>
+                                            <font key="font" metaFont="cellTitle"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="switchUser:" target="Hbf-WB-Sdc" id="Yd3-gs-wp4"/>
@@ -2723,7 +2723,7 @@ Copyright © 2018 </string>
                                     <rect key="frame" x="-100" y="-100" width="494" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="WQO-k1-7fo">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.00012506253126563281" horizontal="NO" id="WQO-k1-7fo">
                                     <rect key="frame" x="478" y="0.0" width="16" height="401"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

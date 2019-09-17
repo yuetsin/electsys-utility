@@ -84,7 +84,7 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                         if lessonName.contains("单周") && lessonName.contains("双周") {
                             if lessonName.hasSuffix("双周") {
 //                                print ("单 + 双周模式：\(lessonName) 将被拆分。")
-                                var splited = lessonName.components(separatedBy: "单周")
+                                let splited = lessonName.components(separatedBy: "单周")
 //                                print ("分裂1：\(splited[0] + "单周")，分裂2:\(splited[1])")
                                 if (checkIfWordyExpress(splited[0], splited[1])) {
                                     createCourse(combineWordyExpress(splited[0], splited[1]),
@@ -118,7 +118,7 @@ fileprivate func parseTimeTable(_ html: HTMLDocument,
                                 }
                             } else if lessonName.hasSuffix("单周") {
 //                                print ("双 + 单周模式：\(lessonName) 将被拆分。")
-                                var splited = lessonName.components(separatedBy: "双周")
+                                let splited = lessonName.components(separatedBy: "双周")
 //                                print ("分裂1：\(splited[0] + "双周")，分裂2:\(splited[1])")
                                 if (checkIfWordyExpress(splited[0], splited[1])) {
                                     createCourse(combineWordyExpress(splited[0], splited[1]),

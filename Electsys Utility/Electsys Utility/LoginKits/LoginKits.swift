@@ -91,7 +91,7 @@ class LoginHelper {
         
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
-            let responseStr = String(data: response.data!, encoding: .utf8)
+//            _ = String(data: response.data!, encoding: .utf8)
             NSLog("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 NSLog("login post failure")

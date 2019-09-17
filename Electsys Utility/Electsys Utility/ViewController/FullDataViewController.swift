@@ -578,7 +578,7 @@ class FullDataViewController: NSViewController {
     }
     
     func showErrorMessage(errorMsg: String) {
-        if self.view.window! == nil {
+        if self.view.window == nil {
             return
         }
         let errorAlert: NSAlert = NSAlert()
@@ -733,7 +733,7 @@ class FullDataViewController: NSViewController {
     }
     
     func showCourseInfo(titleMsg: String, infoMsg: String) {
-        if self.view.window! == nil {
+        if self.view.window == nil {
             return
         }
         let infoAlert: NSAlert = NSAlert()
@@ -840,7 +840,7 @@ class FullDataViewController: NSViewController {
         infoAlert.informativeText = "教师：\(teacher)\n开课院系：\(holder)\n\n\(declare)"
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
-        if self.view.window! == nil {
+        if self.view.window == nil {
             return
         }
         infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
@@ -908,7 +908,7 @@ class FullDataViewController: NSViewController {
             infoAlert.informativeText += "来源：\(possibleUrl)\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
-            if self.view.window! == nil {
+            if self.view.window == nil {
                 return
             }
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
@@ -918,7 +918,7 @@ class FullDataViewController: NSViewController {
             infoAlert.informativeText = "来源：\(possibleUrl)\n\n生成时间：未知\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
-            if self.view.window! == nil {
+            if self.view.window == nil {
                 return
             }
             infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
