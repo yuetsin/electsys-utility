@@ -77,7 +77,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate {
             errorAlert.addButton(withTitle: "嗯")
             errorAlert.addButton(withTitle: "打开系统偏好设置")
             errorAlert.alertStyle = NSAlert.Style.informational
-            if self.view.window! == nil {
+            if self.view.window == nil {
                 self.resumeUI()
                 return
             }

@@ -56,8 +56,8 @@ class CourseKits {
                                 continue
                             }
                         }
-                        
-                        var weekArrangeList = courseObject["zcd"].stringValue.components(separatedBy: CharacterSet(charactersIn: "-周"))
+                        let weekArrData = courseObject["zcd"].stringValue.components(separatedBy: ";")[0]
+                        var weekArrangeList = weekArrData.components(separatedBy: CharacterSet(charactersIn: "-周"))
                         if weekArrangeList.count < 2 {
                             continue
                         }

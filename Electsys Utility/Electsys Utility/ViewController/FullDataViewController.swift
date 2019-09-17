@@ -6,31 +6,30 @@
 //  Copyright © 2018 yuxiqian. All rights reserved.
 //
 
-import Cocoa
 import Alamofire
-import SwiftyJSON
+import Cocoa
 import Regex
+import SwiftyJSON
 
 class FullDataViewController: NSViewController {
-    
     static let toolBarHeight = 56
-    
+
     let specialSep = "$_$"
-    
+
     var shouldRequestBeta: Bool = false
-    
-    var courses: [Curricula] = []
-    
-    var queryCoursesOnTeacher: [Curricula] = []
-    var queryCoursesOnName: [Curricula] = []
-    
+
+    var courses: [NGCurriculum] = []
+
+    var queryCoursesOnTeacher: [NGCurriculum] = []
+    var queryCoursesOnName: [NGCurriculum] = []
+
     var upperHall: [String] = []
     var middleHall: [String] = []
     var lowerHall: [String] = []
     var eastUpperHall: [String] = []
     var eastMiddleHall: [String] = []
     var eastLowerHall: [String] = []
-    
+
     var MinHangCampus: [String] = []
     var CRQBuilding: [String] = []
     var YYMBuilding: [String] = []
@@ -41,9 +40,9 @@ class FullDataViewController: NSViewController {
     var OtherLand: [String] = []
     var SMHC: [String] = []
     var LinGangCampus: [String] = []
-    
+
     var possibleUrl: String = "未知"
-    
+
     @objc dynamic var toggleUpperHall: Bool = true
     @objc dynamic var toggleMiddleHall: Bool = true
     @objc dynamic var toggleLowerHall: Bool = true
@@ -60,25 +59,27 @@ class FullDataViewController: NSViewController {
     @objc dynamic var toggleOtherLand: Bool = true
     @objc dynamic var toggleSMHC: Bool = true
     @objc dynamic var toggleLinGangCampus: Bool = true
-    
-    
+
     var localTimeStamp: String = ""
     
-    var arrangement: [String] = [String].init(repeating: "空教室", count: 14)
-    
+    var arrangement: [NGCurriculum] = [NGCurriculum].init(repeating: GalleryKits.emptyCurriculum, count: 14)
+
     var schools: [String] = []
     var teachers: [String] = []
-    var titles: [String] = []
     var classnames: [String] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         progressIndicator.startAnimation(nil)
-        setWeekPop(start: 1, end: 16)
+        setWeekPop(start: 1, end: 17)
         // Do view setup here.
-                let date = Date()
+        let date = Date()
         let calendar = Calendar.current
         var year = calendar.component(.year, from: date)
+
+        tabTitleSeg.isEnabled = false
+        showMoreButton.isEnabled = false
+        tableView.selectTabViewItem(at: 3)
 
         yearSelector.removeAllItems()
 
@@ -87,34 +88,33 @@ class FullDataViewController: NSViewController {
             // fallback as year 2019
         }
 
-        for iteratedYear in (1996 ... year).reversed() {
+        if year < 2018 {
+            return
+        }
+
+        for iteratedYear in (2018 ... year).reversed() {
             yearSelector.addItem(withTitle: "\(iteratedYear) 至 \(iteratedYear + 1) 学年")
         }
-        
-        tabTitleSeg.isEnabled = false
-        showMoreButton.isEnabled = false
-        tableView.selectTabViewItem(at: 3)
     }
-    
+
     func setEnableStats(_ stat: [Bool]) {
         betaSelector.isEnabled = stat[0]
         showMoreButton.isEnabled = stat[1]
     }
-    
+
     func setWeekPop(start: Int, end: Int) {
         weekSelector.removeAllItems()
-        for i in start...end {
+        for i in start ... end {
             weekSelector.addItem(withTitle: "第 \(i) 周")
         }
     }
-    
+
     func clearLists() {
         courses.removeAll()
         schools.removeAll()
-        titles.removeAll()
         teachers.removeAll()
         classnames.removeAll()
-        
+
         upperHall.removeAll()
         middleHall.removeAll()
         lowerHall.removeAll()
@@ -133,68 +133,65 @@ class FullDataViewController: NSViewController {
         YYMBuilding.removeAll()
         LinGangCampus.removeAll()
     }
-    
+
     @IBAction func startQuery(_ sender: NSButton) {
         setLayoutType(.shrink)
-        
+
         yearSelector.isEnabled = false
         termSelector.isEnabled = false
         setEnableStats([false, false])
         clearLists()
+
         getJson()
-        
     }
 
-    
-    @IBOutlet weak var yearSelector: NSPopUpButton!
-    @IBOutlet weak var termSelector: NSPopUpButton!
-    @IBOutlet weak var progressIndicator: NSProgressIndicator!
-    @IBOutlet weak var buildingSelector: NSPopUpButton!
-    @IBOutlet weak var roomSelector: NSPopUpButton!
-    @IBOutlet weak var weekDaySelector: NSPopUpButton!
+    @IBOutlet var yearSelector: NSPopUpButton!
+    @IBOutlet var termSelector: NSPopUpButton!
+    @IBOutlet var progressIndicator: NSProgressIndicator!
+    @IBOutlet var buildingSelector: NSPopUpButton!
+    @IBOutlet var roomSelector: NSPopUpButton!
+    @IBOutlet var weekDaySelector: NSPopUpButton!
 
-    @IBOutlet weak var weekSelector: NSPopUpButton!
-    
-    @IBOutlet weak var oneButton: NSButton!
-    @IBOutlet weak var twoButton: NSButton!
-    @IBOutlet weak var threeButton: NSButton!
-    @IBOutlet weak var fourButton: NSButton!
-    @IBOutlet weak var fiveButton: NSButton!
-    @IBOutlet weak var sixButton: NSButton!
-    @IBOutlet weak var sevenButton: NSButton!
-    @IBOutlet weak var eightButton: NSButton!
-    @IBOutlet weak var nineButton: NSButton!
-    @IBOutlet weak var tenButton: NSButton!
-    @IBOutlet weak var elevenButton: NSButton!
-    @IBOutlet weak var twelveButton: NSButton!
-    
-    @IBOutlet weak var tabTitleSeg: NSSegmentedControl!
-    @IBOutlet weak var sortBox: NSBox!
-    @IBOutlet weak var detailBox: NSBox!
-    
-    
-    @IBOutlet weak var holdingSchoolSelector: NSPopUpButton!
-    @IBOutlet weak var teacherNameCombo: NSComboBox!
-    @IBOutlet weak var titleSelector: NSPopUpButton!
-    @IBOutlet weak var teacherResultSelector: NSPopUpButton!
-    @IBOutlet weak var teacherDetail: NSButton!
-    @IBOutlet weak var teacherLabel: NSTextField!
-    
-    @IBOutlet weak var classNameCombo: NSComboBox!
-    @IBOutlet weak var classNameLabel: NSTextField!
-    @IBOutlet weak var classNameResultSelector: NSPopUpButton!
-    @IBOutlet weak var classroomDetail: NSButton!
-    @IBOutlet weak var tableView: NSTabView!
-    
-    @IBOutlet weak var betaSelector: NSButton!
-    @IBOutlet weak var showMoreButton: NSButton!
-    @IBOutlet weak var exactMatchChecker: NSButton!
-    
+    @IBOutlet var weekSelector: NSPopUpButton!
+
+    @IBOutlet var oneButton: NSButton!
+    @IBOutlet var twoButton: NSButton!
+    @IBOutlet var threeButton: NSButton!
+    @IBOutlet var fourButton: NSButton!
+    @IBOutlet var fiveButton: NSButton!
+    @IBOutlet var sixButton: NSButton!
+    @IBOutlet var sevenButton: NSButton!
+    @IBOutlet var eightButton: NSButton!
+    @IBOutlet var nineButton: NSButton!
+    @IBOutlet var tenButton: NSButton!
+    @IBOutlet var elevenButton: NSButton!
+    @IBOutlet var twelveButton: NSButton!
+
+    @IBOutlet var tabTitleSeg: NSSegmentedControl!
+    @IBOutlet var sortBox: NSBox!
+    @IBOutlet var detailBox: NSBox!
+
+    @IBOutlet var holdingSchoolSelector: NSPopUpButton!
+    @IBOutlet var teacherNameCombo: NSComboBox!
+    @IBOutlet var teacherResultSelector: NSPopUpButton!
+    @IBOutlet var teacherDetail: NSButton!
+    @IBOutlet var teacherLabel: NSTextField!
+
+    @IBOutlet var classNameCombo: NSComboBox!
+    @IBOutlet var classNameLabel: NSTextField!
+    @IBOutlet var classNameResultSelector: NSPopUpButton!
+    @IBOutlet var classroomDetail: NSButton!
+    @IBOutlet var tableView: NSTabView!
+
+    @IBOutlet var betaSelector: NSButton!
+    @IBOutlet var showMoreButton: NSButton!
+    @IBOutlet var exactMatchChecker: NSButton!
+
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
-        let obj = arrangement[id! - 1].components(separatedBy: specialSep)
-        if obj.count == 2 {
-            showCourseInfo(titleMsg: obj[0], infoMsg: obj[1])
+        let obj = arrangement[id! - 1]
+        if obj != GalleryKits.emptyCurriculum {
+            displayDetail(obj)
         } else {
             showCourseInfo(titleMsg: "空教室", infoMsg: "这里什么都没有…")
         }
@@ -203,106 +200,72 @@ class FullDataViewController: NSViewController {
     @IBAction func yearPopTapped(_ sender: NSPopUpButton) {
         setLayoutType(.shrink)
     }
-    
+
     @IBAction func betaTapped(_ sender: NSButton) {
         setLayoutType(.shrink)
         shouldRequestBeta = (sender.state == .on)
     }
-    
+
     @IBAction func termPopTapped(_ sender: NSPopUpButton) {
         setLayoutType(.shrink)
         if sender.selectedItem?.title == "夏季小学期" {
-            setWeekPop(start: 19, end: 22)
+            setWeekPop(start: 1, end: 6)
         } else {
-            setWeekPop(start: 1, end: 16)
+            setWeekPop(start: 1, end: 17)
         }
     }
-    
+
     func getJson() {
-        var jsonHead: String = ""
-        if shouldRequestBeta {
-            jsonHead = betaJsonHeader
-        } else {
-            jsonHead = stableJsonHeader
+        if yearSelector.titleOfSelectedItem == nil {
+            showErrorMessage(errorMsg: "请完整地填写所有信息。")
+            return
         }
-        let jsonUrl = "\(jsonHead)\((yearSelector.selectedItem?.title.replacingOccurrences(of: " 学年", with: "") as AnyObject).replacingOccurrences(of: " 至 ", with: "_") )_\(rawValueToInt((termSelector.selectedItem?.title)!)).json"
+        let yearInt = Int(yearSelector.titleOfSelectedItem!.components(separatedBy: " 至 ").first ?? "2019") ?? 2019
 //        print(jsonUrl)
-        self.sortBox.title = "\(self.yearSelector.selectedItem?.title ?? "未知") 学年\(self.termSelector.selectedItem?.title ?? " 未知学期")"
-        self.progressIndicator.isHidden = false
-        
-        localTimeStamp = ""
-        
-        Alamofire.request(jsonUrl).response(completionHandler: { response in
-            if response.response == nil {
-                self.progressIndicator.isHidden = true
-                self.yearSelector.isEnabled = true
-                self.termSelector.isEnabled = true
-                self.setLayoutType(.shrink)
-                self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
-                return
-            } else {
-                self.possibleUrl = jsonUrl
-                DispatchQueue.global().async {
-                    do {
-                        let curricula = try JSON(data: response.data!)
-                        self.localTimeStamp = curricula["generate_time"].stringValue
-                        if let curArray = curricula["data"].array {
-                            for curJson in curArray {
-                                let cur = generateCur(curJson)
-                                for classRoom in cur.getRelatedClassroom() {
-                                    self.sortClassroom(classRoom)
-                                }
-                                if !(self.schools.contains(cur.holderSchool)) {
-                                    self.schools.append(cur.holderSchool)
-                                }
-                                if !(self.teachers.contains(cur.teacherName)) {
-                                    if cur.teacherName.sanitize() != "" {
-                                        self.teachers.append(cur.teacherName)
-                                    }
-                                }
-                                if !(self.classnames.contains(cur.name)) {
-                                    if cur.name.sanitize() != "" {
-                                        self.classnames.append(cur.name)
-                                    }
-                                }
-                                if !(self.titles.contains(cur.teacherTitle)) {
-                                    if sanitize(cur.teacherTitle) != "" {
-                                        self.titles.append(cur.teacherTitle)
-                                    }
-                                }
-                                self.courses.append(cur)
-                            }
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            self.setLayoutType(.shrink)
-                            self.showErrorMessage(errorMsg: "未能读取 \(jsonUrl)。")
-                            self.progressIndicator.isHidden = true
-                            self.yearSelector.isEnabled = true
-                            self.termSelector.isEnabled = true
-                            
-                        }
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.progressIndicator.isHidden = true
-                        self.sortLists()
-                        self.pushPopListData(self.buildingSelector)
-                        self.setComboSource()
-                        self.startTeacherQuery()
-                        self.startNameQuery()
-                        self.switchSeg(self.tabTitleSeg)
-                        self.updateEnableStat()
-                        // success!
-                        self.setEnableStats([true, true])
-                        self.yearSelector.isEnabled = true
-                        self.termSelector.isEnabled = true
-                    }
-                }
-            }
-        })
+        let termInt = termSelector.indexOfSelectedItem + 1
+
+        sortBox.title = "\(yearSelector.selectedItem?.title ?? "未知学年")\(termSelector.selectedItem?.title ?? " 未知学期")"
+        progressIndicator.isHidden = false
+
+        let useBeta = betaSelector.state == .on
+
+        possibleUrl = GalleryKits.possibleUrl ?? "未知"
+        DispatchQueue.global().async {
+            GalleryKits.requestGalleryData(year: yearInt,
+                                           term: termInt,
+                                           beta: useBeta,
+                                           handler: { courseResult, timeStamp in
+                                               self.courses = courseResult
+                                               self.aggregateData()
+                                               self.sortLists()
+                                               self.localTimeStamp = timeStamp
+
+                                               DispatchQueue.main.async {
+                                                   self.progressIndicator.isHidden = true
+                                                   self.pushPopListData(self.buildingSelector)
+                                                   self.setComboSource()
+                                                   self.startTeacherQuery()
+                                                   self.startNameQuery()
+                                                   self.switchSeg(self.tabTitleSeg)
+                                                   self.updateEnableStat()
+                                                   // success!
+                                                   self.setEnableStats([true, true])
+                                                   self.yearSelector.isEnabled = true
+                                                   self.termSelector.isEnabled = true
+                                               }
+                                           },
+                                           failure: { code in
+                                               DispatchQueue.main.async {
+                                                   self.progressIndicator.isHidden = true
+                                                   self.yearSelector.isEnabled = true
+                                                   self.termSelector.isEnabled = true
+                                                   self.setLayoutType(.shrink)
+                                                   self.showErrorMessage(errorMsg: "未能读取此学期的数据。\n错误代码：\(code)")
+                                               }
+            })
+        }
     }
-    
+
     func updateEnableStat() {
         toggleUpperHall = upperHall != []
         toggleMiddleHall = middleHall != []
@@ -320,7 +283,7 @@ class FullDataViewController: NSViewController {
         toggleLinGangCampus = LinGangCampus != []
         toggleSMHC = SMHC != []
     }
-    
+
     @IBAction func pushPopListData(_ sender: NSPopUpButton) {
         roomSelector.removeAllItems()
         switch buildingSelector.selectedItem?.title {
@@ -377,118 +340,142 @@ class FullDataViewController: NSViewController {
         }
         updateBoxes(sender)
     }
-    
-    
+
     @IBAction func updateQuery(_ sender: Any) {
         startTeacherQuery()
     }
-    
 
     @IBAction func updateNameQuery(_ sender: Any) {
         startNameQuery()
     }
-    
+
     func setComboSource() {
-        self.holdingSchoolSelector.removeAllItems()
-        self.holdingSchoolSelector.addItem(withTitle: "不限")
-        self.holdingSchoolSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
-        self.holdingSchoolSelector.addItems(withTitles: schools)
-        
-        self.teacherNameCombo.removeAllItems()
-        self.teacherNameCombo.addItems(withObjectValues: teachers.sorted().reversed())
-        
-        self.titleSelector.removeAllItems()
-        self.titleSelector.addItem(withTitle: "不限")
-        self.titleSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
-        self.titleSelector.addItems(withTitles: titles)
-        self.teacherLabel.stringValue = "请确定筛选条件。"
-        
-        self.classNameResultSelector.removeAllItems()
-        self.classNameLabel.stringValue = "请确定筛选条件。"
-        
-        self.classNameCombo.removeAllItems()
-        self.classNameCombo.addItems(withObjectValues: classnames)
+        holdingSchoolSelector.removeAllItems()
+        holdingSchoolSelector.addItem(withTitle: "不限")
+        holdingSchoolSelector.addItem(withTitle: "MY_MENU_SEPARATOR")
+        holdingSchoolSelector.addItems(withTitles: schools)
+
+        teacherNameCombo.removeAllItems()
+        teacherNameCombo.addItems(withObjectValues: teachers.sorted().reversed())
+
+        teacherLabel.stringValue = "请确定筛选条件。"
+
+        classNameResultSelector.removeAllItems()
+        classNameLabel.stringValue = "请确定筛选条件。"
+
+        classNameCombo.removeAllItems()
+        classNameCombo.addItems(withObjectValues: classnames)
     }
 
     func startTeacherQuery() {
+        PreferenceKits.readPreferences()
+
         queryCoursesOnTeacher.removeAll()
         teacherResultSelector.removeAllItems()
-        
+
         var limitSchool = holdingSchoolSelector.title
         if limitSchool == "不限" {
             limitSchool = ""
         }
-        
-        var limitTitle = titleSelector.title
-        if limitTitle == "不限" {
-            limitTitle = ""
-        }
-        
-        let teacherName = sanitize(teacherNameCombo.stringValue)
-        
+
+        let teacherName = teacherNameCombo.stringValue
+
         if teacherName == "" {
             teacherLabel.stringValue = "请确定筛选条件。"
             teacherResultSelector.isEnabled = false
             teacherDetail.isEnabled = false
             return
         }
-        
+
+        var counter = 1
+
         for cur in courses {
-            if exactMatchChecker.state == .off {
-                if !cur.teacherName.contains(teacherName) {
-                    continue
-                }
-            } else {
-                if cur.teacherName != teacherName {
-                    continue
+            if queryCoursesOnTeacher.contains(cur) {
+                continue
+            }
+            var contain = false
+            for teacherNameLiteral in cur.teacher {
+                if exactMatchChecker.state == .off {
+                    if teacherNameLiteral.contains(teacherName) {
+                        if limitSchool != "" {
+                            if cur.holderSchool == limitSchool {
+                                contain = true
+                                break
+                            }
+                        } else {
+                            contain = true
+                            break
+                        }
+                    }
+                } else {
+                    if teacherNameLiteral == teacherName {
+                        if limitSchool != "" {
+                            if cur.holderSchool == limitSchool {
+                                contain = true
+                                break
+                            }
+                        } else {
+                            contain = true
+                            break
+                        }
+                    }
                 }
             }
-            
-            if limitTitle != "" {
-                if cur.teacherTitle != limitTitle {
-                    continue
-                }
+            if !contain {
+                continue
             }
-            
-            if limitSchool != "" {
-                if cur.holderSchool != limitSchool {
-                    continue
-                }
-            }
-            
             queryCoursesOnTeacher.append(cur)
-            teacherResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+
+            if PreferenceKits.courseDisplayStrategy == .nameOnly {
+                teacherResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)")
+            } else if PreferenceKits.courseDisplayStrategy == .nameAndTeacher {
+                teacherResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            } else if PreferenceKits.courseDisplayStrategy == .codeNameAndTeacher {
+                teacherResultSelector.addItem(withTitle: "(\(counter)) \(cur.code) - \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            }
+            counter += 1
         }
+
         if queryCoursesOnTeacher.count == 0 {
             teacherLabel.stringValue = "没有符合条件的结果。"
             teacherResultSelector.isEnabled = false
             teacherDetail.isEnabled = false
             return
         }
-        
+
         teacherResultSelector.isEnabled = true
         teacherDetail.isEnabled = true
         teacherLabel.stringValue = "匹配到 \(teacherResultSelector.numberOfItems) 条课程信息。"
     }
-    
+
     func startNameQuery() {
-        
         queryCoursesOnName.removeAll()
         classNameResultSelector.removeAllItems()
-        let courseName = sanitize(classNameCombo.stringValue)
+        let courseName = classNameCombo.stringValue
         if courseName == "" {
             classNameLabel.stringValue = "请确定筛选条件。"
             classNameResultSelector.isEnabled = false
             classroomDetail.isEnabled = false
             return
         }
-        
+
+        var counter = 1
         for cur in courses {
             if !cur.name.contains(courseName) {
                 continue
             }
+            if queryCoursesOnName.contains(cur) {
+                continue
+            }
             queryCoursesOnName.append(cur)
-            classNameResultSelector.addItem(withTitle: "\(cur.name)，\(cur.teacherName) \(cur.teacherTitle)")
+            if PreferenceKits.courseDisplayStrategy == .nameOnly {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)")
+            } else if PreferenceKits.courseDisplayStrategy == .nameAndTeacher {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            } else if PreferenceKits.courseDisplayStrategy == .codeNameAndTeacher {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.code) - \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            }
+            counter += 1
         }
         if queryCoursesOnName.count == 0 {
             classNameLabel.stringValue = "没有符合条件的结果。"
@@ -500,85 +487,94 @@ class FullDataViewController: NSViewController {
         classroomDetail.isEnabled = true
         classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
     }
-    
-    func sortClassroom(_ str: String) {
-        let numbersInStr = str.removeFloorCharacters(true)
-        let str = str.replacingOccurrences(of: numbersInStr, with: " " + numbersInStr)
+
+    func sortClassroom(building: String, campus: String) {
+        if building.contains("不排教室") || building.contains("未定") || building.contains("不安排") {
+            return
+        }
+        let numbersInStr = building.removeFloorCharacters(true)
+        let str = building.replacingOccurrences(of: numbersInStr, with: " " + numbersInStr)
         if str.sanitize() == "" {
             return
         }
+
         if str.sanitize().count <= 2 {
             return
         }
-        if str.starts(with: "上院") {
-            if !upperHall.contains(str) {
-                upperHall.append(str)
+
+        if campus == "闵行" {
+            if str.starts(with: "上院") {
+                if !upperHall.contains(str) {
+                    upperHall.append(str)
+                }
+            } else if str.starts(with: "中院") {
+                if !middleHall.contains(str) {
+                    middleHall.append(str)
+                }
+            } else if str.starts(with: "下院") {
+                if !lowerHall.contains(str) {
+                    lowerHall.append(str)
+                }
+            } else if str.starts(with: "东上院") {
+                if !eastUpperHall.contains(str) {
+                    eastUpperHall.append(str)
+                }
+            } else if str.starts(with: "东中院") {
+                if !eastMiddleHall.contains(str) {
+                    eastMiddleHall.append(str)
+                }
+            } else if str.starts(with: "东下院") {
+                if !eastLowerHall.contains(str) {
+                    eastLowerHall.append(str)
+                }
+            } else if str.contains("陈瑞球楼") {
+                if !CRQBuilding.contains(str) {
+                    CRQBuilding.append(str)
+                }
+            } else if str.contains("杨咏曼楼") {
+                if !YYMBuilding.contains(str) {
+                    YYMBuilding.append(str)
+                }
+            } else {
+                if !MinHangCampus.contains(str) {
+                    MinHangCampus.append(str)
+                }
             }
-        } else if str.starts(with: "中院") {
-            if !middleHall.contains(str) {
-                middleHall.append(str)
-            }
-        } else if str.starts(with: "下院") {
-            if !lowerHall.contains(str) {
-                lowerHall.append(str)
-            }
-        } else if str.starts(with: "东上院") {
-            if !eastUpperHall.contains(str) {
-                eastUpperHall.append(str)
-            }
-        } else if str.starts(with: "东中院") {
-            if !eastMiddleHall.contains(str) {
-                eastMiddleHall.append(str)
-            }
-        } else if str.starts(with: "东下院") {
-            if !eastLowerHall.contains(str) {
-                eastLowerHall.append(str)
-            }
-        } else if str.contains("陈瑞球楼") {
-            if !CRQBuilding.contains(str) {
-                CRQBuilding.append(str)
-            }
-        } else if str.contains("杨咏曼楼") {
-            if !YYMBuilding.contains(str) {
-                YYMBuilding.append(str)
-            }
-        } else if str.contains("徐汇") || str.contains("新上院") || str.contains("教一楼") {
+        } else if campus == "徐汇" {
             if !XuHuiCampus.contains(str) {
                 XuHuiCampus.append(str)
             }
-        } else if str.contains("卢湾") {
+        } else if campus == "卢湾" {
             if !LuWanCampus.contains(str) {
                 LuWanCampus.append(str)
             }
-        } else if str.contains("法华") {
+        } else if campus == "法华" {
             if !FaHuaCampus.contains(str) {
                 FaHuaCampus.append(str)
             }
-        } else if str.contains("七宝") {
+        } else if campus == "七宝" {
             if !QiBaoCampus.contains(str) {
                 QiBaoCampus.append(str)
             }
-        } else if str.contains("外地") {
+        } else if campus == "外地" {
             if !OtherLand.contains(str) {
                 OtherLand.append(str)
             }
-        } else if str.contains("上海市精神卫生中心") {
+        } else if campus == "上海市精神卫生中心" {
             if !SMHC.contains(str) {
                 SMHC.append(str)
             }
-        } else if str.contains("临港") {
+        } else if campus == "临港" {
             if !LinGangCampus.contains(str) {
                 LinGangCampus.append(str)
             }
         } else {
-            if !MinHangCampus.contains(str) {
-                MinHangCampus.append(str)
-            }
+            NSLog("uncategorized: \(campus), \(building)")
         }
     }
-    
+
     func showErrorMessage(errorMsg: String) {
-        if self.view.window! == nil {
+        if view.window == nil {
             return
         }
         let errorAlert: NSAlert = NSAlert()
@@ -586,9 +582,9 @@ class FullDataViewController: NSViewController {
         errorAlert.informativeText = errorMsg
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
-        errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
     }
-    
+
     func sortLists() {
         upperHall.sort()
         middleHall.sort()
@@ -607,49 +603,34 @@ class FullDataViewController: NSViewController {
         YYMBuilding.sort()
         MinHangCampus.sort()
     }
-    
-    
+
     @IBAction func updateBoxes(_ sender: NSPopUpButton) {
-        for i in 1...12 {
+        for i in 1 ... 12 {
             drawBox(id: i)
         }
-        arrangement = [String].init(repeating: "空教室", count: 14)
+        arrangement = [NGCurriculum].init(repeating: GalleryKits.emptyCurriculum, count: 14)
 
-        
-        let currentWeek = hanToInt(self.weekSelector.selectedItem?.title)
-        let weekDay = dayToInt.firstIndex(of: (self.weekDaySelector.selectedItem?.title)!)
-        detailBox.title = "\(self.roomSelector.selectedItem?.title ?? "某教室")，\(self.weekSelector.selectedItem?.title ?? "某周")\(self.weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
-        
+        let currentWeek = hanToInt(weekSelector.selectedItem?.title)
+        let weekDay = dayToInt.firstIndex(of: (weekDaySelector.selectedItem?.title)!)
+        detailBox.title = "\(roomSelector.selectedItem?.title ?? "某教室")，\(weekSelector.selectedItem?.title ?? "某周")\(weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
+
         if let room = self.roomSelector.selectedItem?.title.sanitize() {
             for cur in courses {
-                if !cur.getRelatedClassroom().contains(room) {
-                    continue
-                }
-                
-
-                if cur.startWeek > currentWeek { continue }
-                if cur.endWeek < currentWeek { continue }
-                if currentWeek % 2 == 1 {
-                    // 单周
-                    for arr in cur.oddWeekArr {
-                        if arr.weekDay != weekDay {
-                            continue
-                        }
-                        for lessonIndex in arr.startsAt...arr.endsAt {
-                            drawBox(id: lessonIndex, population: cur.studentNumber)
-                            arrangement[lessonIndex - 1] = "\(cur.name)\(specialSep)开课院系：\(cur.holderSchool)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
-                        }
+                for arr in cur.arrangements {
+                    if arr.weekDay != weekDay {
+                        continue
                     }
-                } else {
-                    // 双周
-                    for arr in cur.evenWeekArr {
-                        if arr.weekDay != weekDay {
-                            continue
-                        }
-                        for lessonIndex in arr.startsAt...arr.endsAt {
-                            drawBox(id: lessonIndex, population: cur.studentNumber)
-                            arrangement[lessonIndex - 1] = "\(cur.name)\(specialSep)开课院系：\(cur.holderSchool)\n教师：\(cur.teacherName) \(cur.teacherTitle)\n人数：\(cur.studentNumber)"
-                        }
+                    if !arr.weeks.contains(currentWeek) {
+                        continue
+                    }
+
+                    if !arr.classroom.contains(room) {
+                        continue
+                    }
+
+                    for lessonIndex in arr.sessions {
+                        drawBox(id: lessonIndex, population: cur.studentNumber)
+                        arrangement[lessonIndex - 1] = cur
                     }
                 }
             }
@@ -657,7 +638,7 @@ class FullDataViewController: NSViewController {
             detailBox.title = "教室占用情况"
         }
     }
-    
+
     func drawBox(id: Int, population: Int = -1) {
         var color: NSColor?
         var description: String = ""
@@ -731,9 +712,9 @@ class FullDataViewController: NSViewController {
             break
         }
     }
-    
+
     func showCourseInfo(titleMsg: String, infoMsg: String) {
-        if self.view.window! == nil {
+        if view.window == nil {
             return
         }
         let infoAlert: NSAlert = NSAlert()
@@ -741,16 +722,16 @@ class FullDataViewController: NSViewController {
         infoAlert.informativeText = infoMsg
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
-        infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        infoAlert.beginSheetModal(for: view.window!, completionHandler: nil)
     }
-    
+
     static let layoutTable: [NSSize] = [
         NSSize(width: 504, height: 79 + toolBarHeight),
         NSSize(width: 536, height: 363 + 30 + toolBarHeight),
         NSSize(width: 504, height: 290 + 30 + toolBarHeight),
-        NSSize(width: 556, height: 242 + 30 + toolBarHeight)
-        ]
-    
+        NSSize(width: 556, height: 242 + 30 + toolBarHeight),
+    ]
+
     func setLayoutType(_ type: LayoutType) {
 //        self.tableView.alphaValue = 0.0
 //        let frame = self.view.window?.frame
@@ -763,7 +744,7 @@ class FullDataViewController: NSViewController {
 //            NSAnimationContext.runAnimationGroup({ (context) in
 //                self.tableView.animator().alphaValue = 1.0
 //            }, completionHandler: nil)
-////        }
+        ////        }
         if type == .shrink {
             setEnableStats([true, false])
             tableView.selectTabViewItem(at: 3)
@@ -775,77 +756,94 @@ class FullDataViewController: NSViewController {
             tableView.selectTabViewItem(at: tabTitleSeg.selectedSegment)
         }
     }
-    
-    func displayDetail(_ classes: [Curricula]) {
-        for i in classes {
-            NSLog(i.identifier)
+
+    func displayDetail(_ course: NGCurriculum) {
+        var targetGrade: String = "不针对特定年级"
+        if course.targetGrade > 2000 {
+            targetGrade = "\(course.targetGrade) 级"
         }
-        let className = classes[0].name
-        let teacher = classes[0].teacherName + " " + classes[0].teacherTitle
-        let holder = classes[0].holderSchool
-        
-        var declare = ""
-        
-            for cur in classes {
-                var target = "课程 ID：\(cur.identifier)\n"
-                if cur.targetGrade != 0 {
-                    target += "\t面向 \(cur.targetGrade) 级学生\n"
-                }
-                if cur.notes != "" {
-                    target += "附注：\(cur.notes)\n"
-                }
-                var schedule = "\t第 \(cur.startWeek) 至第 \(cur.endWeek) 周"
-                let both = "每周上课，\n"
-                let odd = "之中的单周：\n"
-                let even = "\t双周：\n"
-                var tag = ""
-                if cur.isContinuous() {
-                    tag += both
-                    for arr in cur.oddWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
-                        if arr.classroom != "" {
-                            tag += "，在\(arr.classroom)\n"
-                        } else {
-                            tag += "\n"
-                        }
-                    }
+        var properties: [Property] = [
+            Property(name: "教学班 ID", value: course.identifier),
+            Property(name: "课号", value: course.code),
+            Property(name: "开课院系", value: course.holderSchool),
+            Property(name: "课名", value: course.name),
+            Property(name: "开课学年", value: String(course.year)),
+            Property(name: "开课学期", value: String(course.term)),
+            Property(name: "目标年级", value: targetGrade),
+            Property(name: "教师", value: course.teacher.joined(separator: "、")),
+            Property(name: "课程学分", value: String(format: "%.1f", course.credit)),
+            Property(name: "学生人数", value: String(course.studentNumber))
+        ]
+        let footNotes = course.notes.replacingOccurrences(of: "\n", with: "").sanitize()
+        if footNotes != "" {
+            properties.append(Property(name: "备注", value: footNotes))
+        }
+
+        var counter = 1
+        for arrange in course.arrangements {
+            var weekDescInterp: [String] = []
+            for desc in Beautify.beautifier(array: arrange.weeks) {
+                if desc.0 == desc.1 {
+                    weekDescInterp.append("第 \(desc.0) 周")
                 } else {
-                    tag += odd
-                    for arr in cur.oddWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
-                        if arr.classroom != "" {
-                            tag += "，在\(arr.classroom)\n"
-                        } else {
-                            tag += "\n"
-                        }
-                    }
-                    tag += even
-                    for arr in cur.evenWeekArr {
-                        tag += "\t\t\(dayOfWeekName[arr.weekDay])第 \(arr.startsAt) ~ \(arr.endsAt) 节"
-                        if arr.classroom != "" {
-                            tag += "，在\(arr.classroom)\n"
-                        } else {
-                            tag += "\n"
-                        }
-                    }
+                    weekDescInterp.append("第 \(desc.0) 至第 \(desc.1) 周")
                 }
-                schedule += tag
-                target += schedule
-                declare += target + "\n"
             }
-        declare.removeLast()
-        
-        let infoAlert: NSAlert = NSAlert()
-        infoAlert.messageText = className
-        infoAlert.informativeText = "教师：\(teacher)\n开课院系：\(holder)\n\n\(declare)"
-        infoAlert.addButton(withTitle: "嗯")
-        infoAlert.alertStyle = NSAlert.Style.informational
-        if self.view.window! == nil {
-            return
+            properties.append(Property(name: "排课 #\(counter)", value: weekDescInterp.joined(separator: "、")))
+
+            if arrange.weekDay > 7 || arrange.weekDay < 1 {
+                continue
+            }
+
+            var sessionDescInterp: [String] = []
+            for session in Beautify.beautifier(array: arrange.sessions) {
+                if session.0 == session.1 {
+                    sessionDescInterp.append("第 \(session.0) 节")
+                } else {
+                    sessionDescInterp.append("\(dayOfWeekName[arrange.weekDay])第 \(session.0) 至第 \(session.1) 节")
+                }
+            }
+            properties.append(Property(name: "", value: sessionDescInterp.joined(separator: "、")))
+            properties.append(Property(name: "", value: "\(arrange.campus)校区，\(arrange.classroom)"))
+            counter += 1
         }
-        infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+
+        InspectorKits.showProperties(properties: properties)
+//        for i in classes {
+//            NSLog(i.identifier)
+//        }
+//        let className = classes[0].name
+//        let teacher = classes[0].teacher.joined(separator: "、")
+//        let holder = classes[0].holderSchool
+//
+//        var declare = ""
+//
+//        for cur in classes {
+//            var target = "课程 ID：\(cur.identifier)\n"
+//            if cur.targetGrade != 0 {
+//                target += "\t面向 \(cur.targetGrade) 级学生\n"
+//            }
+//            if cur.notes != "" {
+//                target += "附注：\(cur.notes)\n"
+//            }
+//            for arrange in cur.arrangements {
+//                target += "\(arrange.getWeeksInterpreter())\n\(dayOfWeekName[arrange.weekDay])\(arrange.getSessionsInterpreter())\n\(arrange.campus)校区 \(arrange.classroom)\n\n"
+//            }
+//            declare += target
+//        }
+//        declare.removeLast()
+//
+//        let infoAlert: NSAlert = NSAlert()
+//        infoAlert.messageText = className
+//        infoAlert.informativeText = "教师：\(teacher)\n开课院系：\(holder)\n\n\(declare)"
+//        infoAlert.addButton(withTitle: "嗯")
+//        infoAlert.alertStyle = NSAlert.Style.informational
+//        if view.window == nil {
+//            return
+//        }
+//        infoAlert.beginSheetModal(for: view.window!, completionHandler: nil)
     }
-    
+
     @IBAction func switchSeg(_ sender: NSSegmentedControl) {
         tableView.selectTabViewItem(at: sender.selectedSegment)
         if sender.selectedSegment == 0 {
@@ -856,48 +854,17 @@ class FullDataViewController: NSViewController {
             setLayoutType(.name)
         }
     }
+
     @IBAction func byNameDetail(_ sender: NSButton) {
-        let array = classNameResultSelector.titleOfSelectedItem?.replacingOccurrences(of: "，", with: " ").components(separatedBy: " ")
-        if array?.count != 3 {
-            return
-        }
-        var target: [Curricula] = []
-        for cur in queryCoursesOnName {
-            if cur.name != array![0] {
-                continue
-            }
-            if cur.teacherName != array![1] {
-                continue
-            }
-            if cur.teacherTitle != array![2] {
-                continue
-            }
-            target.append(cur)
-        }
+        let target = queryCoursesOnName[classNameResultSelector.indexOfSelectedItem]
         displayDetail(target)
     }
-    
+
     @IBAction func detailByTeacher(_ sender: NSButton) {
-        let array = teacherResultSelector.titleOfSelectedItem?.replacingOccurrences(of: "，", with: " ").components(separatedBy: " ")
-        if array?.count != 3 {
-            return
-        }
-        var target: [Curricula] = []
-        for cur in queryCoursesOnTeacher {
-            if cur.name != array![0] {
-                continue
-            }
-            if cur.teacherName != array![1] {
-                continue
-            }
-            if cur.teacherTitle != array![2] {
-                continue
-            }
-            target.append(cur)
-        }
+        let target = queryCoursesOnTeacher[teacherResultSelector.indexOfSelectedItem]
         displayDetail(target)
     }
-    
+
     func showDataInfo() {
         if localTimeStamp != "" {
             let infoAlert: NSAlert = NSAlert()
@@ -905,40 +872,65 @@ class FullDataViewController: NSViewController {
             if shouldRequestBeta {
                 infoAlert.informativeText = "(Beta 数据)\n\n"
             }
-            infoAlert.informativeText += "来源：\(possibleUrl)\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
+            infoAlert.informativeText += "来源：\(GalleryKits.possibleUrl ?? "未知")\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
-            if self.view.window! == nil {
+            if view.window == nil {
                 return
             }
-            infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+            infoAlert.beginSheetModal(for: view.window!, completionHandler: nil)
         } else {
             let infoAlert: NSAlert = NSAlert()
             infoAlert.messageText = "数据详情"
             infoAlert.informativeText = "来源：\(possibleUrl)\n\n生成时间：未知\n数据量：\(courses.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
-            if self.view.window! == nil {
+            if view.window == nil {
                 return
             }
-            infoAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+            infoAlert.beginSheetModal(for: view.window!, completionHandler: nil)
         }
     }
-    
+
+    func aggregateData() {
+        for cur in courses {
+            for related in cur.getRelated() {
+                sortClassroom(building: related.strA, campus: related.strB)
+            }
+
+            if !schools.contains(cur.holderSchool) {
+                schools.append(cur.holderSchool)
+            }
+
+            for teacherName in cur.teacher {
+                if !teachers.contains(teacherName) {
+                    if teacherName.sanitize() != "" {
+                        teachers.append(teacherName)
+                    }
+                }
+            }
+
+            if !classnames.contains(cur.name) {
+                if cur.name.sanitize() != "" {
+                    classnames.append(cur.name)
+                }
+            }
+        }
+    }
+
     @IBAction func getTimeStamp(_ sender: NSButton) {
         showDataInfo()
     }
 }
-
 
 extension NSImage {
     convenience init(color: NSColor, size: NSSize) {
         self.init(size: size)
         lockFocus()
         color.drawSwatch(in: NSRect(origin: .zero, size: size))
-        self.draw(in: NSRect(origin: .zero, size: size),
-                 from: NSRect(origin: .zero, size: self.size),
-                 operation: .color, fraction: 1)
+        draw(in: NSRect(origin: .zero, size: size),
+             from: NSRect(origin: .zero, size: self.size),
+             operation: .color, fraction: 1)
         unlockFocus()
     }
 }
@@ -955,27 +947,26 @@ extension NSImage {
             let curIndex: Int? = Int(analyseItem.removeFloorCharacters().prefix(1))
             let numericStr = analyseItem.removeFloorCharacters(true)
             let curBuilding: String? = analyseItem.deleteOccur(remove: numericStr)
-            if (curIndex != nil) {
+            if curIndex != nil {
 //            print("cur: \(curIndex), last: \(lastIndex)")
                 if (lastIndex != nil) && (lastBuilding != nil) {
                     if (curIndex! != lastIndex) || (curBuilding != lastBuilding) {
                         lastIndex = curIndex!
                         lastBuilding = curBuilding!
-    //                    print("should add sep")
-                        self.addItem(withTitle: "MY_MENU_SEPARATOR")
+                        //                    print("should add sep")
+                        addItem(withTitle: "MY_MENU_SEPARATOR")
                     }
                 } else {
                     lastIndex = curIndex
                     lastBuilding = curBuilding
                 }
-                self.addItem(withTitle: item)
+                addItem(withTitle: item)
             } else {
-                 self.addItem(withTitle: item)
+                addItem(withTitle: item)
             }
         }
     }
 }
-
 
 enum LayoutType: Int {
     case shrink = 0
@@ -983,5 +974,3 @@ enum LayoutType: Int {
     case teacher = 2
     case name = 3
 }
-
-

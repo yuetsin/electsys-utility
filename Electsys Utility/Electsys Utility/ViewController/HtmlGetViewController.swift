@@ -79,7 +79,7 @@ class htmlGetViewController: NSViewController {
     }
 
     func showErrorMessage(errorMsg: String) {
-        if self.view.window! == nil {
+        if self.view.window == nil {
             return
         }
         let errorAlert: NSAlert = NSAlert()
