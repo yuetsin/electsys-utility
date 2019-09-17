@@ -19,7 +19,7 @@
  
  - [x] 同步考试信息到日历提醒事件中
  
- - [x] 从 [finda-studyroom](https://github.com/yuxiqian/finda-studyroom) 获取课程数据并分析
+ - [x] 从 [NG-Course](https://github.com/yuetsin/NG-Course) 获取所有课程数据
  
  - [x] 处理闵行、徐汇、卢湾、法华、七宝、临港等校区数据
  
