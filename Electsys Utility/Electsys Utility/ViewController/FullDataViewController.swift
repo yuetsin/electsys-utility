@@ -378,7 +378,7 @@ class FullDataViewController: NSViewController {
             limitSchool = ""
         }
 
-        let teacherName = sanitize(teacherNameCombo.stringValue)
+        let teacherName = teacherNameCombo.stringValue
 
         if teacherName == "" {
             teacherLabel.stringValue = "请确定筛选条件。"
@@ -451,7 +451,7 @@ class FullDataViewController: NSViewController {
     func startNameQuery() {
         queryCoursesOnName.removeAll()
         classNameResultSelector.removeAllItems()
-        let courseName = sanitize(classNameCombo.stringValue)
+        let courseName = classNameCombo.stringValue
         if courseName == "" {
             classNameLabel.stringValue = "请确定筛选条件。"
             classNameResultSelector.isEnabled = false
