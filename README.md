@@ -77,5 +77,8 @@
 ## 查看成绩单
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/成绩单页面.png)
 
+## 偏好设定
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/偏好设置面板.png)
+
 ## 属性检查器
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/属性检查器.png)
