@@ -18,7 +18,7 @@ class FullDataViewController: NSViewController {
 
     var shouldRequestBeta: Bool = false
 
-    var courses: [NGCurriculum] = []
+//    var courses: [NGCurriculum] = []
 
     var queryCoursesOnTeacher: [NGCurriculum] = []
     var queryCoursesOnName: [NGCurriculum] = []
@@ -110,7 +110,7 @@ class FullDataViewController: NSViewController {
     }
 
     func clearLists() {
-        courses.removeAll()
+        GalleryKits.courseList.removeAll()
         schools.removeAll()
         teachers.removeAll()
         classnames.removeAll()
@@ -234,8 +234,7 @@ class FullDataViewController: NSViewController {
             GalleryKits.requestGalleryData(year: yearInt,
                                            term: termInt,
                                            beta: useBeta,
-                                           handler: { courseResult, timeStamp in
-                                               self.courses = courseResult
+                                           handler: { timeStamp in
                                                self.aggregateData()
                                                self.sortLists()
                                                self.localTimeStamp = timeStamp
@@ -389,7 +388,7 @@ class FullDataViewController: NSViewController {
 
         var counter = 1
 
-        for cur in courses {
+        for cur in GalleryKits.courseList {
             if queryCoursesOnTeacher.contains(cur) {
                 continue
             }
@@ -460,7 +459,7 @@ class FullDataViewController: NSViewController {
         }
 
         var counter = 1
-        for cur in courses {
+        for cur in GalleryKits.courseList {
             if !cur.name.contains(courseName) {
                 continue
             }
@@ -615,7 +614,7 @@ class FullDataViewController: NSViewController {
         detailBox.title = "\(roomSelector.selectedItem?.title ?? "某教室")，\(weekSelector.selectedItem?.title ?? "某周")\(weekDaySelector.selectedItem?.title ?? "某日")教室安排情况"
 
         if let room = self.roomSelector.selectedItem?.title.sanitize() {
-            for cur in courses {
+            for cur in GalleryKits.courseList {
                 for arr in cur.arrangements {
                     if arr.weekDay != weekDay {
                         continue
@@ -624,7 +623,7 @@ class FullDataViewController: NSViewController {
                         continue
                     }
 
-                    if !arr.classroom.contains(room) {
+                    if !(arr.classroom.sanitize() == room.sanitize()) {
                         continue
                     }
 
@@ -872,7 +871,7 @@ class FullDataViewController: NSViewController {
             if shouldRequestBeta {
                 infoAlert.informativeText = "(Beta 数据)\n\n"
             }
-            infoAlert.informativeText += "来源：\(GalleryKits.possibleUrl ?? "未知")\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(courses.count)"
+            infoAlert.informativeText += "来源：\(GalleryKits.possibleUrl ?? "未知")\n\n生成时间：\(localTimeStamp) (GMT+08:00)\n数据量：\(GalleryKits.courseList.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
             if view.window == nil {
@@ -882,7 +881,7 @@ class FullDataViewController: NSViewController {
         } else {
             let infoAlert: NSAlert = NSAlert()
             infoAlert.messageText = "数据详情"
-            infoAlert.informativeText = "来源：\(possibleUrl)\n\n生成时间：未知\n数据量：\(courses.count)"
+            infoAlert.informativeText = "来源：\(possibleUrl)\n\n生成时间：未知\n数据量：\(GalleryKits.courseList.count)"
             infoAlert.addButton(withTitle: "嗯")
             infoAlert.alertStyle = NSAlert.Style.informational
             if view.window == nil {
@@ -893,7 +892,7 @@ class FullDataViewController: NSViewController {
     }
 
     func aggregateData() {
-        for cur in courses {
+        for cur in GalleryKits.courseList {
             for related in cur.getRelated() {
                 sortClassroom(building: related.strA, campus: related.strB)
             }

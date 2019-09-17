@@ -12,6 +12,7 @@ import Foundation
 import SwiftyJSON
 
 class GalleryKits {
+    static var courseList: [NGCurriculum] = []
     static let emptyCurriculum = NGCurriculum(identifier: "",
                                               code: "",
                                               holderSchool: "",
@@ -30,7 +31,7 @@ class GalleryKits {
 
     static var possibleUrl: String?
     static func requestGalleryData(year: Int, term: Int, beta: Bool = false,
-                                   handler: @escaping ([NGCurriculum], String) -> Void,
+                                   handler: @escaping (String) -> Void,
                                    failure: @escaping (Int) -> Void) {
         var requestUrl: String?
         if beta {
@@ -46,7 +47,7 @@ class GalleryKits {
                 if jsonResp != nil {
                     let timeStamp = jsonResp?["generate_time"].stringValue
 
-                    var curricula: [NGCurriculum] = []
+                    GalleryKits.courseList.removeAll()
                     for curObject in jsonResp?["data"].arrayValue ?? [] {
                         var arrangements: [NGArrangements] = []
                         for arrObject in curObject["arrangements"].arrayValue {
@@ -72,7 +73,7 @@ class GalleryKits {
                         for teacherObject in curObject["teacher"].arrayValue {
                             teachersLiteral.append(teacherObject.stringValue)
                         }
-                        curricula.append(NGCurriculum(identifier: curObject["identifier"].stringValue,
+                        GalleryKits.courseList.append(NGCurriculum(identifier: curObject["identifier"].stringValue,
                                                       code: curObject["code"].stringValue,
                                                       holderSchool: curObject["holder_school"].stringValue,
                                                       name: curObject["name"].stringValue,
@@ -85,7 +86,7 @@ class GalleryKits {
                                                       studentNumber: curObject["student_number"].intValue,
                                                       notes: curObject["notes"].stringValue))
                     }
-                    handler(curricula, timeStamp ?? "")
+                    handler(timeStamp ?? "")
                 } else {
                     failure(-3)
                 }
