@@ -1,0 +1,3 @@
+[submodule "AppUpdater"]
+	path = AppUpdater
+	url = https://github.com/mxcl/AppUpdater
