@@ -13,7 +13,7 @@ class TableView: BaseView {
 
     var tableView: NSTableView = {
         let table = NSTableView(frame: .zero)
-        table.rowSizeStyle = .large
+//        table.rowSizeStyle = .large
         table.backgroundColor = .clear
 
         let nameColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "nameColumn"))
