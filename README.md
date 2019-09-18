@@ -45,6 +45,8 @@
 
 * [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
+* [macmade/GitHubUpdates](https://github.com/macmade/GitHubUpdates)
+
 # 屏幕截图
 
 ## 使用 jAccount 登录
