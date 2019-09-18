@@ -111,6 +111,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         sheetViewController.successDelegate = self
         sheetViewController.requestType = .score
         self.presentAsSheet(sheetViewController)
+        sheetViewController.enableUI()
     }
 
     func showErrorMessageNormal(errorMsg: String) {

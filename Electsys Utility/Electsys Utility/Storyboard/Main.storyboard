@@ -3612,10 +3612,10 @@ DQ
                 <windowController storyboardIdentifier="Year and Term Selection Window" id="GbB-GS-Off" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jhq-mY-CVn">
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="258" width="480" height="161"/>
+                        <rect key="contentRect" x="196" y="258" width="381" height="183"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
-                        <value key="minSize" type="size" width="480" height="161"/>
-                        <value key="maxSize" type="size" width="480" height="161"/>
+                        <value key="minSize" type="size" width="381" height="183"/>
+                        <value key="maxSize" type="size" width="381" height="183"/>
                         <connections>
                             <outlet property="delegate" destination="GbB-GS-Off" id="0zj-9O-rP0"/>
                         </connections>

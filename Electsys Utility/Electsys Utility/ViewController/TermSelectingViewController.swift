@@ -21,6 +21,25 @@ class TermSelectingViewController: NSViewController {
         // Do view setup here.
         initPopUpLists()
     }
+    
+    override func viewDidAppear() {
+       // any additional code
+       view.window!.styleMask.remove(.resizable)
+    }
+    
+    func disableUI() {
+        yearPopUpSelector.isEnabled = false
+        termPopUpSelector.isEnabled = false
+        OKButton.isEnabled = false
+        cancelButton.isEnabled = false
+    }
+    
+    func enableUI() {
+        yearPopUpSelector.isEnabled = true
+        termPopUpSelector.isEnabled = true
+        OKButton.isEnabled = true
+        cancelButton.isEnabled = true
+    }
 
     var requestType: RequestType?
 
@@ -53,6 +72,7 @@ class TermSelectingViewController: NSViewController {
     }
 
     @IBAction func OKButtonTapped(_ sender: NSButton) {
+        disableUI()
         switch requestType {
         case .course:
             let actualYear = 1995 + yearPopUpSelector.numberOfItems - yearPopUpSelector.indexOfSelectedItem
@@ -64,6 +84,7 @@ class TermSelectingViewController: NSViewController {
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的课表信息。\n错误代码：\(errCode)")
+                                            self.enableUI()
             })
             break
         case .exam:
@@ -78,6 +99,7 @@ class TermSelectingViewController: NSViewController {
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的成绩单。\n错误代码：\(errCode)")
+                                            self.enableUI()
             })
             break
         default:
