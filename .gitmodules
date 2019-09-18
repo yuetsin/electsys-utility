@@ -1,3 +1,6 @@
 [submodule "AppUpdater"]
 	path = AppUpdater
 	url = https://github.com/mxcl/AppUpdater
+[submodule "Version"]
+	path = Version
+	url = https://github.com/mxcl/Version

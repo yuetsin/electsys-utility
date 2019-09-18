@@ -15,6 +15,7 @@
 		8A0AE466232A016200CE9E3A /* LoginKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE465232A016200CE9E3A /* LoginKits.swift */; };
 		8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE467232A017600CE9E3A /* LoginConst.swift */; };
 		8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A17ADAB232BAF530077DDCF /* RMBlurredView.m */; };
+		8A2553392332116100DC11C6 /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2553382332116100DC11C6 /* AppUpdater.swift */; };
 		8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */; };
 		8A27D733232E51D8005AF5CA /* ExamKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D732232E51D8005AF5CA /* ExamKits.swift */; };
 		8A27D735232E51E0005AF5CA /* ExamConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D734232E51E0005AF5CA /* ExamConst.swift */; };
@@ -53,6 +54,11 @@
 		8A4A22E521362EB00064488C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E421362EB00064488C /* Assets.xcassets */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */; };
+		8A6E468B233212A600141C91 /* Version+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4686233212A600141C91 /* Version+Codable.swift */; };
+		8A6E468C233212A600141C91 /* Version+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4687233212A600141C91 /* Version+Comparable.swift */; };
+		8A6E468D233212A600141C91 /* Version+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4688233212A600141C91 /* Version+Foundation.swift */; };
+		8A6E468E233212A600141C91 /* Version+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4689233212A600141C91 /* Version+Range.swift */; };
+		8A6E468F233212A600141C91 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E468A233212A600141C91 /* Version.swift */; };
 		8A6E58A92138054D00FF38CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E58A82138054D00FF38CF /* Course.swift */; };
 		8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */; };
 		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
@@ -90,6 +96,7 @@
 		8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Electsys Utility-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A17ADAB232BAF530077DDCF /* RMBlurredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBlurredView.m; sourceTree = "<group>"; };
 		8A17ADAC232BAF540077DDCF /* RMBlurredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBlurredView.h; sourceTree = "<group>"; };
+		8A2553382332116100DC11C6 /* AppUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUpdater.swift; path = ../AppUpdater/AppUpdater.swift; sourceTree = "<group>"; };
 		8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithSeparator.swift; sourceTree = "<group>"; };
 		8A27D732232E51D8005AF5CA /* ExamKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamKits.swift; sourceTree = "<group>"; };
 		8A27D734232E51E0005AF5CA /* ExamConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamConst.swift; sourceTree = "<group>"; };
@@ -130,6 +137,11 @@
 		8A4A22E921362EB00064488C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyLoginHelper.swift; sourceTree = "<group>"; };
+		8A6E4686233212A600141C91 /* Version+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Version+Codable.swift"; sourceTree = "<group>"; };
+		8A6E4687233212A600141C91 /* Version+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Version+Comparable.swift"; sourceTree = "<group>"; };
+		8A6E4688233212A600141C91 /* Version+Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Version+Foundation.swift"; sourceTree = "<group>"; };
+		8A6E4689233212A600141C91 /* Version+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Version+Range.swift"; sourceTree = "<group>"; };
+		8A6E468A233212A600141C91 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		8A6E58A82138054D00FF38CF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlGetViewController.swift; sourceTree = "<group>"; };
 		8A7F528A2137D65A00FBA008 /* SchoolTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTime.swift; sourceTree = "<group>"; };
@@ -358,6 +370,8 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
+				8A6E4685233212A600141C91 /* Sources */,
+				8A2553382332116100DC11C6 /* AppUpdater.swift */,
 				8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */,
 				8A0AE461232A003900CE9E3A /* BlurView */,
 				8A4A22DC21362EAF0064488C /* Electsys Utility */,
@@ -429,6 +443,19 @@
 				8A8EE6D92330D5E0007DD732 /* ArrayBeautify.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8A6E4685233212A600141C91 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E4686233212A600141C91 /* Version+Codable.swift */,
+				8A6E4687233212A600141C91 /* Version+Comparable.swift */,
+				8A6E4688233212A600141C91 /* Version+Foundation.swift */,
+				8A6E4689233212A600141C91 /* Version+Range.swift */,
+				8A6E468A233212A600141C91 /* Version.swift */,
+			);
+			name = Sources;
+			path = ../Version/Sources;
 			sourceTree = "<group>";
 		};
 		8AB4A34D21375FDE00F7F382 /* LegacyScheduleKits */ = {
@@ -593,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A27D735232E51E0005AF5CA /* ExamConst.swift in Sources */,
+				8A6E468D233212A600141C91 /* Version+Foundation.swift in Sources */,
 				8A397DD021410CFB00AE297A /* Exam.swift in Sources */,
 				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
@@ -602,8 +630,10 @@
 				8A33CF11232F2C0900BD6826 /* FeedBackViewController.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
 				8A09A488214E1787008EC502 /* [deprecated] JsonRequester.swift in Sources */,
+				8A6E468C233212A600141C91 /* Version+Comparable.swift in Sources */,
 				8A397DC72140B87400AE297A /* Teacher.swift in Sources */,
 				8A397DCE2140D7F400AE297A /* ExamSyncHelper.swift in Sources */,
+				8A6E468F233212A600141C91 /* Version.swift in Sources */,
 				8A27D75C232E7A92005AF5CA /* PreferencesViewController.swift in Sources */,
 				8A33CF0B232F1F3B00BD6826 /* InspectorKits.swift in Sources */,
 				8AA79CE721D70F1E007D272B /* MainViewController.swift in Sources */,
@@ -616,6 +646,7 @@
 				8A33CF0F232F1F9C00BD6826 /* InspectedProperties.swift in Sources */,
 				8A33CF04232F1E8B00BD6826 /* TableViewController.swift in Sources */,
 				8A33CF02232F1E8B00BD6826 /* AdapterTableView.swift in Sources */,
+				8A2553392332116100DC11C6 /* AppUpdater.swift in Sources */,
 				8A33CF05232F1E8B00BD6826 /* TableView.swift in Sources */,
 				8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
@@ -631,6 +662,7 @@
 				8A33CF08232F1E8B00BD6826 /* BaseView.swift in Sources */,
 				8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */,
 				8A04055D213984050060F93A /* SchoolDay.swift in Sources */,
+				8A6E468E233212A600141C91 /* Version+Range.swift in Sources */,
 				8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */,
 				8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */,
 				8A359902232E25B000FA0786 /* NGCourse.swift in Sources */,
@@ -646,6 +678,7 @@
 				8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */,
 				8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */,
 				8A27D73A232E5388005AF5CA /* ScoreKits.swift in Sources */,
+				8A6E468B233212A600141C91 /* Version+Codable.swift in Sources */,
 				8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */,
 				8A424A3A23309ADC00B7975B /* GalleryKits.swift in Sources */,
 				8AAB6F582172FA4C00D0FF61 /* TransparentTitleWindowController.swift in Sources */,

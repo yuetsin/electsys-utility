@@ -9,6 +9,7 @@
 import Foundation
 
 class PreferenceKits {
+    
     static func registerPreferenceKeys() {
         UserDefaults.standard.register(defaults: [
             "gpaStrategy" : GPACalculationStrategy.SJTU_4_3.rawValue,

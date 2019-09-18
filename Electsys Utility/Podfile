@@ -6,4 +6,8 @@ target 'Electsys Utility' do
   pod 'Kanna', '~> 4.0.0'
   pod 'Alamofire'
   pod 'Alamofire-SwiftyJSON'
+  pod "PromiseKit/Foundation", "~> 6.0"
+  pod "PromiseKit", "~> 6.8"
+  pod 'Path.swift', '~> 0.13'
+  
 end
