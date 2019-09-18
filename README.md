@@ -46,19 +46,6 @@
 * [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
 # 屏幕截图
-## 免登录浏览课程库
-
-### 按教室
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按教室筛选.png)
-
-### 按教师
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按教师筛选.png)
-
-### 按课程名称
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按课名筛选.png)
-
-## 同步课程到系统日历
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/系统日历.png)
 
 ## 使用 jAccount 登录
 > 通过 jAccount 账号和密码来获取课程信息、考试安排
@@ -76,5 +63,22 @@
 ## 偏好设定
 ![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/偏好设置面板.png)
 
+## 免登录浏览课程库
+
+### 按教室
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按教室筛选.png)
+
+### 按教师
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按教师筛选.png)
+
+### 按课程名称
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/按课名筛选.png)
+
+## 同步课程到系统日历
+![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/系统日历.png)
+
 ## 属性检查器
-![](https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/属性检查器.png)
+
+<div align=center>
+    <img width="300" src="https://raw.githubusercontent.com/yuxiqian/electsys-utility/master/Electsys%20Utility/Screenshots/属性检查器.png"/>
+</div>
