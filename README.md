@@ -11,7 +11,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/yuetsin/electsys-utility?include_prereleases&style=flat-square)
 ![App Platform: macOS 10.12 and above](https://img.shields.io/badge/macOS-10.12%2B-brightgreen?style=flat-square)
 ![Swift Version: 5.0](https://img.shields.io/badge/swift-v5.0-orange.svg?style=flat-square)
-![License: MIT](https://img.shields.io/badge/license-MIT-grey.svg?style=flat-square)
+![GitHub](https://img.shields.io/github/license/yuetsin/electsys-utility?color=grey&style=flat-square)
 
 # 功能
 
@@ -28,10 +28,6 @@
 # 已知问题
 
 * 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱同步的日历）时会产生异常。请尽量使用 iCloud 或 Outlook 提供的 CalDAV 服务。
-
-* 2017 年秋季学期开始前，教务处对部分教室的门牌号进行了调整。由于缺乏必要信息，无法给出进一步提示。
-
-* 在 2016 到 2017 年的春季学期教改并产生暑期小学期之前，每个学期并不只有 16 个星期。
 
 # 致谢
 
