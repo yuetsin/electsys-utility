@@ -26,10 +26,6 @@
 		8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D759232E61A3005AF5CA /* GPAKits.swift */; };
 		8A27D75C232E7A92005AF5CA /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D75B232E7A92005AF5CA /* PreferencesViewController.swift */; };
 		8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */; };
-		8A33CF02232F1E8B00BD6826 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */; };
-		8A33CF04232F1E8B00BD6826 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */; };
-		8A33CF05232F1E8B00BD6826 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEFA232F1E8A00BD6826 /* TableView.swift */; };
-		8A33CF08232F1E8B00BD6826 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CEFF232F1E8A00BD6826 /* BaseView.swift */; };
 		8A33CF0B232F1F3B00BD6826 /* InspectorKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CF0A232F1F3B00BD6826 /* InspectorKits.swift */; };
 		8A33CF0F232F1F9C00BD6826 /* InspectedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CF0E232F1F9C00BD6826 /* InspectedProperties.swift */; };
 		8A33CF11232F2C0900BD6826 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33CF10232F2C0900BD6826 /* FeedBackViewController.swift */; };
@@ -53,6 +49,10 @@
 		8A4A22E521362EB00064488C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E421362EB00064488C /* Assets.xcassets */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */; };
+		8A6E46A7233242DE00141C91 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A0233242DD00141C91 /* AdapterTableView.swift */; };
+		8A6E46A8233242DE00141C91 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A2233242DD00141C91 /* BaseView.swift */; };
+		8A6E46A9233242DE00141C91 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A3233242DD00141C91 /* TableView.swift */; };
+		8A6E46AA233242DE00141C91 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A4233242DD00141C91 /* TableViewController.swift */; };
 		8A6E58A92138054D00FF38CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E58A82138054D00FF38CF /* Course.swift */; };
 		8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */; };
 		8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F528A2137D65A00FBA008 /* SchoolTime.swift */; };
@@ -74,6 +74,23 @@
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */; };
+		8AF47F45233269F800F00E28 /* GitHubInstallWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F23233269F700F00E28 /* GitHubInstallWindowController.m */; };
+		8AF47F46233269F800F00E28 /* GitHubProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F25233269F800F00E28 /* GitHubProgressWindowController.m */; };
+		8AF47F47233269F800F00E28 /* GitHubRelease.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F27233269F800F00E28 /* GitHubRelease.m */; };
+		8AF47F48233269F800F00E28 /* GitHubReleaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F29233269F800F00E28 /* GitHubReleaseAsset.m */; };
+		8AF47F49233269F800F00E28 /* GitHubUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F2B233269F800F00E28 /* GitHubUpdater.m */; };
+		8AF47F4A233269F800F00E28 /* GitHubVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F2F233269F800F00E28 /* GitHubVersion.m */; };
+		8AF47F4B233269F800F00E28 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AF47F30233269F800F00E28 /* Info.plist */; };
+		8AF47F4C233269F800F00E28 /* GitHubInstallWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF47F32233269F800F00E28 /* GitHubInstallWindowController.xib */; };
+		8AF47F4D233269F800F00E28 /* GitHubProgressWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF47F34233269F800F00E28 /* GitHubProgressWindowController.xib */; };
+		8AF47F4E233269F800F00E28 /* GitHubTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF47F37233269F800F00E28 /* GitHubTemplate.pdf */; };
+		8AF47F4F233269F800F00E28 /* Install.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF47F38233269F800F00E28 /* Install.pdf */; };
+		8AF47F50233269F800F00E28 /* NSAttributedString+GitHubUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F3A233269F800F00E28 /* NSAttributedString+GitHubUpdates.m */; };
+		8AF47F51233269F800F00E28 /* NSBundle+GitHubUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F3C233269F800F00E28 /* NSBundle+GitHubUpdates.m */; };
+		8AF47F52233269F800F00E28 /* NSError+GitHubUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F3E233269F800F00E28 /* NSError+GitHubUpdates.m */; };
+		8AF47F53233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F40233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.m */; };
+		8AF47F54233269F800F00E28 /* NSString+GitHubUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F42233269F800F00E28 /* NSString+GitHubUpdates.m */; };
+		8AF47F55233269F800F00E28 /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F44233269F800F00E28 /* Pair.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,10 +118,6 @@
 		8A27D759232E61A3005AF5CA /* GPAKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAKits.swift; sourceTree = "<group>"; };
 		8A27D75B232E7A92005AF5CA /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		8A2F1DFA21BD0FFC00978643 /* FullDataWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataWindowController.swift; sourceTree = "<group>"; };
-		8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
-		8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		8A33CEFA232F1E8A00BD6826 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		8A33CEFF232F1E8A00BD6826 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		8A33CF0A232F1F3B00BD6826 /* InspectorKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorKits.swift; sourceTree = "<group>"; };
 		8A33CF0E232F1F9C00BD6826 /* InspectedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectedProperties.swift; sourceTree = "<group>"; };
 		8A33CF10232F2C0900BD6826 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +143,10 @@
 		8A4A22E921362EB00064488C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyLoginHelper.swift; sourceTree = "<group>"; };
+		8A6E46A0233242DD00141C91 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
+		8A6E46A2233242DD00141C91 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		8A6E46A3233242DD00141C91 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		8A6E46A4233242DD00141C91 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		8A6E58A82138054D00FF38CF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlGetViewController.swift; sourceTree = "<group>"; };
 		8A7F528A2137D65A00FBA008 /* SchoolTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTime.swift; sourceTree = "<group>"; };
@@ -154,6 +171,37 @@
 		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
 		8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyHtmlParser.swift; sourceTree = "<group>"; };
+		8AF47F22233269F700F00E28 /* GitHubInstallWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubInstallWindowController.h; sourceTree = "<group>"; };
+		8AF47F23233269F700F00E28 /* GitHubInstallWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubInstallWindowController.m; sourceTree = "<group>"; };
+		8AF47F24233269F800F00E28 /* GitHubProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubProgressWindowController.h; sourceTree = "<group>"; };
+		8AF47F25233269F800F00E28 /* GitHubProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubProgressWindowController.m; sourceTree = "<group>"; };
+		8AF47F26233269F800F00E28 /* GitHubRelease.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubRelease.h; sourceTree = "<group>"; };
+		8AF47F27233269F800F00E28 /* GitHubRelease.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubRelease.m; sourceTree = "<group>"; };
+		8AF47F28233269F800F00E28 /* GitHubReleaseAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubReleaseAsset.h; sourceTree = "<group>"; };
+		8AF47F29233269F800F00E28 /* GitHubReleaseAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubReleaseAsset.m; sourceTree = "<group>"; };
+		8AF47F2A233269F800F00E28 /* GitHubUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUpdater.h; sourceTree = "<group>"; };
+		8AF47F2B233269F800F00E28 /* GitHubUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubUpdater.m; sourceTree = "<group>"; };
+		8AF47F2C233269F800F00E28 /* GitHubUpdaterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUpdaterDelegate.h; sourceTree = "<group>"; };
+		8AF47F2D233269F800F00E28 /* GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubUpdates.h; sourceTree = "<group>"; };
+		8AF47F2E233269F800F00E28 /* GitHubVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubVersion.h; sourceTree = "<group>"; };
+		8AF47F2F233269F800F00E28 /* GitHubVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubVersion.m; sourceTree = "<group>"; };
+		8AF47F30233269F800F00E28 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AF47F33233269F800F00E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GitHubInstallWindowController.xib; sourceTree = "<group>"; };
+		8AF47F35233269F800F00E28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GitHubProgressWindowController.xib; sourceTree = "<group>"; };
+		8AF47F37233269F800F00E28 /* GitHubTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = GitHubTemplate.pdf; sourceTree = "<group>"; };
+		8AF47F38233269F800F00E28 /* Install.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Install.pdf; sourceTree = "<group>"; };
+		8AF47F39233269F800F00E28 /* NSAttributedString+GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+GitHubUpdates.h"; sourceTree = "<group>"; };
+		8AF47F3A233269F800F00E28 /* NSAttributedString+GitHubUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+GitHubUpdates.m"; sourceTree = "<group>"; };
+		8AF47F3B233269F800F00E28 /* NSBundle+GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+GitHubUpdates.h"; sourceTree = "<group>"; };
+		8AF47F3C233269F800F00E28 /* NSBundle+GitHubUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+GitHubUpdates.m"; sourceTree = "<group>"; };
+		8AF47F3D233269F800F00E28 /* NSError+GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+GitHubUpdates.h"; sourceTree = "<group>"; };
+		8AF47F3E233269F800F00E28 /* NSError+GitHubUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+GitHubUpdates.m"; sourceTree = "<group>"; };
+		8AF47F3F233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+GitHubUpdates.h"; sourceTree = "<group>"; };
+		8AF47F40233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+GitHubUpdates.m"; sourceTree = "<group>"; };
+		8AF47F41233269F800F00E28 /* NSString+GitHubUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GitHubUpdates.h"; sourceTree = "<group>"; };
+		8AF47F42233269F800F00E28 /* NSString+GitHubUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GitHubUpdates.m"; sourceTree = "<group>"; };
+		8AF47F43233269F800F00E28 /* Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
+		8AF47F44233269F800F00E28 /* Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 		98F9E28D0C6712645ED2C4D2 /* Pods-Electsys Utility.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Electsys Utility.release.xcconfig"; path = "Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility.release.xcconfig"; sourceTree = "<group>"; };
 		9DC9CE2F64C043C009C22FAA /* Pods-Electsys Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Electsys Utility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility.debug.xcconfig"; sourceTree = "<group>"; };
 		B219B33155D0D7A3C6BDC304 /* Pods-Sync Utility.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sync Utility.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sync Utility/Pods-Sync Utility.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,7 +258,6 @@
 			children = (
 				8A17ADAC232BAF540077DDCF /* RMBlurredView.h */,
 				8A17ADAB232BAF530077DDCF /* RMBlurredView.m */,
-				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
 			);
 			path = BlurView;
 			sourceTree = "<group>";
@@ -251,34 +298,6 @@
 				8A27D759232E61A3005AF5CA /* GPAKits.swift */,
 			);
 			path = ScoreKits;
-			sourceTree = "<group>";
-		};
-		8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */ = {
-			isa = PBXGroup;
-			children = (
-				8A33CEF5232F1E8A00BD6826 /* Adapter */,
-				8A33CEF9232F1E8A00BD6826 /* TableViewController.swift */,
-				8A33CEFA232F1E8A00BD6826 /* TableView.swift */,
-				8A33CEFE232F1E8A00BD6826 /* Base */,
-			);
-			name = AdaptableTableView;
-			path = "../../../../../../../../Users/yue/Downloads/NSTableView-master/AdaptableTableView";
-			sourceTree = "<group>";
-		};
-		8A33CEF5232F1E8A00BD6826 /* Adapter */ = {
-			isa = PBXGroup;
-			children = (
-				8A33CEF6232F1E8A00BD6826 /* AdapterTableView.swift */,
-			);
-			path = Adapter;
-			sourceTree = "<group>";
-		};
-		8A33CEFE232F1E8A00BD6826 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				8A33CEFF232F1E8A00BD6826 /* BaseView.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		8A33CF09232F1F2F00BD6826 /* InspectorKits */ = {
@@ -358,7 +377,9 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
-				8A33CEF1232F1E8A00BD6826 /* AdaptableTableView */,
+				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
+				8AF47F20233269F700F00E28 /* GitHubUpdate */,
+				8A6E469E233242DD00141C91 /* AdaptableTableView */,
 				8A0AE461232A003900CE9E3A /* BlurView */,
 				8A4A22DC21362EAF0064488C /* Electsys Utility */,
 				8A4A22DB21362EAF0064488C /* Products */,
@@ -431,6 +452,33 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		8A6E469E233242DD00141C91 /* AdaptableTableView */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E469F233242DD00141C91 /* Adapter */,
+				8A6E46A1233242DD00141C91 /* Base */,
+				8A6E46A3233242DD00141C91 /* TableView.swift */,
+				8A6E46A4233242DD00141C91 /* TableViewController.swift */,
+			);
+			path = AdaptableTableView;
+			sourceTree = "<group>";
+		};
+		8A6E469F233242DD00141C91 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E46A0233242DD00141C91 /* AdapterTableView.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		8A6E46A1233242DD00141C91 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E46A2233242DD00141C91 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		8AB4A34D21375FDE00F7F382 /* LegacyScheduleKits */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +489,69 @@
 				8ACEEB05213CB04200A7776E /* RandomNames.swift */,
 			);
 			path = LegacyScheduleKits;
+			sourceTree = "<group>";
+		};
+		8AF47F20233269F700F00E28 /* GitHubUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				8AF47F21233269F700F00E28 /* Source */,
+			);
+			name = GitHubUpdate;
+			path = ../GitHubUpdate;
+			sourceTree = "<group>";
+		};
+		8AF47F21233269F700F00E28 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8AF47F22233269F700F00E28 /* GitHubInstallWindowController.h */,
+				8AF47F23233269F700F00E28 /* GitHubInstallWindowController.m */,
+				8AF47F24233269F800F00E28 /* GitHubProgressWindowController.h */,
+				8AF47F25233269F800F00E28 /* GitHubProgressWindowController.m */,
+				8AF47F26233269F800F00E28 /* GitHubRelease.h */,
+				8AF47F27233269F800F00E28 /* GitHubRelease.m */,
+				8AF47F28233269F800F00E28 /* GitHubReleaseAsset.h */,
+				8AF47F29233269F800F00E28 /* GitHubReleaseAsset.m */,
+				8AF47F2A233269F800F00E28 /* GitHubUpdater.h */,
+				8AF47F2B233269F800F00E28 /* GitHubUpdater.m */,
+				8AF47F2C233269F800F00E28 /* GitHubUpdaterDelegate.h */,
+				8AF47F2D233269F800F00E28 /* GitHubUpdates.h */,
+				8AF47F2E233269F800F00E28 /* GitHubVersion.h */,
+				8AF47F2F233269F800F00E28 /* GitHubVersion.m */,
+				8AF47F30233269F800F00E28 /* Info.plist */,
+				8AF47F31233269F800F00E28 /* Interface */,
+				8AF47F39233269F800F00E28 /* NSAttributedString+GitHubUpdates.h */,
+				8AF47F3A233269F800F00E28 /* NSAttributedString+GitHubUpdates.m */,
+				8AF47F3B233269F800F00E28 /* NSBundle+GitHubUpdates.h */,
+				8AF47F3C233269F800F00E28 /* NSBundle+GitHubUpdates.m */,
+				8AF47F3D233269F800F00E28 /* NSError+GitHubUpdates.h */,
+				8AF47F3E233269F800F00E28 /* NSError+GitHubUpdates.m */,
+				8AF47F3F233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.h */,
+				8AF47F40233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.m */,
+				8AF47F41233269F800F00E28 /* NSString+GitHubUpdates.h */,
+				8AF47F42233269F800F00E28 /* NSString+GitHubUpdates.m */,
+				8AF47F43233269F800F00E28 /* Pair.h */,
+				8AF47F44233269F800F00E28 /* Pair.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8AF47F31233269F800F00E28 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8AF47F32233269F800F00E28 /* GitHubInstallWindowController.xib */,
+				8AF47F34233269F800F00E28 /* GitHubProgressWindowController.xib */,
+				8AF47F36233269F800F00E28 /* Images */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		8AF47F36233269F800F00E28 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8AF47F37233269F800F00E28 /* GitHubTemplate.pdf */,
+				8AF47F38233269F800F00E28 /* Install.pdf */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		CEBAC5F7F8148695C76C2836 /* Frameworks */ = {
@@ -533,8 +644,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF47F4C233269F800F00E28 /* GitHubInstallWindowController.xib in Resources */,
 				8AAD7F1C21D4D05C0019E9F8 /* Main.storyboard in Resources */,
 				8A4A22E521362EB00064488C /* Assets.xcassets in Resources */,
+				8AF47F4E233269F800F00E28 /* GitHubTemplate.pdf in Resources */,
+				8AF47F4F233269F800F00E28 /* Install.pdf in Resources */,
+				8AF47F4B233269F800F00E28 /* Info.plist in Resources */,
+				8AF47F4D233269F800F00E28 /* GitHubProgressWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,49 +727,80 @@
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
 				8A3598FC232E1C9300FA0786 /* IdentityKits.swift in Sources */,
 				8A044789218D40D800BAB188 /* AboutViewController.swift in Sources */,
+				8AF47F4A233269F800F00E28 /* GitHubVersion.m in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
 				8A33CF0F232F1F9C00BD6826 /* InspectedProperties.swift in Sources */,
-				8A33CF04232F1E8B00BD6826 /* TableViewController.swift in Sources */,
-				8A33CF02232F1E8B00BD6826 /* AdapterTableView.swift in Sources */,
-				8A33CF05232F1E8B00BD6826 /* TableView.swift in Sources */,
 				8A3598F9232E1B0C00FA0786 /* CourseConst.swift in Sources */,
+				8A6E46AA233242DE00141C91 /* TableViewController.swift in Sources */,
+				8AF47F47233269F800F00E28 /* GitHubRelease.m in Sources */,
+				8AF47F49233269F800F00E28 /* GitHubUpdater.m in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
 				8A27D733232E51D8005AF5CA /* ExamKits.swift in Sources */,
 				8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */,
 				8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */,
+				8A6E46A9233242DE00141C91 /* TableView.swift in Sources */,
 				8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */,
 				8A359900232E1D9A00FA0786 /* PreferenceKits.swift in Sources */,
+				8AF47F50233269F800F00E28 /* NSAttributedString+GitHubUpdates.m in Sources */,
 				8AB95213232936D80034C304 /* TermSelectingViewController.swift in Sources */,
+				8AF47F48233269F800F00E28 /* GitHubReleaseAsset.m in Sources */,
 				8A27D75A232E61A3005AF5CA /* GPAKits.swift in Sources */,
+				8AF47F51233269F800F00E28 /* NSBundle+GitHubUpdates.m in Sources */,
 				8A397DC92140B9C600AE297A /* CourseAnalyse.swift in Sources */,
 				8A3598F7232E1AC100FA0786 /* CourseKits.swift in Sources */,
-				8A33CF08232F1E8B00BD6826 /* BaseView.swift in Sources */,
+				8A6E46A7233242DE00141C91 /* AdapterTableView.swift in Sources */,
 				8A2F1DFB21BD0FFC00978643 /* FullDataWindowController.swift in Sources */,
 				8A04055D213984050060F93A /* SchoolDay.swift in Sources */,
 				8A397DCB2140D6E500AE297A /* ExamSyncViewController.swift in Sources */,
+				8AF47F55233269F800F00E28 /* Pair.m in Sources */,
 				8A747FF92137AB3800AB67BB /* HtmlGetViewController.swift in Sources */,
 				8A359902232E25B000FA0786 /* NGCourse.swift in Sources */,
 				8A44513121366418000156BD /* AppUtils.swift in Sources */,
+				8AF47F52233269F800F00E28 /* NSError+GitHubUpdates.m in Sources */,
 				8A424A3823309A8F00B7975B /* NGCurriculum.swift in Sources */,
 				8A27D740232E5640005AF5CA /* ScoreQueryViewController.swift in Sources */,
 				8A49F6AA21D4C47700010816 /* CurriculaHelper.swift in Sources */,
 				8A27D737232E51E7005AF5CA /* NGExam.swift in Sources */,
 				8A27D73E232E5394005AF5CA /* NGScore.swift in Sources */,
 				8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */,
+				8A6E46A8233242DE00141C91 /* BaseView.swift in Sources */,
+				8AF47F45233269F800F00E28 /* GitHubInstallWindowController.m in Sources */,
+				8AF47F46233269F800F00E28 /* GitHubProgressWindowController.m in Sources */,
 				8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */,
 				8A8EE6DA2330D5E0007DD732 /* ArrayBeautify.swift in Sources */,
 				8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */,
 				8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */,
 				8A27D73A232E5388005AF5CA /* ScoreKits.swift in Sources */,
+				8AF47F54233269F800F00E28 /* NSString+GitHubUpdates.m in Sources */,
 				8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */,
 				8A424A3A23309ADC00B7975B /* GalleryKits.swift in Sources */,
 				8AAB6F582172FA4C00D0FF61 /* TransparentTitleWindowController.swift in Sources */,
+				8AF47F53233269F800F00E28 /* NSMutableAttributedString+GitHubUpdates.m in Sources */,
 				8A27D73C232E538E005AF5CA /* ScoreConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8AF47F32233269F800F00E28 /* GitHubInstallWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AF47F33233269F800F00E28 /* Base */,
+			);
+			name = GitHubInstallWindowController.xib;
+			sourceTree = "<group>";
+		};
+		8AF47F34233269F800F00E28 /* GitHubProgressWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AF47F35233269F800F00E28 /* Base */,
+			);
+			name = GitHubProgressWindowController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8A4A22EB21362EB00064488C /* Debug */ = {
@@ -782,17 +929,17 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 79;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.9.2;
+				MARKETING_VERSION = v0.9.3;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "BlurView/Electsys Utility-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Electsys Utility-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -808,17 +955,17 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 76;
+				CURRENT_PROJECT_VERSION = 79;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.9.2;
+				MARKETING_VERSION = v0.9.3;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "BlurView/Electsys Utility-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Electsys Utility-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

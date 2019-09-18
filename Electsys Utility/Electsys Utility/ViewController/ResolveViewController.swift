@@ -62,6 +62,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         sheetViewController.successDelegate = self
         sheetViewController.requestType = .course
         self.presentAsSheet(sheetViewController)
+        sheetViewController.enableUI()
     }
     
     lazy var sheetViewController: TermSelectingViewController = {

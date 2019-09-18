@@ -12,6 +12,13 @@ class AboutViewController: NSViewController {
     
     var windowController: NSWindowController?
     
+    static var updater: GitHubUpdater {
+        let updater = GitHubUpdater()
+        updater.user = "yuetsin"
+        updater.repository = "electsys-utility"
+        return updater
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -44,6 +51,10 @@ class AboutViewController: NSViewController {
     
     @IBAction func shutWindow(_ sender: NSButton) {
         self.view.window?.close()
+    }
+    
+    @IBAction func checkForUpdates(_ sender: NSButton) {
+        AboutViewController.updater.checkForUpdates(sender)
     }
     
     
