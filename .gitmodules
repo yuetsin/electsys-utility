@@ -4,3 +4,6 @@
 [submodule "Version"]
 	path = Version
 	url = https://github.com/mxcl/Version
+[submodule "GitHubUpdates"]
+	path = GitHubUpdates
+	url = https://github.com/macmade/GitHubUpdates
