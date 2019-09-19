@@ -32,6 +32,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class VersionComparer;
+
 /*!
  * @class       GitHubUpdater
  * @abstract    GitHub updater class.

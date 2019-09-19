@@ -45,6 +45,10 @@
 
 * [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
+* [LinusU/node-appdmg](https://github.com/LinusU/node-appdmg)
+
+* [mxcl/Version](https://github.com/mxcl/Version)
+
 * [macmade/GitHubUpdates](https://github.com/macmade/GitHubUpdates)
 
 # 屏幕截图
