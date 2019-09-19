@@ -49,6 +49,7 @@
 		8A4A22E521362EB00064488C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A4A22E421362EB00064488C /* Assets.xcassets */; };
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */; };
+		8A5029B02333109600C4C266 /* VersionComparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5029AF2333109600C4C266 /* VersionComparer.swift */; };
 		8A6E46A7233242DE00141C91 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A0233242DD00141C91 /* AdapterTableView.swift */; };
 		8A6E46A8233242DE00141C91 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A2233242DD00141C91 /* BaseView.swift */; };
 		8A6E46A9233242DE00141C91 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A3233242DD00141C91 /* TableView.swift */; };
@@ -143,6 +144,7 @@
 		8A4A22E921362EB00064488C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyLoginHelper.swift; sourceTree = "<group>"; };
+		8A5029AF2333109600C4C266 /* VersionComparer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionComparer.swift; sourceTree = "<group>"; };
 		8A6E46A0233242DD00141C91 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
 		8A6E46A2233242DD00141C91 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		8A6E46A3233242DD00141C91 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
+				8A5029AF2333109600C4C266 /* VersionComparer.swift */,
 				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
 				8AF47F20233269F700F00E28 /* GitHubUpdate */,
 				8A6E469E233242DD00141C91 /* AdaptableTableView */,
@@ -669,6 +672,7 @@
 				"${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Version/Version.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -677,6 +681,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Regex.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Version.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -708,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5029B02333109600C4C266 /* VersionComparer.swift in Sources */,
 				8A27D735232E51E0005AF5CA /* ExamConst.swift in Sources */,
 				8A397DD021410CFB00AE297A /* Exam.swift in Sources */,
 				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
