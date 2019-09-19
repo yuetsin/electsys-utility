@@ -766,8 +766,8 @@ class FullDataViewController: NSViewController {
             Property(name: "课号", value: course.code),
             Property(name: "开课院系", value: course.holderSchool),
             Property(name: "课名", value: course.name),
-            Property(name: "开课学年", value: String(course.year)),
-            Property(name: "开课学期", value: String(course.term)),
+            Property(name: "开课学年", value: "\(course.year) 至 \(course.year + 1) 学年"),
+            Property(name: "开课学期", value: "\(termLiteralNames[course.term % 4])"),
             Property(name: "目标年级", value: targetGrade),
             Property(name: "教师", value: course.teacher.joined(separator: "、")),
             Property(name: "课程学分", value: String(format: "%.1f", course.credit)),
@@ -778,8 +778,11 @@ class FullDataViewController: NSViewController {
             properties.append(Property(name: "备注", value: footNotes))
         }
 
+        let sortedArrangements = course.arrangements.sorted(by: { arr1, arr2 in
+            return arr1.weeks.first ?? 0 < arr2.weeks.first ?? 1
+        })
         var counter = 1
-        for arrange in course.arrangements {
+        for arrange in sortedArrangements {
             var weekDescInterp: [String] = []
             for desc in Beautify.beautifier(array: arrange.weeks) {
                 if desc.0 == desc.1 {

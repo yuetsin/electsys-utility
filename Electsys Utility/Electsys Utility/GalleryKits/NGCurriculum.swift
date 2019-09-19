@@ -48,7 +48,12 @@ class NGArrangements: Equatable {
 
 class NGCurriculum: Equatable {
     static func == (lhs: NGCurriculum, rhs: NGCurriculum) -> Bool {
-        return lhs.identifier == rhs.identifier
+        return lhs.identifier == rhs.identifier &&
+            lhs.code == rhs.code &&
+            lhs.teacher == rhs.teacher &&
+            lhs.name == rhs.name &&
+            lhs.arrangements == rhs.arrangements &&
+            lhs.notes == rhs.notes
     }
 
     internal init(identifier: String, code: String, holderSchool: String, name: String, year: Int, term: Int, targetGrade: Int, teacher: [String], credit: Double, arrangements: [NGArrangements], studentNumber: Int, notes: String) {
