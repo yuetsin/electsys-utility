@@ -73,3 +73,5 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 courseSync/.DS_Store
 .DS_Store
+Electsys\ Utility/Dist/Electsys Utility.app/**
+Electsys\ Utility/result/**
