@@ -10,9 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build Electsys Utility.app
-      run: cd Electsys\ Utility
+      run: cd Electsys\ Utility;
            xcodebuild build -workspace Electsys\ Utility.xcworkspace -scheme Electsys\ Utility
     - name: Build Electsys Utility.app with latest Pods
-      run: cd Electsys\ Utility
-           pod install
+      run: cd Electsys\ Utility;
+           pod install;
            xcodebuild build -workspace Electsys\ Utility.xcworkspace -scheme Electsys\ Utility
+    - name: Package Projects
+      run: ./build.sh
