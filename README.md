@@ -49,6 +49,8 @@
 
 * [mxcl/Version](https://github.com/mxcl/Version)
 
+* [macmade/GitHubUpdates](https://github.com/macmade/GitHubUpdates)
+
 # 屏幕截图
 
 ## 使用 jAccount 登录
