@@ -454,7 +454,7 @@ NS_ASSUME_NONNULL_END
             continue;
         }
 
-        if (bestVersion != nil && [VersionComparer compare: [version versionString] isNewerThanVersion: [currentVersion versionString]] == NO) {
+        if (bestVersion != nil && [VersionComparer compare: [version versionString] isNewerThanVersion: [currentVersion versionString]] == YES) {
             continue;
         }
 

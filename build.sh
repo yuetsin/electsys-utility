@@ -8,6 +8,7 @@ CONFIGURATION=Release
 BUILD_SCHEME=Package
 
 cd Electsys\ Utility
+xcodebuild clean
 xcodebuild -workspace Electsys\ Utility.xcworkspace -scheme ${BUILD_SCHEME} -configuration ${CONFIGURATION}
 
 echo "Build succeed"
