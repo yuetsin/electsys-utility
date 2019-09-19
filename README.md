@@ -45,6 +45,10 @@
 
 * [MoralAlberto/NSTableView](https://github.com/MoralAlberto/NSTableView)
 
+* [LinusU/node-appdmg](https://github.com/LinusU/node-appdmg)
+
+* [mxcl/Version](https://github.com/mxcl/Version)
+
 # 屏幕截图
 
 ## 使用 jAccount 登录
