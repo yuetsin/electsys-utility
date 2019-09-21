@@ -71,7 +71,7 @@ class FullDataViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         progressIndicator.startAnimation(nil)
-        setWeekPop(start: 1, end: 17)
+        setWeekPop(start: 1, end: 18)
         // Do view setup here.
         let date = Date()
         let calendar = Calendar.current
@@ -211,7 +211,7 @@ class FullDataViewController: NSViewController {
         if sender.selectedItem?.title == "夏季小学期" {
             setWeekPop(start: 1, end: 6)
         } else {
-            setWeekPop(start: 1, end: 17)
+            setWeekPop(start: 1, end: 18)
         }
     }
 
