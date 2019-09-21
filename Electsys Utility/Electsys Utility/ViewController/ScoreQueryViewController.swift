@@ -280,7 +280,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             text = item.courseCode ?? "课号"
             cellIdentifier = CellIdentifiers.CodeCell
         } else if tableColumn == tableView.tableColumns[2] {
-            text = item.teacher?.replacingOccurrences(of: ";", with: "、") ?? "教师"
+            text = item.teacher ?? "教师"
             cellIdentifier = CellIdentifiers.TeacherCell
         } else if tableColumn == tableView.tableColumns[3] {
             text = "\(item.finalScore ?? 0)"
