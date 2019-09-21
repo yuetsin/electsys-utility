@@ -4563,15 +4563,6 @@ DQ
                                     <rect key="frame" x="3" y="3" width="454" height="299"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bte-I4-7WX">
-                                            <rect key="frame" x="20" y="38" width="414" height="195"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="正文内容" drawsBackground="YES" id="zBX-tC-lmq">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X8W-pg-uTf">
                                             <rect key="frame" x="20" y="240" width="414" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -4640,6 +4631,33 @@ DQ
                                                 <action selector="sendEmail:" target="cK7-dQ-kWQ" id="8qf-ZP-mlx"/>
                                             </connections>
                                         </button>
+                                        <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkv-yT-uku">
+                                            <rect key="frame" x="20" y="38" width="414" height="195"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="VWX-lx-rgr">
+                                                <rect key="frame" x="1" y="1" width="412" height="193"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textView ambiguous="YES" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" continuousSpellChecking="YES" quoteSubstitution="YES" linkDetection="YES" dataDetection="YES" dashSubstitution="YES" spellingCorrection="YES" grammarChecking="YES" smartInsertDelete="YES" id="gYE-s3-KuV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="412" height="193"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <size key="minSize" width="412" height="193"/>
+                                                        <size key="maxSize" width="414" height="10000000"/>
+                                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    </textView>
+                                                </subviews>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="CI5-Vd-2FQ">
+                                                <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="byJ-Fg-YYD">
+                                                <rect key="frame" x="397" y="1" width="16" height="193"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                        </scrollView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="RUx-cK-vdM" firstAttribute="leading" secondItem="hjd-dF-gB8" secondAttribute="leading" constant="20" id="CnJ-OB-V4A"/>
@@ -4654,7 +4672,7 @@ DQ
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentField" destination="Bte-I4-7WX" id="XbV-J0-16U"/>
+                        <outlet property="contentField" destination="gYE-s3-KuV" id="JGf-VD-zgi"/>
                         <outlet property="subjectField" destination="X8W-pg-uTf" id="C1T-ea-Lr6"/>
                         <outlet property="versionField" destination="0FA-x7-A80" id="lzf-SO-A9Q"/>
                     </connections>
