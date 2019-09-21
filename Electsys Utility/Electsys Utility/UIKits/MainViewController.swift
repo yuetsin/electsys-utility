@@ -133,6 +133,10 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         switchToPage(index: 0)
     }
     
+    func visitPrefPage() {
+        switchToPage(index: 1)
+    }
+    
     func visitCreditsPage() {
         switchToPage(index: 2)
     }

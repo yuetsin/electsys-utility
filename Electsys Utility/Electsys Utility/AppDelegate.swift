@@ -51,6 +51,10 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         (window.contentViewController as! MainViewController).visitAboutPage()
     }
     
+    @IBAction func visitPreferencePage(_ sender: NSButton) {
+        (window.contentViewController as! MainViewController).visitPrefPage()
+    }
+    
     @IBAction func mailAuthor(_ sender: NSButton) {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
