@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftyTextTable
 
 class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, YearAndTermSelectionDelegate, ExportFormatDecisionDelegate {
     var scoreList: [NGScore] = []
@@ -122,7 +123,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!)
     }
-    
+
     func showInformativeMessage(infoMsg: String) {
         let infoAlert: NSAlert = NSAlert()
         infoAlert.informativeText = infoMsg
@@ -323,6 +324,54 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
 
     func exportPlainText() {
         addMyPopover.performClose(self)
+
+        let scorePoint = TextTableColumn(header: "绩点")
+        let teacher = TextTableColumn(header: "教师")
+        let courseCode = TextTableColumn(header: "课号")
+        let courseName = TextTableColumn(header: "课程名称")
+        let status = TextTableColumn(header: "状态")
+        let finalScore = TextTableColumn(header: "最终成绩")
+        let credit = TextTableColumn(header: "学分")
+
+        var table = TextTable(columns: [scorePoint, teacher, courseCode, courseName, status, finalScore, credit])
+
+        for score in scoreList {
+            table.addRow(values: [String(format: "%.1f", score.scorePoint ?? 0.0),
+                                  (score.teacher ?? "N/A").replacingOccurrences(of: "、", with: " "),
+                                  score.courseCode ?? "N/A",
+                                  score.courseName ?? "N/A",
+                                  score.status ?? "N/A",
+                                  "\(score.finalScore ?? 0)",
+                                  String(format: "%.1f", score.scorePoint ?? 0.0)])
+        }
+        
+        table.header = "成绩单"
+        let textString = table.render()
+        
+        let panel = NSSavePanel()
+        panel.title = "保存成绩单"
+        panel.message = "请选择成绩单的保存路径。"
+
+        panel.nameFieldStringValue = "Transcript"
+        panel.allowsOtherFileTypes = true
+        panel.allowedFileTypes = ["txt"]
+        panel.isExtensionHidden = false
+        panel.canCreateDirectories = true
+
+        panel.beginSheetModal(for: view.window!, completionHandler: { result in
+            do {
+                if result == NSApplication.ModalResponse.OK {
+                    if let path = panel.url?.path {
+                        try textString.write(toFile: path, atomically: true, encoding: .utf8)
+                        self.showInformativeMessage(infoMsg: "已经成功导出纯文本成绩单。")
+                    } else {
+                        return
+                    }
+                }
+            } catch {
+                self.showErrorMessageNormal(errorMsg: "已经成功导出纯文本成绩单。")
+            }
+        })
     }
 
     func exportJSONFormat() {

@@ -198,7 +198,7 @@ public extension Array where Element: TextTableRepresentable {
      Returns a rendered text table containing the data in the array.
      - returns: A `String` containing the rendered text table.
     */
-    public func renderTextTable() -> String {
+    func renderTextTable() -> String {
         let table = TextTable(objects: self)
         return table.render()
     }
@@ -221,10 +221,22 @@ private extension String {
     }
 
     func strippedLength() -> Int {
+        var extraPaddingCount = 0
 #if swift(>=3.2)
-        return stripped().count
+        for (_, value) in stripped().enumerated() {
+            // check asia characters
+            if ("\u{4E00}" <= value  && value <= "\u{9FA5}") {
+                extraPaddingCount += 1
+            }
+        }
+        return stripped().count + extraPaddingCount
 #else
-        return stripped().characters.count
+        for (_, value) in stripped().characters.enumerated() {
+            if ("\u{4E00}" <= value  && value <= "\u{9FA5}") {
+                extraPaddingCount += 1
+            }
+        }
+        return stripped().characters.count + extraPaddingCount
 #endif
     }
 }
