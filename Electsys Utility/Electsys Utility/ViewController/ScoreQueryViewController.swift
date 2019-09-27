@@ -318,7 +318,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         popOverController.delegate = self
         addMyPopover.behavior = .transient
         addMyPopover.contentViewController = popOverController
-        addMyPopover.contentSize = CGSize(width: 200, height: 100)
+        addMyPopover.contentSize = CGSize(width: 233, height: 100)
         addMyPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
     }
 
@@ -346,7 +346,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
 
         panel.nameFieldStringValue = "Transcript"
         panel.allowsOtherFileTypes = false
-        panel.allowedFileTypes = ["csv"]
+        panel.allowedFileTypes = ["csv", "txt"]
         panel.isExtensionHidden = false
         panel.canCreateDirectories = true
 

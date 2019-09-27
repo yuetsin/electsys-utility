@@ -4222,7 +4222,7 @@ DQ
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-iD-j5n">
                                         <rect key="frame" x="-2" y="0.0" width="130" height="14"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="共有 0 项属性可供检查。" id="ZjZ-SN-bm0">
-                                            <font key="font" metaFont="system" size="11"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
