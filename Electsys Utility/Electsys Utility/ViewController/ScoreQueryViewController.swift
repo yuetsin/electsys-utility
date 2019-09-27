@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import SwiftyTextTable
+import CSV
 
 class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, YearAndTermSelectionDelegate, ExportFormatDecisionDelegate {
     var scoreList: [NGScore] = []
@@ -323,38 +323,30 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
     }
 
     func exportPlainText() {
-        addMyPopover.performClose(self)
+        let csv = try! CSVWriter(stream: .toMemory())
 
-        let scorePoint = TextTableColumn(header: "绩点")
-        let teacher = TextTableColumn(header: "教师")
-        let courseCode = TextTableColumn(header: "课号")
-        let courseName = TextTableColumn(header: "课程名称")
-        let status = TextTableColumn(header: "状态")
-        let finalScore = TextTableColumn(header: "最终成绩")
-        let credit = TextTableColumn(header: "学分")
-
-        var table = TextTable(columns: [scorePoint, teacher, courseCode, courseName, status, finalScore, credit])
+        try! csv.write(row: ["绩点", "教师", "课程代码", "课程名称", "考试状态", "最终成绩", "学分"])
 
         for score in scoreList {
-            table.addRow(values: [String(format: "%.1f", score.scorePoint ?? 0.0),
-                                  (score.teacher ?? "N/A").replacingOccurrences(of: "、", with: " "),
-                                  score.courseCode ?? "N/A",
-                                  score.courseName ?? "N/A",
-                                  score.status ?? "N/A",
-                                  "\(score.finalScore ?? 0)",
-                                  String(format: "%.1f", score.scorePoint ?? 0.0)])
+            try! csv.write(row: [String(format: "%.1f", score.scorePoint ?? 0.0),
+                                 (score.teacher ?? "N/A").replacingOccurrences(of: "、", with: " "),
+                                 score.courseCode ?? "N/A",
+                                 score.courseName ?? "N/A",
+                                 score.status ?? "N/A",
+                                 "\(score.finalScore ?? 0)",
+                                 String(format: "%.1f", score.scorePoint ?? 0.0)])
         }
-        
-        table.header = "成绩单"
-        let textString = table.render()
-        
+        csv.stream.close()
+        let csvData = csv.stream.property(forKey: .dataWrittenToMemoryStreamKey) as! Data
+        let textString = String(data: csvData, encoding: .utf8)!
+
         let panel = NSSavePanel()
-        panel.title = "保存成绩单"
-        panel.message = "请选择成绩单的保存路径。"
+        panel.title = "保存 CSV 格式成绩单"
+        panel.message = "请选择 CSV 格式成绩单的保存路径。"
 
         panel.nameFieldStringValue = "Transcript"
-        panel.allowsOtherFileTypes = true
-        panel.allowedFileTypes = ["txt"]
+        panel.allowsOtherFileTypes = false
+        panel.allowedFileTypes = ["csv"]
         panel.isExtensionHidden = false
         panel.canCreateDirectories = true
 
@@ -363,13 +355,13 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
                 if result == NSApplication.ModalResponse.OK {
                     if let path = panel.url?.path {
                         try textString.write(toFile: path, atomically: true, encoding: .utf8)
-                        self.showInformativeMessage(infoMsg: "已经成功导出纯文本成绩单。")
+                        self.showInformativeMessage(infoMsg: "已经成功导出 CSV 格式成绩单。")
                     } else {
                         return
                     }
                 }
             } catch {
-                self.showErrorMessageNormal(errorMsg: "已经成功导出纯文本成绩单。")
+                self.showErrorMessageNormal(errorMsg: "已经成功导出 CSV 格式成绩单。")
             }
         })
     }

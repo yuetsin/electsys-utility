@@ -4,18 +4,18 @@ PODS:
     - Alamofire (~> 4.5)
     - SwiftyJSON (~> 4.0.0)
   - CrossroadRegex (1.1.0)
+  - CSV.swift (2.4.2)
   - Kanna (4.0.3)
   - SwiftyJSON (4.0.0)
-  - SwiftyTextTable (0.8.0)
   - Version (0.7.0)
 
 DEPENDENCIES:
   - Alamofire
   - Alamofire-SwiftyJSON
   - CrossroadRegex
+  - CSV.swift (~> 2.4.2)
   - Kanna (~> 4.0.0)
   - SwiftyJSON
-  - SwiftyTextTable
   - Version
 
 SPEC REPOS:
@@ -23,20 +23,20 @@ SPEC REPOS:
     - Alamofire
     - Alamofire-SwiftyJSON
     - CrossroadRegex
+    - CSV.swift
     - Kanna
     - SwiftyJSON
-    - SwiftyTextTable
     - Version
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   Alamofire-SwiftyJSON: 2b3649d57dc7bb2880fb8b86f8bb969397666916
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
+  CSV.swift: 9670cc1b3e3f01e9eebb1aeb603b17b4459e7493
   Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  SwiftyTextTable: cf01ac024436e553084d45e16b5cfc5a80116bdd
   Version: 748646b64528b12654498912dc3bd065867169cc
 
-PODFILE CHECKSUM: 2b0dee87a8d04829ef79dba40f70a4c46045e480
+PODFILE CHECKSUM: 4c099c17cc5deebb2973bc2141bdd9452629ac54
 
 COCOAPODS: 1.7.5

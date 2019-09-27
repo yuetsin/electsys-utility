@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double SwiftyTextTableVersionNumber;
-FOUNDATION_EXPORT const unsigned char SwiftyTextTableVersionString[];
+FOUNDATION_EXPORT double CSVVersionNumber;
+FOUNDATION_EXPORT const unsigned char CSVVersionString[];
 

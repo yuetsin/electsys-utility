@@ -21,8 +21,8 @@
                     <rect key="frame" x="32" y="23" width="137" height="54"/>
                     <subviews>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nrW-FE-Ed2">
-                            <rect key="frame" x="8" y="26" width="120" height="32"/>
-                            <buttonCell key="cell" type="push" title="导出成纯文本" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t7x-hw-1Ib">
+                            <rect key="frame" x="-2" y="26" width="140" height="32"/>
+                            <buttonCell key="cell" type="push" title="导出成 CSV 文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t7x-hw-1Ib">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -32,7 +32,7 @@
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-GL-dX9">
                             <rect key="frame" x="-6" y="-7" width="149" height="32"/>
-                            <buttonCell key="cell" type="push" title="导出成 JSON 表示" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="e99-8q-2xS">
+                            <buttonCell key="cell" type="push" title="导出成 JSON 文件" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="e99-8q-2xS">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
