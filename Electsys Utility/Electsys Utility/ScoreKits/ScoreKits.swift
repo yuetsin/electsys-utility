@@ -42,7 +42,7 @@ class ScoreKits {
                         scoreSheet.append(NGScore(classId: scoreObject["bg"].stringValue,
                                                   scorePoint: scoreObject["jd"].floatValue,
                                                   holderSchool: scoreObject["jgmc"].stringValue,
-                                                  teacher: scoreObject["jsxm"].stringValue,
+                                                  teacher: scoreObject["jsxm"].stringValue.replacingOccurrences(of: ";", with: "、"),
                                                   courseCode: scoreObject["kch"].stringValue,
                                                   courseName: scoreObject["kcmc"].stringValue,
                                                   status: scoreObject["ksxz"].stringValue,

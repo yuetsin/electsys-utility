@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NGScore {
+struct NGScore: Codable {
     var classId: String?
     var scorePoint: Float?
     var holderSchool: String?

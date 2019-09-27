@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Property {
+struct Property: Codable {
     let name: String
     var value: String
 }

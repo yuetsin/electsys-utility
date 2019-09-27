@@ -16,6 +16,8 @@
 		8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0AE467232A017600CE9E3A /* LoginConst.swift */; };
 		8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A17ADAB232BAF530077DDCF /* RMBlurredView.m */; };
 		8A25DD6A2182D6EC002AD7C9 /* MenuWithSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */; };
+		8A26F333233DA87100F4E321 /* ExportFormatSelector+ExportFormatDecisionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26F331233DA87100F4E321 /* ExportFormatSelector+ExportFormatDecisionDelegate.swift */; };
+		8A26F334233DA87100F4E321 /* ExportFormatSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A26F332233DA87100F4E321 /* ExportFormatSelector.xib */; };
 		8A27D733232E51D8005AF5CA /* ExamKits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D732232E51D8005AF5CA /* ExamKits.swift */; };
 		8A27D735232E51E0005AF5CA /* ExamConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D734232E51E0005AF5CA /* ExamConst.swift */; };
 		8A27D737232E51E7005AF5CA /* NGExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D736232E51E7005AF5CA /* NGExam.swift */; };
@@ -109,6 +111,8 @@
 		8A17ADAB232BAF530077DDCF /* RMBlurredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBlurredView.m; sourceTree = "<group>"; };
 		8A17ADAC232BAF540077DDCF /* RMBlurredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBlurredView.h; sourceTree = "<group>"; };
 		8A25DD692182D6EC002AD7C9 /* MenuWithSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithSeparator.swift; sourceTree = "<group>"; };
+		8A26F331233DA87100F4E321 /* ExportFormatSelector+ExportFormatDecisionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportFormatSelector+ExportFormatDecisionDelegate.swift"; path = "Electsys Utility/ViewController/ExportFormatSelector+ExportFormatDecisionDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		8A26F332233DA87100F4E321 /* ExportFormatSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ExportFormatSelector.xib; path = "Electsys Utility/ViewController/ExportFormatSelector.xib"; sourceTree = SOURCE_ROOT; };
 		8A27D732232E51D8005AF5CA /* ExamKits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamKits.swift; sourceTree = "<group>"; };
 		8A27D734232E51E0005AF5CA /* ExamConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamConst.swift; sourceTree = "<group>"; };
 		8A27D736232E51E7005AF5CA /* NGExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGExam.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				8AAD7F1B21D4D05C0019E9F8 /* Main.storyboard */,
+				8A26F331233DA87100F4E321 /* ExportFormatSelector+ExportFormatDecisionDelegate.swift */,
+				8A26F332233DA87100F4E321 /* ExportFormatSelector.xib */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -652,6 +658,7 @@
 				8A4A22E521362EB00064488C /* Assets.xcassets in Resources */,
 				8AF47F4E233269F800F00E28 /* GitHubTemplate.pdf in Resources */,
 				8AF47F4F233269F800F00E28 /* Install.pdf in Resources */,
+				8A26F334233DA87100F4E321 /* ExportFormatSelector.xib in Resources */,
 				8AF47F4B233269F800F00E28 /* Info.plist in Resources */,
 				8AF47F4D233269F800F00E28 /* GitHubProgressWindowController.xib in Resources */,
 			);
@@ -669,6 +676,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Electsys Utility/Pods-Electsys Utility-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/CSV.swift/CSV.framework",
 				"${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -678,6 +686,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSV.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Regex.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -714,6 +723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A5029B02333109600C4C266 /* VersionComparer.swift in Sources */,
+				8A26F333233DA87100F4E321 /* ExportFormatSelector+ExportFormatDecisionDelegate.swift in Sources */,
 				8A27D735232E51E0005AF5CA /* ExamConst.swift in Sources */,
 				8A397DD021410CFB00AE297A /* Exam.swift in Sources */,
 				8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */,
@@ -935,12 +945,12 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = v0.9.4;
+				MARKETING_VERSION = v0.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -961,12 +971,12 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 81;
+				CURRENT_PROJECT_VERSION = 85;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = v0.9.4;
+				MARKETING_VERSION = v0.9.5;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

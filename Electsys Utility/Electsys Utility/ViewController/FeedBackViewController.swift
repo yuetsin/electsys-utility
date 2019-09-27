@@ -31,7 +31,7 @@ class FeedBackViewController: NSViewController {
     
     @IBOutlet weak var versionField: NSTextField!
     @IBOutlet weak var subjectField: NSTextField!
-    @IBOutlet weak var contentField: NSTextField!
+    @IBOutlet var contentField: NSTextView!
     
     @IBAction func sendEmail(_ sender: NSButton) {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
@@ -41,6 +41,6 @@ class FeedBackViewController: NSViewController {
         let mailService = NSSharingService(named: NSSharingService.Name.composeEmail)!
         mailService.recipients = ["akaza_akari@sjtu.edu.cn"]
         mailService.subject = "[es-util feedback] [\(issueType)] " + subjectField.stringValue
-        mailService.perform(withItems: [contentField.stringValue + "\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
+        mailService.perform(withItems: [contentField.string + "\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
     }
 }

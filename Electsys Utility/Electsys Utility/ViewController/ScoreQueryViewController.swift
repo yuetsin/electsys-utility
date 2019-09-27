@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import CSV
 
-class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, YearAndTermSelectionDelegate {
+class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, YearAndTermSelectionDelegate, ExportFormatDecisionDelegate {
     var scoreList: [NGScore] = []
     var openedWindow: NSWindow?
 
@@ -52,7 +53,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
 
         tableView.target = self
         tableView.doubleAction = #selector(tableViewDoubleClick(_:))
-        
+
         super.viewDidLoad()
     }
 
@@ -63,31 +64,31 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         updateTableViewContents()
         super.viewDidAppear()
     }
-    
+
     lazy var sheetViewController: TermSelectingViewController = {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("YearAndTermViewController"))
-        as! TermSelectingViewController
+            as! TermSelectingViewController
     }()
 
     func successCourseDataTransfer(data: [NGCourse]) {
         NSLog("bad request type")
-        self.dismiss(sheetViewController)
+        dismiss(sheetViewController)
     }
 
     func successExamDataTransfer(data: [Exam]) {
         NSLog("bad request type")
-        self.dismiss(sheetViewController)
+        dismiss(sheetViewController)
     }
 
     func successScoreDataTransfer(data: [NGScore]) {
         scoreList = data
         updateTableViewContents()
-        self.dismiss(sheetViewController)
+        dismiss(sheetViewController)
     }
 
     func shutWindow() {
-        self.dismiss(sheetViewController)
+        dismiss(sheetViewController)
     }
 
     func updateTableViewContents() {
@@ -110,7 +111,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
     func openYearTermSelectionPanel() {
         sheetViewController.successDelegate = self
         sheetViewController.requestType = .score
-        self.presentAsSheet(sheetViewController)
+        presentAsSheet(sheetViewController)
         sheetViewController.enableUI()
     }
 
@@ -119,8 +120,17 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         errorAlert.informativeText = errorMsg
         errorAlert.messageText = "出错啦"
         errorAlert.addButton(withTitle: "嗯")
-        errorAlert.alertStyle = NSAlert.Style.informational
+        errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!)
+    }
+
+    func showInformativeMessage(infoMsg: String) {
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.informativeText = infoMsg
+        infoAlert.messageText = "提醒"
+        infoAlert.addButton(withTitle: "嗯")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: view.window!)
     }
 
     func showGpaMessage(infoMsg: String) {
@@ -146,7 +156,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         static let ScoreCell = "FinalScoreCellID"
         static let PointCell = "PointCellID"
     }
-    
+
 //
 //    let sortByName = NSSortDescriptor(key: "sortByName", ascending: true)
 //    let sortByCode = NSSortDescriptor(key: "sortByCode", ascending: true)
@@ -211,7 +221,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             scoreList.sort(by: scoreSorter)
             tableView.reloadData()
             break
-            case "sortByPoint":
+        case "sortByPoint":
             func pointSorter(p1: NGScore?, p2: NGScore?) -> Bool {
                 if p1?.scorePoint == nil {
                     return p2?.scorePoint == nil
@@ -231,7 +241,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             break
         }
     }
-    
+
     @objc func tableViewDoubleClick(_ sender: AnyObject) {
         if tableView.selectedRow < 0 || tableView.selectedRow >= scoreList.count {
             return
@@ -241,10 +251,10 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             Property(name: "课程代码", value: scoreObject.courseCode ?? "N/A"),
             Property(name: "课程名称", value: scoreObject.courseName ?? "N/A"),
             Property(name: "课程教师", value: scoreObject.teacher ?? "N/A"),
-            Property(name: "学分", value: String.init(format: "%.1f", scoreObject.credit ?? 0.0)),
+            Property(name: "学分", value: String(format: "%.1f", scoreObject.credit ?? 0.0)),
             Property(name: "最终成绩", value: "\(scoreObject.finalScore ?? 0)"),
-            Property(name: "绩点", value: String.init(format: "%.1f",  scoreObject.scorePoint ?? 0.0) ),
-            Property(name: "考试性质", value: scoreObject.status ?? "N/A")
+            Property(name: "绩点", value: String(format: "%.1f", scoreObject.scorePoint ?? 0.0)),
+            Property(name: "考试性质", value: scoreObject.status ?? "N/A"),
         ])
     }
 
@@ -295,5 +305,99 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             return cell
         }
         return nil
+    }
+
+    let addMyPopover = NSPopover()
+
+    @IBAction func clickExportButton(_ sender: NSButton) {
+        if scoreList.count == 0 {
+            return
+        }
+
+        let popOverController = ExportFormatSelector()
+        popOverController.delegate = self
+        addMyPopover.behavior = .transient
+        addMyPopover.contentViewController = popOverController
+        addMyPopover.contentSize = CGSize(width: 200, height: 100)
+        addMyPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
+    }
+
+    func exportPlainText() {
+        let csv = try! CSVWriter(stream: .toMemory())
+
+        try! csv.write(row: ["绩点", "教师", "课程代码", "课程名称", "考试状态", "最终成绩", "学分"])
+
+        for score in scoreList {
+            try! csv.write(row: [String(format: "%.1f", score.scorePoint ?? 0.0),
+                                 (score.teacher ?? "N/A").replacingOccurrences(of: "、", with: " "),
+                                 score.courseCode ?? "N/A",
+                                 score.courseName ?? "N/A",
+                                 score.status ?? "N/A",
+                                 "\(score.finalScore ?? 0)",
+                                 String(format: "%.1f", score.scorePoint ?? 0.0)])
+        }
+        csv.stream.close()
+        let csvData = csv.stream.property(forKey: .dataWrittenToMemoryStreamKey) as! Data
+        let textString = String(data: csvData, encoding: .utf8)!
+
+        let panel = NSSavePanel()
+        panel.title = "保存 CSV 格式成绩单"
+        panel.message = "请选择 CSV 格式成绩单的保存路径。"
+
+        panel.nameFieldStringValue = "Transcript"
+        panel.allowsOtherFileTypes = false
+        panel.allowedFileTypes = ["csv"]
+        panel.isExtensionHidden = false
+        panel.canCreateDirectories = true
+
+        panel.beginSheetModal(for: view.window!, completionHandler: { result in
+            do {
+                if result == NSApplication.ModalResponse.OK {
+                    if let path = panel.url?.path {
+                        try textString.write(toFile: path, atomically: true, encoding: .utf8)
+                        self.showInformativeMessage(infoMsg: "已经成功导出 CSV 格式成绩单。")
+                    } else {
+                        return
+                    }
+                }
+            } catch {
+                self.showErrorMessageNormal(errorMsg: "已经成功导出 CSV 格式成绩单。")
+            }
+        })
+    }
+
+    func exportJSONFormat() {
+        addMyPopover.performClose(self)
+        do {
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(scoreList)
+            let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+            let panel = NSSavePanel()
+            panel.title = "保存 JSON"
+            panel.message = "请选择 JSON 文稿的保存路径。"
+
+            panel.nameFieldStringValue = "Transcript"
+            panel.allowsOtherFileTypes = false
+            panel.allowedFileTypes = ["json"]
+            panel.isExtensionHidden = false
+            panel.canCreateDirectories = true
+
+            panel.beginSheetModal(for: view.window!, completionHandler: { result in
+                do {
+                    if result == NSApplication.ModalResponse.OK {
+                        if let path = panel.url?.path {
+                            try jsonString?.write(toFile: path, atomically: true, encoding: .utf8)
+                            self.showInformativeMessage(infoMsg: "已经成功导出 JSON 格式成绩单。")
+                        } else {
+                            return
+                        }
+                    }
+                } catch {
+                    self.showErrorMessageNormal(errorMsg: "无法导出 JSON 表示的成绩单。")
+                }
+            })
+        } catch {
+            showErrorMessageNormal(errorMsg: "无法导出 JSON 表示的成绩单。")
+        }
     }
 }
