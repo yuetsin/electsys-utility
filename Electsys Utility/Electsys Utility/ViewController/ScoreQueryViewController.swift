@@ -334,7 +334,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
                                  score.courseName ?? "N/A",
                                  score.status ?? "N/A",
                                  "\(score.finalScore ?? 0)",
-                                 String(format: "%.1f", score.scorePoint ?? 0.0)])
+                                 String(format: "%.1f", score.credit ?? 0.0)])
         }
         csv.stream.close()
         let csvData = csv.stream.property(forKey: .dataWrittenToMemoryStreamKey) as! Data
