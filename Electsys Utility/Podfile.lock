@@ -6,6 +6,7 @@ PODS:
   - CrossroadRegex (1.1.0)
   - Kanna (4.0.3)
   - SwiftyJSON (4.0.0)
+  - SwiftyTextTable (0.8.0)
   - Version (0.7.0)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - CrossroadRegex
   - Kanna (~> 4.0.0)
   - SwiftyJSON
+  - SwiftyTextTable
   - Version
 
 SPEC REPOS:
@@ -23,6 +25,7 @@ SPEC REPOS:
     - CrossroadRegex
     - Kanna
     - SwiftyJSON
+    - SwiftyTextTable
     - Version
 
 SPEC CHECKSUMS:
@@ -31,8 +34,9 @@ SPEC CHECKSUMS:
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
   Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftyTextTable: cf01ac024436e553084d45e16b5cfc5a80116bdd
   Version: 748646b64528b12654498912dc3bd065867169cc
 
-PODFILE CHECKSUM: 7b5fb96dea9bb3d61bf98a0504e05da51c4dbe5f
+PODFILE CHECKSUM: 2b0dee87a8d04829ef79dba40f70a4c46045e480
 
 COCOAPODS: 1.7.5

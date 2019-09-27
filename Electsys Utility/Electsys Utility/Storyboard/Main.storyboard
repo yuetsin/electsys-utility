@@ -2120,7 +2120,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="wQr-7q-agb">
-                                            <rect key="frame" x="0.0" y="28" width="494" height="7594"/>
+                                            <rect key="frame" x="0.0" y="29" width="494" height="7593"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -4443,6 +4443,9 @@ DQ
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="clickExportButton:" target="m62-gO-PeB" id="Rmc-Fs-Vnu"/>
+                                </connections>
                             </button>
                             <customView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="ng9-38-h2J" customClass="RMBlurredView">
                                 <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
