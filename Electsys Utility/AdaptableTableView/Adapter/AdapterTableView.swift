@@ -25,7 +25,7 @@ class AdapterTableView: NSObject {
         super.init()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.usesAlternatingRowBackgroundColors = true
+//        self.tableView.usesAlternatingRowBackgroundColors = true
         self.tableView.backgroundColor = .clear
     }
         
