@@ -17,6 +17,19 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         lockIcon()
         setAccessibilityLabel()
         self.view.window?.makeFirstResponder(aboutButton)
+        
+        aboutButton.image?.isTemplate = true
+        preferenceButton.image?.isTemplate = true
+        creditsButton.image?.isTemplate = true
+        
+        loginJAccountButton.image?.isTemplate = true
+        syncCourseTableButton.image?.isTemplate = true
+        syncTestInfoButton.image?.isTemplate = true
+        getScoreButton.image?.isTemplate = true
+        
+        insertHtmlButton.image?.isTemplate = true
+        queryLibraryButton.image?.isTemplate = true
+        reportIssueButton.image?.isTemplate = true
     }
     
     override func viewDidDisappear() {

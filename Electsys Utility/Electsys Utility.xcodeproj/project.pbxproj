@@ -77,6 +77,15 @@
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */; };
+		8AEA936F234F526600952904 /* sidebar.01.about.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9366234F526600952904 /* sidebar.01.about.icon.png */; };
+		8AEA9370234F526600952904 /* sidebar.02.preferences.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9367234F526600952904 /* sidebar.02.preferences.icon.png */; };
+		8AEA9371234F526600952904 /* sidebar.03.acknowledgements.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9368234F526600952904 /* sidebar.03.acknowledgements.icon.png */; };
+		8AEA9372234F526600952904 /* sidebar.05.courses.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9369234F526600952904 /* sidebar.05.courses.icon.png */; };
+		8AEA9373234F526600952904 /* sidebar.06.exam.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA936A234F526600952904 /* sidebar.06.exam.icon.png */; };
+		8AEA9374234F526600952904 /* sidebar.07.score.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA936B234F526600952904 /* sidebar.07.score.icon.png */; };
+		8AEA9375234F526600952904 /* sidebar.08.import.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA936C234F526600952904 /* sidebar.08.import.icon.png */; };
+		8AEA9376234F526600952904 /* sidebar.09.library.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA936D234F526600952904 /* sidebar.09.library.icon.png */; };
+		8AEA9377234F526600952904 /* sidebar.10.question.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA936E234F526600952904 /* sidebar.10.question.icon.png */; };
 		8AF47F45233269F800F00E28 /* GitHubInstallWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F23233269F700F00E28 /* GitHubInstallWindowController.m */; };
 		8AF47F46233269F800F00E28 /* GitHubProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F25233269F800F00E28 /* GitHubProgressWindowController.m */; };
 		8AF47F47233269F800F00E28 /* GitHubRelease.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF47F27233269F800F00E28 /* GitHubRelease.m */; };
@@ -177,6 +186,15 @@
 		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
 		8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyHtmlParser.swift; sourceTree = "<group>"; };
+		8AEA9366234F526600952904 /* sidebar.01.about.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.01.about.icon.png; sourceTree = "<group>"; };
+		8AEA9367234F526600952904 /* sidebar.02.preferences.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.02.preferences.icon.png; sourceTree = "<group>"; };
+		8AEA9368234F526600952904 /* sidebar.03.acknowledgements.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.03.acknowledgements.icon.png; sourceTree = "<group>"; };
+		8AEA9369234F526600952904 /* sidebar.05.courses.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.05.courses.icon.png; sourceTree = "<group>"; };
+		8AEA936A234F526600952904 /* sidebar.06.exam.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.06.exam.icon.png; sourceTree = "<group>"; };
+		8AEA936B234F526600952904 /* sidebar.07.score.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.07.score.icon.png; sourceTree = "<group>"; };
+		8AEA936C234F526600952904 /* sidebar.08.import.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.08.import.icon.png; sourceTree = "<group>"; };
+		8AEA936D234F526600952904 /* sidebar.09.library.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.09.library.icon.png; sourceTree = "<group>"; };
+		8AEA936E234F526600952904 /* sidebar.10.question.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.10.question.icon.png; sourceTree = "<group>"; };
 		8AF47F22233269F700F00E28 /* GitHubInstallWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubInstallWindowController.h; sourceTree = "<group>"; };
 		8AF47F23233269F700F00E28 /* GitHubInstallWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubInstallWindowController.m; sourceTree = "<group>"; };
 		8AF47F24233269F800F00E28 /* GitHubProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubProgressWindowController.h; sourceTree = "<group>"; };
@@ -385,6 +403,7 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
+				8AEA9365234F526600952904 /* Icons */,
 				8A5029AF2333109600C4C266 /* VersionComparer.swift */,
 				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
 				8AF47F20233269F700F00E28 /* GitHubUpdate */,
@@ -498,6 +517,23 @@
 				8ACEEB05213CB04200A7776E /* RandomNames.swift */,
 			);
 			path = LegacyScheduleKits;
+			sourceTree = "<group>";
+		};
+		8AEA9365234F526600952904 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				8AEA9366234F526600952904 /* sidebar.01.about.icon.png */,
+				8AEA9367234F526600952904 /* sidebar.02.preferences.icon.png */,
+				8AEA9368234F526600952904 /* sidebar.03.acknowledgements.icon.png */,
+				8AEA9369234F526600952904 /* sidebar.05.courses.icon.png */,
+				8AEA936A234F526600952904 /* sidebar.06.exam.icon.png */,
+				8AEA936B234F526600952904 /* sidebar.07.score.icon.png */,
+				8AEA936C234F526600952904 /* sidebar.08.import.icon.png */,
+				8AEA936D234F526600952904 /* sidebar.09.library.icon.png */,
+				8AEA936E234F526600952904 /* sidebar.10.question.icon.png */,
+			);
+			name = Icons;
+			path = ../Icons;
 			sourceTree = "<group>";
 		};
 		8AF47F20233269F700F00E28 /* GitHubUpdate */ = {
@@ -653,14 +689,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AEA9372234F526600952904 /* sidebar.05.courses.icon.png in Resources */,
 				8AF47F4C233269F800F00E28 /* GitHubInstallWindowController.xib in Resources */,
+				8AEA9374234F526600952904 /* sidebar.07.score.icon.png in Resources */,
+				8AEA9370234F526600952904 /* sidebar.02.preferences.icon.png in Resources */,
 				8AAD7F1C21D4D05C0019E9F8 /* Main.storyboard in Resources */,
 				8A4A22E521362EB00064488C /* Assets.xcassets in Resources */,
+				8AEA9377234F526600952904 /* sidebar.10.question.icon.png in Resources */,
 				8AF47F4E233269F800F00E28 /* GitHubTemplate.pdf in Resources */,
 				8AF47F4F233269F800F00E28 /* Install.pdf in Resources */,
 				8A26F334233DA87100F4E321 /* ExportFormatSelector.xib in Resources */,
+				8AEA9376234F526600952904 /* sidebar.09.library.icon.png in Resources */,
+				8AEA9375234F526600952904 /* sidebar.08.import.icon.png in Resources */,
+				8AEA9371234F526600952904 /* sidebar.03.acknowledgements.icon.png in Resources */,
 				8AF47F4B233269F800F00E28 /* Info.plist in Resources */,
+				8AEA9373234F526600952904 /* sidebar.06.exam.icon.png in Resources */,
 				8AF47F4D233269F800F00E28 /* GitHubProgressWindowController.xib in Resources */,
+				8AEA936F234F526600952904 /* sidebar.01.about.icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

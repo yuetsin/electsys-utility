@@ -214,7 +214,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" alternateTitle="查看所有考试信息" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="qHI-ED-Ctj">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                     <menu key="menu" id="Kcm-Jb-XtH"/>
                                 </popUpButtonCell>
                             </popUpButton>
@@ -230,7 +230,7 @@
                                 <rect key="frame" x="162" y="24" width="215" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="right" title="祝考试顺利。" id="f0C-PA-UFB">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1953,7 +1953,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-e7-SF6">
-                                        <rect key="frame" x="347.5" y="237" width="42" height="25"/>
+                                        <rect key="frame" x="347.5" y="237" width="43" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" alternateTitle="刷新验证码" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Due-8h-B29">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -3306,7 +3306,7 @@ Copyright © 2018 </string>
                                                 <rect key="frame" x="20" y="111" width="127" height="324"/>
                                                 <subviews>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-hO-MaH">
-                                                        <rect key="frame" x="0.0" y="230" width="84" height="94"/>
+                                                        <rect key="frame" x="0.0" y="230" width="88" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-WT-Vk3">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -3317,8 +3317,8 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGt-eY-bwb">
-                                                                <rect key="frame" x="0.0" y="51" width="61" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" image="NSColumnViewTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
+                                                                <rect key="frame" x="0.0" y="51" width="63" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" image="sidebar.01.about.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3327,8 +3327,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="UDv-Xg-MZw">
-                                                                <rect key="frame" x="0.0" y="25" width="84" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" image="NSActionTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
+                                                                <rect key="frame" x="0.0" y="25" width="88" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" image="sidebar.02.preferences.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3337,8 +3337,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-xj-XgW">
-                                                                <rect key="frame" x="0.0" y="-1" width="59" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
+                                                                <rect key="frame" x="0.0" y="-1" width="63" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" image="sidebar.03.acknowledgements.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3382,8 +3382,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="cWm-3u-igA">
-                                                                <rect key="frame" x="0.0" y="51" width="98" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" image="NSPathTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
+                                                                <rect key="frame" x="0.0" y="51" width="100" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" image="sidebar.05.courses.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3392,8 +3392,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-8O-hG6">
-                                                                <rect key="frame" x="0.0" y="25" width="111" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" image="NSBookmarksTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
+                                                                <rect key="frame" x="0.0" y="25" width="112" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" image="sidebar.06.exam.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3403,7 +3403,7 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="faF-N4-Opk">
                                                                 <rect key="frame" x="0.0" y="-1" width="112" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" image="NSFlowViewTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
+                                                                <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" image="sidebar.07.score.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3428,7 +3428,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFC-Z7-Vq6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="94"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g9M-zx-NWi">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -3439,8 +3439,8 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-0R-wZy">
-                                                                <rect key="frame" x="0.0" y="51" width="117" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="NSShareTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
+                                                                <rect key="frame" x="0.0" y="51" width="124" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="sidebar.08.import.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3449,8 +3449,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="8" translatesAutoresizingMaskIntoConstraints="NO" id="3T5-NE-1Y0">
-                                                                <rect key="frame" x="0.0" y="25" width="120" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="NSHomeTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
+                                                                <rect key="frame" x="0.0" y="25" width="124" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="sidebar.09.library.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -3459,8 +3459,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="4Wb-W7-J4V">
-                                                                <rect key="frame" x="0.0" y="-1" width="105" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="NSAddTemplate" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
+                                                                <rect key="frame" x="0.0" y="-1" width="112" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="sidebar.10.question.icon" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4774,16 +4774,11 @@ DQ
     <resources>
         <image name="GitHubTemplate" width="15" height="15"/>
         <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
-        <image name="NSColumnViewTemplate" width="16" height="10"/>
-        <image name="NSFlowViewTemplate" width="18" height="10"/>
         <image name="NSFollowLinkFreestandingTemplate" width="14" height="14"/>
         <image name="NSGoRightTemplate" width="9" height="12"/>
-        <image name="NSHomeTemplate" width="14" height="14"/>
         <image name="NSLockLockedTemplate" width="10" height="14"/>
-        <image name="NSPathTemplate" width="16" height="10"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
         <image name="NSShareTemplate" width="11" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
@@ -4925,6 +4920,15 @@ CpEKkwqcCqEKpwqvCrEKswq1CrcKvArEHDAcMhw3HEUcSRxQHFUcYhxlHHIcdxx/HIIchxyPAAAAAAAA
 AgEAAAAAAAAAWgAAAAAAAAAAAAAAAAAAHJI
 </mutableData>
         </image>
+        <image name="sidebar.01.about.icon" width="100" height="100"/>
+        <image name="sidebar.02.preferences.icon" width="100" height="100"/>
+        <image name="sidebar.03.acknowledgements.icon" width="100" height="100"/>
+        <image name="sidebar.05.courses.icon" width="100" height="100"/>
+        <image name="sidebar.06.exam.icon" width="100" height="100"/>
+        <image name="sidebar.07.score.icon" width="100" height="100"/>
+        <image name="sidebar.08.import.icon" width="100" height="100"/>
+        <image name="sidebar.09.library.icon" width="100" height="100"/>
+        <image name="sidebar.10.question.icon" width="100" height="100"/>
         <sound name="Funk"/>
     </resources>
 </document>
