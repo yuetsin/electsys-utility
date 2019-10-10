@@ -36,7 +36,7 @@ class TableViewController: NSViewController, ExportFormatDecisionDelegate {
         popOverController.delegate = self
         addMyPopover.behavior = .transient
         addMyPopover.contentViewController = popOverController
-        addMyPopover.contentSize = CGSize(width: 233, height: 100)
+        addMyPopover.contentSize = CGSize(width: 250, height: 140)
         addMyPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.minY)
     }
     
