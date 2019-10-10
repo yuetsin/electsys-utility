@@ -29,6 +29,8 @@
 
 * 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱同步的日历）时会产生异常。请尽量使用 iCloud 或 Outlook 提供的 CalDAV 服务。
 
+* 在 macOS Catalina (`10.15`) 下切换页面时偶现窗口闪烁。
+
 # 致谢
 
 * [tid-kijyun/Kanna](https://github.com/tid-kijyun/Kanna)
