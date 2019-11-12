@@ -218,7 +218,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZS-d6-2Lu">
-                                <rect key="frame" x="162" y="24" width="215" height="13"/>
+                                <rect key="frame" x="165" y="22" width="215" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="right" title="祝考试顺利。" id="f0C-PA-UFB">
                                     <font key="font" metaFont="message" size="11"/>
@@ -227,7 +227,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cpx-D0-U1C">
-                                <rect key="frame" x="390" y="20" width="84" height="19"/>
+                                <rect key="frame" x="388" y="19" width="84" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dxc-GY-XEP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -247,7 +247,7 @@ DQ
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="restartAnalyse:" target="Jkb-pL-zEg" id="gDE-eR-r2u"/>
+                                    <action selector="restartAnalyse:" target="dPQ-eP-W3b" id="3Yi-6a-WPw"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-sR-1r0">
@@ -319,7 +319,7 @@ DQ
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="roundRect" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="roundedRect" alignment="center" borderStyle="border" inset="2" id="cZ6-j0-VlQ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="controlContent"/>
+                                                <font key="font" metaFont="label" size="12"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="generateName:" target="dPQ-eP-W3b" id="rcY-VN-Rh4"/>
@@ -336,14 +336,14 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ofT-Pu-TFS" viewBased="YES" id="kDk-fB-veB">
-                                            <rect key="frame" x="0.0" y="0.0" width="452" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="453" height="162"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="116" minWidth="40" maxWidth="1000" id="AtA-DJ-Fnw">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                <tableColumn width="122" minWidth="40" maxWidth="1000" id="AtA-DJ-Fnw">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="科目">
                                                         <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -355,12 +355,12 @@ DQ
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="d7L-A2-H74">
-                                                            <rect key="frame" x="1" y="1" width="116" height="17"/>
+                                                        <tableCellView identifier="CourseIdCell" id="d7L-A2-H74">
+                                                            <rect key="frame" x="1" y="1" width="122" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-zu-kMw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z82-dv-NWY">
                                                                         <font key="font" metaFont="system"/>
@@ -375,27 +375,27 @@ DQ
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="330" minWidth="40" maxWidth="1000" id="ss3-uZ-8KE">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                <tableColumn width="188" minWidth="10" maxWidth="3.4028234663852886e+38" id="KpG-FU-Lns">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="考试时间">
                                                         <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="IY0-EP-GaU">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="ix5-gW-5je">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="qGe-Fw-EsG">
-                                                            <rect key="frame" x="120" y="1" width="330" height="17"/>
+                                                        <tableCellView identifier="TimeCell" id="1mA-dM-zxd">
+                                                            <rect key="frame" x="126" y="1" width="188" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uMX-5k-znb">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="17"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-6x-H5w">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="188" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="CwY-L8-Cag">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="okC-wu-ukT">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -403,7 +403,73 @@ DQ
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="textField" destination="uMX-5k-znb" id="8ON-XW-RnI"/>
+                                                                <outlet property="textField" destination="h5H-6x-H5w" id="3i1-k2-fBe"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="86" minWidth="10" maxWidth="3.4028234663852886e+38" id="OAd-ua-hiI">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="考试地点">
+                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="EC3-7j-CJr">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="RoomIdCell" id="oZE-lC-VIX">
+                                                            <rect key="frame" x="317" y="1" width="86" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xH8-4r-J19">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="86" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ioF-ba-UzM">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="xH8-4r-J19" id="EvS-Jp-Cyc"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="45" minWidth="10" maxWidth="3.4028234663852886e+38" id="Jc5-L1-Hzl">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="席位">
+                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="h77-HH-J5d">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="SeatCell" id="qHF-6j-DXf">
+                                                            <rect key="frame" x="406" y="1" width="45" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-Id-VOY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="iAW-i3-VaH">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="k2b-Id-VOY" id="5n2-Jl-lXG"/>
                                                             </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
@@ -412,8 +478,8 @@ DQ
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="V0B-ua-9kc">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="V0B-ua-9kc">
+                                    <rect key="frame" x="1" y="171" width="452" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LKu-zT-l2x">
@@ -421,7 +487,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="ofT-Pu-TFS">
-                                    <rect key="frame" x="0.0" y="0.0" width="452" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="453" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -434,6 +500,10 @@ DQ
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muv-lK-SbU" customClass="RMBlurredView">
+                                <rect key="frame" x="0.0" y="0.0" width="494" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="5fv-3z-ymP" firstAttribute="centerY" secondItem="CIz-sR-1r0" secondAttribute="centerY" id="2Na-Eo-3u4"/>
@@ -446,11 +516,14 @@ DQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurredView" destination="Muv-lK-SbU" id="CZJ-Ix-JjR"/>
                         <outlet property="calendarName" destination="l1z-IM-gmx" id="QgX-yh-LRj"/>
                         <outlet property="getRandomName" destination="RXH-mZ-XNH" id="gZE-I6-9fC"/>
+                        <outlet property="promptTextField" destination="CIz-sR-1r0" id="IOP-ym-1Kv"/>
                         <outlet property="remindMe" destination="zta-GX-f5A" id="B7P-uE-dSU"/>
                         <outlet property="startSync" destination="Cpx-D0-U1C" id="ZWV-nx-2qq"/>
                         <outlet property="syncTo" destination="yqM-ak-gVg" id="Hfi-dy-aUE"/>
+                        <outlet property="tableView" destination="kDk-fB-veB" id="tE6-Xf-f34"/>
                     </connections>
                 </viewController>
                 <customObject id="cEh-3H-EwZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -524,7 +597,7 @@ DQ
                                         <rect key="frame" x="128" y="-1" width="57" height="19"/>
                                         <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="controlContent"/>
+                                            <font key="font" metaFont="label" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
@@ -1429,7 +1502,7 @@ DQ
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bAH-O2-KgA">
                                 <rect key="frame" x="120" y="305" width="254" height="20"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectOne" id="pKx-0I-HQs">
-                                    <font key="font" metaFont="controlContent"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                     <segments>
                                         <segment label="按教室筛选" toolTip="选择筛选方式" width="84" selected="YES" tag="1"/>
                                         <segment label="按教师筛选" width="83"/>
@@ -1852,7 +1925,7 @@ DQ
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                             <buttonCell key="cell" type="roundRect" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="roundedRect" alignment="center" borderStyle="border" inset="2" id="8po-AN-Uj9">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="controlContent"/>
+                                                <font key="font" metaFont="label" size="12"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="makeRandomName:" target="Jkb-pL-zEg" id="gHJ-mW-cwq"/>
@@ -2109,7 +2182,7 @@ DQ
                                         <rect key="frame" x="18" y="96" width="480" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" alignment="center" title="你的信息仅会被发送给 SJTU NIC。 请确保正在安全的网络环境中操作。" id="GJ1-jc-xf4">
-                                            <font key="font" metaFont="controlContent"/>
+                                            <font key="font" metaFont="label" size="12"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -2167,7 +2240,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundRect" title="切换账号" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WvI-Sc-JO9">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="controlContent"/>
+                                            <font key="font" metaFont="label" size="12"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="switchUser:" target="Hbf-WB-Sdc" id="Yd3-gs-wp4"/>
@@ -3870,7 +3943,7 @@ Copyright © 2018 </string>
                                 <rect key="frame" x="145" y="193" width="205" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="$(PRODUCT_BUNDLE_IDENTIFIER)" id="cKc-wG-PCh">
-                                    <font key="font" metaFont="controlContent"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -3903,7 +3976,7 @@ Copyright © 2018 </string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundRect" title="GitHub 页面" alternateTitle="访问 GitHub 页面" bezelStyle="roundedRect" image="GitHubTemplate" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7h-rC-AQm">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="controlContent"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="goToGithubPages:" target="hhI-IL-P8i" id="APj-Ae-XNg"/>
@@ -4166,7 +4239,7 @@ Copyright © 2018 </string>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="controlContent"/>
+                                                <font key="font" metaFont="label" size="12"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -4872,7 +4945,7 @@ DQ
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0FA-x7-A80">
                                 <rect key="frame" x="178" y="413" width="80" height="15"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="版本 0.9ffffff" id="Tdl-sr-mHs">
-                                    <font key="font" metaFont="controlContent"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

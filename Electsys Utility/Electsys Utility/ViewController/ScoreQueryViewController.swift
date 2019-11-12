@@ -76,7 +76,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         dismiss(sheetViewController)
     }
 
-    func successExamDataTransfer(data: [Exam]) {
+    func successExamDataTransfer(data: [NGExam]) {
         NSLog("bad request type")
         dismiss(sheetViewController)
     }

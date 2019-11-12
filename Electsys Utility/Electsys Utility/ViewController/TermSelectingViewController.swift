@@ -21,19 +21,19 @@ class TermSelectingViewController: NSViewController {
         // Do view setup here.
         initPopUpLists()
     }
-    
+
     override func viewDidAppear() {
-       // any additional code
-       view.window!.styleMask.remove(.resizable)
+        // any additional code
+        view.window!.styleMask.remove(.resizable)
     }
-    
+
     func disableUI() {
         yearPopUpSelector.isEnabled = false
         termPopUpSelector.isEnabled = false
         OKButton.isEnabled = false
         cancelButton.isEnabled = false
     }
-    
+
     func enableUI() {
         yearPopUpSelector.isEnabled = true
         termPopUpSelector.isEnabled = true
@@ -68,7 +68,7 @@ class TermSelectingViewController: NSViewController {
     var failureDelegate: PageNavigationDelegate?
 
     @IBAction func cancelButtonTapped(_ sender: NSButton) {
-        self.successDelegate?.shutWindow()
+        successDelegate?.shutWindow()
     }
 
     @IBAction func OKButtonTapped(_ sender: NSButton) {
@@ -79,27 +79,38 @@ class TermSelectingViewController: NSViewController {
             let actualTerm = termPopUpSelector.indexOfSelectedItem + 1
             CourseKits.requestCourseTable(year: actualYear, term: actualTerm,
                                           handler: { courses in
-                                            self.successDelegate?.successCourseDataTransfer(data: courses)
+                                              self.successDelegate?.successCourseDataTransfer(data: courses)
 //                                            self.successDelegate?.shutWindow()
                                           },
                                           failure: { errCode in
                                               self.showErrorMessage(errorMsg: "未能获取此学期的课表信息。\n错误代码：\(errCode)")
-                                            self.enableUI()
+                                              self.enableUI()
             })
             break
         case .exam:
+            let actualYear = 1995 + yearPopUpSelector.numberOfItems - yearPopUpSelector.indexOfSelectedItem
+            let actualTerm = termPopUpSelector.indexOfSelectedItem + 1
+            ExamKits.requestExamTable(year: actualYear, term: actualTerm,
+                                          handler: { exams in
+                                              self.successDelegate?.successExamDataTransfer(data: exams)
+                                              //                                            self.successDelegate?.shutWindow()
+                                          },
+                                          failure: { errCode in
+                                              self.showErrorMessage(errorMsg: "未能获取此学期的考试信息。\n错误代码：\(errCode)")
+                                              self.enableUI()
+            })
             break
         case .score:
             let actualYear = 1995 + yearPopUpSelector.numberOfItems - yearPopUpSelector.indexOfSelectedItem
             let actualTerm = termPopUpSelector.indexOfSelectedItem + 1
             ScoreKits.requestScoreData(year: actualYear, term: actualTerm,
-                                          handler: { scores in
-                                            self.successDelegate?.successScoreDataTransfer(data: scores)
+                                       handler: { scores in
+                                           self.successDelegate?.successScoreDataTransfer(data: scores)
 //                                            self.successDelegate?.shutWindow()
-                                          },
-                                          failure: { errCode in
-                                              self.showErrorMessage(errorMsg: "未能获取此学期的成绩单。\n错误代码：\(errCode)")
-                                            self.enableUI()
+                                       },
+                                       failure: { errCode in
+                                           self.showErrorMessage(errorMsg: "未能获取此学期的成绩单。\n错误代码：\(errCode)")
+                                           self.enableUI()
             })
             break
         default:
@@ -124,7 +135,7 @@ class TermSelectingViewController: NSViewController {
 
 protocol YearAndTermSelectionDelegate {
     func successCourseDataTransfer(data: [NGCourse]) -> Void
-    func successExamDataTransfer(data: [Exam]) -> Void
+    func successExamDataTransfer(data: [NGExam]) -> Void
     func successScoreDataTransfer(data: [NGScore]) -> Void
     func shutWindow() -> Void
 }
