@@ -13,5 +13,5 @@ class LoginConst {
     static let logOutUrl = "http://i.sjtu.edu.cn/xtgl/login_slogin.html"
     static let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"
     static let postUrl = "https://jaccount.sjtu.edu.cn/jaccount/ulogin"
-    static let mainPageUrl = "http://i.sjtu.edu.cn/xtgl/index_initMenu.html"
+    static let mainPageUrl = "https://i.sjtu.edu.cn/xtgl/index_initMenu.html"
 }

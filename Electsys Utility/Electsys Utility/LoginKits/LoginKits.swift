@@ -96,7 +96,7 @@ class LoginHelper {
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 NSLog("login post failure")
                 LoginHelper.lastLoginUserName = "{null}"
-                LoginHelper.removeCookie()
+                LoginHelper.logOut()
                 handler(false)
             } else {
                 
@@ -110,7 +110,7 @@ class LoginHelper {
                     } else {
                         NSLog("bad login session")
                         LoginHelper.lastLoginUserName = "{null}"
-                        LoginHelper.removeCookie()
+                        LoginHelper.logOut()
                         handler(false)
                     }
                 })

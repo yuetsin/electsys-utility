@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class ExamKits {
     static func requestExamTable(year: Int, term: Int,
-                                   handler: @escaping ([NGCourse]) -> Void,
+                                   handler: @escaping ([NGExam]) -> Void,
                                    failure: @escaping (Int) -> Void) {
         // 1 - "3"
         // 2 - "12"
@@ -28,67 +28,51 @@ class ExamKits {
             "xqm": termString,
         ]
 
-        Alamofire.request(CourseConst.requestUrl,
+        Alamofire.request(ExamConst.requestUrl,
                           method: .get,
                           parameters: getParams).responseSwiftyJSON(completionHandler: { responseJSON in
             if responseJSON.error == nil {
                 let jsonResp = responseJSON.value
                 if jsonResp != nil {
-                    if !PreferenceKits.hidePersonalInfo {
-                        IdentityKits.studentId = jsonResp?["xsxx"]["XH"].string
-                        IdentityKits.studentName = jsonResp?["xsxx"]["XM"].string
-                        IdentityKits.studentNameEn = jsonResp?["xsxx"]["YWXM"].string
-                    }
+
+                    var examList: [NGExam] = []
                     
-                    var courseList: [NGCourse] = []
-                
-                    
-                    for courseObject in jsonResp?["kbList"].arrayValue ?? [] {
-                        let teachers = courseObject["xm"].stringValue.components(separatedBy: ",")
-                        let teacherTitles = courseObject["zcmc"].stringValue.components(separatedBy: ",")
+                    for examObject in jsonResp?["items"].arrayValue ?? [] {
                         
-                        var dayArrangeList = courseObject["jcs"].stringValue.components(separatedBy: "-")
-                        if dayArrangeList.count != 2 {
-                            if dayArrangeList.count == 1 {
-                                dayArrangeList.append(dayArrangeList[0])
-                            } else {
-                                continue
-                            }
+                        let timeString = examObject["kssj"].stringValue
+                        let tokens = timeString.components(separatedBy: CharacterSet(charactersIn: "(-)")).filter({ $0 != ""})
+                        if tokens.count != 5 {
+                            NSLog("failed to parse \(timeString). thrown.")
+                            failure(-4)
+                            return
                         }
                         
-                        var weekArrangeList = courseObject["zcd"].stringValue.components(separatedBy: CharacterSet(charactersIn: "-周"))
-                        if weekArrangeList.count < 2 {
-                            continue
+                        let dateStringFormatter = DateFormatter()
+                        dateStringFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                        guard let startDate = dateStringFormatter.date(from: "\(tokens[0])-\(tokens[1])-\(tokens[2]) \(tokens[3])") else {
+                            NSLog("failed to parse \(timeString). thrown.")
+                            failure(-5)
+                            return
                         }
                         
-                        if weekArrangeList[1] == "" {
-                            weekArrangeList[1] = weekArrangeList[0]
+                        guard let endDate = dateStringFormatter.date(from: "\(tokens[0])-\(tokens[1])-\(tokens[2]) \(tokens[4])") else {
+                            NSLog("failed to parse \(timeString). thrown.")
+                            failure(-5)
+                            return
                         }
                         
-                        var dualType = ShiftWeekType.Both
                         
-                        if courseObject["zcd"].stringValue.contains("(单)") {
-                            dualType = .OddWeekOnly
-                        } else if courseObject["zcd"].stringValue.contains("(双)") {
-                            dualType = .EvenWeekOnly
-                        }
-                        
-                        courseList.append(NGCourse(courseIdentifier: courseObject["jxbmc"].stringValue,
-                                                   courseCode: courseObject["kch_id"].stringValue,
-                                                   courseName: courseObject["kcmc"].stringValue,
-                                                   courseTeacher: teachers,
-                                                   courseTeacherTitle: teacherTitles,
-                                                   courseRoom: courseObject["cdmc"].stringValue,
-                                                   courseDay: courseObject["xqj"].intValue,
-                                                   courseScore: courseObject["xf"].floatValue,
-                                                   dayStartsAt: Int(dayArrangeList[0])!,
-                                                   dayEndsAt: Int(dayArrangeList[1])!,
-                                                   weekStartsAt: Int(weekArrangeList[0])!,
-                                                   weekEndsAt: Int(weekArrangeList[1])!,
-                                                   shiftWeek: dualType,
-                                                   notes: courseObject["xkbz"].stringValue))
+                        examList.append(NGExam(name: examObject["ksmc"].stringValue,
+                                               courseName: examObject["kcmc"].stringValue,
+                                               courseCode: examObject["kch"].stringValue,
+                                               location: examObject["cdmc"].stringValue,
+                                               teacher: examObject["jsxx"].stringValue,
+                                               startDate: startDate,
+                                               endDate: endDate,
+                                               seatNo: examObject["zwh"].stringValue,
+                                               originalTime: examObject["kssj"].stringValue))
                     }
-                    handler(courseList)
+                    handler(examList)
                 } else {
                     failure(-3)
                 }

@@ -9,7 +9,11 @@
 import Cocoa
 
 class TableView: BaseView {
-    var scrollViewTableView = NSScrollView()
+    var scrollViewTableView: NSScrollView = {
+        var scrollView = NSScrollView()
+        scrollView.drawsBackground = false
+        return scrollView
+    }()
     
     var stackView: NSStackView = {
         var textField = NSTextField()

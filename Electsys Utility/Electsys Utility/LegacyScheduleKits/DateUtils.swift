@@ -155,7 +155,7 @@ class CalendarHelper {
             } else {
                 let event = EKEvent(eventStore: self.eventStore)
                 event.calendar = self.calendar
-                event.title = exam.name! + "考试"
+                event.title = exam.courseName! + "考试"
                 event.location = exam.location
                 event.calendar = self.calendar
                 event.startDate = exam.startDate
