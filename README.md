@@ -9,25 +9,23 @@
 
 [![Actions Status](https://github.com/yuetsin/electsys-utility/workflows/CI/badge.svg)](https://github.com/yuetsin/electsys-utility/actions)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/yuetsin/electsys-utility?include_prereleases&style=flat-square)
-![App Platform: macOS 10.12 and above](https://img.shields.io/badge/macOS-10.12%2B-brightgreen?style=flat-square)
-![Swift Version: 5.0](https://img.shields.io/badge/swift-5.0-orange.svg?style=flat-square&logo=swift)
+![App Platform: macOS 10.12.2 and above](https://img.shields.io/badge/macOS-10.12.2%2B-brightgreen?style=flat-square)
+![Swift Version: 5.1](https://img.shields.io/badge/swift-5.1-orange.svg?style=flat-square&logo=swift)
 ![GitHub](https://img.shields.io/github/license/yuetsin/electsys-utility?color=grey&style=flat-square)
 
 # 功能
 
- - [x] 将教务处的课程表信息和你的日历同步。支持本地日历和 CalDAV 日历
+ - [x] 将课程表与考试安排同步到系统日历中
  
- - [x] 同步考试信息到日历提醒事件中
+ - [x] 查询考试成绩、计算均绩点
  
- - [x] 从 [NG-Course](https://github.com/yuetsin/NG-Course) 获取所有课程数据
+ - [x] 利用 [NG-Course](https://github.com/yuetsin/NG-Course) 查询全部课程基本信息
  
- - [x] 处理闵行、徐汇、卢湾、法华、七宝、临港等校区数据
- 
- - [ ] 导出为标准 ics 格式
+ - [ ] 导出为标准 ICS 格式
 
 # 已知问题
 
-* 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱同步的日历）时会产生异常。请尽量使用 iCloud 或 Outlook 提供的 CalDAV 服务。
+* 日历中包含无写入权限的 CalDAV 账户（如：QQ 邮箱单向同步的日历）时会产生异常。请尽量使用 iCloud 或 Outlook 提供的 CalDAV 服务。
 
 * 在 macOS Catalina (`10.15`) 下切换页面时偶现窗口闪烁。
 
@@ -52,6 +50,8 @@
 * [mxcl/Version](https://github.com/mxcl/Version)
 
 * [macmade/GitHubUpdates](https://github.com/macmade/GitHubUpdates)
+
+* [yaslab/CSV.swift](https://github.com/yaslab/CSV.swift)
 
 # 屏幕截图
 
