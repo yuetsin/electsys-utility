@@ -17,7 +17,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         self.dismiss(sheetViewController)
     }
 
-    func successExamDataTransfer(data: [Exam]) {
+    func successExamDataTransfer(data: [NGExam]) {
         NSLog("bad request type")
         self.dismiss(sheetViewController)
     }

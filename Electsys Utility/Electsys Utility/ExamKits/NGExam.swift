@@ -10,12 +10,22 @@ import Foundation
 
 struct NGExam {
     var name: String?
+    var courseName: String?
+    var courseCode: String?
     var location: String?
     var teacher: String?
     var startDate: Date?
     var endDate: Date?
+    var seatNo: String?
+    var originalTime: String?
     
-    func generatePrompt() -> String {
-        return "\(teacher ?? "某老师")「\(name ?? "某节课程")」@ \(location ?? "某地")"
+    func getTime() -> String {
+        if startDate == nil || endDate == nil {
+            return "未知"
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        return "\(formatter.string(from: startDate!)) 至 \(formatter.string(from: endDate!))"
     }
 }
