@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14550"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
     <scenes>
         <!--Main Tab View Controller-->
@@ -241,7 +243,7 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-3z-ymP">
-                                <rect key="frame" x="205" y="385" width="154" height="19"/>
+                                <rect key="frame" x="209" y="385" width="154" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="同步其他学期考试安排" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="suI-tJ-agG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -251,7 +253,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-sR-1r0">
-                                <rect key="frame" x="18" y="387" width="185" height="16"/>
+                                <rect key="frame" x="18" y="387" width="189" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="已经成功导入 {0} 条考试信息。" id="6Jp-Xr-Li0">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -515,7 +517,28 @@ DQ
                             <constraint firstItem="CIz-sR-1r0" firstAttribute="leading" secondItem="qhX-eQ-3Bc" secondAttribute="leading" constant="20" id="rUv-V7-eJr"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="pfC-xC-69g">
+                        <touchBarItems>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="GOm-oj-oju"/>
+                            <touchBarItem id="fdy-6j-kXM">
+                                <viewController key="viewController" id="9Hf-dA-O9W">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-2q-yuA">
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
+                                        <buttonCell key="cell" type="push" title="同步其他学期考试安排" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vyZ-xF-06u">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="TBSyncButtonTapped:" target="dPQ-eP-W3b" id="tIu-67-amr"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="KLg-kR-GVe"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
+                        <outlet property="TBSyncButton" destination="gJ4-2q-yuA" id="Xhs-Hr-fWI"/>
                         <outlet property="blurredView" destination="Muv-lK-SbU" id="CZJ-Ix-JjR"/>
                         <outlet property="calendarName" destination="l1z-IM-gmx" id="QgX-yh-LRj"/>
                         <outlet property="getRandomName" destination="RXH-mZ-XNH" id="gZE-I6-9fC"/>
@@ -550,10 +573,10 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IEx-wc-2NO">
-                                <rect key="frame" x="131" y="16" width="233" height="15"/>
+                                <rect key="frame" x="129" y="16" width="236" height="15"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Y8x-6l-cfn">
-                                        <rect key="frame" x="-2" y="1" width="169" height="14"/>
+                                        <rect key="frame" x="-2" y="1" width="172" height="14"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="所有课程数据来自 NG-Course。" id="Ak4-gZ-hzD">
                                             <font key="font" metaFont="message" size="11"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -561,7 +584,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-Q1-NwR">
-                                        <rect key="frame" x="165" y="0.0" width="68" height="15"/>
+                                        <rect key="frame" x="168" y="0.0" width="68" height="15"/>
                                         <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
@@ -1514,13 +1537,13 @@ DQ
                                 </connections>
                             </segmentedControl>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="27" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-xc-UtA">
-                                <rect key="frame" x="122" y="373" width="250" height="21"/>
+                                <rect key="frame" x="119" y="373" width="256" height="21"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-kE-ep8">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="81" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0if-ZQ-SrN">
-                                                <rect key="frame" x="-2" y="3" width="41" height="16"/>
+                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="2Dp-et-dgC">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1528,7 +1551,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="40v-ww-pFo">
-                                                <rect key="frame" x="43" y="-3" width="38" height="25"/>
+                                                <rect key="frame" x="46" y="-3" width="38" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bZO-Ub-j6u">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1549,10 +1572,10 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhI-1S-etg">
-                                        <rect key="frame" x="105" y="0.0" width="145" height="21"/>
+                                        <rect key="frame" x="108" y="0.0" width="148" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-xB-H4t">
-                                                <rect key="frame" x="-2" y="3" width="41" height="16"/>
+                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="RXY-CP-ae2">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1560,7 +1583,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-qV-FnA">
-                                                <rect key="frame" x="43" y="-3" width="105" height="25"/>
+                                                <rect key="frame" x="46" y="-3" width="105" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1986,7 +2009,7 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </customView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BUZ-ao-fSx">
-                                <rect key="frame" x="339" y="385" width="84" height="19"/>
+                                <rect key="frame" x="343" y="385" width="84" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="个人信息" bezelStyle="recessed" image="NSTouchBarTagIconTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gqa-sV-pPY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -2004,7 +2027,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-zn-2QH">
-                                <rect key="frame" x="205" y="385" width="130" height="19"/>
+                                <rect key="frame" x="209" y="385" width="130" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="同步其他学期课表" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KgF-p7-GwZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -2014,7 +2037,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pjq-7e-ey3">
-                                <rect key="frame" x="18" y="387" width="185" height="16"/>
+                                <rect key="frame" x="18" y="387" width="189" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="已经成功导入 {0} 条课程信息。" id="ARc-dY-3MJ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -2048,6 +2071,7 @@ DQ
                         <outlet property="promptTextField" destination="Pjq-7e-ey3" id="Qj1-6i-Hyb"/>
                         <outlet property="relsamaHouwyButton" destination="3Jc-zn-2QH" id="Ksa-Pu-gE9"/>
                         <outlet property="remindTypeSelector" destination="GLH-HA-SAb" id="i0G-VL-4UI"/>
+                        <outlet property="resolveTBButton" destination="uhq-Xc-3F0" id="cXq-xD-4C3"/>
                         <outlet property="showInspectorButton" destination="G2t-LV-te1" id="Dck-hh-DMj"/>
                         <outlet property="showPersonalInfoButton" destination="BUZ-ao-fSx" id="jbl-Eh-X8m"/>
                         <outlet property="startSyncButton" destination="fsG-2Y-Mj7" id="zxN-nd-REm"/>
@@ -2058,6 +2082,26 @@ DQ
                     </connections>
                 </viewController>
                 <customObject id="ob6-nj-oSy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <touchBar id="VJW-VB-729">
+                    <touchBarItems>
+                        <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="6vH-f3-s7R"/>
+                        <touchBarItem id="7sF-Cq-bCS">
+                            <viewController key="viewController" id="KtT-sZ-Jdm">
+                                <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-Xc-3F0">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                                    <buttonCell key="cell" type="push" title="同步其他学期课表" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZM7-8c-sXf">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="resolveAnotherTerm:" target="Jkb-pL-zEg" id="Bdl-DO-j5I"/>
+                                    </connections>
+                                </button>
+                            </viewController>
+                        </touchBarItem>
+                        <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="U2S-9p-MYN"/>
+                    </touchBarItems>
+                </touchBar>
             </objects>
             <point key="canvasLocation" x="1427" y="810.5"/>
         </scene>
@@ -4032,13 +4076,13 @@ Copyright © 2018 </string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-xc-sbO">
-                                            <rect key="frame" x="59" y="30" width="304" height="46"/>
+                                            <rect key="frame" x="59" y="30" width="307" height="46"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-4F-Xzv">
-                                                    <rect key="frame" x="0.0" y="25" width="265" height="21"/>
+                                                    <rect key="frame" x="0.0" y="25" width="268" height="21"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-kr-cVn">
-                                                            <rect key="frame" x="-2" y="3" width="121" height="16"/>
+                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="课程概要显示风格：" id="rhf-ZC-g1G">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4046,7 +4090,7 @@ Copyright © 2018 </string>
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-43-guT">
-                                                            <rect key="frame" x="123" y="-3" width="145" height="25"/>
+                                                            <rect key="frame" x="126" y="-3" width="145" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="课名及教师" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0fl-yk-JUu" id="44u-oP-13x">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
@@ -4073,10 +4117,10 @@ Copyright © 2018 </string>
                                                     </customSpacing>
                                                 </stackView>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fc9-51-BWT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="307" height="21"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-wu-sai">
-                                                            <rect key="frame" x="-2" y="3" width="121" height="16"/>
+                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="平均绩点计算策略：" id="6nl-Gq-Skc">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4084,7 +4128,7 @@ Copyright © 2018 </string>
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rGh-90-gHQ">
-                                                            <rect key="frame" x="123" y="-3" width="184" height="25"/>
+                                                            <rect key="frame" x="126" y="-3" width="184" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="上海交通大学 4.3 制" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5A1-P9-GyH" id="NQz-lP-AUr">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
@@ -4331,7 +4375,7 @@ DQ
         <!--Window Controller-->
         <scene sceneID="5Zi-Bg-pbO">
             <objects>
-                <windowController storyboardIdentifier="Year and Term Selection Window" id="GbB-GS-Off" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="Year and Term Selection Window" id="GbB-GS-Off" customClass="TouchBarWindowController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jhq-mY-CVn">
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="258" width="381" height="183"/>
@@ -4348,7 +4392,7 @@ DQ
                 </windowController>
                 <customObject id="c2Q-55-YQg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999" y="68"/>
+            <point key="canvasLocation" x="2874" y="-434"/>
         </scene>
         <!--Term Selecting View Controller-->
         <scene sceneID="lF4-JC-ecq">
@@ -4407,19 +4451,19 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XL-gW-8Po">
-                                <rect key="frame" x="67" y="58" width="244" height="67"/>
+                                <rect key="frame" x="67" y="58" width="246" height="67"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ma2-F3-7Pd">
-                                        <rect key="frame" x="0.0" y="0.0" width="244" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="67"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TON-he-sw3">
-                                                <rect key="frame" x="0.0" y="27" width="244" height="40"/>
+                                                <rect key="frame" x="0.0" y="27" width="246" height="40"/>
                                                 <subviews>
                                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHE-9a-27I">
-                                                        <rect key="frame" x="27" y="16" width="191" height="24"/>
+                                                        <rect key="frame" x="26" y="16" width="194" height="24"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-ue-g8X">
-                                                                <rect key="frame" x="-2" y="4" width="41" height="16"/>
+                                                                <rect key="frame" x="-2" y="4" width="44" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="Ugi-yu-c7f">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4427,7 +4471,7 @@ DQ
                                                                 </textFieldCell>
                                                             </textField>
                                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-ED-2Ok">
-                                                                <rect key="frame" x="43" y="-2" width="151" height="25"/>
+                                                                <rect key="frame" x="46" y="-2" width="151" height="25"/>
                                                                 <popUpButtonCell key="cell" type="push" title="2019 至 2020 学年" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lFe-lS-JZl" id="HgC-LG-qW1">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
@@ -4461,7 +4505,7 @@ DQ
                                                         </customSpacing>
                                                     </stackView>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mH8-TD-ZbY">
-                                                        <rect key="frame" x="-2" y="0.0" width="248" height="14"/>
+                                                        <rect key="frame" x="-2" y="0.0" width="250" height="14"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="指始于 2019 年秋季，终于 2020 年夏季的学年。" id="Ie0-D4-0Ul">
                                                             <font key="font" metaFont="message" size="11"/>
                                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -4479,10 +4523,10 @@ DQ
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kih-LD-Tvo">
-                                                <rect key="frame" x="50" y="0.0" width="145" height="21"/>
+                                                <rect key="frame" x="49" y="0.0" width="148" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw9-b7-iuK">
-                                                        <rect key="frame" x="-2" y="3" width="41" height="16"/>
+                                                        <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="JFD-WN-HZE">
                                                             <font key="font" metaFont="systemBold"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4490,7 +4534,7 @@ DQ
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-8A-5Mi">
-                                                        <rect key="frame" x="43" y="-3" width="105" height="25"/>
+                                                        <rect key="frame" x="46" y="-3" width="105" height="25"/>
                                                         <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="IdU-vQ-eQC" id="7mi-Tl-qfz">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -4538,17 +4582,117 @@ DQ
                             </stackView>
                         </subviews>
                     </view>
+                    <touchBar key="touchBar" id="Xt3-Uo-3jp">
+                        <touchBarItems>
+                            <touchBarItem id="Wz3-ts-6qY">
+                                <viewController key="viewController" id="jqi-fD-FLO">
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-y6-uhO">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="IUt-79-8De">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarPopoverItem collapsedRepresentationLabel="Popover" supportsPressAndHold="YES" id="tLZ-fr-iMz">
+                                <touchBar key="popoverTouchBar" id="IGR-ZC-wcf">
+                                    <touchBarItems>
+                                        <touchBarItem id="ENb-eN-7hF">
+                                            <viewController key="viewController" id="0Rn-ox-JR3">
+                                                <scrubber key="view" mode="1" showsAdditionalContentIndicators="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-jj-G9U">
+                                                    <rect key="frame" x="0.0" y="0.0" width="685" height="30"/>
+                                                    <scrubberProportionalLayout key="scrubberLayout" numberOfVisibleItems="3"/>
+                                                </scrubber>
+                                            </viewController>
+                                        </touchBarItem>
+                                    </touchBarItems>
+                                </touchBar>
+                            </touchBarPopoverItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="BmS-dY-hcF"/>
+                            <touchBarItem id="NZP-6A-UCN">
+                                <viewController key="viewController" id="IO1-SS-deE">
+                                    <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZVS-tC-Rtz">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="NyD-Z2-8HM">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="5Mp-Th-Vmk">
+                                <viewController key="viewController" id="OXr-sX-ZJj">
+                                    <segmentedControl key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-lv-bbb">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="3zw-Hu-GoI">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="秋"/>
+                                                <segment label="春" selected="YES" tag="1"/>
+                                                <segment label="夏"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="touchBarTermTapped:" target="Iu3-c5-YlT" id="Tyk-ih-dxf"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="005-hN-6pD"/>
+                            <touchBarItem id="5Nc-N5-DvH">
+                                <viewController key="viewController" id="UrO-xv-zVb">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-hh-RNg">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k7M-Bh-tqJ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <connections>
+                                                <action selector="cancelTouchBarTapped:" target="Iu3-c5-YlT" id="wkV-S5-34x"/>
+                                            </connections>
+                                        </buttonCell>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="k9B-dg-um4">
+                                <viewController key="viewController" id="XEG-vK-0VI">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sFj-LZ-xYh">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <buttonCell key="cell" type="push" title="好" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KDa-An-RcB">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <color key="bezelColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                        <connections>
+                                            <action selector="okTouchBarTapped:" target="Iu3-c5-YlT" id="H7n-Wb-FUH"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFixedSpaceSmall" id="qN1-Za-MWR"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="OKButton" destination="yc5-af-FdG" id="wCb-gb-1VH"/>
                         <outlet property="cancelButton" destination="trJ-fY-Rxr" id="Qkv-ku-uf1"/>
+                        <outlet property="popOverTouchBar" destination="tLZ-fr-iMz" id="iIU-yi-VVv"/>
                         <outlet property="termPopUpSelector" destination="xeZ-8A-5Mi" id="Jfx-Y3-eYh"/>
+                        <outlet property="termSelector" destination="KjM-lv-bbb" id="OvR-ua-z9a"/>
+                        <outlet property="touchBarCancelButton" destination="FAx-hh-RNg" id="HwN-pI-iZS"/>
+                        <outlet property="touchBarOkButton" destination="sFj-LZ-xYh" id="aXB-DP-Ozh"/>
                         <outlet property="yearPopUpSelector" destination="dhF-ED-2Ok" id="vLO-WV-GNK"/>
                         <outlet property="yearPromptTextField" destination="mH8-TD-ZbY" id="PJA-qq-K9B"/>
+                        <outlet property="yearScrubber" destination="h9c-jj-G9U" id="gt3-ZI-XR4"/>
                     </connections>
                 </viewController>
                 <customObject id="fqw-IW-YDh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2000" y="399"/>
+            <point key="canvasLocation" x="2874" y="-90"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="V17-wY-JJI">
@@ -4583,10 +4727,10 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bBO-O5-l48">
-                                <rect key="frame" x="158" y="4" width="164" height="14"/>
+                                <rect key="frame" x="157" y="4" width="166" height="14"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-iD-j5n">
-                                        <rect key="frame" x="-2" y="0.0" width="128" height="14"/>
+                                        <rect key="frame" x="-2" y="0.0" width="130" height="14"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="共有 0 项属性可供检查。" id="ZjZ-SN-bm0">
                                             <font key="font" metaFont="message" size="11"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -4594,10 +4738,10 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sc6-gt-xTM">
-                                        <rect key="frame" x="131" y="-1" width="33" height="15"/>
+                                        <rect key="frame" x="133" y="-1" width="33" height="15"/>
                                         <buttonCell key="cell" type="roundRect" title="导出" bezelStyle="roundedRect" image="buttonCell:8X0-gU-WDM:image" imagePosition="overlaps" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="8X0-gU-WDM">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="label" size="9"/>
+                                            <font key="font" metaFont="menu" size="9"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="exportButtonClicked:" target="Ofd-49-eEU" id="kfd-ac-6xZ"/>
@@ -4875,7 +5019,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-IO-uGF">
-                                <rect key="frame" x="205" y="385" width="142" height="19"/>
+                                <rect key="frame" x="209" y="385" width="142" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="查询其他学期成绩单" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CQX-32-kKs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4885,7 +5029,7 @@ DQ
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-va-zal">
-                                <rect key="frame" x="18" y="387" width="185" height="16"/>
+                                <rect key="frame" x="18" y="387" width="189" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="已经成功获取 {0} 次考试成绩。" id="ilA-gI-XZe">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4915,9 +5059,31 @@ DQ
                             <constraint firstItem="ygT-a8-PlL" firstAttribute="top" secondItem="nxT-pY-H9J" secondAttribute="bottom" constant="12" id="y4Z-ZR-elK"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="O5l-8k-QBR">
+                        <touchBarItems>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="M2O-Bl-jZ4"/>
+                            <touchBarItem id="0w0-S1-Gm2">
+                                <viewController key="viewController" id="gfW-hU-FiG">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l9X-cv-yT1">
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
+                                        <buttonCell key="cell" type="push" title="查询其他学期成绩单" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fu6-Cr-f4Q">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="TBButtonTapped:" target="m62-gO-PeB" id="gd6-FH-fFY"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarSpacerItem identifier="NSTouchBarItemIdentifierFlexibleSpace" id="vyN-ra-a6X"/>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
+                        <outlet property="TBButton" destination="l9X-cv-yT1" id="Oas-2s-5VZ"/>
                         <outlet property="blurredView" destination="ng9-38-h2J" id="6cU-Aj-KGv"/>
                         <outlet property="promptTextField" destination="ORj-va-zal" id="fds-fy-qCN"/>
+                        <outlet property="syncOtherTermTBButton" destination="Fu6-Cr-f4Q" id="wmq-70-t5U"/>
                         <outlet property="tableView" destination="bC3-CW-3H3" id="5kY-X3-jtc"/>
                     </connections>
                 </viewController>
@@ -5118,7 +5284,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nxi-xO-5CU">
-                                <rect key="frame" x="72" y="227" width="350" height="16"/>
+                                <rect key="frame" x="71" y="227" width="353" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="由于旧版教学信息服务网已终止更新，此项功能不再提供。" id="snI-jg-p8X">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

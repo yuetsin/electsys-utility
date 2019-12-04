@@ -9,7 +9,14 @@
 import Cocoa
 import EventKit
 
+@available(OSX 10.12.2, *)
 class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate {
+    
+    @IBOutlet weak var resolveTBButton: NSButton!
+    
+    @IBAction func resolveAnotherTerm(_ sender: NSButton) {
+        restartAnalyse(sender)
+    }
     
     func successCourseDataTransfer(data: [NGCourse]) {
         courseList = data
@@ -162,6 +169,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         startSyncButton.isEnabled = false
         diceButton.isEnabled = false
         loadingRing.isHidden = false
+        
+        resolveTBButton.isHidden = true
+        
     }
 
     func resumeUI() {
@@ -177,6 +187,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         startSyncButton.isEnabled = true
         diceButton.isEnabled = true
         loadingRing.isHidden = true
+        resolveTBButton.isHidden = false
         remindTapped(willRemindBox)
         updatePopUpSelector()
     }

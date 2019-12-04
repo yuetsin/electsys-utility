@@ -71,6 +71,7 @@
 		8AAB6F582172FA4C00D0FF61 /* TransparentTitleWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */; };
 		8AAD7F1C21D4D05C0019E9F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AAD7F1B21D4D05C0019E9F8 /* Main.storyboard */; };
 		8AB589C9214B7F300088B190 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD04CFE213BC58800D59DB1 /* EventKit.framework */; };
+		8AB614A323976F7700AA8175 /* TouchBarIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB614A223976F7700AA8175 /* TouchBarIdentifier.swift */; };
 		8AB95213232936D80034C304 /* TermSelectingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB95212232936D80034C304 /* TermSelectingViewController.swift */; };
 		8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB34652140143C002053D0 /* FullDataViewController.swift */; };
 		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
@@ -179,6 +180,7 @@
 		8AA79CE521D70F1E007D272B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = "Electsys Utility/UIKits/MainViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8AAB6F572172FA4C00D0FF61 /* TransparentTitleWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentTitleWindowController.swift; sourceTree = "<group>"; };
 		8AAD7F1B21D4D05C0019E9F8 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8AB614A223976F7700AA8175 /* TouchBarIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarIdentifier.swift; sourceTree = "<group>"; };
 		8AB95212232936D80034C304 /* TermSelectingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermSelectingViewController.swift; sourceTree = "<group>"; };
 		8ACB34652140143C002053D0 /* FullDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDataViewController.swift; sourceTree = "<group>"; };
 		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8AB614A123976F5D00AA8175 /* TouchBarKits */,
 				8A09A484214E0E9C008EC502 /* GalleryKits */,
 				8A33CF09232F1F2F00BD6826 /* InspectorKits */,
 				8A27D738232E537E005AF5CA /* ScoreKits */,
@@ -517,6 +520,14 @@
 				8ACEEB05213CB04200A7776E /* RandomNames.swift */,
 			);
 			path = LegacyScheduleKits;
+			sourceTree = "<group>";
+		};
+		8AB614A123976F5D00AA8175 /* TouchBarKits */ = {
+			isa = PBXGroup;
+			children = (
+				8AB614A223976F7700AA8175 /* TouchBarIdentifier.swift */,
+			);
+			path = TouchBarKits;
 			sourceTree = "<group>";
 		};
 		8AEA9365234F526600952904 /* Icons */ = {
@@ -796,6 +807,7 @@
 				8A6E46AA233242DE00141C91 /* TableViewController.swift in Sources */,
 				8AF47F47233269F800F00E28 /* GitHubRelease.m in Sources */,
 				8AF47F49233269F800F00E28 /* GitHubUpdater.m in Sources */,
+				8AB614A323976F7700AA8175 /* TouchBarIdentifier.swift in Sources */,
 				8AA79CE621D70F1E007D272B /* MainTabViewController.swift in Sources */,
 				8A27D733232E51D8005AF5CA /* ExamKits.swift in Sources */,
 				8A17ADAF232BAF540077DDCF /* RMBlurredView.m in Sources */,
@@ -990,12 +1002,12 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 90;
+				CURRENT_PROJECT_VERSION = 92;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = v0.9.6;
+				MARKETING_VERSION = v0.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1016,12 +1028,12 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 90;
+				CURRENT_PROJECT_VERSION = 92;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = v0.9.6;
+				MARKETING_VERSION = v0.9.7;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
