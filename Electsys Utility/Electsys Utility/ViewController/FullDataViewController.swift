@@ -895,26 +895,34 @@ class FullDataViewController: NSViewController {
     }
 
     func aggregateData() {
+        var cachedSchoolSets = Set<String>(schools)
+        var cachedTeacherSets = Set<String>(teachers)
+        var cachedClassnameSets = Set<String>(classnames)
+        
         for cur in GalleryKits.courseList {
             for related in cur.getRelated() {
                 sortClassroom(building: related.strA, campus: related.strB)
             }
+            
 
-            if !schools.contains(cur.holderSchool) {
+            if !cachedSchoolSets.contains(cur.holderSchool) {
+                cachedSchoolSets.insert(cur.holderSchool)
                 schools.append(cur.holderSchool)
             }
 
             for teacherName in cur.teacher {
-                if !teachers.contains(teacherName) {
+                if !cachedTeacherSets.contains(teacherName) {
                     if teacherName.sanitize() != "" {
                         teachers.append(teacherName)
+                        cachedTeacherSets.insert(teacherName)
                     }
                 }
             }
 
-            if !classnames.contains(cur.name) {
+            if !cachedClassnameSets.contains(cur.name) {
                 if cur.name.sanitize() != "" {
                     classnames.append(cur.name)
+                    cachedClassnameSets.insert(cur.name)
                 }
             }
         }

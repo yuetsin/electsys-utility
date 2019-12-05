@@ -523,7 +523,8 @@ DQ
                             <touchBarItem id="fdy-6j-kXM">
                                 <viewController key="viewController" id="9Hf-dA-O9W">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-2q-yuA">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
+                                        <rect key="frame" x="0.0" y="-11" width="210" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="同步其他学期考试安排" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vyZ-xF-06u">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -2088,7 +2089,8 @@ DQ
                         <touchBarItem id="7sF-Cq-bCS">
                             <viewController key="viewController" id="KtT-sZ-Jdm">
                                 <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-Xc-3F0">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                                    <rect key="frame" x="0.0" y="-11" width="192" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="同步其他学期课表" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZM7-8c-sXf">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -4588,6 +4590,7 @@ DQ
                                 <viewController key="viewController" id="jqi-fD-FLO">
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-y6-uhO">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="IUt-79-8De">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4603,6 +4606,7 @@ DQ
                                             <viewController key="viewController" id="0Rn-ox-JR3">
                                                 <scrubber key="view" mode="1" showsAdditionalContentIndicators="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-jj-G9U">
                                                     <rect key="frame" x="0.0" y="0.0" width="685" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <scrubberProportionalLayout key="scrubberLayout" numberOfVisibleItems="3"/>
                                                 </scrubber>
                                             </viewController>
@@ -4615,6 +4619,7 @@ DQ
                                 <viewController key="viewController" id="IO1-SS-deE">
                                     <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZVS-tC-Rtz">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="NyD-Z2-8HM">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4626,7 +4631,8 @@ DQ
                             <touchBarItem id="5Mp-Th-Vmk">
                                 <viewController key="viewController" id="OXr-sX-ZJj">
                                     <segmentedControl key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KjM-lv-bbb">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
+                                        <rect key="frame" x="0.0" y="-3" width="184" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="3zw-Hu-GoI">
                                             <font key="font" metaFont="system"/>
                                             <segments>
@@ -4645,7 +4651,8 @@ DQ
                             <touchBarItem id="5Nc-N5-DvH">
                                 <viewController key="viewController" id="UrO-xv-zVb">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FAx-hh-RNg">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <rect key="frame" x="0.0" y="-11" width="84" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="k7M-Bh-tqJ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -4659,7 +4666,8 @@ DQ
                             <touchBarItem id="k9B-dg-um4">
                                 <viewController key="viewController" id="XEG-vK-0VI">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sFj-LZ-xYh">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <rect key="frame" x="0.0" y="-11" width="84" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="好" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KDa-An-RcB">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -5065,7 +5073,8 @@ DQ
                             <touchBarItem id="0w0-S1-Gm2">
                                 <viewController key="viewController" id="gfW-hU-FiG">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l9X-cv-yT1">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
+                                        <rect key="frame" x="0.0" y="-11" width="210" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="查询其他学期成绩单" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fu6-Cr-f4Q">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
