@@ -7,3 +7,6 @@
 [submodule "GitHubUpdates"]
 	path = GitHubUpdates
 	url = https://github.com/macmade/GitHubUpdates
+[submodule "NG-Course"]
+	path = NG-Course
+	url = https://github.com/yuetsin/NG-Course
