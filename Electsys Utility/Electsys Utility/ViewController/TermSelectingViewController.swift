@@ -66,7 +66,7 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
 
     func syncScrubber() {
         popOverTouchBar.collapsedRepresentationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
-        popOverTouchBar.customizationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
+//        popOverTouchBar.customizationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
         popOverTouchBar.dismissPopover(self)
     }
 
@@ -79,6 +79,7 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
         yearScrubber.mode = .free
         syncScrubber()
         yearScrubber.register(NSScrubberTextItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"))
+        termPopUpButtonTapped(termPopUpSelector)
     }
 
     override func viewDidAppear() {
@@ -188,6 +189,12 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
     @IBAction func yearPopUpButtonTapped(_ sender: NSPopUpButton) {
         let actualYear = 1996 + sender.numberOfItems - sender.indexOfSelectedItem
         yearPromptTextField.stringValue = "指始于 \(actualYear - 1) 年秋季，终于 \(actualYear) 年夏季的学年。"
+        yearPopUpSelector.selectItem(at: sender.indexOfSelectedItem)
+        syncScrubber()
+    }
+    
+    @IBAction func termPopUpButtonTapped(_ sender: NSPopUpButton) {
+        termSelector.selectSegment(withTag: sender.indexOfSelectedItem)
     }
 
     func showErrorMessage(errorMsg: String) {

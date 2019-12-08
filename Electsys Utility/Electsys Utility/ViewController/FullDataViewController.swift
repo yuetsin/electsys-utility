@@ -147,6 +147,7 @@ class FullDataViewController: NSViewController {
 
     @IBOutlet var yearSelector: NSPopUpButton!
     @IBOutlet var termSelector: NSPopUpButton!
+    
     @IBOutlet var progressIndicator: NSProgressIndicator!
     @IBOutlet var buildingSelector: NSPopUpButton!
     @IBOutlet var roomSelector: NSPopUpButton!
@@ -207,6 +208,7 @@ class FullDataViewController: NSViewController {
     }
 
     @IBAction func termPopTapped(_ sender: NSPopUpButton) {
+        
         setLayoutType(.shrink)
         if sender.selectedItem?.title == "夏季小学期" {
             setWeekPop(start: 1, end: 6)
