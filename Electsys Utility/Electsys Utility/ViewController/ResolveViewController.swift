@@ -346,7 +346,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         
         var counter = 1
         for course in courseList {
-            coursePopUpList.addItem(withTitle: "(\(counter))" + course.getExtraIdentifier())
+            coursePopUpList.addItem(withTitle: "(\(counter)) " + course.getExtraIdentifier())
             counter += 1
         }
 
