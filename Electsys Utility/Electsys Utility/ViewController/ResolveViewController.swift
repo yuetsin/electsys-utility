@@ -343,9 +343,11 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         }
         promptTextField.isEnabled = true
         promptTextField.stringValue = "现有 \(courseList.count) 条课程信息。"
-
+        
+        var counter = 1
         for course in courseList {
-            coursePopUpList.addItem(withTitle: course.getExtraIdentifier())
+            coursePopUpList.addItem(withTitle: "(\(counter))" + course.getExtraIdentifier())
+            counter += 1
         }
 
         if itemIndex != 0 {

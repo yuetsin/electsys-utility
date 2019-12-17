@@ -78,7 +78,11 @@ struct NGCourse {
             break
         }
         timeString += dayOfWeekName[self.courseDay]
-        timeString += " \(self.dayStartsAt) ~ \(self.dayEndsAt) 节，"
+        if (self.dayStartsAt == self.dayEndsAt) {
+            timeString += "第 \(self.dayStartsAt) 节，"
+        } else {
+            timeString += " \(self.dayStartsAt) ~ \(self.dayEndsAt) 节，"
+        }
         timeString += getExactTime(startAt: self.dayStartsAt, duration: self.dayEndsAt - self.dayStartsAt + 1)
         return timeString
     }
