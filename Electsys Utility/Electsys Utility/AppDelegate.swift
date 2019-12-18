@@ -18,6 +18,7 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         window = NSApplication.shared.windows.first
         LoginHelper.initRedirectUrl()
         PreferenceKits.registerPreferenceKeys()
+        LoginHelper.removeCookie()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

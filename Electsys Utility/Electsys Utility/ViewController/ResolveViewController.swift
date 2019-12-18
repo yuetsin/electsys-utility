@@ -170,8 +170,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         diceButton.isEnabled = false
         loadingRing.isHidden = false
         
-        resolveTBButton.isHidden = true
-        
+        if (resolveTBButton != nil) {
+            resolveTBButton.isHidden = true
+        }
     }
 
     func resumeUI() {
@@ -187,7 +188,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         startSyncButton.isEnabled = true
         diceButton.isEnabled = true
         loadingRing.isHidden = true
-        resolveTBButton.isHidden = false
+        if (resolveTBButton != nil) {
+            resolveTBButton.isHidden = false
+        }
         remindTapped(willRemindBox)
         updatePopUpSelector()
     }

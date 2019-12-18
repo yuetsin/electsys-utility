@@ -103,12 +103,16 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             view.window?.makeFirstResponder(blurredView)
             blurredView.blurRadius = 3.0
             blurredView.isHidden = false
-            TBButton.isHidden = true
+            if TBButton != nil {
+                TBButton.isHidden = true
+            }
             return
         }
 
         blurredView.isHidden = true
-        TBButton.isHidden = false
+        if TBButton != nil {
+            TBButton.isHidden = false
+        }
         blurredView.blurRadius = 0.0
 
         promptTextField.isEnabled = true

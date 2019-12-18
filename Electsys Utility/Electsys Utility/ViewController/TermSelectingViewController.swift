@@ -65,20 +65,25 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
     }
 
     func syncScrubber() {
-        popOverTouchBar.collapsedRepresentationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
-//        popOverTouchBar.customizationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
-        popOverTouchBar.dismissPopover(self)
+        if popOverTouchBar != nil {
+            popOverTouchBar.collapsedRepresentationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
+    //        popOverTouchBar.customizationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
+            popOverTouchBar.dismissPopover(self)
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         initPopUpLists()
-        yearScrubber.dataSource = self
-        yearScrubber.delegate = self
-        yearScrubber.mode = .free
-        syncScrubber()
-        yearScrubber.register(NSScrubberTextItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"))
+        
+        if yearScrubber != nil {
+            yearScrubber.dataSource = self
+            yearScrubber.delegate = self
+            yearScrubber.mode = .free
+            syncScrubber()
+            yearScrubber.register(NSScrubberTextItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"))
+        }
         termPopUpButtonTapped(termPopUpSelector)
     }
 
@@ -93,9 +98,13 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
         OKButton.isEnabled = false
         cancelButton.isEnabled = false
         
-        touchBarOkButton.isEnabled = false
-        touchBarCancelButton.isEnabled = false
+        if touchBarOkButton != nil {
+            touchBarOkButton.isEnabled = false
+        }
         
+        if touchBarCancelButton != nil {
+            touchBarCancelButton.isEnabled = false
+        }
     }
 
     func enableUI() {
@@ -104,8 +113,13 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
         OKButton.isEnabled = true
         cancelButton.isEnabled = true
         
-        touchBarOkButton.isEnabled = true
-        touchBarCancelButton.isEnabled = true
+        if touchBarOkButton != nil {
+            touchBarOkButton.isEnabled = true
+        }
+        
+        if touchBarCancelButton != nil {
+            touchBarCancelButton.isEnabled = true
+        }
     }
     
 
@@ -194,7 +208,9 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
     }
     
     @IBAction func termPopUpButtonTapped(_ sender: NSPopUpButton) {
-        termSelector.selectSegment(withTag: sender.indexOfSelectedItem)
+        if termSelector != nil {
+            termSelector.selectSegment(withTag: sender.indexOfSelectedItem)
+        }
     }
 
     func showErrorMessage(errorMsg: String) {

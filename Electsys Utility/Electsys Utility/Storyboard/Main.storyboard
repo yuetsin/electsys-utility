@@ -523,8 +523,7 @@ DQ
                             <touchBarItem id="fdy-6j-kXM">
                                 <viewController key="viewController" id="9Hf-dA-O9W">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-2q-yuA">
-                                        <rect key="frame" x="0.0" y="-11" width="210" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
                                         <buttonCell key="cell" type="push" title="同步其他学期考试安排" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vyZ-xF-06u">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
@@ -2089,8 +2088,7 @@ DQ
                         <touchBarItem id="7sF-Cq-bCS">
                             <viewController key="viewController" id="KtT-sZ-Jdm">
                                 <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uhq-Xc-3F0">
-                                    <rect key="frame" x="0.0" y="-11" width="192" height="41"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
                                     <buttonCell key="cell" type="push" title="同步其他学期课表" bezelStyle="rounded" image="NSTouchBarHistoryTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZM7-8c-sXf">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" usesAppearanceFont="YES"/>
@@ -4003,7 +4001,7 @@ Copyright © 2018 </string>
                                 <rect key="frame" x="99" y="172" width="297" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="e5A-6b-DMC">
-                                    <font key="font" metaFont="system" size="10"/>
+                                    <font key="font" metaFont="menu" size="10"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

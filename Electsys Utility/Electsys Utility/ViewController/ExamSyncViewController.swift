@@ -206,12 +206,16 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             view.window?.makeFirstResponder(blurredView)
             blurredView.blurRadius = 3.0
             blurredView.isHidden = false
-            TBSyncButton.isHidden = true
+            if (TBSyncButton != nil) {
+                TBSyncButton.isHidden = true
+            }
             return
         }
 
         blurredView.isHidden = true
-        TBSyncButton.isHidden = false
+        if (TBSyncButton != nil) {
+            TBSyncButton.isHidden = false
+        }
         blurredView.blurRadius = 0.0
 
         promptTextField.isEnabled = true
