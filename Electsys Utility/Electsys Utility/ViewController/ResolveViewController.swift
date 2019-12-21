@@ -9,7 +9,14 @@
 import Cocoa
 import EventKit
 
+@available(OSX 10.12.2, *)
 class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate {
+    
+    @IBOutlet weak var resolveTBButton: NSButton!
+    
+    @IBAction func resolveAnotherTerm(_ sender: NSButton) {
+        restartAnalyse(sender)
+    }
     
     func successCourseDataTransfer(data: [NGCourse]) {
         courseList = data
@@ -162,6 +169,10 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         startSyncButton.isEnabled = false
         diceButton.isEnabled = false
         loadingRing.isHidden = false
+        
+        if (resolveTBButton != nil) {
+            resolveTBButton.isHidden = true
+        }
     }
 
     func resumeUI() {
@@ -177,6 +188,9 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         startSyncButton.isEnabled = true
         diceButton.isEnabled = true
         loadingRing.isHidden = true
+        if (resolveTBButton != nil) {
+            resolveTBButton.isHidden = false
+        }
         remindTapped(willRemindBox)
         updatePopUpSelector()
     }
@@ -332,9 +346,11 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         }
         promptTextField.isEnabled = true
         promptTextField.stringValue = "现有 \(courseList.count) 条课程信息。"
-
+        
+        var counter = 1
         for course in courseList {
-            coursePopUpList.addItem(withTitle: course.getExtraIdentifier())
+            coursePopUpList.addItem(withTitle: "(\(counter)) " + course.getExtraIdentifier())
+            counter += 1
         }
 
         if itemIndex != 0 {

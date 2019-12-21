@@ -8,7 +8,34 @@
 
 import Cocoa
 
-class TermSelectingViewController: NSViewController {
+@available(OSX 10.12.2, *)
+class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScrubberDelegate {
+    func numberOfItems(for scrubber: NSScrubber) -> Int {
+        return yearPopUpSelector.numberOfItems
+    }
+
+    func scrubber(_ scrubber: NSScrubber, viewForItemAt index: Int) -> NSScrubberItemView {
+        if index < yearPopUpSelector.numberOfItems {
+            let itemView = scrubber.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"),
+                                             owner: nil) as! NSScrubberTextItemView
+            itemView.textField.stringValue = yearPopUpSelector.item(at: index)?.title ?? "N/A"
+            
+            return itemView
+        } else {
+            let itemView = scrubber.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"), owner: nil) as! NSScrubberTextItemView
+            itemView.textField.stringValue = "N/A"
+            return itemView
+        }
+    }
+    
+    func scrubber(_ scrubber: NSScrubber, didSelectItemAt index: Int) {
+        // Log the index value for the item the user selected
+        if index < yearPopUpSelector.numberOfItems {
+            yearPopUpSelector.selectItem(at: index)
+        }
+        syncScrubber()
+    }
+
     @IBOutlet var yearPopUpSelector: NSPopUpButton!
     @IBOutlet var termPopUpSelector: NSPopUpButton!
 
@@ -16,14 +43,52 @@ class TermSelectingViewController: NSViewController {
     @IBOutlet var OKButton: NSButton!
     @IBOutlet var cancelButton: NSButton!
 
+    @IBOutlet weak var touchBarOkButton: NSButton!
+    @IBOutlet weak var touchBarCancelButton: NSButton!
+    
+    @IBOutlet var yearScrubber: NSScrubber!
+    @IBOutlet var termSelector: NSSegmentedControl!
+    @IBOutlet weak var popOverTouchBar: NSPopoverTouchBarItem!
+    
+    @IBAction func cancelTouchBarTapped(_ sender: NSButtonCell) {
+        cancelButtonTapped(cancelButton)
+    }
+
+    @IBAction func okTouchBarTapped(_ sender: NSButton) {
+        OKButtonTapped(OKButton)
+    }
+
+    @IBAction func touchBarTermTapped(_ sender: NSSegmentedControl) {
+        if sender.selectedSegment < termPopUpSelector.numberOfItems {
+            termPopUpSelector.selectItem(at: sender.selectedSegment)
+        }
+    }
+
+    func syncScrubber() {
+        if popOverTouchBar != nil {
+            popOverTouchBar.collapsedRepresentationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
+    //        popOverTouchBar.customizationLabel = yearPopUpSelector.selectedItem?.title ?? "N/A"
+            popOverTouchBar.dismissPopover(self)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         initPopUpLists()
+        
+        if yearScrubber != nil {
+            yearScrubber.dataSource = self
+            yearScrubber.delegate = self
+            yearScrubber.mode = .free
+            syncScrubber()
+            yearScrubber.register(NSScrubberTextItemView.self, forItemIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextScrubberItemIdentifier"))
+        }
+        termPopUpButtonTapped(termPopUpSelector)
     }
 
     override func viewDidAppear() {
-        // any additional code
+        super.viewDidAppear()
         view.window!.styleMask.remove(.resizable)
     }
 
@@ -32,6 +97,14 @@ class TermSelectingViewController: NSViewController {
         termPopUpSelector.isEnabled = false
         OKButton.isEnabled = false
         cancelButton.isEnabled = false
+        
+        if touchBarOkButton != nil {
+            touchBarOkButton.isEnabled = false
+        }
+        
+        if touchBarCancelButton != nil {
+            touchBarCancelButton.isEnabled = false
+        }
     }
 
     func enableUI() {
@@ -39,7 +112,16 @@ class TermSelectingViewController: NSViewController {
         termPopUpSelector.isEnabled = true
         OKButton.isEnabled = true
         cancelButton.isEnabled = true
+        
+        if touchBarOkButton != nil {
+            touchBarOkButton.isEnabled = true
+        }
+        
+        if touchBarCancelButton != nil {
+            touchBarCancelButton.isEnabled = true
+        }
     }
+    
 
     var requestType: RequestType?
 
@@ -91,13 +173,13 @@ class TermSelectingViewController: NSViewController {
             let actualYear = 1995 + yearPopUpSelector.numberOfItems - yearPopUpSelector.indexOfSelectedItem
             let actualTerm = termPopUpSelector.indexOfSelectedItem + 1
             ExamKits.requestExamTable(year: actualYear, term: actualTerm,
-                                          handler: { exams in
-                                              self.successDelegate?.successExamDataTransfer(data: exams)
-                                              //                                            self.successDelegate?.shutWindow()
-                                          },
-                                          failure: { errCode in
-                                              self.showErrorMessage(errorMsg: "未能获取此学期的考试信息。\n错误代码：\(errCode)")
-                                              self.enableUI()
+                                      handler: { exams in
+                                          self.successDelegate?.successExamDataTransfer(data: exams)
+                                          //                                            self.successDelegate?.shutWindow()
+                                      },
+                                      failure: { errCode in
+                                          self.showErrorMessage(errorMsg: "未能获取此学期的考试信息。\n错误代码：\(errCode)")
+                                          self.enableUI()
             })
             break
         case .score:
@@ -121,6 +203,14 @@ class TermSelectingViewController: NSViewController {
     @IBAction func yearPopUpButtonTapped(_ sender: NSPopUpButton) {
         let actualYear = 1996 + sender.numberOfItems - sender.indexOfSelectedItem
         yearPromptTextField.stringValue = "指始于 \(actualYear - 1) 年秋季，终于 \(actualYear) 年夏季的学年。"
+        yearPopUpSelector.selectItem(at: sender.indexOfSelectedItem)
+        syncScrubber()
+    }
+    
+    @IBAction func termPopUpButtonTapped(_ sender: NSPopUpButton) {
+        if termSelector != nil {
+            termSelector.selectSegment(withTag: sender.indexOfSelectedItem)
+        }
     }
 
     func showErrorMessage(errorMsg: String) {

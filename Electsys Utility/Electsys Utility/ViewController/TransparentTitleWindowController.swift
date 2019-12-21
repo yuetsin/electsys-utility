@@ -9,11 +9,18 @@
 import Cocoa
 
 class TransparentTitleWindowController: NSWindowController {
-
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.titlebarAppearsTransparent = true
-        self.window?.isMovableByWindowBackground = true
+        window?.titlebarAppearsTransparent = true
+        window?.isMovableByWindowBackground = true
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    }
+
+    @available(OSX 10.12.2, *)
+    override func makeTouchBar() -> NSTouchBar? {
+        guard let viewController = contentViewController as? MainViewController else {
+            return nil
+        }
+        return viewController.makeTouchBar()
     }
 }

@@ -9,10 +9,16 @@
 import Cocoa
 import CSV
 
+@available(OSX 10.12.2, *)
 class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, YearAndTermSelectionDelegate, ExportFormatDecisionDelegate {
     var scoreList: [NGScore] = []
     var openedWindow: NSWindow?
-
+    
+    @IBAction func TBButtonTapped(_ sender: NSButton) {
+        restartAnalyse(sender)
+    }
+    
+    @IBOutlet weak var TBButton: NSButton!
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var promptTextField: NSTextField!
     @IBOutlet var blurredView: RMBlurredView!
@@ -97,10 +103,16 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
             view.window?.makeFirstResponder(blurredView)
             blurredView.blurRadius = 3.0
             blurredView.isHidden = false
+            if TBButton != nil {
+                TBButton.isHidden = true
+            }
             return
         }
 
         blurredView.isHidden = true
+        if TBButton != nil {
+            TBButton.isHidden = false
+        }
         blurredView.blurRadius = 0.0
 
         promptTextField.isEnabled = true

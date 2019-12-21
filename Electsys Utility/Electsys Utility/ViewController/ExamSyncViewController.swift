@@ -10,6 +10,7 @@ import Cocoa
 import Kanna
 
 
+@available(OSX 10.12.2, *)
 class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate, NSTableViewDataSource, NSTableViewDelegate {
     
     func successCourseDataTransfer(data: [NGCourse]) {
@@ -37,6 +38,11 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
     var helper: CalendarHelper?
     var shouldRemind: Bool = true
     
+    @IBAction func TBSyncButtonTapped(_ sender: NSButton) {
+        restartAnalyse(sender)
+    }
+    
+    @IBOutlet weak var TBSyncButton: NSButton!
     lazy var sheetViewController: TermSelectingViewController = {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("YearAndTermViewController"))
@@ -200,10 +206,16 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             view.window?.makeFirstResponder(blurredView)
             blurredView.blurRadius = 3.0
             blurredView.isHidden = false
+            if (TBSyncButton != nil) {
+                TBSyncButton.isHidden = true
+            }
             return
         }
 
         blurredView.isHidden = true
+        if (TBSyncButton != nil) {
+            TBSyncButton.isHidden = false
+        }
         blurredView.blurRadius = 0.0
 
         promptTextField.isEnabled = true

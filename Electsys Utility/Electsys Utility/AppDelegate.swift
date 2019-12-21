@@ -10,24 +10,26 @@ import Cocoa
 
 @NSApplicationMain
 class NSAppDelegate: NSObject, NSApplicationDelegate {
-    
     @IBOutlet var window: NSWindow!
     
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         window = NSApplication.shared.windows.first
         LoginHelper.initRedirectUrl()
         PreferenceKits.registerPreferenceKeys()
+        LoginHelper.removeCookie()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
         NSLog("Bye")
     }
-  
+
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
+
 //
 //    @IBAction func aboutWindow(_ sender: NSButton) {
 //        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
@@ -40,25 +42,25 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
 //        windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "Credits Window Controller")) as? NSWindowController
 //        windowController?.showWindow(sender)
 //    }
-    
+
     @IBAction func openGithubPage(_ sender: NSButton) {
         if let url = URL(string: "https://github.com/yuetsin/electsys-utility"), NSWorkspace.shared.open(url) {
             // successfully opened
         }
     }
-    
+
     @IBAction func visitAboutPage(_ sender: NSButton) {
         (window.contentViewController as! MainViewController).visitAboutPage()
     }
-    
+
     @IBAction func visitPreferencePage(_ sender: NSButton) {
         (window.contentViewController as! MainViewController).visitPrefPage()
     }
-    
+
     @IBAction func mailAuthor(_ sender: NSButton) {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
-        let pI = ProcessInfo.init()
+        let pI = ProcessInfo()
         let systemVersion = pI.operatingSystemVersionString
         let mailService = NSSharingService(named: NSSharingService.Name.composeEmail)!
         mailService.recipients = ["akaza_akari@sjtu.edu.cn"]
@@ -66,4 +68,3 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         mailService.perform(withItems: ["\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
     }
 }
-

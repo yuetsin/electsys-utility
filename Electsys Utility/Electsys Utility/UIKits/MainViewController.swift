@@ -11,6 +11,18 @@ import Cocoa
 class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelegate {
     
     override func viewDidLoad() {
+        if #available(OSX 10.12.2, *) {
+            NSLog("system version >= 10.12.2, ok")
+        } else {
+            NSLog("bad system version")
+            let alert = NSAlert()
+            alert.messageText = "系统版本不合"
+            alert.informativeText = "Electsys Utility 至少需要 macOS 10.12.2 以正常运行。\nApp 即将退出。"
+            alert.addButton(withTitle: "行")
+            alert.alertStyle = .critical
+            alert.runModal()
+            NSApplication.shared.terminate(nil)
+        }
         super.viewDidLoad()
         // Do view setup here.
         registerDelegate()

@@ -83,7 +83,10 @@ class NGCurriculum: Equatable {
     var arrangements: [NGArrangements]
     var studentNumber: Int
     var notes: String
+    
+
     func getRelated() -> [StringPair] {
+
         var classRoomsLiteral: [StringPair] = []
         for arr in arrangements {
             if !classRoomsLiteral.contains(StringPair(strA: arr.classroom, strB: arr.campus)) {
