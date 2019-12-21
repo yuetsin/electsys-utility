@@ -42,6 +42,27 @@ class FullDataViewController: NSViewController {
     var LinGangCampus: [String] = []
 
     var possibleUrl: String = "未知"
+    
+    var searchByNameButNotCode = true
+    @IBOutlet weak var nameAndCodePromptText: NSTextField!
+    
+    @IBAction func alterNameAndCode(_ sender: NSButton) {
+        classNameCombo.stringValue = ""
+        if sender.tag == 0 {
+            // by name
+            searchByNameButNotCode = true
+            nameAndCodePromptText.stringValue = "课程名称关键字："
+            
+        } else {
+            // by code
+            searchByNameButNotCode = false
+            nameAndCodePromptText.stringValue = "课程编号："
+        }
+        
+        setComboSource()
+        updateNameQuery(self)
+    }
+    
 
     @objc dynamic var toggleUpperHall: Bool = true
     @objc dynamic var toggleMiddleHall: Bool = true
@@ -248,7 +269,7 @@ class FullDataViewController: NSViewController {
                                                    self.pushPopListData(self.buildingSelector)
                                                    self.setComboSource()
                                                    self.startTeacherQuery()
-                                                   self.startNameQuery()
+                                                   self.updateNameQuery(self)
                                                    self.switchSeg(self.tabTitleSeg)
                                                    self.updateEnableStat()
                                                    // success!
@@ -351,7 +372,11 @@ class FullDataViewController: NSViewController {
     }
 
     @IBAction func updateNameQuery(_ sender: Any) {
-        startNameQuery()
+        if searchByNameButNotCode {
+            startNameQuery()
+        } else {
+            startCodeQuery()
+        }
     }
 
     func setComboSource() {
@@ -369,7 +394,9 @@ class FullDataViewController: NSViewController {
         classNameLabel.stringValue = "请确定筛选条件。"
 
         classNameCombo.removeAllItems()
-        classNameCombo.addItems(withObjectValues: classnames)
+        if searchByNameButNotCode {
+            classNameCombo.addItems(withObjectValues: classnames)
+        }
     }
 
     func startTeacherQuery() {
@@ -467,6 +494,46 @@ class FullDataViewController: NSViewController {
         var counter = 1
         for cur in GalleryKits.courseList {
             if !cur.name.contains(courseName) {
+                continue
+            }
+            if queryCoursesOnName.contains(cur) {
+                continue
+            }
+            queryCoursesOnName.append(cur)
+            if PreferenceKits.courseDisplayStrategy == .nameOnly {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)")
+            } else if PreferenceKits.courseDisplayStrategy == .nameAndTeacher {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            } else if PreferenceKits.courseDisplayStrategy == .codeNameAndTeacher {
+                classNameResultSelector.addItem(withTitle: "(\(counter)) \(cur.code) - \(cur.name)，\(cur.teacher.joined(separator: "、"))")
+            }
+            counter += 1
+        }
+        if queryCoursesOnName.count == 0 {
+            classNameLabel.stringValue = "没有符合条件的结果。"
+            classNameResultSelector.isEnabled = false
+            classroomDetail.isEnabled = false
+            return
+        }
+        classNameResultSelector.isEnabled = true
+        classroomDetail.isEnabled = true
+        classNameLabel.stringValue = "匹配到 \(classNameResultSelector.numberOfItems) 条课程信息。"
+    }
+    
+    func startCodeQuery() {
+        queryCoursesOnName.removeAll()
+        classNameResultSelector.removeAllItems()
+        let courseCode = classNameCombo.stringValue.uppercased()
+        if courseCode == "" {
+            classNameLabel.stringValue = "请确定筛选条件。"
+            classNameResultSelector.isEnabled = false
+            classroomDetail.isEnabled = false
+            return
+        }
+
+        var counter = 1
+        for cur in GalleryKits.courseList {
+            if !cur.code.contains(courseCode) {
                 continue
             }
             if queryCoursesOnName.contains(cur) {

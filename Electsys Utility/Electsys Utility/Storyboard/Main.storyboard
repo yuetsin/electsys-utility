@@ -223,7 +223,7 @@
                                 <rect key="frame" x="165" y="22" width="215" height="13"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" alignment="right" title="祝考试顺利。" id="f0C-PA-UFB">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="controlContent" size="11"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1412,11 +1412,11 @@ DQ
                                             </tabViewItem>
                                             <tabViewItem label="按课名检索" identifier="" id="Op3-2Z-VbF">
                                                 <view key="view" id="cIc-S6-jWk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="454" height="249"/>
+                                                    <rect key="frame" x="10" y="7" width="442" height="235"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivC-L9-GRI">
-                                                            <rect key="frame" x="348" y="129" width="84" height="28"/>
+                                                            <rect key="frame" x="349" y="84" width="84" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="74" id="V1w-PE-URm"/>
                                                             </constraints>
@@ -1429,10 +1429,10 @@ DQ
                                                             </connections>
                                                         </button>
                                                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="QXE-WB-bmx">
-                                                            <rect key="frame" x="20" y="184" width="414" height="5"/>
+                                                            <rect key="frame" x="21" y="139" width="402" height="5"/>
                                                         </box>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cKP-Bw-o6X">
-                                                            <rect key="frame" x="18" y="161" width="418" height="17"/>
+                                                            <rect key="frame" x="19" y="116" width="406" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="17" id="3ND-6h-B9I"/>
                                                             </constraints>
@@ -1443,7 +1443,7 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g4K-hX-nZU">
-                                                            <rect key="frame" x="196" y="198" width="184" height="22"/>
+                                                            <rect key="frame" x="196" y="184" width="172" height="22"/>
                                                             <comboBoxCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" buttonBordered="NO" numberOfVisibleItems="5" id="Vrj-pG-SYg">
                                                                 <font key="font" metaFont="smallSystemBold"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1454,7 +1454,7 @@ DQ
                                                             </connections>
                                                         </comboBox>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zb6-ti-EBS">
-                                                            <rect key="frame" x="75" y="203" width="115" height="14"/>
+                                                            <rect key="frame" x="75" y="189" width="115" height="14"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="111" id="0TN-GU-Si9"/>
                                                             </constraints>
@@ -1465,29 +1465,51 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-6x-SiT">
-                                                            <rect key="frame" x="24" y="133" width="321" height="22"/>
+                                                            <rect key="frame" x="25" y="88" width="309" height="22"/>
                                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="fJV-b9-xpX">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="message" size="11"/>
                                                                 <menu key="menu" id="d8k-bE-J6r"/>
                                                             </popUpButtonCell>
                                                         </popUpButton>
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-RS-Rkt">
+                                                            <rect key="frame" x="143" y="148" width="76" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="radio" title="课程名字" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="W7j-9F-2gl">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="message" size="11"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="alterNameAndCode:" target="TQl-q7-iQX" id="qO9-er-sEz"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="kgq-Fc-BQF">
+                                                            <rect key="frame" x="224" y="148" width="76" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="radio" title="课程编号" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="Ksx-9Z-1gP">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="message" size="11"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="alterNameAndCode:" target="TQl-q7-iQX" id="huE-98-JS4"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="QXE-WB-bmx" firstAttribute="top" secondItem="g4K-hX-nZU" secondAttribute="bottom" constant="15" id="5hP-7s-fSB"/>
+                                                        <constraint firstItem="QXE-WB-bmx" firstAttribute="top" secondItem="g4K-hX-nZU" secondAttribute="bottom" constant="46" id="5hP-7s-fSB"/>
                                                         <constraint firstItem="OtG-6x-SiT" firstAttribute="baseline" secondItem="ivC-L9-GRI" secondAttribute="firstBaseline" id="A6r-AV-geA"/>
-                                                        <constraint firstItem="OtG-6x-SiT" firstAttribute="leading" secondItem="cIc-S6-jWk" secondAttribute="leading" constant="27" id="C5O-op-GnT"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ivC-L9-GRI" secondAttribute="trailing" constant="27" id="CIK-0e-LGo"/>
+                                                        <constraint firstItem="OtG-6x-SiT" firstAttribute="leading" secondItem="cIc-S6-jWk" secondAttribute="leading" constant="28" id="C5O-op-GnT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ivC-L9-GRI" secondAttribute="trailing" constant="14" id="CIK-0e-LGo"/>
                                                         <constraint firstItem="zb6-ti-EBS" firstAttribute="leading" secondItem="cIc-S6-jWk" secondAttribute="leading" constant="77" id="NhR-8S-lQh"/>
-                                                        <constraint firstAttribute="trailing" secondItem="QXE-WB-bmx" secondAttribute="trailing" constant="20" symbolic="YES" id="ROw-WD-CSI"/>
-                                                        <constraint firstItem="ivC-L9-GRI" firstAttribute="leading" secondItem="OtG-6x-SiT" secondAttribute="trailing" constant="11" id="ZfV-Wt-r8Z"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QXE-WB-bmx" secondAttribute="trailing" constant="19" id="ROw-WD-CSI"/>
+                                                        <constraint firstItem="ivC-L9-GRI" firstAttribute="leading" secondItem="OtG-6x-SiT" secondAttribute="trailing" constant="23" id="ZfV-Wt-r8Z"/>
                                                         <constraint firstItem="QXE-WB-bmx" firstAttribute="leading" secondItem="cKP-Bw-o6X" secondAttribute="leading" id="aQZ-JQ-c8d"/>
                                                         <constraint firstItem="QXE-WB-bmx" firstAttribute="trailing" secondItem="cKP-Bw-o6X" secondAttribute="trailing" id="cBC-N2-tOq"/>
                                                         <constraint firstAttribute="trailing" secondItem="g4K-hX-nZU" secondAttribute="trailing" constant="77" id="f5u-3n-I1W"/>
                                                         <constraint firstItem="g4K-hX-nZU" firstAttribute="leading" secondItem="zb6-ti-EBS" secondAttribute="trailing" constant="8" symbolic="YES" id="f8I-UR-Fh4"/>
                                                         <constraint firstItem="OtG-6x-SiT" firstAttribute="top" secondItem="cKP-Bw-o6X" secondAttribute="bottom" constant="7" id="fD2-oG-Rib"/>
                                                         <constraint firstItem="cKP-Bw-o6X" firstAttribute="top" secondItem="QXE-WB-bmx" secondAttribute="bottom" constant="8" symbolic="YES" id="l9J-4B-kvr"/>
-                                                        <constraint firstItem="QXE-WB-bmx" firstAttribute="leading" secondItem="cIc-S6-jWk" secondAttribute="leading" constant="20" symbolic="YES" id="nlT-7g-rjQ"/>
+                                                        <constraint firstItem="QXE-WB-bmx" firstAttribute="leading" secondItem="cIc-S6-jWk" secondAttribute="leading" constant="21" id="nlT-7g-rjQ"/>
                                                         <constraint firstItem="zb6-ti-EBS" firstAttribute="baseline" secondItem="g4K-hX-nZU" secondAttribute="baseline" id="s1c-fC-JS5"/>
                                                         <constraint firstItem="g4K-hX-nZU" firstAttribute="top" secondItem="cIc-S6-jWk" secondAttribute="top" constant="30" id="vTY-fy-7IZ"/>
                                                     </constraints>
@@ -1657,6 +1679,7 @@ DQ
                         <outlet property="fiveButton" destination="Ubc-Gd-8c0" id="gvz-EL-D3Q"/>
                         <outlet property="fourButton" destination="y15-mG-Kpc" id="rg2-fi-UsK"/>
                         <outlet property="holdingSchoolSelector" destination="S9k-0Y-mPx" id="GTm-BF-iVe"/>
+                        <outlet property="nameAndCodePromptText" destination="zb6-ti-EBS" id="vzz-Mc-TZa"/>
                         <outlet property="nineButton" destination="s4l-wr-FYt" id="Hhy-wN-Uhh"/>
                         <outlet property="oneButton" destination="mf9-Pm-nE0" id="EQs-XP-mG6"/>
                         <outlet property="progressIndicator" destination="wA1-OE-kAs" id="bLi-Ro-ikE"/>
@@ -4753,7 +4776,7 @@ DQ
                                         <rect key="frame" x="133" y="-1" width="33" height="15"/>
                                         <buttonCell key="cell" type="roundRect" title="导出" bezelStyle="roundedRect" image="buttonCell:8X0-gU-WDM:image" imagePosition="overlaps" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="8X0-gU-WDM">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="menu" size="9"/>
+                                            <font key="font" metaFont="label" size="9"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="exportButtonClicked:" target="Ofd-49-eEU" id="kfd-ac-6xZ"/>
