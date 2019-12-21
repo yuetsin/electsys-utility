@@ -13,6 +13,7 @@ import Cocoa
 func getColor(name: String) -> NSColor {
     switch name {
     case "empty":
+//        return NSColor.textBackgroundColor
         return NSColor(red: 235/255.0, green: 237/255.0, blue: 240/255.0, alpha: 1)
     case "light":
         return NSColor(red: 204/255.0, green: 226/255.0, blue: 149/255.0, alpha: 1)

@@ -139,6 +139,7 @@ class FullDataViewController: NSViewController {
 
         yearSelector.isEnabled = false
         termSelector.isEnabled = false
+        searchButton.isEnabled = false
         setEnableStats([false, false])
         clearLists()
 
@@ -187,7 +188,8 @@ class FullDataViewController: NSViewController {
     @IBOutlet var betaSelector: NSButton!
     @IBOutlet var showMoreButton: NSButton!
     @IBOutlet var exactMatchChecker: NSButton!
-
+    @IBOutlet weak var searchButton: NSButton!
+    
     @IBAction func iconButtonTapped(_ sender: NSButton) {
         let id = Int((sender.identifier?.rawValue)!)
         let obj = arrangement[id! - 1]
@@ -253,6 +255,7 @@ class FullDataViewController: NSViewController {
                                                    self.setEnableStats([true, true])
                                                    self.yearSelector.isEnabled = true
                                                    self.termSelector.isEnabled = true
+                                                   self.searchButton.isEnabled = true
                                                }
                                            },
                                            failure: { code in
@@ -260,6 +263,7 @@ class FullDataViewController: NSViewController {
                                                    self.progressIndicator.isHidden = true
                                                    self.yearSelector.isEnabled = true
                                                    self.termSelector.isEnabled = true
+                                                   self.searchButton.isEnabled = true
                                                    self.setLayoutType(.shrink)
                                                    self.showErrorMessage(errorMsg: "未能读取此学期的数据。\n错误代码：\(code)")
                                                }
