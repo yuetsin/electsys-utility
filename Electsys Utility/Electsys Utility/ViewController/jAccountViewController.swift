@@ -215,6 +215,7 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
+        ESLog.error("internal error occured. message: ", errorMsg)
     }
 
     func failedToLoadCaptcha() {
@@ -248,14 +249,16 @@ class jAccountViewController: NSViewController, loginHelperDelegate {
 //    }
 
     @IBAction func goToElectsysNew(_ sender: NSButton) {
-        if let url = URL(string: "http://i.sjtu.edu.cn/"), NSWorkspace.shared.open(url) {
+        if let url = URL(string: "https://i.sjtu.edu.cn/"), NSWorkspace.shared.open(url) {
             // successfully opened
+            ESLog.info("goes to electsys (modern version)")
         }
     }
 
     @IBAction func goToElectsysLegacy(_ sender: NSButton) {
         if let url = URL(string: "http://electsys.sjtu.edu.cn"), NSWorkspace.shared.open(url) {
             // successfully opened
+            ESLog.info("goes to electsys (legacy version)")
         }
     }
 }

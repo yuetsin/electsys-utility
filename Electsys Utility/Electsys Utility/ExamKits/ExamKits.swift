@@ -42,7 +42,7 @@ class ExamKits {
                         let timeString = examObject["kssj"].stringValue
                         let tokens = timeString.components(separatedBy: CharacterSet(charactersIn: "(-)")).filter({ $0 != ""})
                         if tokens.count != 5 {
-                            NSLog("failed to parse \(timeString). thrown.")
+                            ESLog.error("failed to parse \(timeString). thrown.")
                             failure(-4)
                             return
                         }
@@ -50,13 +50,13 @@ class ExamKits {
                         let dateStringFormatter = DateFormatter()
                         dateStringFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                         guard let startDate = dateStringFormatter.date(from: "\(tokens[0])-\(tokens[1])-\(tokens[2]) \(tokens[3])") else {
-                            NSLog("failed to parse \(timeString). thrown.")
+                            ESLog.error("failed to parse \(timeString). thrown.")
                             failure(-5)
                             return
                         }
                         
                         guard let endDate = dateStringFormatter.date(from: "\(tokens[0])-\(tokens[1])-\(tokens[2]) \(tokens[4])") else {
-                            NSLog("failed to parse \(timeString). thrown.")
+                            ESLog.error("failed to parse \(timeString). thrown.")
                             failure(-5)
                             return
                         }

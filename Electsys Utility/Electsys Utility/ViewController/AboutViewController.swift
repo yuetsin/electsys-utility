@@ -16,6 +16,7 @@ class AboutViewController: NSViewController {
         let updater = GitHubUpdater()
         updater.user = "yuetsin"
         updater.repository = "electsys-utility"
+        ESLog.info("updater initialized")
         return updater
     }
     
@@ -27,12 +28,12 @@ class AboutViewController: NSViewController {
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
         let pI = ProcessInfo.init()
         let systemVersion = pI.operatingSystemVersionString
-
-
+        
+        ESLog.info("app version: ", version)
+        ESLog.info("system version: ", systemVersion)
+        
         self.versionLabel.stringValue = "App 版本 \(version ?? "未知") (\(build ?? "未知"))"
-        
         self.systemLabel.stringValue = "运行在 macOS \(systemVersion)"
-        
     }
     @IBAction func turnCredits(_ sender: NSButton) {
 //        let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -44,7 +45,7 @@ class AboutViewController: NSViewController {
     
     @IBAction func goToGithubPages(_ sender: NSButton) {
         if let url = URL(string: "https://github.com/yuetsin/electsys-utility"), NSWorkspace.shared.open(url) {
-            // successfully opened
+            ESLog.info("goes to github pages")
         }
     }
 

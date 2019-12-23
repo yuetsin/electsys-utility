@@ -25,12 +25,12 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
     }
 
     func successExamDataTransfer(data: [NGExam]) {
-        NSLog("bad request type")
+        ESLog.error("bad request type")
         self.dismiss(sheetViewController)
     }
 
     func successScoreDataTransfer(data: [NGScore]) {
-        NSLog("bad request type")
+        ESLog.error("bad request type")
         self.dismiss(sheetViewController)
     }
     
@@ -397,6 +397,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             self.loadingTextField.stringValue = "正在创建「\(title)」。不要现在退出。"
             if self.inputCounter == self.expectedCounter {
                 self.loadingTextField.stringValue = "已经成功写入 \(self.inputCounter) / \(self.expectedCounter) 个日历事件。"
+                ESLog.info("written \(self.expectedCounter) items into calendar")
                 self.resumeUI()
             }
         }
@@ -414,6 +415,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
                 openRequestPanel()
             }
         }
+        ESLog.error("error occured. message: ", errorMsg)
     }
     
     func showErrorMessageNormal(errorMsg: String) {
@@ -423,6 +425,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.informational
         errorAlert.beginSheetModal(for: view.window!)
+        ESLog.error("error occured. message: ", errorMsg)
     }
 
     func showError(error: String) {

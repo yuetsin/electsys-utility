@@ -220,6 +220,8 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
+        
+        ESLog.error("internal error occurred. message: ", errorMsg)
     }
 }
 

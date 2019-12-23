@@ -12,9 +12,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     
     override func viewDidLoad() {
         if #available(OSX 10.12.2, *) {
-            NSLog("system version >= 10.12.2, ok")
+            ESLog.info("system version >= 10.12.2, ok")
         } else {
-            NSLog("bad system version")
+            ESLog.error("critical! bad system version")
             let alert = NSAlert()
             alert.messageText = "系统版本不合"
             alert.informativeText = "Electsys Utility 至少需要 macOS 10.12.2 以正常运行。\nApp 即将退出。"

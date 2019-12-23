@@ -42,7 +42,7 @@ class Login {
                 let sID = parseRequest(requestUrl: jumpToUrl, parseType: "sid")
                 let returnUrl = parseRequest(requestUrl: jumpToUrl, parseType: "returl")
                 let se = parseRequest(requestUrl: jumpToUrl, parseType: "se")
-                NSLog("\nsID: \(sID) \nretUrl: \(returnUrl) \nse: \(se)")
+                ESLog.info("\nsID: \(sID) \nretUrl: \(returnUrl) \nse: \(se)")
                 let postParams: Parameters = [
                     "sid": sID,
                     "returl": returnUrl,

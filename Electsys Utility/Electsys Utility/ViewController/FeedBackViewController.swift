@@ -22,6 +22,7 @@ class FeedBackViewController: NSViewController {
     @IBAction func visitGitHubIssuePages(_ sender: NSButton) {
         if let url = URL(string: "https://github.com/yuetsin/electsys-utility/issues"), NSWorkspace.shared.open(url) {
             // successfully opened
+            ESLog.info("goes to GitHub issues")
         }
     }
     

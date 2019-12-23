@@ -25,7 +25,7 @@ class LoginHelper {
         Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
-                NSLog("failed to get 302 redirect url")
+                ESLog.warning("failed to get 302 redirect url")
                 handler?()
                 return
             }
@@ -35,7 +35,7 @@ class LoginHelper {
             LoginHelper.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
             LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
             
-            NSLog("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
+            ESLog.info("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
             handler?()
         }
     }
@@ -47,11 +47,11 @@ class LoginHelper {
             if redirectURL == nil {
                 handler(false)
             } else if redirectURL?.contains(LoginConst.mainPageUrl) ?? false {
-                NSLog("good redirectURL: \(redirectURL!)")
-                LoginHelper.lastLoginTimeStamp = redirectURL?.replacingOccurrences(of: "http://i.sjtu.edu.cn/xtgl/index_initMenu.html?jsdm=xs&_t=", with: "")
+                ESLog.info("good redirectURL: \(redirectURL!)")
+                LoginHelper.lastLoginTimeStamp = redirectURL?.replacingOccurrences(of: "https://i.sjtu.edu.cn/xtgl/index_initMenu.html?jsdm=xs&_t=", with: "")
                 handler(true)
             } else {
-                NSLog("bad redirectURL: \(redirectURL!)")
+                ESLog.warning("unexpected redirectURL: \(redirectURL!). might not login")
                 handler(false)
             }
         }
@@ -92,23 +92,23 @@ class LoginHelper {
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
 //            _ = String(data: response.data!, encoding: .utf8)
-            NSLog("login redirect to: \(redirectURL ?? "nil")")
+            ESLog.info("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
-                NSLog("login post failure")
+                ESLog.error("login post failure")
                 LoginHelper.lastLoginUserName = "{null}"
                 LoginHelper.logOut()
                 handler(false)
             } else {
                 
-                NSLog("login complete! check validation...")
+                ESLog.info("login complete! check validation...")
                 
                 LoginHelper.checkLoginAvailability({ result in
                     if result {
-                        NSLog("good login session")
+                        ESLog.info("good login session")
                         LoginHelper.lastLoginUserName = username
                         handler(true)
                     } else {
-                        NSLog("bad login session")
+                        ESLog.warning("bad login session")
                         LoginHelper.lastLoginUserName = "{null}"
                         LoginHelper.logOut()
                         handler(false)

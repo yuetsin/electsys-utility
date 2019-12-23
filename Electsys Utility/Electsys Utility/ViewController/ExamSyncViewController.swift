@@ -14,7 +14,7 @@ import Kanna
 class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate, NSTableViewDataSource, NSTableViewDelegate {
     
     func successCourseDataTransfer(data: [NGCourse]) {
-        NSLog("bad type called")
+        ESLog.error("bad type called")
         dismiss(sheetViewController)
     }
     
@@ -25,7 +25,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
     }
     
     func successScoreDataTransfer(data: [NGScore]) {
-        NSLog("bad type called")
+        ESLog.error("bad type called")
         dismiss(sheetViewController)
     }
     
@@ -264,6 +264,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             }
             DispatchQueue.main.async {
                 self.resumeUI()
+                ESLog.info("exam sync success.")
                 self.showInfoMessage(infoMsg: "已完成同步。")
             }
         }
@@ -288,6 +289,8 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             }
             self.resumeUI()
         }
+        
+        ESLog.error("error occurred. message: ", error)
     }
     
     @IBAction func restartAnalyse(_ sender: NSButton) {
@@ -328,6 +331,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.informational
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        ESLog.info("informative message thrown. message: ", infoMsg)
     }
     
     

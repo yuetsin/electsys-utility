@@ -52,6 +52,7 @@
 		8A4A22F1213631EC0064488C /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F0213631EC0064488C /* CreditsViewController.swift */; };
 		8A4A22F52136443D0064488C /* LegacyLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */; };
 		8A5029B02333109600C4C266 /* VersionComparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5029AF2333109600C4C266 /* VersionComparer.swift */; };
+		8A5102B723B07F620094658A /* ESLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5102B623B07F620094658A /* ESLog.swift */; };
 		8A6E46A7233242DE00141C91 /* AdapterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A0233242DD00141C91 /* AdapterTableView.swift */; };
 		8A6E46A8233242DE00141C91 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A2233242DD00141C91 /* BaseView.swift */; };
 		8A6E46A9233242DE00141C91 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E46A3233242DD00141C91 /* TableView.swift */; };
@@ -159,6 +160,7 @@
 		8A4A22F0213631EC0064488C /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		8A4A22F42136443D0064488C /* LegacyLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyLoginHelper.swift; sourceTree = "<group>"; };
 		8A5029AF2333109600C4C266 /* VersionComparer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionComparer.swift; sourceTree = "<group>"; };
+		8A5102B623B07F620094658A /* ESLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESLog.swift; sourceTree = "<group>"; };
 		8A6E46A0233242DD00141C91 /* AdapterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterTableView.swift; sourceTree = "<group>"; };
 		8A6E46A2233242DD00141C91 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		8A6E46A3233242DD00141C91 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
+				8A5102B523B07F4D0094658A /* LogKits */,
 				8AEA9365234F526600952904 /* Icons */,
 				8A5029AF2333109600C4C266 /* VersionComparer.swift */,
 				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
@@ -481,6 +484,14 @@
 				8A8EE6D92330D5E0007DD732 /* ArrayBeautify.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8A5102B523B07F4D0094658A /* LogKits */ = {
+			isa = PBXGroup;
+			children = (
+				8A5102B623B07F620094658A /* ESLog.swift */,
+			);
+			path = LogKits;
 			sourceTree = "<group>";
 		};
 		8A6E469E233242DD00141C91 /* AdaptableTableView */ = {
@@ -735,6 +746,7 @@
 				"${BUILT_PRODUCTS_DIR}/CSV.swift/CSV.framework",
 				"${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/Log/Log.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Version/Version.framework",
 			);
@@ -745,6 +757,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSV.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Regex.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Log.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Version.framework",
 			);
@@ -786,6 +799,7 @@
 				8A6E58A92138054D00FF38CF /* Course.swift in Sources */,
 				8A397DC42140B69900AE297A /* [deprecated] Curricula.swift in Sources */,
 				8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */,
+				8A5102B723B07F620094658A /* ESLog.swift in Sources */,
 				8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */,
 				8A33CF11232F2C0900BD6826 /* FeedBackViewController.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
@@ -1002,7 +1016,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 96;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
@@ -1029,7 +1043,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 95;
+				CURRENT_PROJECT_VERSION = 96;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";

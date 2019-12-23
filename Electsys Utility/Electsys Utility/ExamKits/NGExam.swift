@@ -21,6 +21,7 @@ struct NGExam {
     
     func getTime() -> String {
         if startDate == nil || endDate == nil {
+            ESLog.error("invalid NGExam date entry ", self)
             return "未知"
         }
         let formatter = DateFormatter()

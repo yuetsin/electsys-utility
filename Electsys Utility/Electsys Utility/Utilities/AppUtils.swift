@@ -103,7 +103,7 @@ func findIndexOfCourseByName (name: String, array: [Course]) -> Int {
 
 func openRequestPanel() {
     if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy"), NSWorkspace.shared.open(url) {
-        // successfully opened
+        ESLog.info("opened privacy panel")
     }
 }
 

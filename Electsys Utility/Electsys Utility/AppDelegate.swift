@@ -11,19 +11,31 @@ import Cocoa
 @NSApplicationMain
 class NSAppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var window: NSWindow!
-    
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         window = NSApplication.shared.windows.first
-        LoginHelper.initRedirectUrl()
-        PreferenceKits.registerPreferenceKeys()
+        
+        // remove rubbish cookie
         LoginHelper.removeCookie()
+        ESLog.info("LoginHelper: removed cookie")
+        
+        // init login helper's url
+        LoginHelper.initRedirectUrl()
+        ESLog.info("LoginHelper: init redirect url")
+        
+        // register preference keys
+        PreferenceKits.registerPreferenceKeys()
+        ESLog.info("PrefKits: keys registered")
+        
+        // initialize debugger
+        initDebugger()
+        ESLog.info("ESLog: initialized")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-        NSLog("Bye")
+        ESLog.info("Bye")
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

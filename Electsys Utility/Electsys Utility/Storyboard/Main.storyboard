@@ -2192,7 +2192,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHm-e7-SF6">
-                                        <rect key="frame" x="352" y="237" width="41" height="25"/>
+                                        <rect key="frame" x="352.5" y="237" width="41" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" alternateTitle="刷新验证码" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Due-8h-B29">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -4379,6 +4379,28 @@ DQ
                                                 <action selector="showLoggings:" target="wO9-Wp-BTu" id="kUp-1o-8za"/>
                                             </connections>
                                         </button>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-fq-urK">
+                                            <rect key="frame" x="219" y="25" width="92" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" title="error 级" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" autoenablesItems="NO" selectedItem="Bfe-qh-7Mk" id="TrL-3m-VfO">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="message" size="11"/>
+                                                <menu key="menu" autoenablesItems="NO" id="lKt-wz-TDL">
+                                                    <items>
+                                                        <menuItem title="error 级" state="on" id="Bfe-qh-7Mk"/>
+                                                        <menuItem title="warning 级" tag="1" id="GDy-a1-BNK"/>
+                                                        <menuItem title="info 级" tag="2" id="BRs-Mh-x1q"/>
+                                                        <menuItem title="debug 级" tag="3" id="hbr-bL-dkK"/>
+                                                        <menuItem title="trace 级" tag="4" id="88V-g1-vsH"/>
+                                                        <menuItem isSeparatorItem="YES" tag="-1" id="DV6-Q2-OXA"/>
+                                                        <menuItem title="关闭" tag="5" id="kub-zu-i2t"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="debugLevelTriggered:" target="wO9-Wp-BTu" id="BXQ-FT-wIT"/>
+                                            </connections>
+                                        </popUpButton>
                                     </subviews>
                                 </view>
                             </box>
@@ -4386,11 +4408,13 @@ DQ
                     </view>
                     <connections>
                         <outlet property="autoFillTokenChecker" destination="xE9-aI-wzA" id="DRM-oo-625"/>
+                        <outlet property="debugLevelMenuItem" destination="hbr-bL-dkK" id="l0h-UO-Kxx"/>
                         <outlet property="galleryDisplayStylePopUpSelector" destination="C2H-43-guT" id="YYO-9G-6yJ"/>
                         <outlet property="gpaCalculatingStrategyPopUpSelector" destination="rGh-90-gHQ" id="Otq-8R-xHv"/>
                         <outlet property="hidePersonalInfoChecker" destination="o13-Fg-4H6" id="iUK-wO-WLo"/>
                         <outlet property="passWordToken" destination="ZTS-O3-LDJ" id="wv6-sC-wr4"/>
                         <outlet property="saveCredentialButton" destination="0As-78-p3P" id="2U7-BU-jkx"/>
+                        <outlet property="traceLevelMenuItem" destination="88V-g1-vsH" id="3Mi-Kl-0Hm"/>
                         <outlet property="userNameToken" destination="8oi-dK-Vi9" id="4X3-7v-UaI"/>
                     </connections>
                 </viewController>
@@ -4776,7 +4800,7 @@ DQ
                                         <rect key="frame" x="133" y="-1" width="33" height="15"/>
                                         <buttonCell key="cell" type="roundRect" title="导出" bezelStyle="roundedRect" image="buttonCell:8X0-gU-WDM:image" imagePosition="overlaps" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="8X0-gU-WDM">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="label" size="9"/>
+                                            <font key="font" metaFont="menu" size="9"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="exportButtonClicked:" target="Ofd-49-eEU" id="kfd-ac-6xZ"/>
