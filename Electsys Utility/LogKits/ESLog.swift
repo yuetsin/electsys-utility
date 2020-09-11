@@ -11,6 +11,7 @@ import Log
 
 let ESLog = Logger()
 
+
 //var debugMode = true
 let isDebugVersion = false
 

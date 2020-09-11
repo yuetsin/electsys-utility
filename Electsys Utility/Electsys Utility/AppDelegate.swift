@@ -16,6 +16,12 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         window = NSApplication.shared.windows.first
         
+        let uD = UserDefaults()
+        uD.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints")
+        
+        initDebugger()
+        ESLog.info("ESLog: initialized")
+        
         // remove rubbish cookie
         LoginHelper.removeCookie()
         ESLog.info("LoginHelper: removed cookie")
@@ -29,8 +35,7 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         ESLog.info("PrefKits: keys registered")
         
         // initialize debugger
-        initDebugger()
-        ESLog.info("ESLog: initialized")
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -74,9 +79,12 @@ class NSAppDelegate: NSObject, NSApplicationDelegate {
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
         let pI = ProcessInfo()
         let systemVersion = pI.operatingSystemVersionString
-        let mailService = NSSharingService(named: NSSharingService.Name.composeEmail)!
-        mailService.recipients = ["akaza_akari@sjtu.edu.cn"]
-        mailService.subject = "Electsys Utility Feedback"
-        mailService.perform(withItems: ["\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
+        if let mailService = NSSharingService(named: NSSharingService.Name.composeEmail) {
+            mailService.recipients = ["akaza_akari@sjtu.edu.cn"]
+            mailService.subject = "Electsys Utility Feedback"
+            mailService.perform(withItems: ["\n\nSystem version: \(systemVersion)\nApp version: \(version ?? "unknown"), build \(build ?? "unknown")"])
+        } else {
+            ESLog.error("failed to init shared mail service")
+        }
     }
 }

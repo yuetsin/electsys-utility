@@ -384,13 +384,13 @@
 			path = LegacyExamSyncKits;
 			sourceTree = "<group>";
 		};
-		8A49F6A321D4B8CE00010816 /* UI */ = {
+		8A49F6A321D4B8CE00010816 /* UIKits */ = {
 			isa = PBXGroup;
 			children = (
 				8AA79CE421D70F1E007D272B /* MainTabViewController.swift */,
 				8AA79CE521D70F1E007D272B /* MainViewController.swift */,
 			);
-			name = UI;
+			name = UIKits;
 			path = "New Group1";
 			sourceTree = "<group>";
 		};
@@ -442,7 +442,7 @@
 				8A3598F5232E1A9700FA0786 /* CourseKits */,
 				8A0AE464232A015500CE9E3A /* LoginKits */,
 				8A49F6A621D4C44B00010816 /* LegacyLoginKits */,
-				8A49F6A321D4B8CE00010816 /* UI */,
+				8A49F6A321D4B8CE00010816 /* UIKits */,
 				8A233761214A5738007F0957 /* Storyboard */,
 				8A397DC52140B84800AE297A /* Deprecated_DataGrabKits */,
 				8A397DCC2140D7E400AE297A /* LegacyExamSyncKits */,

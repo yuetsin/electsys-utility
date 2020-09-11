@@ -125,8 +125,6 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
 
     var requestType: RequestType?
 
-    // MARK: fill the year pop up box with meaningful values
-
     func initPopUpLists() {
         let date = Date()
         let calendar = Calendar.current

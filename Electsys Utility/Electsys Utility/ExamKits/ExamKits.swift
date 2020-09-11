@@ -69,7 +69,7 @@ class ExamKits {
                                                teacher: examObject["jsxx"].stringValue,
                                                startDate: startDate,
                                                endDate: endDate,
-                                               seatNo: examObject["zwh"].stringValue,
+                                               campus: examObject["xqmc"].stringValue,
                                                originalTime: examObject["kssj"].stringValue))
                     }
                     handler(examList)

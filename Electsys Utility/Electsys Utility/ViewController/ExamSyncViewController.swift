@@ -132,13 +132,13 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             break
         case "sortBySeat":
             func pointSorter(p1: NGExam?, p2: NGExam?) -> Bool {
-                if p1?.seatNo == nil {
-                    return p2?.seatNo == nil
+                if p1?.campus == nil {
+                    return p2?.campus == nil
                 }
-                if p2?.seatNo == nil {
-                    return p1?.seatNo != nil
+                if p2?.campus == nil {
+                    return p1?.campus != nil
                 }
-                return (p1?.seatNo!.compare(p2!.seatNo!) == ComparisonResult.orderedAscending) == isAscend
+                return (p1?.campus!.compare(p2!.campus!) == ComparisonResult.orderedAscending) == isAscend
             }
             exams.sort(by: pointSorter)
             tableView.reloadData()
@@ -163,7 +163,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             Property(name: "课程教师", value: examObject.teacher ?? "N/A"),
             Property(name: "考试时间", value: examObject.getTime()),
             Property(name: "考试地点", value: examObject.location ?? "N/A"),
-            Property(name: "席位", value: examObject.seatNo ?? "N/A"),
+            Property(name: "校区", value: examObject.campus ?? "N/A"),
         ])
     }
     
@@ -381,7 +381,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             text = item.location ?? "考试地点"
             cellIdentifier = CellIdentifiers.RoomCell
         } else if tableColumn == tableView.tableColumns[3] {
-            text = item.seatNo ?? "座位号"
+            text = item.campus ?? "校区"
             cellIdentifier = CellIdentifiers.SeatCell
         }
 

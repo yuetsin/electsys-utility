@@ -16,7 +16,7 @@ struct NGExam {
     var teacher: String?
     var startDate: Date?
     var endDate: Date?
-    var seatNo: String?
+    var campus: String?
     var originalTime: String?
     
     func getTime() -> String {
