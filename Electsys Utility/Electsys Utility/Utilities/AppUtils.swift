@@ -39,7 +39,7 @@ extension String {
 }
 
 let termLiteralNames: [String] = ["未知学期", "秋季学期", "春季学期", "夏季小学期"]
-func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpression.Options = []) -> String {
+func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpression.Options = []) -> String? {
     var toBeSplit = requestUrl.removingPercentEncoding ?? ""
     let splitKeyWord = ["?sid=", "&client=", "&returl=", "&se="]
     var splitedRequest: [String] = []
@@ -75,7 +75,7 @@ func parseRequest(requestUrl: String, parseType: String, options: NSRegularExpre
             return splitedRequest[0]
         }
     }
-    return ""
+    return nil
 }
 
 

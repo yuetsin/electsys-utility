@@ -29,13 +29,20 @@ class LoginHelper {
                 handler?()
                 return
             }
+            ESLog.info("get 302 redirect url")
             
             LoginHelper.sID = parseRequest(requestUrl: redirectURL!, parseType: "sid")
-            LoginHelper.client = parseRequest(requestUrl: redirectURL!, parseType: "client")
-            LoginHelper.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
-            LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
+            ESLog.info("got sID \(LoginHelper.sID ?? "<nil>")")
             
-            ESLog.info("\nsID: \(LoginHelper.sID ?? "nil") \nclient: \(LoginHelper.client ?? "nil")\nretUrl: \(LoginHelper.returnUrl ?? "nil") \nse: \(LoginHelper.se ?? "nil")")
+            LoginHelper.client = parseRequest(requestUrl: redirectURL!, parseType: "client")
+            ESLog.info("got client \(LoginHelper.client ?? "<nil>")")
+            
+            LoginHelper.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
+            ESLog.info("got returnUrl \(LoginHelper.returnUrl ?? "<nil>")")
+            
+            LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
+            ESLog.info("got se \(LoginHelper.se ?? "<nil>")")
+            
             handler?()
         }
     }
@@ -49,9 +56,10 @@ class LoginHelper {
             } else if redirectURL?.contains(LoginConst.mainPageUrl) ?? false {
                 ESLog.info("good redirectURL: \(redirectURL!)")
                 LoginHelper.lastLoginTimeStamp = redirectURL?.replacingOccurrences(of: "https://i.sjtu.edu.cn/xtgl/index_initMenu.html?jsdm=xs&_t=", with: "")
+                ESLog.info("login timestamp: \(LoginHelper.lastLoginTimeStamp ?? "<nil>")")
                 handler(true)
             } else {
-                ESLog.warning("unexpected redirectURL: \(redirectURL!). might not login")
+                ESLog.warning("bad redirectURL: \(redirectURL!). might not login")
                 handler(false)
             }
         }
@@ -59,9 +67,13 @@ class LoginHelper {
     
     static func requestCaptcha(_ handler: @escaping (NSImage) -> ()) {
         Alamofire.request(captchaUrl).responseData { response in
+            ESLog.info("get captcha response with \(response.error?.localizedDescription ?? "no error")")
             let captchaImageObject = NSImage(data: response.data!)
             if captchaImageObject != nil {
+                ESLog.info("retrieved captcha image")
                 handler(captchaImageObject!)
+            } else {
+                ESLog.error("failed to construct captcha image")
             }
         }
     }
@@ -74,6 +86,7 @@ class LoginHelper {
     
     fileprivate static func performLogin(_ username: String, _ password: String, _ captcha: String, _ handler: @escaping (_ success: Bool) -> ()) {
         if (sID == nil || LoginHelper.client == nil || returnUrl == nil || se == nil) {
+            ESLog.error("insufficient login certs")
             handler(false)
             return
         }
@@ -134,12 +147,14 @@ class LoginHelper {
         let cstorage = HTTPCookieStorage.shared
         if let cookies = cstorage.cookies(for: URL(string: "http://i.sjtu.edu.cn")!) {
             for cookie in cookies {
+                ESLog.info("remove cookie \(cookie.name)")
                 cstorage.deleteCookie(cookie)
             }
         }
         
         if let cookies = cstorage.cookies(for: URL(string: "https://jaccount.sjtu.edu.cn")!) {
             for cookie in cookies {
+                ESLog.info("remove cookie \(cookie.name)")
                 cstorage.deleteCookie(cookie)
             }
         }
