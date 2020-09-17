@@ -40,13 +40,18 @@ class Login {
                     return
                 }
                 let sID = parseRequest(requestUrl: jumpToUrl, parseType: "sid")
+                ESLog.info("nsID: \(sID ?? "<nil>")")
+                
                 let returnUrl = parseRequest(requestUrl: jumpToUrl, parseType: "returl")
+                ESLog.info("returnUrl: \(returnUrl ?? "<nil>")")
+                
                 let se = parseRequest(requestUrl: jumpToUrl, parseType: "se")
-                ESLog.info("\nsID: \(sID) \nretUrl: \(returnUrl) \nse: \(se)")
+                ESLog.info("se: \(se ?? "<nil>")")
+                
                 let postParams: Parameters = [
-                    "sid": sID,
-                    "returl": returnUrl,
-                    "se": se,
+                    "sid": sID ?? "",
+                    "returl": returnUrl ?? "",
+                    "se": se ?? "",
                     "v": "",
                     "user": userName,
                     "pass": password,

@@ -29,7 +29,7 @@ class AboutViewController: NSViewController {
         let pI = ProcessInfo.init()
         let systemVersion = pI.operatingSystemVersionString
         
-        ESLog.info("app version: ", version)
+        ESLog.info("app version: ", version ?? "unknown")
         ESLog.info("system version: ", systemVersion)
         
         self.versionLabel.stringValue = "App 版本 \(version ?? "未知") (\(build ?? "未知"))"
