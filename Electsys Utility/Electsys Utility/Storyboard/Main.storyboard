@@ -612,11 +612,11 @@ DQ
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="35" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-Od-BAs">
-                                <rect key="frame" x="152" y="344" width="191" height="18"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="35" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-Od-BAs">
+                                <rect key="frame" x="152" y="343" width="191" height="19"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-om-Y3T">
-                                        <rect key="frame" x="-1" y="1" width="97" height="16"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-om-Y3T">
+                                        <rect key="frame" x="-1" y="2" width="97" height="16"/>
                                         <buttonCell key="cell" type="check" title="使用 Beta 数据" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Hru-lo-WCJ">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="message" size="11"/>
@@ -625,8 +625,8 @@ DQ
                                             <action selector="betaTapped:" target="TQl-q7-iQX" id="gcS-uD-0In"/>
                                         </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
-                                        <rect key="frame" x="131" y="-1" width="60" height="19"/>
+                                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
+                                        <rect key="frame" x="131" y="0.0" width="60" height="19"/>
                                         <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
@@ -1692,14 +1692,14 @@ DQ
                                     <action selector="switchSeg:" target="TQl-q7-iQX" id="lqU-jB-Hgn"/>
                                 </connections>
                             </segmentedControl>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="27" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-xc-UtA">
-                                <rect key="frame" x="118" y="373" width="258" height="21"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="27" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-xc-UtA">
+                                <rect key="frame" x="120" y="374" width="254" height="20"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-kE-ep8">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="21"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-kE-ep8">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0if-ZQ-SrN">
-                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
+                                                <rect key="frame" x="-2" y="2" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="2Dp-et-dgC">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1707,7 +1707,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="40v-ww-pFo">
-                                                <rect key="frame" x="46" y="-3" width="39" height="25"/>
+                                                <rect key="frame" x="45" y="-4" width="39" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="bZO-Ub-j6u">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -1727,11 +1727,11 @@ DQ
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhI-1S-etg">
-                                        <rect key="frame" x="109" y="0.0" width="149" height="21"/>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhI-1S-etg">
+                                        <rect key="frame" x="107" y="0.0" width="147" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-xB-H4t">
-                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
+                                                <rect key="frame" x="-2" y="2" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="RXY-CP-ae2">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1739,7 +1739,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-qV-FnA">
-                                                <rect key="frame" x="46" y="-3" width="106" height="25"/>
+                                                <rect key="frame" x="45" y="-4" width="106" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -4285,13 +4285,13 @@ Copyright © 2018 </string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-xc-sbO">
-                                            <rect key="frame" x="59" y="30" width="308" height="46"/>
+                                            <rect key="frame" x="59" y="32" width="306" height="44"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-4F-Xzv">
-                                                    <rect key="frame" x="0.0" y="25" width="269" height="21"/>
+                                                    <rect key="frame" x="0.0" y="24" width="267" height="20"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-kr-cVn">
-                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
+                                                            <rect key="frame" x="-2" y="2" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="课程概要显示风格：" id="rhf-ZC-g1G">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4299,7 +4299,7 @@ Copyright © 2018 </string>
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-43-guT">
-                                                            <rect key="frame" x="126" y="-3" width="146" height="25"/>
+                                                            <rect key="frame" x="125" y="-4" width="146" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="课名及教师" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0fl-yk-JUu" id="44u-oP-13x">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="menu"/>
@@ -4326,10 +4326,10 @@ Copyright © 2018 </string>
                                                     </customSpacing>
                                                 </stackView>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fc9-51-BWT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="308" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="306" height="20"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-wu-sai">
-                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
+                                                            <rect key="frame" x="-2" y="2" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="平均绩点计算策略：" id="6nl-Gq-Skc">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4337,7 +4337,7 @@ Copyright © 2018 </string>
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rGh-90-gHQ">
-                                                            <rect key="frame" x="126" y="-3" width="185" height="25"/>
+                                                            <rect key="frame" x="125" y="-4" width="185" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="上海交通大学 4.3 制" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5A1-P9-GyH" id="NQz-lP-AUr">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="menu"/>
@@ -4544,7 +4544,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-mB-mxa">
-                                                    <rect key="frame" x="0.0" y="18" width="287" height="18"/>
+                                                    <rect key="frame" x="0.0" y="18" width="285" height="18"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eKY-dX-4Ev">
                                                             <rect key="frame" x="0.0" y="-1" width="195" height="19"/>
@@ -4557,7 +4557,7 @@ DQ
                                                             </connections>
                                                         </button>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-fq-urK">
-                                                            <rect key="frame" x="200" y="-3" width="90" height="22"/>
+                                                            <rect key="frame" x="199" y="-3" width="90" height="22"/>
                                                             <popUpButtonCell key="cell" type="push" title="error 级" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="Bfe-qh-7Mk" id="TrL-3m-VfO">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="message" size="11"/>
@@ -4714,19 +4714,19 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XL-gW-8Po">
-                                <rect key="frame" x="67" y="56" width="246" height="69"/>
+                                <rect key="frame" x="67" y="59" width="246" height="66"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ma2-F3-7Pd">
-                                        <rect key="frame" x="0.0" y="0.0" width="246" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="66"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TON-he-sw3">
-                                                <rect key="frame" x="0.0" y="27" width="246" height="42"/>
+                                                <rect key="frame" x="0.0" y="26" width="246" height="40"/>
                                                 <subviews>
                                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHE-9a-27I">
-                                                        <rect key="frame" x="26" y="16" width="195" height="26"/>
+                                                        <rect key="frame" x="27" y="16" width="193" height="24"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-ue-g8X">
-                                                                <rect key="frame" x="-2" y="5" width="44" height="16"/>
+                                                                <rect key="frame" x="-2" y="4" width="44" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="Ugi-yu-c7f">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4734,7 +4734,7 @@ DQ
                                                                 </textFieldCell>
                                                             </textField>
                                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-ED-2Ok">
-                                                                <rect key="frame" x="46" y="1" width="152" height="24"/>
+                                                                <rect key="frame" x="45" y="-2" width="152" height="25"/>
                                                                 <popUpButtonCell key="cell" type="push" title="2019 至 2020 学年" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lFe-lS-JZl" id="HgC-LG-qW1">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
@@ -4752,11 +4752,7 @@ DQ
                                                             </popUpButton>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="X5f-ue-g8X" firstAttribute="baseline" secondItem="dhF-ED-2Ok" secondAttribute="firstBaseline" id="1Zt-8n-8Py"/>
                                                             <constraint firstItem="dhF-ED-2Ok" firstAttribute="top" secondItem="sHE-9a-27I" secondAttribute="top" constant="2" id="EL6-Fc-5sQ"/>
-                                                            <constraint firstItem="dhF-ED-2Ok" firstAttribute="baseline" secondItem="X5f-ue-g8X" secondAttribute="firstBaseline" id="GOq-3p-ayF"/>
-                                                            <constraint firstItem="dhF-ED-2Ok" firstAttribute="leading" secondItem="X5f-ue-g8X" secondAttribute="trailing" constant="8" id="KRR-d4-FGu"/>
-                                                            <constraint firstItem="X5f-ue-g8X" firstAttribute="centerY" secondItem="sHE-9a-27I" secondAttribute="centerY" id="cmV-ee-Ls0"/>
                                                         </constraints>
                                                         <visibilityPriorities>
                                                             <integer value="1000"/>
@@ -4786,7 +4782,7 @@ DQ
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kih-LD-Tvo">
-                                                <rect key="frame" x="49" y="0.0" width="149" height="21"/>
+                                                <rect key="frame" x="50" y="0.0" width="147" height="20"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw9-b7-iuK">
                                                         <rect key="frame" x="-2" y="2" width="44" height="16"/>
@@ -4797,7 +4793,7 @@ DQ
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-8A-5Mi">
-                                                        <rect key="frame" x="46" y="-3" width="106" height="25"/>
+                                                        <rect key="frame" x="45" y="-4" width="106" height="25"/>
                                                         <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="IdU-vQ-eQC" id="7mi-Tl-qfz">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="menu"/>
@@ -4814,11 +4810,6 @@ DQ
                                                         </connections>
                                                     </popUpButton>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="cw9-b7-iuK" firstAttribute="baseline" secondItem="xeZ-8A-5Mi" secondAttribute="firstBaseline" id="224-my-hvT"/>
-                                                    <constraint firstItem="xeZ-8A-5Mi" firstAttribute="top" secondItem="kih-LD-Tvo" secondAttribute="top" id="TAE-2Z-pXP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="xeZ-8A-5Mi" secondAttribute="bottom" id="iAm-RA-4U3"/>
-                                                </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
