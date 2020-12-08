@@ -9,6 +9,7 @@
 import Foundation
 
 class LoginConst {
+    static let initUrl = "http://i.sjtu.edu.cn/"
     static let loginUrl = "http://i.sjtu.edu.cn/jaccountlogin"
     static let logOutUrl = "http://i.sjtu.edu.cn/xtgl/login_slogin.html"
     static let captchaUrl = "https://jaccount.sjtu.edu.cn/jaccount/captcha"

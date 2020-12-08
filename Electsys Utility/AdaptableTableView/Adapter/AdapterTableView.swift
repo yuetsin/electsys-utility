@@ -69,7 +69,7 @@ extension AdapterTableView: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return AdapterTableView.heightOfRow
+        return AdapterTableView.heightOfRow * 1.2
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {

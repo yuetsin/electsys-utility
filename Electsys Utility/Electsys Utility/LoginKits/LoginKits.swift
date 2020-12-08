@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Kanna
 import Alamofire
 import SwiftyJSON
 import Alamofire_SwiftyJSON
@@ -23,6 +24,28 @@ class LoginHelper {
     
     static func initRedirectUrl(handler: (() -> ())? = nil) {
         Alamofire.request(LoginConst.loginUrl, method: .get).response { response in
+            
+            if response.data != nil {
+                let doc = String(data: response.data!, encoding: .utf8)
+                ESLog.info("### got login html page ###")
+                ESLog.info(doc ?? "<< error >>")
+                ESLog.info("### got login html page over ###")
+                
+                if doc != nil {
+                    let tokens = doc!.components(separatedBy: "'captcha?uuid=")
+                    if tokens.count > 1 {
+                        let latter_tokens = tokens.last!.components(separatedBy: "&t='")
+                        if latter_tokens.count > 1 {
+                            CaptchaHelper.uuid = latter_tokens.first!
+                            CaptchaHelper.t = String(Date().timeIntervalSince1970)
+                            
+                            ESLog.info("get captcha uuid \(CaptchaHelper.uuid ?? "<< error >>")")
+                            ESLog.info("set captcha timestamp \(CaptchaHelper.t ?? "<< error >>")")
+                        }
+                    }
+                }
+            }
+            
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
                 ESLog.warning("failed to get 302 redirect url")
@@ -95,7 +118,8 @@ class LoginHelper {
             "sid": LoginHelper.sID!,
             "returl": LoginHelper.returnUrl!,
             "se": LoginHelper.se!,
-            /* 'v': "" */
+            "v": "",
+            "uuid": "15cf4fb3-21a9-45a0-9dda-fbf1795065cb",
             "client": LoginHelper.client!,
             "user": username,
             "pass": password,
@@ -104,7 +128,7 @@ class LoginHelper {
         
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
-//            _ = String(data: response.data!, encoding: .utf8)
+//            let realResponse = String(data: response.data!, encoding: .utf8)
             ESLog.info("login redirect to: \(redirectURL ?? "nil")")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 ESLog.error("login post failure")
