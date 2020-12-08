@@ -26,6 +26,10 @@ class CookieParserViewController: NSViewController {
     @IBAction func completeLogin(_ sender: NSButton) {
         let dict = parseCookies(rawString: textField.string)
         let targetUrl = URL(string: LoginConst.initUrl)!
+        
+        for pair in dict {
+            ESLog.info("parsed cookie pair: \(pair.key) : \(pair.value)")
+        }
         Alamofire.HTTPCookieStorage.shared.setCookies(HTTPCookie.cookies(withResponseHeaderFields: dict, for: targetUrl), for: targetUrl, mainDocumentURL: targetUrl)
         done(success: true)
     }

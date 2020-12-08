@@ -59,6 +59,8 @@ class PreferencesViewController: NSViewController {
     }
 
     func disableTextBox() {
+        // due to login strategy migration, auto-fill feature is disabled.
+        return
         if autoFillTokenChecker.state == .on {
             userNameToken.isEnabled = true
             passWordToken.isEnabled = true
