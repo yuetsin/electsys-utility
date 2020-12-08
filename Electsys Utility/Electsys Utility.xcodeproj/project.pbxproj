@@ -77,8 +77,12 @@
 		8ACB34662140143C002053D0 /* FullDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACB34652140143C002053D0 /* FullDataViewController.swift */; };
 		8ACEEB06213CB04200A7776E /* RandomNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEEB05213CB04200A7776E /* RandomNames.swift */; };
 		8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04CFC213BC40200D59DB1 /* DateUtils.swift */; };
+		8AD04F04257F25D900291A48 /* WebLoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04F03257F25D900291A48 /* WebLoginDelegate.swift */; };
+		8AD04F08257F2D4500291A48 /* CookieParserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD04F07257F2D4500291A48 /* CookieParserViewController.swift */; };
 		8AD4A49C2138B2A900F7E5E8 /* ResolveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */; };
 		8AD4A49E2138C8D800F7E5E8 /* LegacyHtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */; };
+		8AD7FA2E257F055B0066DA35 /* CaptchaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD7FA2D257F055B0066DA35 /* CaptchaHelper.swift */; };
+		8AD7FA32257F14280066DA35 /* WebLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD7FA31257F14280066DA35 /* WebLoginViewController.swift */; };
 		8AEA936F234F526600952904 /* sidebar.01.about.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9366234F526600952904 /* sidebar.01.about.icon.png */; };
 		8AEA9370234F526600952904 /* sidebar.02.preferences.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9367234F526600952904 /* sidebar.02.preferences.icon.png */; };
 		8AEA9371234F526600952904 /* sidebar.03.acknowledgements.icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA9368234F526600952904 /* sidebar.03.acknowledgements.icon.png */; };
@@ -188,8 +192,12 @@
 		8ACEEB05213CB04200A7776E /* RandomNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNames.swift; sourceTree = "<group>"; };
 		8AD04CFC213BC40200D59DB1 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		8AD04CFE213BC58800D59DB1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		8AD04F03257F25D900291A48 /* WebLoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoginDelegate.swift; sourceTree = "<group>"; };
+		8AD04F07257F2D4500291A48 /* CookieParserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieParserViewController.swift; sourceTree = "<group>"; };
 		8AD4A49B2138B2A900F7E5E8 /* ResolveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveViewController.swift; sourceTree = "<group>"; };
 		8AD4A49D2138C8D800F7E5E8 /* LegacyHtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyHtmlParser.swift; sourceTree = "<group>"; };
+		8AD7FA2D257F055B0066DA35 /* CaptchaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptchaHelper.swift; sourceTree = "<group>"; };
+		8AD7FA31257F14280066DA35 /* WebLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLoginViewController.swift; sourceTree = "<group>"; };
 		8AEA9366234F526600952904 /* sidebar.01.about.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.01.about.icon.png; sourceTree = "<group>"; };
 		8AEA9367234F526600952904 /* sidebar.02.preferences.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.02.preferences.icon.png; sourceTree = "<group>"; };
 		8AEA9368234F526600952904 /* sidebar.03.acknowledgements.icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidebar.03.acknowledgements.icon.png; sourceTree = "<group>"; };
@@ -295,6 +303,7 @@
 			children = (
 				8A0AE465232A016200CE9E3A /* LoginKits.swift */,
 				8A0AE467232A017600CE9E3A /* LoginConst.swift */,
+				8AD7FA2D257F055B0066DA35 /* CaptchaHelper.swift */,
 			);
 			path = LoginKits;
 			sourceTree = "<group>";
@@ -432,6 +441,7 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8AD7FA30257F14120066DA35 /* WebLoginKits */,
 				8AB614A123976F5D00AA8175 /* TouchBarKits */,
 				8A09A484214E0E9C008EC502 /* GalleryKits */,
 				8A33CF09232F1F2F00BD6826 /* InspectorKits */,
@@ -459,6 +469,7 @@
 		8A4A22F2213631F20064488C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8AD7FA31257F14280066DA35 /* WebLoginViewController.swift */,
 				8A044788218D40D800BAB188 /* AboutViewController.swift */,
 				8A4A22DF21362EAF0064488C /* jAccountViewController.swift */,
 				8A747FF82137AB3800AB67BB /* HtmlGetViewController.swift */,
@@ -473,6 +484,7 @@
 				8A27D73F232E5640005AF5CA /* ScoreQueryViewController.swift */,
 				8A27D75B232E7A92005AF5CA /* PreferencesViewController.swift */,
 				8A33CF10232F2C0900BD6826 /* FeedBackViewController.swift */,
+				8AD04F07257F2D4500291A48 /* CookieParserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -539,6 +551,14 @@
 				8AB614A223976F7700AA8175 /* TouchBarIdentifier.swift */,
 			);
 			path = TouchBarKits;
+			sourceTree = "<group>";
+		};
+		8AD7FA30257F14120066DA35 /* WebLoginKits */ = {
+			isa = PBXGroup;
+			children = (
+				8AD04F03257F25D900291A48 /* WebLoginDelegate.swift */,
+			);
+			path = WebLoginKits;
 			sourceTree = "<group>";
 		};
 		8AEA9365234F526600952904 /* Icons */ = {
@@ -800,6 +820,8 @@
 				8A397DC42140B69900AE297A /* [deprecated] Curricula.swift in Sources */,
 				8A96D48A214026F4009E90CA /* CourseQuery.swift in Sources */,
 				8A5102B723B07F620094658A /* ESLog.swift in Sources */,
+				8AD7FA2E257F055B0066DA35 /* CaptchaHelper.swift in Sources */,
+				8AD04F04257F25D900291A48 /* WebLoginDelegate.swift in Sources */,
 				8A09A486214E0EC0008EC502 /* GalleryIcon.swift in Sources */,
 				8A33CF11232F2C0900BD6826 /* FeedBackViewController.swift in Sources */,
 				8A4A22E021362EAF0064488C /* jAccountViewController.swift in Sources */,
@@ -813,6 +835,7 @@
 				8AD04CFD213BC40200D59DB1 /* DateUtils.swift in Sources */,
 				8A3598FC232E1C9300FA0786 /* IdentityKits.swift in Sources */,
 				8A044789218D40D800BAB188 /* AboutViewController.swift in Sources */,
+				8AD04F08257F2D4500291A48 /* CookieParserViewController.swift in Sources */,
 				8AF47F4A233269F800F00E28 /* GitHubVersion.m in Sources */,
 				8A7F528B2137D65A00FBA008 /* SchoolTime.swift in Sources */,
 				8A4A22DE21362EAF0064488C /* AppDelegate.swift in Sources */,
@@ -851,6 +874,7 @@
 				8A27D737232E51E7005AF5CA /* NGExam.swift in Sources */,
 				8A27D73E232E5394005AF5CA /* NGScore.swift in Sources */,
 				8A0AE468232A017600CE9E3A /* LoginConst.swift in Sources */,
+				8AD7FA32257F14280066DA35 /* WebLoginViewController.swift in Sources */,
 				8A6E46A8233242DE00141C91 /* BaseView.swift in Sources */,
 				8AF47F45233269F800F00E28 /* GitHubInstallWindowController.m in Sources */,
 				8AF47F46233269F800F00E28 /* GitHubProgressWindowController.m in Sources */,
@@ -1023,7 +1047,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = v0.9.8;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1049,7 +1073,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Electsys Utility/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks ${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = v0.9.8;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.yuetsin.electsys.utility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
