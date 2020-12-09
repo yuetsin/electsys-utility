@@ -73,7 +73,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         preferenceButton.setAccessibilityLabel("切换到偏好设置窗格")
         creditsButton.setAccessibilityLabel("切换到致谢窗格")
         
-        loginJAccountButton.setAccessibilityLabel("切换到 jAccount 登录窗格")
+        loginJAccountButton.setAccessibilityLabel("切换到系统登入窗格")
         syncCourseTableButton.setAccessibilityLabel("切换到课程表同步窗格")
         syncTestInfoButton.setAccessibilityLabel("切换到考试信息同步窗格")
         getScoreButton.setAccessibilityLabel("切换到成绩查询窗格")

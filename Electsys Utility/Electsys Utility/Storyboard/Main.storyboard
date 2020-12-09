@@ -465,7 +465,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="SeatCell" id="qHF-6j-DXf">
-                                                            <rect key="frame" x="406.5" y="1" width="53" height="17"/>
+                                                            <rect key="frame" x="406" y="1" width="53" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-Id-VOY">
@@ -2306,9 +2306,9 @@ DQ
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5s-Ts-I3N">
-                                        <rect key="frame" x="29" y="390" width="229" height="30"/>
+                                        <rect key="frame" x="29" y="390" width="228" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="jAccount 账号登录" id="PqG-Er-PiY">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="登入 Electsys 系统" id="PqG-Er-PiY">
                                             <font key="font" metaFont="systemHeavy" size="26"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -2348,7 +2348,7 @@ DQ
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-fs-P7r">
                                         <rect key="frame" x="62" y="367" width="350" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" title="您尚未登录。" id="he8-jX-mg9">
+                                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" title="您尚未登入。" id="he8-jX-mg9">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2359,7 +2359,7 @@ DQ
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSStatusNone" id="S0j-Lo-heD"/>
                                     </imageView>
-                                    <box fixedFrame="YES" title="可选的登录方式" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-PJ-YOq">
+                                    <box fixedFrame="YES" title="可选的登入方式" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-PJ-YOq">
                                         <rect key="frame" x="40" y="140" width="437" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" id="kud-SG-5cZ">
@@ -2370,8 +2370,8 @@ DQ
                                                     <rect key="frame" x="20" y="15" width="328" height="166"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-wE-taW">
-                                                            <rect key="frame" x="0.0" y="147" width="128" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="以 Web 页面登录" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="leading" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ijx-mr-3RS">
+                                                            <rect key="frame" x="0.0" y="147" width="116" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过 Web 页面" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="leading" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ijx-mr-3RS">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -2396,8 +2396,8 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S76-a6-DZ7">
-                                                            <rect key="frame" x="0.0" y="84" width="123" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="以 Cookies 登录" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jCt-KU-6ip">
+                                                            <rect key="frame" x="0.0" y="84" width="108" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过 Cookies" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jCt-KU-6ip">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -2406,8 +2406,8 @@ DQ
                                                             </connections>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-nA-SQz">
-                                                            <rect key="frame" x="-2" y="63" width="265" height="14"/>
-                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="通过提供已登录会话存储的 HTTP Cookies 来鉴权。" id="4wx-3P-EXX">
+                                                            <rect key="frame" x="-2" y="63" width="198" height="14"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="通过提供会话 HTTP Cookies 来鉴权。" id="4wx-3P-EXX">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2422,8 +2422,8 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-fp-Znl">
-                                                            <rect key="frame" x="0.0" y="21" width="145" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="以用户名和密码登录" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwG-uK-j95">
+                                                            <rect key="frame" x="0.0" y="21" width="133" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过用户名和密码" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwG-uK-j95">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="cellTitle"/>
                                                             </buttonCell>
@@ -3883,7 +3883,7 @@ Copyright © 2018 </string>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLn-FA-fNE">
-                                                <rect key="frame" x="20" y="111" width="127" height="324"/>
+                                                <rect key="frame" x="20" y="111" width="138" height="324"/>
                                                 <subviews>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-hO-MaH">
                                                         <rect key="frame" x="0.0" y="230" width="88" height="94"/>
@@ -3950,7 +3950,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-eQ-pzv">
-                                                        <rect key="frame" x="0.0" y="102" width="127" height="120"/>
+                                                        <rect key="frame" x="0.0" y="102" width="138" height="120"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ega-l9-MFs">
                                                                 <rect key="frame" x="-2" y="104" width="31" height="16"/>
@@ -3961,11 +3961,11 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9P-Np-P0M">
-                                                                <rect key="frame" x="0.0" y="77" width="127" height="19"/>
+                                                                <rect key="frame" x="0.0" y="77" width="138" height="19"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="127" id="IwO-wr-J6Z"/>
+                                                                    <constraint firstAttribute="width" constant="138" id="IwO-wr-J6Z"/>
                                                                 </constraints>
-                                                                <buttonCell key="cell" type="recessed" title="用 jAccount 登入" bezelStyle="recessed" image="NSLockLockedTemplate" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
+                                                                <buttonCell key="cell" type="recessed" title="登入 Electsys 系统" bezelStyle="recessed" image="NSLockLockedTemplate" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4303,7 +4303,7 @@ DQ
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-7b-neM">
                                         <rect key="frame" x="59" y="-1" width="64" height="19"/>
-                                        <buttonCell key="cell" type="roundRect" title="完成登录" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4vc-uS-3fF">
+                                        <buttonCell key="cell" type="roundRect" title="完成登入" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4vc-uS-3fF">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
                                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -4384,7 +4384,7 @@ DQ
                                     <constraint firstAttribute="width" constant="224" id="11S-6v-l2W"/>
                                     <constraint firstAttribute="height" constant="26" id="t4b-IY-SJ8"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="通过 Web 页面登录" id="1l4-PD-rdX">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="通过 Web 页面登入" id="1l4-PD-rdX">
                                     <font key="font" metaFont="systemHeavy" size="24"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -5386,7 +5386,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TeacherNameCellID" id="IYq-0N-K6J">
-                                                            <rect key="frame" x="298.5" y="1" width="59" height="17"/>
+                                                            <rect key="frame" x="298" y="1" width="59" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAW-jD-IDi">

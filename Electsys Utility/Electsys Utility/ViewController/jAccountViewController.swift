@@ -33,7 +33,7 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
     override func viewDidLoad() {
         setAccessibilityLabel()
         successImage.image = NSImage(named: "NSStatusNone")
-        loginStateText.stringValue = "您尚未登录。"
+        loginStateText.stringValue = "您尚未登入。"
     }
 
     func setAccessibilityLabel() {
@@ -103,7 +103,7 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
 
     func checkLoginStatus() {
         successImage.image = NSImage(named: "NSStatusPartiallyAvailable")
-        loginStateText.stringValue = "正在检查您的登录状态…"
+        loginStateText.stringValue = "正在检查登入状态…"
         LoginHelper.checkLoginAvailability({ status in
             if status {
                 self.successImage.image = NSImage(named: "NSStatusAvailable")
@@ -113,7 +113,7 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
                 if LoginHelper.lastLoginUserName != "{null}" {
                     self.UIDelegate?.lockIcon()
                     self.successImage.image = NSImage(named: "NSStatusUnavailable")
-                    self.loginStateText.stringValue = "登录身份已过期，请重新登录。"
+                    self.loginStateText.stringValue = "登入身份已过期。"
                     self.UIDelegate?.lockIcon()
                     if self.view.window == nil {
                         LoginHelper.lastLoginUserName = "{null}"
@@ -121,7 +121,7 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
                     LoginHelper.lastLoginUserName = "{null}"
                 } else {
                     self.successImage.image = NSImage(named: "NSStatusNone")
-                    self.loginStateText.stringValue = "您尚未登录。"
+                    self.loginStateText.stringValue = "您尚未登入。"
                     self.UIDelegate?.lockIcon()
                 }
             }

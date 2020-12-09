@@ -9,8 +9,8 @@
 import Foundation
 import Log
 
-let ESLog = Logger()
 
+let ESLog = Logger()
 
 //var debugMode = true
 let isDebugVersion = false

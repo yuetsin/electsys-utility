@@ -416,7 +416,6 @@
 		8A4A22D121362EAF0064488C = {
 			isa = PBXGroup;
 			children = (
-				8A5102B523B07F4D0094658A /* LogKits */,
 				8AEA9365234F526600952904 /* Icons */,
 				8A5029AF2333109600C4C266 /* VersionComparer.swift */,
 				8A17ADAA232BAF530077DDCF /* Electsys Utility-Bridging-Header.h */,
@@ -441,6 +440,7 @@
 		8A4A22DC21362EAF0064488C /* Electsys Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A5102B523B07F4D0094658A /* LogKits */,
 				8AD7FA30257F14120066DA35 /* WebLoginKits */,
 				8AB614A123976F5D00AA8175 /* TouchBarKits */,
 				8A09A484214E0E9C008EC502 /* GalleryKits */,
