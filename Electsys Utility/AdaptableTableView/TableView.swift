@@ -75,7 +75,7 @@ class TableView: BaseView {
                                      scrollViewTableView.bottomAnchor.constraint(equalTo: stackView.topAnchor),
         ])
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false;
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: scrollViewTableView.bottomAnchor),
                                      stackView.leadingAnchor.constraint(equalTo: stackView.superview!.leadingAnchor),
