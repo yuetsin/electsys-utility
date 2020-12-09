@@ -28,8 +28,8 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         registerDelegate()
         lockIcon()
         setAccessibilityLabel()
-        self.view.window?.makeFirstResponder(aboutButton)
-        
+
+        aboutButton.becomeFirstResponder()
         aboutButton.image?.isTemplate = true
         preferenceButton.image?.isTemplate = true
         creditsButton.image?.isTemplate = true
@@ -42,6 +42,11 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         insertHtmlButton.image?.isTemplate = true
         queryLibraryButton.image?.isTemplate = true
         reportIssueButton.image?.isTemplate = true
+    }
+    
+    override func viewWillAppear() {
+        self.view.window?.initialFirstResponder = aboutButton
+        self.view.window?.makeFirstResponder(aboutButton)
     }
     
     override func viewDidDisappear() {
@@ -101,7 +106,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     private var tabViewController: MainTabViewController?
     
     @IBAction func switchFeature(_ sender: NSButton) {
-        
         aboutButton.state = .off
         preferenceButton.state = .off
         creditsButton.state = .off
@@ -118,10 +122,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
-        
+        sender.becomeFirstResponder()
         self.view.window?.makeFirstResponder(sender)
         
-        tabViewController?.children[sender.tag].becomeFirstResponder()
     }
     
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
@@ -151,7 +154,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         syncCourseTableButton.isEnabled = false
         syncTestInfoButton.isEnabled = false
         getScoreButton.isEnabled = false
-        self.view.window?.makeFirstResponder(aboutButton)
     }
     
     func visitAboutPage() {
@@ -167,27 +169,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     }
     
     func switchToPage(index: Int) {
-        aboutButton.state = .off
-        preferenceButton.state = .off
-        creditsButton.state = .off
-        loginJAccountButton.state = .off
-        syncCourseTableButton.state = .off
-        syncTestInfoButton.state = .off
-        getScoreButton.state = .off
-        insertHtmlButton.state = .off
-        queryLibraryButton.state = .off
-        reportIssueButton.state = .off
-        
-        (self.view.viewWithTag(index) as! NSButton).state = .on
-        
-        if tabViewController == nil {
-            return
-        }
-        
-        self.view.window?.makeFirstResponder(self.view.viewWithTag(index) as! NSButton)
-    
         tabViewController?.tabView.selectTabViewItem(at: index)
-        tabViewController?.children[index].becomeFirstResponder()
     }
 }
 
