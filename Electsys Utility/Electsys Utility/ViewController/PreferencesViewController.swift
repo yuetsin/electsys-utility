@@ -13,7 +13,20 @@ class PreferencesViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         readPreferences()
+        
+        if isDebugVersion {
+            debugLevelMenuItem.isEnabled = true
+            traceLevelMenuItem.isEnabled = true
+        } else {
+            debugLevelMenuItem.isEnabled = false
+            traceLevelMenuItem.isEnabled = false
+        }
     }
+    
+    
+    @IBOutlet weak var debugLevelMenuItem: NSMenuItem!
+    @IBOutlet weak var traceLevelMenuItem: NSMenuItem!
+    
 
     @IBOutlet var galleryDisplayStylePopUpSelector: NSPopUpButton!
     @IBOutlet var gpaCalculatingStrategyPopUpSelector: NSPopUpButton!
@@ -46,6 +59,8 @@ class PreferencesViewController: NSViewController {
     }
 
     func disableTextBox() {
+        // due to login strategy migration, auto-fill feature is disabled.
+        return
         if autoFillTokenChecker.state == .on {
             userNameToken.isEnabled = true
             passWordToken.isEnabled = true
@@ -96,6 +111,8 @@ class PreferencesViewController: NSViewController {
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: view.window!)
+        
+        ESLog.info("informative message: ", infoMsg)
     }
 
     func readPreferences() {
@@ -135,6 +152,37 @@ class PreferencesViewController: NSViewController {
         PreferenceKits.savePreferences()
     }
 
+    @IBAction func debugLevelTriggered(_ sender: NSPopUpButton) {
+        switch sender.selectedTag() {
+        case 0:
+            // error
+            ESLog.minLevel = .error
+            enableDebugMode()
+        case 1:
+            // warning
+            ESLog.minLevel = .warning
+            enableDebugMode()
+        case 2:
+            // info
+            ESLog.minLevel = .info
+            enableDebugMode()
+        case 3:
+            // debug
+            ESLog.minLevel = .debug
+            enableDebugMode()
+        case 4:
+            // trace
+            ESLog.minLevel = .trace
+            enableDebugMode()
+        case 5:
+            // disabled
+            disableDebugMode()
+        default:
+            // nothing to do
+            ESLog.error("gotta invalid debug level ", sender.selectedTag())
+        }
+    }
+    
     func questionMe(questionMsg: String, handler: @escaping () -> Void) {
         let questionAlert: NSAlert = NSAlert()
         questionAlert.informativeText = questionMsg
@@ -144,7 +192,10 @@ class PreferencesViewController: NSViewController {
         questionAlert.alertStyle = NSAlert.Style.critical
         questionAlert.beginSheetModal(for: view.window!) { returnCode in
             if returnCode == NSApplication.ModalResponse.alertFirstButtonReturn {
+                ESLog.info("user gives positive response to the question ", questionMsg)
                 handler()
+            } else {
+                ESLog.info("user gives negative response to the question ", questionMsg)
             }
         }
     }

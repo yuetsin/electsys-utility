@@ -16,11 +16,12 @@ struct NGExam {
     var teacher: String?
     var startDate: Date?
     var endDate: Date?
-    var seatNo: String?
+    var campus: String?
     var originalTime: String?
     
     func getTime() -> String {
         if startDate == nil || endDate == nil {
+            ESLog.error("invalid NGExam date entry ", self)
             return "未知"
         }
         let formatter = DateFormatter()

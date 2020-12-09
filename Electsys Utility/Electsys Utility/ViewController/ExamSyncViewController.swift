@@ -14,7 +14,7 @@ import Kanna
 class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTermSelectionDelegate, NSTableViewDataSource, NSTableViewDelegate {
     
     func successCourseDataTransfer(data: [NGCourse]) {
-        NSLog("bad type called")
+        ESLog.error("bad type called")
         dismiss(sheetViewController)
     }
     
@@ -25,7 +25,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
     }
     
     func successScoreDataTransfer(data: [NGScore]) {
-        NSLog("bad type called")
+        ESLog.error("bad type called")
         dismiss(sheetViewController)
     }
     
@@ -132,13 +132,13 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             break
         case "sortBySeat":
             func pointSorter(p1: NGExam?, p2: NGExam?) -> Bool {
-                if p1?.seatNo == nil {
-                    return p2?.seatNo == nil
+                if p1?.campus == nil {
+                    return p2?.campus == nil
                 }
-                if p2?.seatNo == nil {
-                    return p1?.seatNo != nil
+                if p2?.campus == nil {
+                    return p1?.campus != nil
                 }
-                return (p1?.seatNo!.compare(p2!.seatNo!) == ComparisonResult.orderedAscending) == isAscend
+                return (p1?.campus!.compare(p2!.campus!) == ComparisonResult.orderedAscending) == isAscend
             }
             exams.sort(by: pointSorter)
             tableView.reloadData()
@@ -163,7 +163,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             Property(name: "课程教师", value: examObject.teacher ?? "N/A"),
             Property(name: "考试时间", value: examObject.getTime()),
             Property(name: "考试地点", value: examObject.location ?? "N/A"),
-            Property(name: "席位", value: examObject.seatNo ?? "N/A"),
+            Property(name: "校区", value: examObject.campus ?? "N/A"),
         ])
     }
     
@@ -264,6 +264,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             }
             DispatchQueue.main.async {
                 self.resumeUI()
+                ESLog.info("exam sync success.")
                 self.showInfoMessage(infoMsg: "已完成同步。")
             }
         }
@@ -288,6 +289,8 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             }
             self.resumeUI()
         }
+        
+        ESLog.error("error occurred. message: ", error)
     }
     
     @IBAction func restartAnalyse(_ sender: NSButton) {
@@ -328,6 +331,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.informational
         errorAlert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+        ESLog.info("informative message thrown. message: ", infoMsg)
     }
     
     
@@ -377,7 +381,7 @@ class ExamSyncViewController: NSViewController, writeCalendarDelegate, YearAndTe
             text = item.location ?? "考试地点"
             cellIdentifier = CellIdentifiers.RoomCell
         } else if tableColumn == tableView.tableColumns[3] {
-            text = item.seatNo ?? "座位号"
+            text = item.campus ?? "校区"
             cellIdentifier = CellIdentifiers.SeatCell
         }
 

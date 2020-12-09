@@ -54,7 +54,7 @@ class CourseKits {
                                 if dayArrangeList.count == 1 {
                                     dayArrangeList.append(dayArrangeList[0])
                                 } else {
-                                    NSLog("failed to parse dayArrangeList " + (courseObject.rawString() ?? "<json>"))
+                                    ESLog.error("failed to parse dayArrangeList " + (courseObject.rawString() ?? "<json>"))
                                     continue
                                 }
                             }
@@ -84,22 +84,22 @@ class CourseKits {
                                 let weekEndsAtInt = Int(weekArrangeList[1])
 
                                 if dayStartsAtInt == nil {
-                                    NSLog("failed to convert dayStartsAt (\(dayArrangeList[0])) to string of " + (courseObject["zcd"].string ?? "<json>"))
+                                    ESLog.error("failed to convert dayStartsAt (\(dayArrangeList[0])) to string of " + (courseObject["zcd"].string ?? "<json>"))
                                     continue
                                 }
 
                                 if dayEndsAtInt == nil {
-                                    NSLog("failed to convert dayEndsAt (\(dayArrangeList[1])) to string of " + (courseObject["zcd"].string ?? "<json>"))
+                                    ESLog.error("failed to convert dayEndsAt (\(dayArrangeList[1])) to string of " + (courseObject["zcd"].string ?? "<json>"))
                                     continue
                                 }
 
                                 if weekStartsAtInt == nil {
-                                    NSLog("failed to convert weekStartsAt (\(weekArrangeList[0])) to string of " + (courseObject["zcd"].string ?? "<json>"))
+                                    ESLog.error("failed to convert weekStartsAt (\(weekArrangeList[0])) to string of " + (courseObject["zcd"].string ?? "<json>"))
                                     continue
                                 }
 
                                 if weekEndsAtInt == nil {
-                                    NSLog("failed to convert weekEndsAt (\(weekArrangeList[1])) to string of " + (courseObject["zcd"].string ?? "<json>"))
+                                    ESLog.error("failed to convert weekEndsAt (\(weekArrangeList[1])) to string of " + (courseObject["zcd"].string ?? "<json>"))
                                     continue
                                 }
 

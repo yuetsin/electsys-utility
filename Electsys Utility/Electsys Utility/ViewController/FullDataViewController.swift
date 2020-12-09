@@ -641,7 +641,7 @@ class FullDataViewController: NSViewController {
                 LinGangCampus.append(str)
             }
         } else {
-            NSLog("uncategorized: \(campus), \(building)")
+            ESLog.error("uncategorized: \(campus), \(building)")
         }
     }
 
@@ -655,6 +655,7 @@ class FullDataViewController: NSViewController {
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
+        ESLog.error("error occured. message: ", errorMsg)
     }
 
     func sortLists() {

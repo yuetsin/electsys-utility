@@ -78,12 +78,12 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
     }()
 
     func successCourseDataTransfer(data: [NGCourse]) {
-        NSLog("bad request type")
+        ESLog.error("bad request type")
         dismiss(sheetViewController)
     }
 
     func successExamDataTransfer(data: [NGExam]) {
-        NSLog("bad request type")
+        ESLog.error("bad request type")
         dismiss(sheetViewController)
     }
 
@@ -134,6 +134,8 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!)
+        
+        ESLog.error("error occurred. message: ", errorMsg)
     }
 
     func showInformativeMessage(infoMsg: String) {
@@ -143,6 +145,8 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: view.window!)
+        
+        ESLog.info("informative message: ", infoMsg)
     }
 
     func showGpaMessage(infoMsg: String) {
@@ -373,7 +377,7 @@ class ScoreQueryViewController: NSViewController, NSTableViewDataSource, NSTable
                     }
                 }
             } catch {
-                self.showErrorMessageNormal(errorMsg: "已经成功导出 CSV 格式成绩单。")
+                self.showErrorMessageNormal(errorMsg: "无法导出 CSV 格式成绩单。")
             }
         })
     }

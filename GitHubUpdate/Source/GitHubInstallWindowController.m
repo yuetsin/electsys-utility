@@ -704,19 +704,19 @@ NS_ASSUME_NONNULL_END
         {
             continue;
         }
-        
-        if( false && [ version isEqualToString: self.githubRelease.tagName ] == NO )
-        {
-            {
-                NSString * message;
-                
-                message = [ NSString stringWithFormat: NSLocalizedString( @"应用程序版本号 %@ 无效。期望的版本号是 %@，实际上是 %@。", @"" ), bundleID, self.githubRelease.tagName, version ];
-                
-                [ self displayErrorWithTitle: NSLocalizedString( @"版本号不匹配", @"" ) message: message ];
-            }
-            
-            return nil;
-        }
+//
+//        if( [ version isEqualToString: self.githubRelease.tagName ] == NO )
+//        {
+//            {
+//                NSString * message;
+//
+//                message = [ NSString stringWithFormat: NSLocalizedString( @"应用程序版本号 %@ 无效。期望的版本号是 %@，实际上是 %@。", @"" ), bundleID, self.githubRelease.tagName, version ];
+//
+//                [ self displayErrorWithTitle: NSLocalizedString( @"版本号不匹配", @"" ) message: message ];
+//            }
+//
+//            return nil;
+//        }
         
         return url;
     }

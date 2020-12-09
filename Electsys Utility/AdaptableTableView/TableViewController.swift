@@ -51,6 +51,7 @@ class TableViewController: NSViewController, ExportFormatDecisionDelegate {
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!)
+        ESLog.error("error occured. internal message: ", errorMsg)
     }
 
     func showInformativeMessage(infoMsg: String) {
@@ -60,6 +61,7 @@ class TableViewController: NSViewController, ExportFormatDecisionDelegate {
         infoAlert.addButton(withTitle: "嗯")
         infoAlert.alertStyle = NSAlert.Style.informational
         infoAlert.beginSheetModal(for: view.window!)
+        ESLog.info("informative message thrown. message: ", infoMsg)
     }
 
     func configureTableView(properties: [Property]) {
@@ -103,7 +105,7 @@ class TableViewController: NSViewController, ExportFormatDecisionDelegate {
                     }
                 }
             } catch {
-                self.showErrorMessageNormal(errorMsg: "已经成功导出 CSV 格式属性列表。")
+                self.showErrorMessageNormal(errorMsg: "无法导出 CSV 格式属性列表。")
             }
         })
     }

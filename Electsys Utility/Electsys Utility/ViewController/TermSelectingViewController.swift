@@ -125,8 +125,6 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
 
     var requestType: RequestType?
 
-    // MARK: fill the year pop up box with meaningful values
-
     func initPopUpLists() {
         let date = Date()
         let calendar = Calendar.current
@@ -220,6 +218,8 @@ class TermSelectingViewController: NSViewController, NSScrubberDataSource, NSScr
         errorAlert.addButton(withTitle: "嗯")
         errorAlert.alertStyle = NSAlert.Style.critical
         errorAlert.beginSheetModal(for: view.window!, completionHandler: nil)
+        
+        ESLog.error("internal error occurred. message: ", errorMsg)
     }
 }
 

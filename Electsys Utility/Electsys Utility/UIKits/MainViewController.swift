@@ -11,13 +11,13 @@ import Cocoa
 class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelegate {
     
     override func viewDidLoad() {
-        if #available(OSX 10.12.2, *) {
-            NSLog("system version >= 10.12.2, ok")
+        if #available(OSX 10.13, *) {
+            ESLog.info("system version >= 10.13, ok")
         } else {
-            NSLog("bad system version")
+            ESLog.error("critical! bad system version")
             let alert = NSAlert()
             alert.messageText = "系统版本不合"
-            alert.informativeText = "Electsys Utility 至少需要 macOS 10.12.2 以正常运行。\nApp 即将退出。"
+            alert.informativeText = "Electsys Utility 至少需要 macOS 10.13 以正常运行。\nApp 即将退出。"
             alert.addButton(withTitle: "行")
             alert.alertStyle = .critical
             alert.runModal()
@@ -28,8 +28,8 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         registerDelegate()
         lockIcon()
         setAccessibilityLabel()
-        self.view.window?.makeFirstResponder(aboutButton)
-        
+
+//        aboutButton.becomeFirstResponder()
         aboutButton.image?.isTemplate = true
         preferenceButton.image?.isTemplate = true
         creditsButton.image?.isTemplate = true
@@ -42,10 +42,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         insertHtmlButton.image?.isTemplate = true
         queryLibraryButton.image?.isTemplate = true
         reportIssueButton.image?.isTemplate = true
-    }
-    
-    override func viewDidDisappear() {
-        super.viewDidDisappear()
     }
     
     fileprivate func registerDelegate() {
@@ -68,7 +64,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         preferenceButton.setAccessibilityLabel("切换到偏好设置窗格")
         creditsButton.setAccessibilityLabel("切换到致谢窗格")
         
-        loginJAccountButton.setAccessibilityLabel("切换到 jAccount 登录窗格")
+        loginJAccountButton.setAccessibilityLabel("切换到系统登入窗格")
         syncCourseTableButton.setAccessibilityLabel("切换到课程表同步窗格")
         syncTestInfoButton.setAccessibilityLabel("切换到考试信息同步窗格")
         getScoreButton.setAccessibilityLabel("切换到成绩查询窗格")
@@ -101,7 +97,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     private var tabViewController: MainTabViewController?
     
     @IBAction func switchFeature(_ sender: NSButton) {
-        
         aboutButton.state = .off
         preferenceButton.state = .off
         creditsButton.state = .off
@@ -118,10 +113,9 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
+//        sender.becomeFirstResponder()
+//        self.view.window?.makeFirstResponder(sender)
         
-        self.view.window?.makeFirstResponder(sender)
-        
-        tabViewController?.children[sender.tag].becomeFirstResponder()
     }
     
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
@@ -151,7 +145,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         syncCourseTableButton.isEnabled = false
         syncTestInfoButton.isEnabled = false
         getScoreButton.isEnabled = false
-        self.view.window?.makeFirstResponder(aboutButton)
     }
     
     func visitAboutPage() {
@@ -167,27 +160,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     }
     
     func switchToPage(index: Int) {
-        aboutButton.state = .off
-        preferenceButton.state = .off
-        creditsButton.state = .off
-        loginJAccountButton.state = .off
-        syncCourseTableButton.state = .off
-        syncTestInfoButton.state = .off
-        getScoreButton.state = .off
-        insertHtmlButton.state = .off
-        queryLibraryButton.state = .off
-        reportIssueButton.state = .off
-        
-        (self.view.viewWithTag(index) as! NSButton).state = .on
-        
-        if tabViewController == nil {
-            return
-        }
-        
-        self.view.window?.makeFirstResponder(self.view.viewWithTag(index) as! NSButton)
-    
         tabViewController?.tabView.selectTabViewItem(at: index)
-        tabViewController?.children[index].becomeFirstResponder()
     }
 }
 

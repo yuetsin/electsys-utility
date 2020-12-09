@@ -19,6 +19,7 @@ class TransparentTitleWindowController: NSWindowController {
     @available(OSX 10.12.2, *)
     override func makeTouchBar() -> NSTouchBar? {
         guard let viewController = contentViewController as? MainViewController else {
+            ESLog.error("invalid MainViewController instance")
             return nil
         }
         return viewController.makeTouchBar()

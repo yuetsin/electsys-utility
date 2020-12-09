@@ -19,7 +19,7 @@ import Version
         guard let versionB = Version(anotherVersionString) else {
             return false
         }
-        NSLog("Compare version code \(versionA) and \(versionB). Result is \(versionA > versionB)")
+        ESLog.debug("compare version code \(versionA) and \(versionB). Result is \(versionA > versionB)")
         return versionA > versionB
     }
 }

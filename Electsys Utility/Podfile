@@ -8,4 +8,5 @@ target 'Electsys Utility' do
   pod 'Alamofire-SwiftyJSON'
   pod 'Version'
   pod 'CSV.swift', '~> 2.4.2'
+  pod 'Log'
 end

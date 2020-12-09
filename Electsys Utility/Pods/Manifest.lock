@@ -6,6 +6,7 @@ PODS:
   - CrossroadRegex (1.1.0)
   - CSV.swift (2.4.2)
   - Kanna (4.0.3)
+  - Log (2.0)
   - SwiftyJSON (4.0.0)
   - Version (0.7.0)
 
@@ -15,11 +16,12 @@ DEPENDENCIES:
   - CrossroadRegex
   - CSV.swift (~> 2.4.2)
   - Kanna (~> 4.0.0)
+  - Log
   - SwiftyJSON
   - Version
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Alamofire-SwiftyJSON
     - CrossroadRegex
@@ -27,6 +29,8 @@ SPEC REPOS:
     - Kanna
     - SwiftyJSON
     - Version
+  trunk:
+    - Log
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -34,9 +38,10 @@ SPEC CHECKSUMS:
   CrossroadRegex: 5eaadb3f7b4014728f1cbd1014756b126c1dbd9a
   CSV.swift: 9670cc1b3e3f01e9eebb1aeb603b17b4459e7493
   Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
+  Log: 73fab10e8b88f15cef5f322b12c9be87cf19ee6e
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Version: 748646b64528b12654498912dc3bd065867169cc
 
-PODFILE CHECKSUM: 4c099c17cc5deebb2973bc2141bdd9452629ac54
+PODFILE CHECKSUM: 9689584b1e97db4ab7c6256002c214c8daf1b49c
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

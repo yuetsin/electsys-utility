@@ -166,6 +166,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CSV.swift/CSV.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Log/Log.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Version/Version.framework"
 fi
@@ -175,6 +176,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CSV.swift/CSV.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CrossroadRegex/Regex.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Log/Log.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Version/Version.framework"
 fi
