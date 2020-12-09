@@ -30,7 +30,10 @@ class CookieParserViewController: NSViewController {
         for pair in dict {
             ESLog.info("parsed cookie pair: \(pair.key) : \(pair.value)")
         }
-        Alamofire.HTTPCookieStorage.shared.setCookies(HTTPCookie.cookies(withResponseHeaderFields: dict, for: targetUrl), for: targetUrl, mainDocumentURL: targetUrl)
+        
+        for cookie in HTTPCookie.cookies(withResponseHeaderFields: dict, for: targetUrl) {
+            Alamofire.HTTPCookieStorage.shared.setCookie(cookie)
+        }
         done(success: true)
     }
 

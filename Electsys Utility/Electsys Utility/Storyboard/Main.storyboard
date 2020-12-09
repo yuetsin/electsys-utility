@@ -3879,14 +3879,14 @@ Copyright © 2018 </string>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nCu-Qp-wX8">
-                                        <rect key="frame" x="0.0" y="0.0" width="155" height="455"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="455"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLn-FA-fNE">
-                                                <rect key="frame" x="20" y="111" width="138" height="324"/>
+                                                <rect key="frame" x="20" y="111" width="140" height="324"/>
                                                 <subviews>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-hO-MaH">
-                                                        <rect key="frame" x="0.0" y="230" width="88" height="94"/>
+                                                        <rect key="frame" x="0.0" y="230" width="86" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-WT-Vk3">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -3897,10 +3897,7 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGt-eY-bwb">
-                                                                <rect key="frame" x="0.0" y="51" width="63" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="63" id="KXf-zB-3Z3"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="51" width="60" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" image="info.circle" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -3910,10 +3907,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="UDv-Xg-MZw">
-                                                                <rect key="frame" x="0.0" y="25" width="88" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="88" id="BUQ-gA-eJM"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="25" width="86" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" image="gearshape" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -3923,10 +3917,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-xj-XgW">
-                                                                <rect key="frame" x="0.0" y="-1" width="63" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="63" id="w5T-lv-T7m"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="-1" width="59" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" image="doc.append.rtl" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -3950,7 +3941,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-eQ-pzv">
-                                                        <rect key="frame" x="0.0" y="102" width="138" height="120"/>
+                                                        <rect key="frame" x="0.0" y="102" width="140" height="120"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ega-l9-MFs">
                                                                 <rect key="frame" x="-2" y="104" width="31" height="16"/>
@@ -3961,10 +3952,7 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9P-Np-P0M">
-                                                                <rect key="frame" x="0.0" y="77" width="138" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="138" id="IwO-wr-J6Z"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="77" width="140" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="登入 Electsys 系统" bezelStyle="recessed" image="NSLockLockedTemplate" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -3974,10 +3962,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="cWm-3u-igA">
-                                                                <rect key="frame" x="0.0" y="51" width="100" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="UYV-qR-7DL"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="51" width="99" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" image="tablecells.badge.ellipsis" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -3988,9 +3973,6 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-8O-hG6">
                                                                 <rect key="frame" x="0.0" y="25" width="112" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="112" id="WYA-bT-xGz"/>
-                                                                </constraints>
                                                                 <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" image="newspaper" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4000,10 +3982,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="faF-N4-Opk">
-                                                                <rect key="frame" x="0.0" y="-1" width="112" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="112" id="2uL-vj-UUi"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="-1" width="109" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" image="bookmark.circle" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4029,7 +4008,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFC-Z7-Vq6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="94"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g9M-zx-NWi">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -4040,10 +4019,7 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-0R-wZy">
-                                                                <rect key="frame" x="0.0" y="51" width="124" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="124" id="JOJ-s8-GEq"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="51" width="122" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="text.insert" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4053,10 +4029,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="8" translatesAutoresizingMaskIntoConstraints="NO" id="3T5-NE-1Y0">
-                                                                <rect key="frame" x="0.0" y="25" width="124" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="124" id="N77-os-9lt"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="25" width="125" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="rectangle.and.text.magnifyingglass" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4066,10 +4039,7 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="4Wb-W7-J4V">
-                                                                <rect key="frame" x="0.0" y="-1" width="112" height="19"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="112" id="dGq-s2-45f"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="-1" width="111" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="quote.bubble" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4143,7 +4113,7 @@ Copyright © 2018 </string>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1470" y="-684"/>
+            <point key="canvasLocation" x="1469.5" y="-684.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="K8d-62-K5h">

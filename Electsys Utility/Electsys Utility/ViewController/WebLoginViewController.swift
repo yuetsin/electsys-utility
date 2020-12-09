@@ -70,6 +70,7 @@ class WebLoginViewController: NSViewController, WKUIDelegate, WKNavigationDelega
         if success {
             embedWebView.configuration.websiteDataStore.httpCookieStore.getAllCookies { (cookies) in
                 for cookie in cookies {
+                    ESLog.info("get cookie @\(cookie.domain), pair: \(cookie.name) : \(cookie.value)")
                     Alamofire.HTTPCookieStorage.shared.setCookie(cookie)
                 }
                 self.delegate?.callbackWeb(success)

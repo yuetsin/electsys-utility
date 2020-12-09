@@ -29,7 +29,7 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         lockIcon()
         setAccessibilityLabel()
 
-        aboutButton.becomeFirstResponder()
+//        aboutButton.becomeFirstResponder()
         aboutButton.image?.isTemplate = true
         preferenceButton.image?.isTemplate = true
         creditsButton.image?.isTemplate = true
@@ -42,15 +42,6 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         insertHtmlButton.image?.isTemplate = true
         queryLibraryButton.image?.isTemplate = true
         reportIssueButton.image?.isTemplate = true
-    }
-    
-    override func viewWillAppear() {
-        self.view.window?.initialFirstResponder = aboutButton
-        self.view.window?.makeFirstResponder(aboutButton)
-    }
-    
-    override func viewDidDisappear() {
-        super.viewDidDisappear()
     }
     
     fileprivate func registerDelegate() {
@@ -122,8 +113,8 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
         }
         tabViewController?.tabView.selectTabViewItem(at: sender.tag)
         sender.state = .on
-        sender.becomeFirstResponder()
-        self.view.window?.makeFirstResponder(sender)
+//        sender.becomeFirstResponder()
+//        self.view.window?.makeFirstResponder(sender)
         
     }
     
