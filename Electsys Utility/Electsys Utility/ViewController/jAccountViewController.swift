@@ -81,8 +81,12 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
     }()
     
     @IBAction func loginViaWebPage(_ sender: NSButton) {
-        embedWebVC.delegate = self
-        presentAsSheet(embedWebVC)
+        if #available(OSX 10.13, *) {
+            embedWebVC.delegate = self
+            presentAsSheet(embedWebVC)
+        } else {
+            showErrorMessage(errorMsg: "当前运行的系统版本低于 macOS 10.13。囿于 WKWebView API 的限制，无法使用 Web 登录功能。")
+        }
     }
     
     
