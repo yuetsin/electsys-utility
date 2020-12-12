@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="17008"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <plugIn identifier="com.apple.WebKit2IBPlugin" version="17506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -221,7 +222,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RZS-d6-2Lu">
-                                <rect key="frame" x="311" y="22" width="72" height="14"/>
+                                <rect key="frame" x="313" y="22" width="72" height="14"/>
                                 <textFieldCell key="cell" alignment="right" title="祝考试顺利。" id="f0C-PA-UFB">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -229,10 +230,14 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cpx-D0-U1C">
-                                <rect key="frame" x="389" y="19" width="85" height="19"/>
-                                <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dxc-GY-XEP">
+                                <rect key="frame" x="391" y="19" width="83" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="BXQ-TR-ztK"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" imagePosition="trailing" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dxc-GY-XEP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
+                                    <imageReference key="image" image="arrow.down.right" catalog="system" symbolScale="default" renderingMode="template"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -242,7 +247,7 @@ DQ
                                 </connections>
                             </button>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="062-yC-PQM">
-                                <rect key="frame" x="20" y="387" width="319" height="18"/>
+                                <rect key="frame" x="20" y="387" width="320" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-sR-1r0">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -253,10 +258,11 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-3z-ymP">
-                                        <rect key="frame" x="161" y="-1" width="158" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="同步其他学期考试安排" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="suI-tJ-agG">
+                                        <rect key="frame" x="161" y="-1" width="159" height="19"/>
+                                        <buttonCell key="cell" type="recessed" title="同步其他学期考试安排" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="suI-tJ-agG">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
+                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="dPQ-eP-W3b" id="3Yi-6a-WPw"/>
@@ -595,9 +601,13 @@ DQ
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-Q1-NwR">
                                         <rect key="frame" x="168" y="0.0" width="69" height="15"/>
-                                        <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="ouL-Ib-bR5"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
+                                            <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="getTimeStamp:" target="TQl-q7-iQX" id="tiv-pD-0Q0"/>
@@ -627,10 +637,11 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
-                                        <rect key="frame" x="131" y="-1" width="60" height="21"/>
-                                        <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" image="NSTouchBarSearchTemplate" imagePosition="right" alignment="center" alternateImage="NSActionTemplate" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
+                                        <rect key="frame" x="131" y="0.0" width="60" height="19"/>
+                                        <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
+                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
@@ -641,7 +652,6 @@ DQ
                                     <constraint firstItem="Aca-om-Y3T" firstAttribute="centerY" secondItem="toV-Yy-tOl" secondAttribute="centerY" id="0aW-c0-f35"/>
                                     <constraint firstItem="Aca-om-Y3T" firstAttribute="top" secondItem="OvJ-Od-BAs" secondAttribute="top" constant="2" id="B3N-Il-Gs8"/>
                                     <constraint firstItem="Aca-om-Y3T" firstAttribute="centerY" secondItem="OvJ-Od-BAs" secondAttribute="centerY" id="gJz-yQ-rTm"/>
-                                    <constraint firstItem="toV-Yy-tOl" firstAttribute="top" secondItem="OvJ-Od-BAs" secondAttribute="top" id="v72-X2-s7W"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -1964,11 +1974,12 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-Ln-ECt">
-                                            <rect key="frame" x="378" y="77" width="54" height="19"/>
+                                            <rect key="frame" x="371" y="77" width="61" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="删除" bezelStyle="recessed" image="NSTouchBarDeleteTemplate" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cov-Ad-wel">
+                                            <buttonCell key="cell" type="recessed" title="删除" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cov-Ad-wel">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
+                                                <imageReference key="image" image="delete.left.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -1980,9 +1991,10 @@ CA
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dM7-Dt-sXI">
                                             <rect key="frame" x="291" y="77" width="84" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="保存更改" bezelStyle="recessed" image="NSTouchBarComposeTemplate" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8LH-no-MT5">
+                                            <buttonCell key="cell" type="recessed" title="保存更改" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8LH-no-MT5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
+                                                <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="default" renderingMode="template"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -2131,17 +2143,21 @@ DQ
                                 </view>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fsG-2Y-Mj7">
-                                <rect key="frame" x="389" y="19" width="85" height="19"/>
-                                <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yaV-Dy-Sqr">
+                                <rect key="frame" x="391" y="19" width="83" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="yxv-2H-nMi"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" imagePosition="right" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yaV-Dy-Sqr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
+                                    <imageReference key="image" image="arrow.down.right" catalog="system" symbolScale="default" renderingMode="template"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startSync:" target="Jkb-pL-zEg" id="uSb-WT-LNr"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-0j-Mnu">
-                                <rect key="frame" x="349" y="13" width="32" height="32"/>
+                                <rect key="frame" x="351" y="13" width="32" height="32"/>
                             </progressIndicator>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2re-wN-Ptw">
                                 <rect key="frame" x="30" y="355" width="399" height="22"/>
@@ -2156,7 +2172,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-ix-TxC">
-                                <rect key="frame" x="265" y="21" width="78" height="16"/>
+                                <rect key="frame" x="267" y="21" width="78" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingHead" alignment="right" title="PlaceHolder" id="54j-ej-xR4">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2166,7 +2182,7 @@ DQ
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G2t-LV-te1">
                                 <rect key="frame" x="434" y="358" width="28" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSTouchBarGetInfoTemplate" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Ah-2r-P6X">
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="info.circle" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Ah-2r-P6X">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="message" size="11"/>
                                 </buttonCell>
@@ -2187,7 +2203,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-3z-ac2">
-                                <rect key="frame" x="20" y="387" width="386" height="18"/>
+                                <rect key="frame" x="20" y="387" width="387" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pjq-7e-ey3">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -2198,20 +2214,22 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-zn-2QH">
-                                        <rect key="frame" x="161" y="-1" width="134" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="同步其他学期课表" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KgF-p7-GwZ">
+                                        <rect key="frame" x="161" y="-1" width="135" height="19"/>
+                                        <buttonCell key="cell" type="recessed" title="同步其他学期课表" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KgF-p7-GwZ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
+                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="Jkb-pL-zEg" id="VNz-Kv-zF9"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BUZ-ao-fSx">
-                                        <rect key="frame" x="299" y="-1" width="87" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="个人信息" bezelStyle="recessed" image="NSTouchBarTagIconTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gqa-sV-pPY">
+                                        <rect key="frame" x="300" y="-1" width="87" height="19"/>
+                                        <buttonCell key="cell" type="recessed" title="个人信息" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gqa-sV-pPY">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
+                                            <imageReference key="image" image="tag" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPersonalInfo:" target="Jkb-pL-zEg" id="E78-e7-tSM"/>
@@ -2314,37 +2332,6 @@ DQ
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckA-jG-1ka">
-                                        <rect key="frame" x="189" y="45" width="140" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="recessed" title="访问教学信息服务网" alternateTitle="访问教学信息服务网（Beta 版）" bezelStyle="recessed" image="NSGoRightTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4e8-rs-Q0W">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="systemBold" size="12"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="goToElectsysNew:" target="Hbf-WB-Sdc" id="nG5-zb-ewe"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COR-1x-Io6">
-                                        <rect key="frame" x="164" y="19" width="189" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="recessed" title="访问教学信息服务网（旧版）" alternateTitle="访问教学信息服务网（旧版）" bezelStyle="recessed" image="NSGoRightTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WUO-hT-sAF">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="systemBold" size="12"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="goToElectsysLegacy:" target="Hbf-WB-Sdc" id="eVd-3U-nZG"/>
-                                        </connections>
-                                    </button>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jk-4t-DjM">
-                                        <rect key="frame" x="114" y="2" width="298" height="13"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" alignment="center" title="旧版教学信息服务网已于 2019 年 8 月停止更新与维护。" id="r81-6O-U79">
-                                            <font key="font" metaFont="message" size="11"/>
-                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-fs-P7r">
                                         <rect key="frame" x="62" y="367" width="350" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -2360,27 +2347,28 @@ DQ
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="NSStatusNone" id="S0j-Lo-heD"/>
                                     </imageView>
                                     <box fixedFrame="YES" title="可选的登入方式" translatesAutoresizingMaskIntoConstraints="NO" id="Aw0-PJ-YOq">
-                                        <rect key="frame" x="40" y="140" width="437" height="213"/>
+                                        <rect key="frame" x="28" y="137" width="460" height="216"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" id="kud-SG-5cZ">
-                                            <rect key="frame" x="3" y="3" width="431" height="195"/>
+                                            <rect key="frame" x="3" y="3" width="454" height="198"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-vq-CpI">
-                                                    <rect key="frame" x="20" y="15" width="328" height="166"/>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qIm-vq-CpI">
+                                                    <rect key="frame" x="20" y="20" width="360" height="158"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-wE-taW">
-                                                            <rect key="frame" x="0.0" y="147" width="116" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="通过 Web 页面" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="leading" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ijx-mr-3RS">
+                                                            <rect key="frame" x="0.0" y="139" width="117" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过 Web 页面" alternateTitle="通过 Web 页面登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ijx-mr-3RS">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="cellTitle"/>
+                                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="loginViaWebPage:" target="Hbf-WB-Sdc" id="hwW-sS-sR1"/>
                                                             </connections>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Rv-Fm-OKb">
-                                                            <rect key="frame" x="-2" y="126" width="273" height="14"/>
+                                                            <rect key="frame" x="30" y="118" width="273" height="14"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="通过在内嵌的 Web 页面中访问 i.sjtu.edu.cn 来鉴权。" id="zqw-cP-5Lj">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2388,25 +2376,26 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Any-mK-J55">
-                                                            <rect key="frame" x="-2" y="111" width="54" height="7"/>
+                                                            <rect key="frame" x="-2" y="107" width="54" height="3"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" id="l7O-B7-EBj">
-                                                                <font key="font" metaFont="system" size="5"/>
+                                                                <font key="font" metaFont="system" size="2"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S76-a6-DZ7">
-                                                            <rect key="frame" x="0.0" y="84" width="108" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="通过 Cookies" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jCt-KU-6ip">
+                                                            <rect key="frame" x="0.0" y="80" width="112" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过 Cookies" alternateTitle="通过 Cookies 登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jCt-KU-6ip">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="cellTitle"/>
+                                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="loginViaCookies:" target="Hbf-WB-Sdc" id="lLS-M5-hAp"/>
                                                             </connections>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-nA-SQz">
-                                                            <rect key="frame" x="-2" y="63" width="198" height="14"/>
+                                                            <rect key="frame" x="30" y="59" width="198" height="14"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" title="通过提供会话 HTTP Cookies 来鉴权。" id="4wx-3P-EXX">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2414,32 +2403,35 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-mn-scx">
-                                                            <rect key="frame" x="-2" y="48" width="54" height="7"/>
+                                                            <rect key="frame" x="-2" y="48" width="54" height="3"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" id="rT6-Ni-a9G">
-                                                                <font key="font" metaFont="system" size="5"/>
+                                                                <font key="font" metaFont="system" size="2"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-fp-Znl">
-                                                            <rect key="frame" x="0.0" y="21" width="133" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="通过用户名和密码" bezelStyle="recessed" image="arrow.right.circle.fill" catalog="system" imagePosition="left" alignment="left" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwG-uK-j95">
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AHF-IP-efY">
+                                                            <rect key="frame" x="0.0" y="21" width="134" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="通过用户名和密码" alternateTitle="通过用户名和密码登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KaB-91-bVX">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="cellTitle"/>
+                                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
-                                                            <connections>
-                                                                <action selector="loginViaWebPage:" target="Hbf-WB-Sdc" id="z23-CG-an6"/>
-                                                            </connections>
                                                         </button>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TBl-SF-33w">
-                                                            <rect key="frame" x="-2" y="0.0" width="332" height="14"/>
-                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="由于教学信息服务网已受 reCAPTCHA 保护，此种方式不再可用。" id="tue-ES-p3p">
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x21-2e-pkQ">
+                                                            <rect key="frame" x="30" y="0.0" width="332" height="14"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="由于教学信息服务网已受 reCAPTCHA 保护，此种方式不再可用。" id="8jq-jD-994">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="gZJ-nA-SQz" firstAttribute="leading" secondItem="S76-a6-DZ7" secondAttribute="leading" constant="32" id="Ofo-ln-U8i"/>
+                                                        <constraint firstItem="2Rv-Fm-OKb" firstAttribute="leading" secondItem="E5c-wE-taW" secondAttribute="leading" constant="32" id="h0Z-tI-AaK"/>
+                                                        <constraint firstItem="x21-2e-pkQ" firstAttribute="leading" secondItem="AHF-IP-efY" secondAttribute="leading" constant="32" id="zhx-Oj-0x5"/>
+                                                    </constraints>
                                                     <visibilityPriorities>
                                                         <integer value="1000"/>
                                                         <integer value="1000"/>
@@ -2462,6 +2454,82 @@ DQ
                                                     </customSpacing>
                                                 </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qIm-vq-CpI" firstAttribute="leading" secondItem="kud-SG-5cZ" secondAttribute="leading" constant="20" symbolic="YES" id="9Vn-7T-wrE"/>
+                                                <constraint firstItem="qIm-vq-CpI" firstAttribute="top" secondItem="kud-SG-5cZ" secondAttribute="top" constant="20" symbolic="YES" id="xsu-lk-Q28"/>
+                                            </constraints>
+                                        </view>
+                                    </box>
+                                    <box fixedFrame="YES" title="杂项" translatesAutoresizingMaskIntoConstraints="NO" id="KgO-Z8-Kxb">
+                                        <rect key="frame" x="28" y="-4" width="465" height="137"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView" id="YFR-Jx-QsM">
+                                            <rect key="frame" x="3" y="3" width="459" height="119"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xkL-qC-kYS">
+                                                    <rect key="frame" x="20" y="22" width="211" height="77"/>
+                                                    <subviews>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-fp-Znl">
+                                                            <rect key="frame" x="0.0" y="58" width="111" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="导出 Cookies" alternateTitle="导出 Cookies 按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwG-uK-j95">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="doc.zipper" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="exportCookieButton:" target="Hbf-WB-Sdc" id="0Gh-AA-x6q"/>
+                                                            </connections>
+                                                        </button>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TBl-SF-33w">
+                                                            <rect key="frame" x="30" y="37" width="183" height="14"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" title="持久化当前会话的 HTTP Cookies。" id="tue-ES-p3p">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bby-ag-Ea1">
+                                                            <rect key="frame" x="-2" y="26" width="54" height="3"/>
+                                                            <textFieldCell key="cell" lineBreakMode="clipping" id="hF7-UB-6xD">
+                                                                <font key="font" metaFont="system" size="2"/>
+                                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ckA-jG-1ka">
+                                                            <rect key="frame" x="0.0" y="-1" width="146" height="19"/>
+                                                            <buttonCell key="cell" type="recessed" title="访问教学信息服务网" alternateTitle="访问教学信息服务网按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4e8-rs-Q0W">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="safari" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="goToElectsysNew:" target="Hbf-WB-Sdc" id="nG5-zb-ewe"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="TBl-SF-33w" firstAttribute="leading" secondItem="Y5i-fp-Znl" secondAttribute="leading" constant="32" id="swc-9y-cEm"/>
+                                                    </constraints>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xkL-qC-kYS" firstAttribute="leading" secondItem="YFR-Jx-QsM" secondAttribute="leading" constant="20" symbolic="YES" id="FO8-vX-OF3"/>
+                                                <constraint firstItem="xkL-qC-kYS" firstAttribute="top" secondItem="YFR-Jx-QsM" secondAttribute="top" constant="20" symbolic="YES" id="ZUD-1a-jSI"/>
+                                            </constraints>
                                         </view>
                                     </box>
                                 </subviews>
@@ -2472,8 +2540,8 @@ DQ
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="accessLegacyElectsys" destination="COR-1x-Io6" id="hmz-Am-MYK"/>
                         <outlet property="accessNewElectsys" destination="ckA-jG-1ka" id="NNT-Kz-WNA"/>
+                        <outlet property="exportCookieButton" destination="Y5i-fp-Znl" id="86p-VH-soH"/>
                         <outlet property="loginStateText" destination="Kb5-fs-P7r" id="LIr-ha-ge6"/>
                         <outlet property="successImage" destination="kK8-JI-Msb" id="ECd-BN-rxe"/>
                     </connections>
@@ -3898,9 +3966,10 @@ Copyright © 2018 </string>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGt-eY-bwb">
                                                                 <rect key="frame" x="0.0" y="51" width="60" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" image="info.circle" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
+                                                                <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="info.circle" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="DF7-dQ-a9v"/>
@@ -3908,9 +3977,10 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="UDv-Xg-MZw">
                                                                 <rect key="frame" x="0.0" y="25" width="86" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" image="gearshape" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
+                                                                <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="oyZ-vf-bKV"/>
@@ -3918,9 +3988,10 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-xj-XgW">
                                                                 <rect key="frame" x="0.0" y="-1" width="59" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" image="doc.append.rtl" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
+                                                                <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="doc.append.rtl" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="32s-VL-UII"/>
@@ -3953,9 +4024,10 @@ Copyright © 2018 </string>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9P-Np-P0M">
                                                                 <rect key="frame" x="0.0" y="77" width="140" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="登入 Electsys 系统" bezelStyle="recessed" image="NSLockLockedTemplate" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
+                                                                <buttonCell key="cell" type="recessed" title="登入 Electsys 系统" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="NSLockLockedTemplate" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="1aN-dR-Af8"/>
@@ -3963,9 +4035,10 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="cWm-3u-igA">
                                                                 <rect key="frame" x="0.0" y="51" width="99" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" image="tablecells.badge.ellipsis" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
+                                                                <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="tablecells.badge.ellipsis" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="Gof-zX-g7j"/>
@@ -3973,9 +4046,10 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-8O-hG6">
                                                                 <rect key="frame" x="0.0" y="25" width="112" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" image="newspaper" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
+                                                                <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="newspaper" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="1Y9-Od-AXs"/>
@@ -3983,9 +4057,10 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="faF-N4-Opk">
                                                                 <rect key="frame" x="0.0" y="-1" width="109" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" image="bookmark.circle" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
+                                                                <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
+                                                                    <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="Xir-Y7-To0"/>
@@ -4020,7 +4095,7 @@ Copyright © 2018 </string>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-0R-wZy">
                                                                 <rect key="frame" x="0.0" y="51" width="122" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="text.insert" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
+                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="text.insert" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4030,7 +4105,7 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="8" translatesAutoresizingMaskIntoConstraints="NO" id="3T5-NE-1Y0">
                                                                 <rect key="frame" x="0.0" y="25" width="125" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="rectangle.and.text.magnifyingglass" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
+                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="rectangle.and.text.magnifyingglass" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4040,7 +4115,7 @@ Copyright © 2018 </string>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="4Wb-W7-J4V">
                                                                 <rect key="frame" x="0.0" y="-1" width="111" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="quote.bubble" catalog="system" imagePosition="trailing" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
+                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="quote.bubble" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4122,7 +4197,7 @@ Copyright © 2018 </string>
                     <window key="window" title="Electsys 实用程序" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="CoD-Li-IKI">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="1003" y="900" width="578" height="469"/>
-                        <rect key="screenRect" x="-587" y="900" width="2560" height="1418"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="875"/>
                         <value key="minSize" type="size" width="578" height="469"/>
                         <value key="maxSize" type="size" width="578" height="469"/>
                         <connections>
@@ -4442,9 +4517,10 @@ DQ
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="is0-CN-eth">
                                 <rect key="frame" x="192" y="102" width="111" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundRect" title="GitHub 页面" alternateTitle="访问 GitHub 页面" bezelStyle="roundedRect" image="GitHubTemplate" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7h-rC-AQm">
+                                <buttonCell key="cell" type="roundRect" title="GitHub 页面" alternateTitle="访问 GitHub 页面" bezelStyle="roundedRect" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7h-rC-AQm">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="cellTitle"/>
+                                    <imageReference key="image" image="GitHubTemplate" symbolScale="default" renderingMode="template"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="goToGithubPages:" target="hhI-IL-P8i" id="APj-Ae-XNg"/>
@@ -4464,9 +4540,10 @@ DQ
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JIN-hu-P81">
                                 <rect key="frame" x="214" y="76" width="66" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundRect" title="致谢" alternateTitle="致谢" bezelStyle="roundedRect" image="NSTouchBarTagIconTemplate" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZI-Po-1H1">
+                                <buttonCell key="cell" type="roundRect" title="致谢" alternateTitle="致谢" bezelStyle="roundedRect" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZI-Po-1H1">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="message" size="11"/>
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="turnCredits:" target="hhI-IL-P8i" id="mBL-WC-jxo"/>
@@ -4620,15 +4697,6 @@ DQ
                                     <rect key="frame" x="3" y="3" width="454" height="133"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Kh-YSX">
-                                            <rect key="frame" x="134" y="11" width="305" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除明文保存的的用户凭据。" id="dvi-00-FzS">
-                                                <font key="font" metaFont="message" size="11"/>
-                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o13-Fg-4H6">
                                             <rect key="frame" x="90" y="101" width="168" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -4702,12 +4770,44 @@ DQ
                                                 </textField>
                                             </subviews>
                                         </customView>
+                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02w-qU-HbF">
+                                            <rect key="frame" x="20" y="7" width="346" height="18"/>
+                                            <subviews>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-3s-Eh4">
+                                                    <rect key="frame" x="0.0" y="-1" width="109" height="19"/>
+                                                    <buttonCell key="cell" type="recessed" title="清除凭据缓存" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="systemBold" size="12"/>
+                                                        <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
+                                                    </connections>
+                                                </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="br9-Kh-YSX">
+                                                    <rect key="frame" x="107" y="2" width="241" height="14"/>
+                                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="这将从本地缓存中清除明文保存的的用户凭据。" id="dvi-00-FzS">
+                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                            <visibilityPriorities>
+                                                <integer value="1000"/>
+                                                <integer value="1000"/>
+                                            </visibilityPriorities>
+                                            <customSpacing>
+                                                <real value="3.4028234663852886e+38"/>
+                                                <real value="3.4028234663852886e+38"/>
+                                            </customSpacing>
+                                        </stackView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0As-78-p3P">
-                                            <rect key="frame" x="365" y="33" width="64" height="18"/>
+                                            <rect key="frame" x="360" y="31" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="roundRect" title="储存凭据" bezelStyle="roundedRect" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
+                                            <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="checkmark.circle" catalog="system" imagePosition="only" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="cellTitle"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -4716,18 +4816,11 @@ DQ
                                                 <action selector="saveCredentialButtonTapped:" target="wO9-Wp-BTu" id="BoV-dU-zkZ"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-3s-Eh4">
-                                            <rect key="frame" x="20" y="8" width="108" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="清除凭据缓存" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="systemBold" size="12"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="02w-qU-HbF" secondAttribute="bottom" constant="7" id="Udv-43-WXy"/>
+                                        <constraint firstItem="02w-qU-HbF" firstAttribute="leading" secondItem="1a1-iv-A7n" secondAttribute="leading" constant="20" symbolic="YES" id="htV-pt-J6X"/>
+                                    </constraints>
                                 </view>
                             </box>
                             <box fixedFrame="YES" title="实用工具" translatesAutoresizingMaskIntoConstraints="NO" id="6zb-pQ-ZiP">
@@ -4742,9 +4835,10 @@ DQ
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f1x-Uz-hDg">
                                                     <rect key="frame" x="0.0" y="57" width="112" height="19"/>
-                                                    <buttonCell key="cell" type="recessed" title="清除 Cookies" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RiG-2x-GC7">
+                                                    <buttonCell key="cell" type="recessed" title="清除 Cookies" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RiG-2x-GC7">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="systemBold" size="12"/>
+                                                        <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="removeLocalCookies:" target="wO9-Wp-BTu" id="MVn-2h-LMd"/>
@@ -4759,23 +4853,24 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-mB-mxa">
-                                                    <rect key="frame" x="0.0" y="18" width="283" height="18"/>
+                                                    <rect key="frame" x="0.0" y="18" width="269" height="18"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eKY-dX-4Ev">
                                                             <rect key="frame" x="0.0" y="-1" width="195" height="19"/>
-                                                            <buttonCell key="cell" type="recessed" title="查看流化的应用程序诊断信息" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbf-O7-sfL">
+                                                            <buttonCell key="cell" type="recessed" title="查看流化的应用程序诊断信息" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbf-O7-sfL">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="showLoggings:" target="wO9-Wp-BTu" id="kUp-1o-8za"/>
                                                             </connections>
                                                         </button>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-fq-urK">
-                                                            <rect key="frame" x="199" y="-3" width="88" height="22"/>
-                                                            <popUpButtonCell key="cell" type="push" title="error 级" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="Bfe-qh-7Mk" id="TrL-3m-VfO">
-                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="message" size="11"/>
+                                                            <rect key="frame" x="203" y="0.0" width="66" height="17"/>
+                                                            <popUpButtonCell key="cell" type="roundRect" title="error 级" bezelStyle="roundedRect" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="Bfe-qh-7Mk" id="TrL-3m-VfO">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="smallSystem"/>
                                                                 <menu key="menu" autoenablesItems="NO" id="lKt-wz-TDL">
                                                                     <items>
                                                                         <menuItem title="error 级" state="on" id="Bfe-qh-7Mk"/>
@@ -4833,6 +4928,9 @@ DQ
                                 </view>
                             </box>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="f1x-Uz-hDg" firstAttribute="leading" secondItem="Ud8-3s-Eh4" secondAttribute="leading" id="hiQ-Lj-NFi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="autoFillTokenChecker" destination="xE9-aI-wzA" id="DRM-oo-625"/>
@@ -5471,8 +5569,8 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q2B-MM-Q9Z">
-                                <rect key="frame" x="189" y="19" width="96" height="19"/>
-                                <buttonCell key="cell" type="recessed" title="导出成绩单" bezelStyle="recessed" image="NSShareTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oku-wA-NT7">
+                                <rect key="frame" x="189" y="19" width="99" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="导出成绩单" bezelStyle="recessed" image="printer" catalog="system" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oku-wA-NT7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
@@ -5492,7 +5590,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qud-Zs-Wen">
-                                <rect key="frame" x="20" y="387" width="307" height="18"/>
+                                <rect key="frame" x="20" y="387" width="308" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-va-zal">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -5503,10 +5601,11 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-IO-uGF">
-                                        <rect key="frame" x="161" y="-1" width="146" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="查询其他学期成绩单" bezelStyle="recessed" image="NSTouchBarHistoryTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CQX-32-kKs">
+                                        <rect key="frame" x="161" y="-1" width="147" height="19"/>
+                                        <buttonCell key="cell" type="recessed" title="查询其他学期成绩单" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CQX-32-kKs">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
+                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="m62-gO-PeB" id="OQ2-uu-cBd"/>
@@ -5608,10 +5707,11 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4On-Cc-0tc">
-                                            <rect key="frame" x="20" y="14" width="159" height="17"/>
-                                            <buttonCell key="cell" type="recessed" title="前往 GitHub Issues…" bezelStyle="recessed" image="NSFollowLinkFreestandingTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aGD-Cd-FC3">
+                                            <rect key="frame" x="20" y="14" width="182" height="17"/>
+                                            <buttonCell key="cell" type="recessed" title="前往 GitHub Issues 页面" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aGD-Cd-FC3">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
+                                                <imageReference key="image" image="bubble.left.and.bubble.right" catalog="system" symbolScale="default" renderingMode="template"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="visitGitHubIssuePages:" target="cK7-dQ-kWQ" id="6Wu-82-HcX"/>
@@ -5689,17 +5789,6 @@ DQ
                                                 <real value="3.4028234663852886e+38"/>
                                             </customSpacing>
                                         </stackView>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNy-j2-PD4">
-                                            <rect key="frame" x="20" y="11" width="105" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="发送电子邮件" bezelStyle="recessed" image="NSShareTemplate" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jsd-gg-PPe">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="systemBold" size="12"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="sendEmail:" target="cK7-dQ-kWQ" id="8qf-ZP-mlx"/>
-                                            </connections>
-                                        </button>
                                         <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkv-yT-uku">
                                             <rect key="frame" x="20" y="38" width="414" height="195"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -5727,6 +5816,18 @@ DQ
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tNy-j2-PD4">
+                                            <rect key="frame" x="371" y="11" width="63" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="recessed" title="投递" bezelStyle="recessed" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jsd-gg-PPe">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="systemBold" size="12"/>
+                                                <imageReference key="image" image="mail" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="sendEmail:" target="cK7-dQ-kWQ" id="8qf-ZP-mlx"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="RUx-cK-vdM" firstAttribute="leading" secondItem="hjd-dF-gB8" secondAttribute="leading" constant="20" id="CnJ-OB-V4A"/>
@@ -5789,26 +5890,19 @@ DQ
     </scenes>
     <resources>
         <image name="GitHubTemplate" width="15" height="15"/>
-        <image name="NSActionTemplate" width="15" height="15"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
         <image name="NSBookmarksTemplate" width="18" height="15"/>
-        <image name="NSFollowLinkFreestandingTemplate" width="15" height="15"/>
-        <image name="NSGoRightTemplate" width="10" height="14"/>
         <image name="NSLockLockedTemplate" width="14" height="15"/>
-        <image name="NSShareTemplate" width="15" height="17"/>
         <image name="NSStatusNone" width="16" height="16"/>
-        <image name="NSTouchBarComposeTemplate" width="17" height="15"/>
-        <image name="NSTouchBarDeleteTemplate" width="15" height="17"/>
-        <image name="NSTouchBarGetInfoTemplate" width="15" height="15"/>
         <image name="NSTouchBarHistoryTemplate" width="15" height="15"/>
-        <image name="NSTouchBarSearchTemplate" width="15" height="15"/>
-        <image name="NSTouchBarTagIconTemplate" width="17" height="17"/>
         <image name="NSTrashFull" width="32" height="32"/>
         <image name="arrow.backward.circle" catalog="system" width="15" height="15"/>
         <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
+        <image name="arrow.down.right" catalog="system" width="13" height="12"/>
         <image name="arrow.right.circle" catalog="system" width="15" height="15"/>
         <image name="arrow.right.circle.fill" catalog="system" width="15" height="15"/>
         <image name="bookmark.circle" catalog="system" width="15" height="15"/>
+        <image name="bubble.left.and.bubble.right" catalog="system" width="22" height="17"/>
         <image name="buttonCell:8X0-gU-WDM:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
@@ -5939,13 +6033,24 @@ CgwKHwojCi4KNwo8CkQKRwpMClsKXwpqCnIKfwqMCqEKpgqqCqwKrgqwCrkKvgrECswKzgrQCtIK1Bx0
 HHkchhyJHJYcmxyjHKYcqxyzAAAAAAAAAgEAAAAAAAAAVAAAAAAAAAAAAAAAAAAAHLY
 </mutableData>
         </image>
+        <image name="calendar" catalog="system" width="16" height="14"/>
+        <image name="checkmark.circle" catalog="system" width="15" height="15"/>
+        <image name="delete.left.fill" catalog="system" width="17" height="14"/>
         <image name="doc.append.rtl" catalog="system" width="14" height="16"/>
+        <image name="doc.zipper" catalog="system" width="14" height="17"/>
         <image name="gearshape" catalog="system" width="16" height="16"/>
+        <image name="heart.fill" catalog="system" width="16" height="14"/>
+        <image name="info.circle" width="64" height="64"/>
         <image name="info.circle" catalog="system" width="15" height="15"/>
+        <image name="magnifyingglass" catalog="system" width="15" height="15"/>
+        <image name="mail" catalog="system" width="18" height="14"/>
         <image name="newspaper" catalog="system" width="18" height="16"/>
+        <image name="printer" catalog="system" width="18" height="16"/>
         <image name="quote.bubble" catalog="system" width="17" height="16"/>
         <image name="rectangle.and.text.magnifyingglass" catalog="system" width="20" height="15"/>
+        <image name="safari" catalog="system" width="15" height="15"/>
         <image name="tablecells.badge.ellipsis" catalog="system" width="20" height="15"/>
+        <image name="tag" catalog="system" width="17" height="17"/>
         <image name="text.insert" catalog="system" width="16" height="13"/>
         <sound name="Funk"/>
     </resources>

@@ -12,7 +12,6 @@ import Foundation
 import Kanna
 
 class jAccountViewController: NSViewController, WebLoginDelegate {
-
     func validateLoginResult(htmlData: String) {
         // reset
     }
@@ -37,8 +36,8 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
     }
 
     func setAccessibilityLabel() {
-        accessNewElectsys.setAccessibilityLabel("访问新版教学信息服务网")
-        accessLegacyElectsys.setAccessibilityLabel("访问旧版教学信息服务网")
+        accessNewElectsys.setAccessibilityLabel("访问教学信息服务网")
+//        accessLegacyElectsys.setAccessibilityLabel("访问旧版教学信息服务网")
     }
 
     override var representedObject: Any? {
@@ -51,7 +50,7 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
 //    var inputDelegate: inputHtmlDelegate?
 
     @IBOutlet var accessNewElectsys: NSButton!
-    @IBOutlet var accessLegacyElectsys: NSButton!
+//    @IBOutlet var accessLegacyElectsys: NSButton!
 //    @IBOutlet var userNameField: NSTextField!
 //    @IBOutlet var passwordField: NSSecureTextField!
 //    @IBOutlet var captchaTextField: NSTextField!
@@ -59,43 +58,134 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
 //    @IBOutlet var loginButton: NSButton!
 //    @IBOutlet var refreshCaptchaButton: NSButton!
 //    @IBOutlet var resetButton: NSButton!
-////    @IBOutlet weak var manualOpenButton: NSButton!
+    ////    @IBOutlet weak var manualOpenButton: NSButton!
 //    @IBOutlet var loadingIcon: NSProgressIndicator!
-////    @IBOutlet weak var expandButton: NSButton!
-////    @IBOutlet weak var operationSelector: NSPopUpButton!
-////    @IBOutlet weak var checkHistoryButton: NSButton!
+    ////    @IBOutlet weak var expandButton: NSButton!
+    ////    @IBOutlet weak var operationSelector: NSPopUpButton!
+    ////    @IBOutlet weak var checkHistoryButton: NSButton!
     @IBOutlet var successImage: NSImageView!
     @IBOutlet var loginStateText: NSTextField!
 //    @IBOutlet weak var switchAccountButton: NSButton!
-    
+    @IBOutlet var exportCookieButton: NSButton!
+
     lazy var embedWebVC: WebLoginViewController = {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("WebLoginViewController"))
             as! WebLoginViewController
     }()
-    
+
     lazy var cookieParserVC: CookieParserViewController = {
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         return storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("CookieParserViewController"))
             as! CookieParserViewController
     }()
-    
+
     @IBAction func loginViaWebPage(_ sender: NSButton) {
-        embedWebVC.delegate = self
-        presentAsSheet(embedWebVC)
+        if #available(OSX 10.13, *) {
+            embedWebVC.delegate = self
+            presentAsSheet(embedWebVC)
+        } else {
+            showErrorMessage(errorMsg: "当前运行的系统版本低于 macOS 10.13。\n囿于 WKWebView API 的限制，无法使用 Web 登录功能。")
+        }
+    }
+
+    @IBAction func exportCookieButton(_ sender: NSButton) {
+        guard let cookies = Alamofire.HTTPCookieStorage.shared.cookies else {
+            showErrorMessage(errorMsg: "没有可用于导出的 HTTP Cookie Storage。")
+            return
+        }
+        var cookieArray = [[HTTPCookiePropertyKey: Any]]()
+        for cookie in cookies {
+            cookieArray.append(cookie.properties!)
+        }
+        let data = NSKeyedArchiver.archivedData(withRootObject: cookieArray)
+        
+        let panel = NSSavePanel()
+        panel.title = "导出 HTTP Cookies"
+        panel.message = "请选择 HTTP Cookies 的保存路径。"
+
+        panel.nameFieldStringValue = "cookie"
+        panel.allowsOtherFileTypes = false
+        panel.allowedFileTypes = ["plist"]
+        panel.isExtensionHidden = false
+        panel.canCreateDirectories = true
+
+        panel.beginSheetModal(for: view.window!, completionHandler: { result in
+            do {
+                if result == NSApplication.ModalResponse.OK {
+                    if let path = panel.url?.path {
+                        try data.write(to: URL(fileURLWithPath: path))
+                        self.showInformativeMessage(infoMsg: "已经成功导出 HTTP Cookies。")
+                    } else {
+                        return
+                    }
+                }
+            } catch {
+                self.showErrorMessage(errorMsg: "无法导出 HTTP Cookies。")
+            }
+        })
     }
     
-    
+    fileprivate func importCookie() {
+        let panel = NSOpenPanel()
+        panel.title = "读取 HTTP Cookies"
+        panel.message = "请选择要加载的 HTTP Cookies 的路径。"
+        panel.allowsOtherFileTypes = false
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.allowedFileTypes = ["plist"]
+        panel.isExtensionHidden = false
+        
+        panel.beginSheetModal(for: view.window!) { (result) in
+            do {
+                if result == NSApplication.ModalResponse.OK {
+                    if let path = panel.url?.path {
+                        let cookieArray = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [[HTTPCookiePropertyKey: Any]]
+                        if cookieArray == nil {
+                            ESLog.error("invalid plist as [[HTTPCookiePropertyKey: Any]]")
+                            throw NSError()
+                        }
+                        for cookieProp in cookieArray ?? [] {
+                            if let cookie = HTTPCookie(properties: cookieProp) {
+                                Alamofire.HTTPCookieStorage.shared.setCookie(cookie)
+                            }
+                        }
+                        self.showInformativeMessage(infoMsg: "已经成功读取 HTTP Cookies。")
+                        self.checkLoginStatus()
+                    } else {
+                        return
+                    }
+                }
+            } catch {
+                self.showErrorMessage(errorMsg: "无法读取 HTTP Cookies。")
+            }
+        }
+    }
+
     @IBAction func loginViaCookies(_ sender: NSButton) {
-        cookieParserVC.delegate = self
-        presentAsSheet(cookieParserVC)
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.messageText = "确认格式"
+        infoAlert.informativeText = "要提供哪种类型的 HTTP Cookies？"
+        infoAlert.addButton(withTitle: "plist 持久化格式")
+        infoAlert.addButton(withTitle: "HTTP Plain 纯文本格式")
+        infoAlert.addButton(withTitle: "算了")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: view.window!) { returnCode in
+            if returnCode == .alertSecondButtonReturn {
+                self.cookieParserVC.delegate = self
+                self.presentAsSheet(self.cookieParserVC)
+            } else if returnCode == .alertFirstButtonReturn {
+                self.importCookie()
+            }
+        }
     }
-    
+
     func callbackWeb(_ success: Bool) {
         dismiss(embedWebVC)
         checkLoginStatus()
     }
-    
+
     func callbackCookie(_ success: Bool) {
         dismiss(cookieParserVC)
         checkLoginStatus()
@@ -109,12 +199,13 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
                 self.successImage.image = NSImage(named: "NSStatusAvailable")
                 self.loginStateText.stringValue = "您已经成功登入。"
                 self.UIDelegate?.unlockIcon()
+                self.exportCookieButton.isEnabled = true
             } else {
+                self.exportCookieButton.isEnabled = false
+                self.UIDelegate?.lockIcon()
                 if LoginHelper.lastLoginUserName != "{null}" {
-                    self.UIDelegate?.lockIcon()
                     self.successImage.image = NSImage(named: "NSStatusUnavailable")
                     self.loginStateText.stringValue = "登入身份已过期。"
-                    self.UIDelegate?.lockIcon()
                     if self.view.window == nil {
                         LoginHelper.lastLoginUserName = "{null}"
                     }
@@ -122,7 +213,6 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
                 } else {
                     self.successImage.image = NSImage(named: "NSStatusNone")
                     self.loginStateText.stringValue = "您尚未登入。"
-                    self.UIDelegate?.lockIcon()
                 }
             }
         })
@@ -180,5 +270,15 @@ class jAccountViewController: NSViewController, WebLoginDelegate {
             // successfully opened
             ESLog.info("goes to electsys (legacy version)")
         }
+    }
+    
+    func showInformativeMessage(infoMsg: String) {
+        let infoAlert: NSAlert = NSAlert()
+        infoAlert.informativeText = infoMsg
+        infoAlert.messageText = "提醒"
+        infoAlert.addButton(withTitle: "嗯")
+        infoAlert.alertStyle = NSAlert.Style.informational
+        infoAlert.beginSheetModal(for: view.window!)
+        ESLog.info("informative message thrown. message: ", infoMsg)
     }
 }

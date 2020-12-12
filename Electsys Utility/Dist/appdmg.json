@@ -1,11 +1,20 @@
-
 {
   "title": "Electsys 实用程序",
   "icon-size": 128,
-  "background": "background.jpg",
+  "background": "background.png",
   "icon": "AppIcon.icns",
   "contents": [
-    { "x": 140, "y": 200, "type": "file", "path": "Electsys Utility.app" },
-    { "x": 370, "y": 200, "type": "link", "path": "/Applications" }
+    {
+      "x": 77,
+      "y": 166,
+      "type": "file",
+      "path": "Electsys Utility.app"
+    },
+    {
+      "x": 396,
+      "y": 194,
+      "type": "link",
+      "path": "/Applications"
+    }
   ]
 }
