@@ -9,7 +9,7 @@
 
 [![Actions Status](https://github.com/yuetsin/electsys-utility/workflows/CI/badge.svg)](https://github.com/yuetsin/electsys-utility/actions)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/yuetsin/electsys-utility?include_prereleases&style=flat-square)
-![App Platform: macOS 10.13 and above](https://img.shields.io/badge/macOS-10.13%2B-brightgreen?style=flat-square)
+![App Platform: macOS 10.12.2 and above](https://img.shields.io/badge/macOS-10.12.2%2B-brightgreen?style=flat-square)
 ![Swift Version: 5.3](https://img.shields.io/badge/swift-5.3-orange.svg?style=flat-square&logo=swift)
 ![GitHub](https://img.shields.io/github/license/yuetsin/electsys-utility?color=grey&style=flat-square)
 
