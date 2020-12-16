@@ -148,15 +148,15 @@ class MainViewController: NSViewController, NSSplitViewDelegate, UIManagerDelega
     }
     
     func visitAboutPage() {
-        switchToPage(index: 0)
+        switchFeature(aboutButton)
     }
     
     func visitPrefPage() {
-        switchToPage(index: 1)
+        switchFeature(preferenceButton)
     }
     
     func visitCreditsPage() {
-        switchToPage(index: 2)
+        switchFeature(creditsButton)
     }
     
     func switchToPage(index: Int) {
