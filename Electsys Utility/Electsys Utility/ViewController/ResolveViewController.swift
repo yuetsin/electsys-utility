@@ -397,7 +397,7 @@ class ResolveViewController: NSViewController, writeCalendarDelegate, YearAndTer
             self.loadingTextField.stringValue = "正在创建「\(title)」。不要现在退出。"
             if self.inputCounter == self.expectedCounter {
                 self.loadingTextField.stringValue = "已经成功写入 \(self.inputCounter) / \(self.expectedCounter) 个日历事件。"
-                ESLog.info("written \(self.expectedCounter) items into calendar")
+                ESLog.info("written %@ items into calendar", self.expectedCounter)
                 self.resumeUI()
             }
         }

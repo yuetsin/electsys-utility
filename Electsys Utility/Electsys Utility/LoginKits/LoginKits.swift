@@ -27,10 +27,7 @@ class LoginHelper {
             
             if response.data != nil {
                 let doc = String(data: response.data!, encoding: .utf8)
-                ESLog.info("### got login html page ###")
-                ESLog.info(doc ?? "<< error >>")
-                ESLog.info("### got login html page over ###")
-                
+
                 if doc != nil {
                     let tokens = doc!.components(separatedBy: "'captcha?uuid=")
                     if tokens.count > 1 {
@@ -39,8 +36,8 @@ class LoginHelper {
                             CaptchaHelper.uuid = latter_tokens.first!
                             CaptchaHelper.t = String(Date().timeIntervalSince1970)
                             
-                            ESLog.info("get captcha uuid \(CaptchaHelper.uuid ?? "<< error >>")")
-                            ESLog.info("set captcha timestamp \(CaptchaHelper.t ?? "<< error >>")")
+                            ESLog.info("get captcha uuid %@", CaptchaHelper.uuid ?? "<< error >>")
+                            ESLog.info("set captcha timestamp %@", CaptchaHelper.t ?? "<< error >>")
                         }
                     }
                 }
@@ -48,23 +45,23 @@ class LoginHelper {
             
             let redirectURL = response.response?.url?.absoluteString
             if redirectURL == nil {
-                ESLog.warning("failed to get 302 redirect url")
+                ESLog.error("failed to get 302 redirect url")
                 handler?()
                 return
             }
             ESLog.info("get 302 redirect url")
             
             LoginHelper.sID = parseRequest(requestUrl: redirectURL!, parseType: "sid")
-            ESLog.info("got sID \(LoginHelper.sID ?? "<nil>")")
+            ESLog.info("got sID %@", LoginHelper.sID ?? "<nil>")
             
             LoginHelper.client = parseRequest(requestUrl: redirectURL!, parseType: "client")
-            ESLog.info("got client \(LoginHelper.client ?? "<nil>")")
+            ESLog.info("got client %@", LoginHelper.client ?? "<nil>")
             
             LoginHelper.returnUrl = parseRequest(requestUrl: redirectURL!, parseType: "returl")
-            ESLog.info("got returnUrl \(LoginHelper.returnUrl ?? "<nil>")")
+            ESLog.info("got returnUrl %@", LoginHelper.returnUrl ?? "<nil>")
             
             LoginHelper.se = parseRequest(requestUrl: redirectURL!, parseType: "se")
-            ESLog.info("got se \(LoginHelper.se ?? "<nil>")")
+            ESLog.info("got se %@", LoginHelper.se ?? "<nil>")
             
             handler?()
         }
@@ -77,12 +74,12 @@ class LoginHelper {
             if redirectURL == nil {
                 handler(false)
             } else if redirectURL?.contains(LoginConst.mainPageUrl) ?? false {
-                ESLog.info("good redirectURL: \(redirectURL!)")
+                ESLog.info("good redirectURL: %@", redirectURL ?? "<< error >>")
                 LoginHelper.lastLoginTimeStamp = redirectURL?.replacingOccurrences(of: "https://i.sjtu.edu.cn/xtgl/index_initMenu.html?jsdm=xs&_t=", with: "")
-                ESLog.info("login timestamp: \(LoginHelper.lastLoginTimeStamp ?? "<nil>")")
+                ESLog.info("login timestamp: %@", LoginHelper.lastLoginTimeStamp ?? "<nil>")
                 handler(true)
             } else {
-                ESLog.warning("bad redirectURL: \(redirectURL!). might not login")
+                ESLog.fault("bad redirectURL. might not login")
                 handler(false)
             }
         }
@@ -90,7 +87,7 @@ class LoginHelper {
     
     static func requestCaptcha(_ handler: @escaping (NSImage) -> ()) {
         Alamofire.request(captchaUrl).responseData { response in
-            ESLog.info("get captcha response with \(response.error?.localizedDescription ?? "no error")")
+            ESLog.info("get captcha response with %@", response.error?.localizedDescription ?? "no error")
             let captchaImageObject = NSImage(data: response.data!)
             if captchaImageObject != nil {
                 ESLog.info("retrieved captcha image")
@@ -129,7 +126,7 @@ class LoginHelper {
         Alamofire.request(LoginConst.postUrl, method: .post, parameters: postParams).response { response in
             let redirectURL = response.response?.url?.absoluteString
 //            let realResponse = String(data: response.data!, encoding: .utf8)
-            ESLog.info("login redirect to: \(redirectURL ?? "nil")")
+            ESLog.info("login redirect to: %@", redirectURL ?? "nil")
             if redirectURL == nil || redirectURL!.contains("&err=1") {
                 ESLog.error("login post failure")
                 LoginHelper.lastLoginUserName = "{null}"
@@ -145,7 +142,7 @@ class LoginHelper {
                         LoginHelper.lastLoginUserName = username
                         handler(true)
                     } else {
-                        ESLog.warning("bad login session")
+                        ESLog.fault("bad login session")
                         LoginHelper.lastLoginUserName = "{null}"
                         LoginHelper.logOut()
                         handler(false)
@@ -171,14 +168,14 @@ class LoginHelper {
         let cstorage = HTTPCookieStorage.shared
         if let cookies = cstorage.cookies(for: URL(string: "http://i.sjtu.edu.cn")!) {
             for cookie in cookies {
-                ESLog.info("remove cookie \(cookie.name)")
+                ESLog.info("remove cookie %@", cookie.name)
                 cstorage.deleteCookie(cookie)
             }
         }
         
         if let cookies = cstorage.cookies(for: URL(string: "https://jaccount.sjtu.edu.cn")!) {
             for cookie in cookies {
-                ESLog.info("remove cookie \(cookie.name)")
+                ESLog.info("remove cookie %@", cookie.name)
                 cstorage.deleteCookie(cookie)
             }
         }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="osY-jL-lBp">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="17008"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="17701"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
@@ -222,7 +222,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="RZS-d6-2Lu">
-                                <rect key="frame" x="313" y="22" width="72" height="14"/>
+                                <rect key="frame" x="311" y="22" width="72" height="14"/>
                                 <textFieldCell key="cell" alignment="right" title="祝考试顺利。" id="f0C-PA-UFB">
                                     <font key="font" metaFont="message" size="11"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -230,14 +230,14 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cpx-D0-U1C">
-                                <rect key="frame" x="391" y="19" width="83" height="19"/>
+                                <rect key="frame" x="389" y="19" width="85" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="BXQ-TR-ztK"/>
                                 </constraints>
                                 <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" imagePosition="trailing" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dxc-GY-XEP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
-                                    <imageReference key="image" image="arrow.down.right" catalog="system" symbolScale="default" renderingMode="template"/>
+                                    <imageReference key="image" image="arrow.down.right" symbolScale="default" renderingMode="template"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -247,7 +247,7 @@ DQ
                                 </connections>
                             </button>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="062-yC-PQM">
-                                <rect key="frame" x="20" y="387" width="320" height="18"/>
+                                <rect key="frame" x="20" y="387" width="319" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-sR-1r0">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -258,11 +258,11 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-3z-ymP">
-                                        <rect key="frame" x="161" y="-1" width="159" height="19"/>
+                                        <rect key="frame" x="161" y="-1" width="158" height="19"/>
                                         <buttonCell key="cell" type="recessed" title="同步其他学期考试安排" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="suI-tJ-agG">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
-                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="calendar" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="dPQ-eP-W3b" id="3Yi-6a-WPw"/>
@@ -337,7 +337,7 @@ DQ
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-mZ-XNH">
                                             <rect key="frame" x="330" y="34" width="33" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="recessed" alignment="center" controlSize="large" borderStyle="border" inset="2" id="cZ6-j0-VlQ">
+                                            <buttonCell key="cell" type="recessed" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="recessed" alignment="center" borderStyle="border" inset="2" id="cZ6-j0-VlQ">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -352,11 +352,11 @@ DQ
                                 <rect key="frame" x="20" y="190" width="454" height="188"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="Unj-F1-NcY">
-                                    <rect key="frame" x="1" y="1" width="452" height="186"/>
+                                    <rect key="frame" x="1" y="0.0" width="452" height="187"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ofT-Pu-TFS" viewBased="YES" id="kDk-fB-veB">
-                                            <rect key="frame" x="0.0" y="0.0" width="452" height="161"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="452" height="162"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -375,11 +375,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CourseIdCell" id="d7L-A2-H74">
-                                                            <rect key="frame" x="11" y="1" width="127" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="122" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dq6-zu-kMw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="127" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="z82-dv-NWY">
                                                                         <font key="font" metaFont="system"/>
@@ -407,7 +407,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TimeCell" id="1mA-dM-zxd">
-                                                            <rect key="frame" x="141" y="1" width="168" height="17"/>
+                                                            <rect key="frame" x="126" y="1" width="168" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-6x-H5w">
@@ -439,11 +439,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="RoomIdCell" id="oZE-lC-VIX">
-                                                            <rect key="frame" x="312" y="1" width="91" height="17"/>
+                                                            <rect key="frame" x="297" y="1" width="92" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xH8-4r-J19">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ioF-ba-UzM">
                                                                         <font key="font" metaFont="system"/>
@@ -471,11 +471,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="SeatCell" id="qHF-6j-DXf">
-                                                            <rect key="frame" x="406" y="1" width="52" height="17"/>
+                                                            <rect key="frame" x="392" y="1" width="48" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2b-Id-VOY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="iAW-i3-VaH">
                                                                         <font key="font" metaFont="system"/>
@@ -574,14 +574,14 @@ DQ
             <objects>
                 <viewController id="TQl-q7-iQX" customClass="FullDataViewController" customModule="Electsys_Utility" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="t0c-KN-BIF">
-                        <rect key="frame" x="0.0" y="0.0" width="494" height="469"/>
+                        <rect key="frame" x="0.0" y="0.0" width="494" height="470"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <progressIndicator hidden="YES" wantsLayer="YES" maxValue="4" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="wA1-OE-kAs">
                                 <rect key="frame" x="20" y="26" width="454" height="19"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ko0-Is-CZI">
-                                <rect key="frame" x="17" y="411" width="136" height="30"/>
+                                <rect key="frame" x="17" y="412" width="136" height="30"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="检索课程库" id="Qxe-kr-Azw">
                                     <font key="font" metaFont="systemHeavy" size="26"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -607,7 +607,7 @@ DQ
                                         <buttonCell key="cell" type="recessed" title="了解更多" bezelStyle="recessed" imagePosition="left" alignment="center" imageScaling="proportionallyDown" inset="2" id="obS-nT-CrN">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
-                                            <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="getTimeStamp:" target="TQl-q7-iQX" id="tiv-pD-0Q0"/>
@@ -624,10 +624,10 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="35" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-Od-BAs">
-                                <rect key="frame" x="152" y="343" width="191" height="20"/>
+                                <rect key="frame" x="153" y="343" width="188" height="20"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-om-Y3T">
-                                        <rect key="frame" x="-1" y="1" width="97" height="18"/>
+                                        <rect key="frame" x="-3" y="-1" width="98" height="22"/>
                                         <buttonCell key="cell" type="check" title="使用 Beta 数据" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Hru-lo-WCJ">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="message" size="11"/>
@@ -637,11 +637,11 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="toV-Yy-tOl">
-                                        <rect key="frame" x="131" y="0.0" width="60" height="19"/>
+                                        <rect key="frame" x="128" y="0.0" width="60" height="19"/>
                                         <buttonCell key="cell" type="roundRect" title="检索" alternateTitle="发起检索" bezelStyle="roundedRect" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ATx-Yq-6aC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="cellTitle"/>
-                                            <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="magnifyingglass" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="startQuery:" target="TQl-q7-iQX" id="exT-6D-54s"/>
@@ -691,10 +691,10 @@ DQ
                                                                                 <rect key="frame" x="32" y="16" width="317" height="57"/>
                                                                                 <subviews>
                                                                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YU9-OP-JzC">
-                                                                                        <rect key="frame" x="0.0" y="4" width="171" height="48"/>
+                                                                                        <rect key="frame" x="0.0" y="4" width="177" height="48"/>
                                                                                         <subviews>
                                                                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUV-hD-LvP">
-                                                                                                <rect key="frame" x="0.0" y="32" width="171" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="32" width="177" height="16"/>
                                                                                                 <subviews>
                                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sJl-el-bhQ">
                                                                                                         <rect key="frame" x="-2" y="1" width="49" height="14"/>
@@ -705,7 +705,7 @@ DQ
                                                                                                         </textFieldCell>
                                                                                                     </textField>
                                                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xcm-wE-kka">
-                                                                                                        <rect key="frame" x="49" y="-1" width="122" height="17"/>
+                                                                                                        <rect key="frame" x="49" y="-1" width="128" height="17"/>
                                                                                                         <popUpButtonCell key="cell" type="recessed" title="闵行校区上院" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="yqh-AS-j3n" id="Ht7-0c-xR1">
                                                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                                                             <font key="font" metaFont="smallSystemBold"/>
@@ -824,7 +824,7 @@ DQ
                                                                                                 </customSpacing>
                                                                                             </stackView>
                                                                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-m5-1iE">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="171" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="177" height="16"/>
                                                                                                 <subviews>
                                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4r3-Qz-zgo">
                                                                                                         <rect key="frame" x="-2" y="1" width="49" height="14"/>
@@ -835,7 +835,7 @@ DQ
                                                                                                         </textFieldCell>
                                                                                                     </textField>
                                                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kYF-bn-UoO">
-                                                                                                        <rect key="frame" x="49" y="-1" width="122" height="17"/>
+                                                                                                        <rect key="frame" x="49" y="-1" width="128" height="17"/>
                                                                                                         <popUpButtonCell key="cell" type="recessed" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wGb-AC-yzR">
                                                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                                                             <font key="font" metaFont="smallSystemBold"/>
@@ -871,10 +871,10 @@ DQ
                                                                                         </customSpacing>
                                                                                     </stackView>
                                                                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVu-eI-Xnw">
-                                                                                        <rect key="frame" x="187" y="4" width="130" height="48"/>
+                                                                                        <rect key="frame" x="193" y="4" width="124" height="48"/>
                                                                                         <subviews>
                                                                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SzM-Fg-HIh">
-                                                                                                <rect key="frame" x="0.0" y="32" width="92" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="32" width="98" height="16"/>
                                                                                                 <subviews>
                                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Lg-9L-Qo1">
                                                                                                         <rect key="frame" x="-2" y="1" width="38" height="14"/>
@@ -885,7 +885,7 @@ DQ
                                                                                                         </textFieldCell>
                                                                                                     </textField>
                                                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-Cs-8Kc">
-                                                                                                        <rect key="frame" x="38" y="-1" width="54" height="17"/>
+                                                                                                        <rect key="frame" x="38" y="-1" width="60" height="17"/>
                                                                                                         <popUpButtonCell key="cell" type="recessed" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HX2-2d-ipR">
                                                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                                                             <font key="font" metaFont="smallSystemBold"/>
@@ -906,7 +906,7 @@ DQ
                                                                                                 </customSpacing>
                                                                                             </stackView>
                                                                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHx-KF-S5j">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="92" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="98" height="16"/>
                                                                                                 <subviews>
                                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LU7-tj-Pki">
                                                                                                         <rect key="frame" x="-2" y="1" width="38" height="14"/>
@@ -917,7 +917,7 @@ DQ
                                                                                                         </textFieldCell>
                                                                                                     </textField>
                                                                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-Xc-j3x">
-                                                                                                        <rect key="frame" x="38" y="-1" width="54" height="17"/>
+                                                                                                        <rect key="frame" x="38" y="-1" width="60" height="17"/>
                                                                                                         <popUpButtonCell key="cell" type="recessed" title="星期一" bezelStyle="recessed" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="Zg5-EN-XTq" id="O1Y-ge-wna">
                                                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                                                             <font key="font" metaFont="smallSystemBold"/>
@@ -1696,7 +1696,7 @@ DQ
                                 <rect key="frame" x="20" y="332" width="454" height="5"/>
                             </box>
                             <segmentedControl verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="bAH-O2-KgA">
-                                <rect key="frame" x="118" y="304" width="258" height="20"/>
+                                <rect key="frame" x="120" y="304" width="254" height="20"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="roundRect" trackingMode="selectOne" id="pKx-0I-HQs">
                                     <font key="font" metaFont="label" size="12"/>
                                     <segments>
@@ -1710,13 +1710,13 @@ DQ
                                 </connections>
                             </segmentedControl>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="27" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-xc-UtA">
-                                <rect key="frame" x="64" y="374" width="366" height="20"/>
+                                <rect key="frame" x="63" y="374" width="368" height="21"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-kE-ep8">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="193" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="0if-ZQ-SrN">
-                                                <rect key="frame" x="-2" y="2" width="44" height="16"/>
+                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="2Dp-et-dgC">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1724,7 +1724,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="40v-ww-pFo">
-                                                <rect key="frame" x="45" y="-4" width="151" height="25"/>
+                                                <rect key="frame" x="46" y="-3" width="150" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="1983 至 1984 学年" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="RXr-Oc-Nio" id="bZO-Ub-j6u">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -1751,10 +1751,10 @@ DQ
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhI-1S-etg">
-                                        <rect key="frame" x="219" y="0.0" width="147" height="20"/>
+                                        <rect key="frame" x="220" y="0.0" width="148" height="21"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-xB-H4t">
-                                                <rect key="frame" x="-2" y="2" width="44" height="16"/>
+                                                <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="RXY-CP-ae2">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1762,7 +1762,7 @@ DQ
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-qV-FnA">
-                                                <rect key="frame" x="45" y="-4" width="106" height="25"/>
+                                                <rect key="frame" x="46" y="-3" width="105" height="25"/>
                                                 <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="fJg-yu-pA9" id="thZ-RO-yFt">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
@@ -1979,7 +1979,7 @@ DQ
                                             <buttonCell key="cell" type="recessed" title="删除" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cov-Ad-wel">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                <imageReference key="image" image="delete.left.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                <imageReference key="image" image="delete.left.fill" symbolScale="default" renderingMode="template"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -1994,7 +1994,7 @@ CA
                                             <buttonCell key="cell" type="recessed" title="保存更改" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8LH-no-MT5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                <imageReference key="image" image="checkmark.circle" symbolScale="default" renderingMode="template"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -2131,7 +2131,7 @@ DQ
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ti-fi-RNZ">
                                             <rect key="frame" x="294" y="37" width="33" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="recessed" alignment="center" controlSize="large" borderStyle="border" inset="2" id="Ld3-Oa-qWt">
+                                            <buttonCell key="cell" type="recessed" title="🎲" alternateTitle="随机选择日历名称" bezelStyle="recessed" alignment="center" borderStyle="border" inset="2" id="Ld3-Oa-qWt">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -2143,21 +2143,21 @@ DQ
                                 </view>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fsG-2Y-Mj7">
-                                <rect key="frame" x="391" y="19" width="83" height="19"/>
+                                <rect key="frame" x="389" y="19" width="85" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="yxv-2H-nMi"/>
                                 </constraints>
                                 <buttonCell key="cell" type="recessed" title="开始同步" bezelStyle="recessed" imagePosition="right" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yaV-Dy-Sqr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
-                                    <imageReference key="image" image="arrow.down.right" catalog="system" symbolScale="default" renderingMode="template"/>
+                                    <imageReference key="image" image="arrow.down.right" symbolScale="default" renderingMode="template"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="startSync:" target="Jkb-pL-zEg" id="uSb-WT-LNr"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="cB0-0j-Mnu">
-                                <rect key="frame" x="351" y="13" width="32" height="32"/>
+                                <rect key="frame" x="349" y="13" width="32" height="32"/>
                             </progressIndicator>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2re-wN-Ptw">
                                 <rect key="frame" x="30" y="355" width="399" height="22"/>
@@ -2172,7 +2172,7 @@ DQ
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-ix-TxC">
-                                <rect key="frame" x="267" y="21" width="78" height="16"/>
+                                <rect key="frame" x="265" y="21" width="78" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingHead" alignment="right" title="PlaceHolder" id="54j-ej-xR4">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2203,7 +2203,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UqF-3z-ac2">
-                                <rect key="frame" x="20" y="387" width="387" height="18"/>
+                                <rect key="frame" x="20" y="387" width="384" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pjq-7e-ey3">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -2214,22 +2214,22 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-zn-2QH">
-                                        <rect key="frame" x="161" y="-1" width="135" height="19"/>
+                                        <rect key="frame" x="161" y="-1" width="134" height="19"/>
                                         <buttonCell key="cell" type="recessed" title="同步其他学期课表" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KgF-p7-GwZ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
-                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="calendar" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="Jkb-pL-zEg" id="VNz-Kv-zF9"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BUZ-ao-fSx">
-                                        <rect key="frame" x="300" y="-1" width="87" height="19"/>
+                                        <rect key="frame" x="299" y="-1" width="85" height="19"/>
                                         <buttonCell key="cell" type="recessed" title="个人信息" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gqa-sV-pPY">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
-                                            <imageReference key="image" image="tag" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="tag" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="showPersonalInfo:" target="Jkb-pL-zEg" id="E78-e7-tSM"/>
@@ -2361,7 +2361,7 @@ DQ
                                                             <buttonCell key="cell" type="recessed" title="通过 Web 页面" alternateTitle="通过 Web 页面登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ijx-mr-3RS">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="loginViaWebPage:" target="Hbf-WB-Sdc" id="hwW-sS-sR1"/>
@@ -2388,7 +2388,7 @@ DQ
                                                             <buttonCell key="cell" type="recessed" title="通过 Cookies" alternateTitle="通过 Cookies 登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jCt-KU-6ip">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="loginViaCookies:" target="Hbf-WB-Sdc" id="lLS-M5-hAp"/>
@@ -2415,7 +2415,7 @@ DQ
                                                             <buttonCell key="cell" type="recessed" title="通过用户名和密码" alternateTitle="通过用户名和密码登录按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KaB-91-bVX">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x21-2e-pkQ">
@@ -2471,11 +2471,11 @@ DQ
                                                     <rect key="frame" x="20" y="22" width="211" height="77"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y5i-fp-Znl">
-                                                            <rect key="frame" x="0.0" y="58" width="111" height="19"/>
+                                                            <rect key="frame" x="0.0" y="58" width="112" height="19"/>
                                                             <buttonCell key="cell" type="recessed" title="导出 Cookies" alternateTitle="导出 Cookies 按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pwG-uK-j95">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="doc.zipper" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="doc.zipper" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="exportCookieButton:" target="Hbf-WB-Sdc" id="0Gh-AA-x6q"/>
@@ -2502,7 +2502,7 @@ DQ
                                                             <buttonCell key="cell" type="recessed" title="访问教学信息服务网" alternateTitle="访问教学信息服务网按钮" bezelStyle="recessed" imagePosition="leading" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4e8-rs-Q0W">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="safari" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="safari" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="goToElectsysNew:" target="Hbf-WB-Sdc" id="nG5-zb-ewe"/>
@@ -3951,10 +3951,10 @@ Copyright © 2018 </string>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLn-FA-fNE">
-                                                <rect key="frame" x="20" y="111" width="140" height="324"/>
+                                                <rect key="frame" x="20" y="111" width="136" height="324"/>
                                                 <subviews>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xo1-hO-MaH">
-                                                        <rect key="frame" x="0.0" y="230" width="86" height="94"/>
+                                                        <rect key="frame" x="0.0" y="230" width="85" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-WT-Vk3">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -3969,29 +3969,29 @@ Copyright © 2018 </string>
                                                                 <buttonCell key="cell" type="recessed" title="关于" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="nVV-Qe-Lcu">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="info.circle" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="info.circle" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="DF7-dQ-a9v"/>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="UDv-Xg-MZw">
-                                                                <rect key="frame" x="0.0" y="25" width="86" height="19"/>
+                                                                <rect key="frame" x="0.0" y="25" width="85" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="偏好设置" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="afQ-sW-RmP">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="gearshape" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="gearshape" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="oyZ-vf-bKV"/>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="qI6-xj-XgW">
-                                                                <rect key="frame" x="0.0" y="-1" width="59" height="19"/>
+                                                                <rect key="frame" x="0.0" y="-1" width="60" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="致谢" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="OOt-Z8-cqT">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="doc.append.rtl" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="doc.append.rtl" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="32s-VL-UII"/>
@@ -4012,7 +4012,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-eQ-pzv">
-                                                        <rect key="frame" x="0.0" y="102" width="140" height="120"/>
+                                                        <rect key="frame" x="0.0" y="102" width="136" height="120"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ega-l9-MFs">
                                                                 <rect key="frame" x="-2" y="104" width="31" height="16"/>
@@ -4023,7 +4023,7 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9P-Np-P0M">
-                                                                <rect key="frame" x="0.0" y="77" width="140" height="19"/>
+                                                                <rect key="frame" x="0.0" y="77" width="136" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="登入 Electsys 系统" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="R2P-NG-v4c">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
@@ -4034,22 +4034,22 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="cWm-3u-igA">
-                                                                <rect key="frame" x="0.0" y="51" width="99" height="19"/>
+                                                                <rect key="frame" x="0.0" y="51" width="97" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="同步课程表" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="1OT-3d-FNm">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="tablecells.badge.ellipsis" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="tablecells.badge.ellipsis" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="Gof-zX-g7j"/>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuT-8O-hG6">
-                                                                <rect key="frame" x="0.0" y="25" width="112" height="19"/>
+                                                                <rect key="frame" x="0.0" y="25" width="109" height="19"/>
                                                                 <buttonCell key="cell" type="recessed" title="同步考试信息" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Sx2-Su-lYN">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="newspaper" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="newspaper" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="1Y9-Od-AXs"/>
@@ -4060,7 +4060,7 @@ Copyright © 2018 </string>
                                                                 <buttonCell key="cell" type="recessed" title="查询考试成绩" bezelStyle="recessed" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="DPM-7B-OB9">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
-                                                                    <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                    <imageReference key="image" image="bookmark.circle" symbolScale="default" renderingMode="template"/>
                                                                 </buttonCell>
                                                                 <connections>
                                                                     <action selector="switchFeature:" target="jbq-fH-5VY" id="Xir-Y7-To0"/>
@@ -4083,7 +4083,7 @@ Copyright © 2018 </string>
                                                         </customSpacing>
                                                     </stackView>
                                                     <stackView focusRingType="none" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFC-Z7-Vq6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="94"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="94"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g9M-zx-NWi">
                                                                 <rect key="frame" x="-2" y="78" width="31" height="16"/>
@@ -4094,8 +4094,8 @@ Copyright © 2018 </string>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="7" translatesAutoresizingMaskIntoConstraints="NO" id="O0O-0R-wZy">
-                                                                <rect key="frame" x="0.0" y="51" width="122" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="text.insert" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
+                                                                <rect key="frame" x="0.0" y="51" width="121" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="离线同步课程表" bezelStyle="recessed" image="text.insert" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="Q2t-M5-vBf">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4104,8 +4104,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="8" translatesAutoresizingMaskIntoConstraints="NO" id="3T5-NE-1Y0">
-                                                                <rect key="frame" x="0.0" y="25" width="125" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="rectangle.and.text.magnifyingglass" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
+                                                                <rect key="frame" x="0.0" y="25" width="121" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="在课程库中检索" bezelStyle="recessed" image="rectangle.and.text.magnifyingglass" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="B3z-aA-aKv">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4114,8 +4114,8 @@ Copyright © 2018 </string>
                                                                 </connections>
                                                             </button>
                                                             <button focusRingType="exterior" verticalHuggingPriority="750" tag="9" translatesAutoresizingMaskIntoConstraints="NO" id="4Wb-W7-J4V">
-                                                                <rect key="frame" x="0.0" y="-1" width="111" height="19"/>
-                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="quote.bubble" catalog="system" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
+                                                                <rect key="frame" x="0.0" y="-1" width="109" height="19"/>
+                                                                <buttonCell key="cell" type="recessed" title="报告一个问题" bezelStyle="recessed" image="quote.bubble" imagePosition="right" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" focusRingType="exterior" imageScaling="proportionallyDown" inset="2" id="n4V-75-Ax6">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                                     <font key="font" metaFont="systemBold" size="12"/>
                                                                 </buttonCell>
@@ -4374,7 +4374,7 @@ DQ
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="blH-rc-Ahb">
                                         <rect key="frame" x="0.0" y="-1" width="25" height="19"/>
-                                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.backward.circle" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KN0-KQ-clD">
+                                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.backward.circle" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KN0-KQ-clD">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
                                         </buttonCell>
@@ -4384,7 +4384,7 @@ DQ
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TOK-Ry-cW8">
                                         <rect key="frame" x="25" y="-1" width="25" height="19"/>
-                                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.right.circle" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sYK-Zv-L7E">
+                                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.right.circle" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sYK-Zv-L7E">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
                                         </buttonCell>
@@ -4403,8 +4403,8 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4rH-FM-D5C">
-                                <rect key="frame" x="423" y="347" width="23" height="19"/>
-                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.clockwise" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FfO-RP-W1k">
+                                <rect key="frame" x="421" y="347" width="25" height="19"/>
+                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="arrow.clockwise" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FfO-RP-W1k">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
@@ -4543,7 +4543,7 @@ DQ
                                 <buttonCell key="cell" type="roundRect" title="致谢" alternateTitle="致谢" bezelStyle="roundedRect" imagePosition="left" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MZI-Po-1H1">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="message" size="11"/>
-                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                    <imageReference key="image" image="heart.fill" symbolScale="default" renderingMode="template"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="turnCredits:" target="hhI-IL-P8i" id="mBL-WC-jxo"/>
@@ -4577,13 +4577,13 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-xc-sbO">
-                                            <rect key="frame" x="59" y="32" width="306" height="44"/>
+                                            <rect key="frame" x="59" y="30" width="307" height="46"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM6-4F-Xzv">
-                                                    <rect key="frame" x="0.0" y="24" width="267" height="20"/>
+                                                    <rect key="frame" x="0.0" y="25" width="268" height="21"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qHR-kr-cVn">
-                                                            <rect key="frame" x="-2" y="2" width="124" height="16"/>
+                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="课程概要显示风格：" id="rhf-ZC-g1G">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4591,7 +4591,7 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C2H-43-guT">
-                                                            <rect key="frame" x="125" y="-4" width="146" height="25"/>
+                                                            <rect key="frame" x="126" y="-3" width="145" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="课名及教师" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0fl-yk-JUu" id="44u-oP-13x">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="menu"/>
@@ -4618,10 +4618,10 @@ DQ
                                                     </customSpacing>
                                                 </stackView>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fc9-51-BWT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="306" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="307" height="21"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBE-wu-sai">
-                                                            <rect key="frame" x="-2" y="2" width="124" height="16"/>
+                                                            <rect key="frame" x="-2" y="3" width="124" height="16"/>
                                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="justified" title="平均绩点计算策略：" id="6nl-Gq-Skc">
                                                                 <font key="font" metaFont="systemBold"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -4629,7 +4629,7 @@ DQ
                                                             </textFieldCell>
                                                         </textField>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rGh-90-gHQ">
-                                                            <rect key="frame" x="125" y="-4" width="185" height="25"/>
+                                                            <rect key="frame" x="126" y="-3" width="184" height="25"/>
                                                             <popUpButtonCell key="cell" type="push" title="上海交通大学 4.3 制" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5A1-P9-GyH" id="NQz-lP-AUr">
                                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="menu"/>
@@ -4778,7 +4778,7 @@ DQ
                                                     <buttonCell key="cell" type="recessed" title="清除凭据缓存" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bg7-g2-a6X">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="systemBold" size="12"/>
-                                                        <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                        <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="removeCertificates:" target="wO9-Wp-BTu" id="Qz8-yF-U3E"/>
@@ -4805,7 +4805,7 @@ DQ
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0As-78-p3P">
                                             <rect key="frame" x="360" y="31" width="26" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="checkmark.circle" catalog="system" imagePosition="only" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
+                                            <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="checkmark.circle" imagePosition="only" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" sound="Funk" inset="2" id="qbj-PV-sth">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
                                                 <string key="keyEquivalent" base64-UTF8="YES">
@@ -4838,7 +4838,7 @@ DQ
                                                     <buttonCell key="cell" type="recessed" title="清除 Cookies" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RiG-2x-GC7">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="systemBold" size="12"/>
-                                                        <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                        <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                     </buttonCell>
                                                     <connections>
                                                         <action selector="removeLocalCookies:" target="wO9-Wp-BTu" id="MVn-2h-LMd"/>
@@ -4853,31 +4853,30 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-mB-mxa">
-                                                    <rect key="frame" x="0.0" y="18" width="269" height="18"/>
+                                                    <rect key="frame" x="0.0" y="18" width="277" height="18"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eKY-dX-4Ev">
                                                             <rect key="frame" x="0.0" y="-1" width="195" height="19"/>
                                                             <buttonCell key="cell" type="recessed" title="查看流化的应用程序诊断信息" bezelStyle="recessed" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbf-O7-sfL">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                                <imageReference key="image" image="arrow.right.circle.fill" symbolScale="default" renderingMode="template"/>
                                                             </buttonCell>
                                                             <connections>
                                                                 <action selector="showLoggings:" target="wO9-Wp-BTu" id="kUp-1o-8za"/>
                                                             </connections>
                                                         </button>
                                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-fq-urK">
-                                                            <rect key="frame" x="203" y="0.0" width="66" height="17"/>
-                                                            <popUpButtonCell key="cell" type="roundRect" title="error 级" bezelStyle="roundedRect" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="Bfe-qh-7Mk" id="TrL-3m-VfO">
+                                                            <rect key="frame" x="203" y="-1" width="74" height="19"/>
+                                                            <popUpButtonCell key="cell" type="roundTextured" title="error 级" bezelStyle="texturedRounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" tag="1" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" autoenablesItems="NO" selectedItem="GDy-a1-BNK" id="TrL-3m-VfO">
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <menu key="menu" autoenablesItems="NO" id="lKt-wz-TDL">
                                                                     <items>
-                                                                        <menuItem title="error 级" state="on" id="Bfe-qh-7Mk"/>
-                                                                        <menuItem title="warning 级" tag="1" id="GDy-a1-BNK"/>
+                                                                        <menuItem title="fault 级" id="Bfe-qh-7Mk"/>
+                                                                        <menuItem title="error 级" state="on" tag="1" id="GDy-a1-BNK"/>
                                                                         <menuItem title="info 级" tag="2" id="BRs-Mh-x1q"/>
                                                                         <menuItem title="debug 级" tag="3" id="hbr-bL-dkK"/>
-                                                                        <menuItem title="trace 级" tag="4" id="88V-g1-vsH"/>
                                                                         <menuItem isSeparatorItem="YES" tag="-1" id="DV6-Q2-OXA"/>
                                                                         <menuItem title="关闭" tag="5" id="kub-zu-i2t"/>
                                                                     </items>
@@ -4940,7 +4939,6 @@ DQ
                         <outlet property="hidePersonalInfoChecker" destination="o13-Fg-4H6" id="iUK-wO-WLo"/>
                         <outlet property="passWordToken" destination="ZTS-O3-LDJ" id="wv6-sC-wr4"/>
                         <outlet property="saveCredentialButton" destination="0As-78-p3P" id="2U7-BU-jkx"/>
-                        <outlet property="traceLevelMenuItem" destination="88V-g1-vsH" id="3Mi-Kl-0Hm"/>
                         <outlet property="userNameToken" destination="8oi-dK-Vi9" id="4X3-7v-UaI"/>
                     </connections>
                 </viewController>
@@ -4988,10 +4986,10 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZc-ig-PEO">
-                                <rect key="frame" x="136" y="21" width="101" height="20"/>
+                                <rect key="frame" x="136" y="20" width="109" height="21"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="trJ-fY-Rxr">
-                                        <rect key="frame" x="-7" y="-7" width="61" height="32"/>
+                                        <rect key="frame" x="-6" y="-7" width="67" height="32"/>
                                         <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fCS-Pq-WvC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -5001,7 +4999,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-af-FdG">
-                                        <rect key="frame" x="52" y="-7" width="56" height="32"/>
+                                        <rect key="frame" x="61" y="-7" width="54" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" id="qg9-y5-FHC"/>
                                         </constraints>
@@ -5027,19 +5025,19 @@ DQ
                                 </customSpacing>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XL-gW-8Po">
-                                <rect key="frame" x="67" y="59" width="246" height="66"/>
+                                <rect key="frame" x="67" y="57" width="246" height="68"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ma2-F3-7Pd">
-                                        <rect key="frame" x="0.0" y="0.0" width="246" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="68"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TON-he-sw3">
-                                                <rect key="frame" x="0.0" y="26" width="246" height="40"/>
+                                                <rect key="frame" x="0.0" y="27" width="246" height="41"/>
                                                 <subviews>
                                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHE-9a-27I">
-                                                        <rect key="frame" x="27" y="16" width="193" height="24"/>
+                                                        <rect key="frame" x="26" y="16" width="194" height="25"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-ue-g8X">
-                                                                <rect key="frame" x="-2" y="4" width="44" height="16"/>
+                                                                <rect key="frame" x="-2" y="5" width="44" height="16"/>
                                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="学年：" id="Ugi-yu-c7f">
                                                                     <font key="font" metaFont="systemBold"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -5047,7 +5045,7 @@ DQ
                                                                 </textFieldCell>
                                                             </textField>
                                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-ED-2Ok">
-                                                                <rect key="frame" x="45" y="-2" width="152" height="25"/>
+                                                                <rect key="frame" x="46" y="-1" width="151" height="25"/>
                                                                 <popUpButtonCell key="cell" type="push" title="2019 至 2020 学年" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="lFe-lS-JZl" id="HgC-LG-qW1">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
@@ -5095,10 +5093,10 @@ DQ
                                                 </customSpacing>
                                             </stackView>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kih-LD-Tvo">
-                                                <rect key="frame" x="50" y="0.0" width="147" height="20"/>
+                                                <rect key="frame" x="49" y="0.0" width="148" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cw9-b7-iuK">
-                                                        <rect key="frame" x="-2" y="2" width="44" height="16"/>
+                                                        <rect key="frame" x="-2" y="3" width="44" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="学期：" id="JFD-WN-HZE">
                                                             <font key="font" metaFont="systemBold"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -5106,7 +5104,7 @@ DQ
                                                         </textFieldCell>
                                                     </textField>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xeZ-8A-5Mi">
-                                                        <rect key="frame" x="45" y="-4" width="106" height="25"/>
+                                                        <rect key="frame" x="46" y="-3" width="105" height="25"/>
                                                         <popUpButtonCell key="cell" type="push" title="秋季学期" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="IdU-vQ-eQC" id="7mi-Tl-qfz">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="menu"/>
@@ -5367,11 +5365,11 @@ DQ
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="nxT-pY-H9J">
                                 <rect key="frame" x="20" y="50" width="454" height="333"/>
                                 <clipView key="contentView" id="EXO-oI-f4t">
-                                    <rect key="frame" x="1" y="1" width="452" height="331"/>
+                                    <rect key="frame" x="1" y="0.0" width="452" height="332"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ahh-yA-Md2" viewBased="YES" id="bC3-CW-3H3">
-                                            <rect key="frame" x="0.0" y="0.0" width="452" height="306"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="452" height="307"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -5390,11 +5388,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CourseNameCellID" id="W8Q-RF-BfC">
-                                                            <rect key="frame" x="11" y="1" width="225" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="220" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtS-gv-je9">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="225" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="220" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="n0u-qD-6EC">
                                                                         <font key="font" metaFont="system"/>
@@ -5422,11 +5420,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CourseCodeCellID" id="dwr-pU-u4f">
-                                                            <rect key="frame" x="239" y="1" width="56" height="17"/>
+                                                            <rect key="frame" x="224" y="1" width="57" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eeu-G3-Bkf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="56" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ZPo-WU-tpb">
                                                                         <font key="font" metaFont="system"/>
@@ -5454,7 +5452,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="TeacherNameCellID" id="IYq-0N-K6J">
-                                                            <rect key="frame" x="298" y="1" width="58" height="17"/>
+                                                            <rect key="frame" x="283.5" y="1" width="58" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAW-jD-IDi">
@@ -5486,7 +5484,7 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="FinalScoreCellID" id="H25-MF-sjN">
-                                                            <rect key="frame" x="360" y="1" width="46" height="17"/>
+                                                            <rect key="frame" x="345" y="1" width="46" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79s-Jb-yPB">
@@ -5518,11 +5516,11 @@ DQ
                                                     <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="PointCellID" id="vRc-qP-g2q">
-                                                            <rect key="frame" x="409" y="1" width="44" height="17"/>
+                                                            <rect key="frame" x="394" y="1" width="41" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPU-J0-e7S">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="41" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="wcw-bm-xov">
                                                                         <font key="font" metaFont="system"/>
@@ -5569,8 +5567,8 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q2B-MM-Q9Z">
-                                <rect key="frame" x="189" y="19" width="99" height="19"/>
-                                <buttonCell key="cell" type="recessed" title="导出成绩单" bezelStyle="recessed" image="printer" catalog="system" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oku-wA-NT7">
+                                <rect key="frame" x="189" y="19" width="97" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="导出成绩单" bezelStyle="recessed" image="printer" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oku-wA-NT7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="12"/>
                                 </buttonCell>
@@ -5590,7 +5588,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qud-Zs-Wen">
-                                <rect key="frame" x="20" y="387" width="308" height="18"/>
+                                <rect key="frame" x="20" y="387" width="307" height="18"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ORj-va-zal">
                                         <rect key="frame" x="-2" y="2" width="161" height="14"/>
@@ -5601,11 +5599,11 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-IO-uGF">
-                                        <rect key="frame" x="161" y="-1" width="147" height="19"/>
+                                        <rect key="frame" x="161" y="-1" width="146" height="19"/>
                                         <buttonCell key="cell" type="recessed" title="查询其他学期成绩单" bezelStyle="recessed" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CQX-32-kKs">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
-                                            <imageReference key="image" image="calendar" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="calendar" symbolScale="default" renderingMode="template"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="restartAnalyse:" target="m62-gO-PeB" id="OQ2-uu-cBd"/>
@@ -5707,11 +5705,11 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4On-Cc-0tc">
-                                            <rect key="frame" x="20" y="14" width="182" height="17"/>
+                                            <rect key="frame" x="20" y="14" width="175" height="17"/>
                                             <buttonCell key="cell" type="recessed" title="前往 GitHub Issues 页面" bezelStyle="recessed" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aGD-Cd-FC3">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                <imageReference key="image" image="bubble.left.and.bubble.right" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                <imageReference key="image" image="bubble.left.and.bubble.right" symbolScale="default" renderingMode="template"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="visitGitHubIssuePages:" target="cK7-dQ-kWQ" id="6Wu-82-HcX"/>
@@ -5742,10 +5740,10 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUx-cK-vdM">
-                                            <rect key="frame" x="20" y="269" width="277" height="16"/>
+                                            <rect key="frame" x="20" y="269" width="262" height="16"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LkU-MP-seD">
-                                                    <rect key="frame" x="-2" y="-1" width="108" height="18"/>
+                                                    <rect key="frame" x="-1" y="-1" width="104" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="43u-4n-67n"/>
                                                     </constraints>
@@ -5758,7 +5756,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AJ1-8j-54l">
-                                                    <rect key="frame" x="112" y="-1" width="106" height="18"/>
+                                                    <rect key="frame" x="108" y="-1" width="102" height="18"/>
                                                     <buttonCell key="cell" type="radio" title="课程数据问题" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="d0a-tL-tHs">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -5768,7 +5766,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yZP-cN-6Zi">
-                                                    <rect key="frame" x="224" y="-1" width="53" height="18"/>
+                                                    <rect key="frame" x="215" y="-1" width="49" height="18"/>
                                                     <buttonCell key="cell" type="radio" title="其他" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aaH-if-J13">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -5822,7 +5820,7 @@ DQ
                                             <buttonCell key="cell" type="recessed" title="投递" bezelStyle="recessed" imagePosition="trailing" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jsd-gg-PPe">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="systemBold" size="12"/>
-                                                <imageReference key="image" image="mail" catalog="system" symbolScale="default" renderingMode="template"/>
+                                                <imageReference key="image" image="mail" symbolScale="default" renderingMode="template"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="sendEmail:" target="cK7-dQ-kWQ" id="8qf-ZP-mlx"/>
@@ -5891,167 +5889,165 @@ DQ
     <resources>
         <image name="GitHubTemplate" width="15" height="15"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
-        <image name="NSBookmarksTemplate" width="18" height="15"/>
-        <image name="NSLockLockedTemplate" width="14" height="15"/>
+        <image name="NSBookmarksTemplate" width="17" height="18"/>
+        <image name="NSLockLockedTemplate" width="10" height="14"/>
         <image name="NSStatusNone" width="16" height="16"/>
-        <image name="NSTouchBarHistoryTemplate" width="15" height="15"/>
+        <image name="NSTouchBarHistoryTemplate" width="18" height="30"/>
         <image name="NSTrashFull" width="32" height="32"/>
-        <image name="arrow.backward.circle" catalog="system" width="15" height="15"/>
-        <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
-        <image name="arrow.down.right" catalog="system" width="13" height="12"/>
-        <image name="arrow.right.circle" catalog="system" width="15" height="15"/>
-        <image name="arrow.right.circle.fill" catalog="system" width="15" height="15"/>
-        <image name="bookmark.circle" catalog="system" width="15" height="15"/>
-        <image name="bubble.left.and.bubble.right" catalog="system" width="22" height="17"/>
+        <image name="arrow.backward.circle" width="15" height="15"/>
+        <image name="arrow.clockwise" width="15" height="15"/>
+        <image name="arrow.down.right" width="15" height="15"/>
+        <image name="arrow.right.circle" width="15" height="15"/>
+        <image name="arrow.right.circle.fill" width="15" height="15"/>
+        <image name="bookmark.circle" width="15" height="15"/>
+        <image name="bubble.left.and.bubble.right" width="15" height="15"/>
         <image name="buttonCell:8X0-gU-WDM:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
-S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBkaHxQkKSoxNDdBSUpOUVUkbnVsbNYNDg8QERITFBUW
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBkaHxQkKCkwMzZASElNUFUkbnVsbNYNDg8QERITFBUW
 FxhWTlNTaXplXk5TUmVzaXppbmdNb2RlViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
-AhAAgBASIMMAAIADgAtWezEsIDF90hsPHB5aTlMub2JqZWN0c6EdgASACtIbDyAjoiEigAWABoAJ0w8l
-JicoFF8QFE5TVElGRlJlcHJlc2VudGF0aW9uXxAZTlNJbnRlcm5hbExheW91dERpcmVjdGlvboAIgAdP
-EQjETU0AKgAAAAoAAAAQAQAAAwAAAAEAAQAAAQEAAwAAAAEAAQAAAQIAAwAAAAIACAAIAQMAAwAAAAEA
-AQAAAQYAAwAAAAEAAQAAAQoAAwAAAAEAAQAAAREABAAAAAEAAAAIARIAAwAAAAEAAQAAARUAAwAAAAEA
-AgAAARYAAwAAAAEAAQAAARcABAAAAAEAAAACARwAAwAAAAEAAQAAASgAAwAAAAEAAgAAAVIAAwAAAAEA
-AQAAAVMAAwAAAAIAAQABh3MABwAAB/QAAADQAAAAAAAAB/RhcHBsAiAAAG1udHJHUkFZWFlaIAfQAAIA
-DgAMAAAAAGFjc3BBUFBMAAAAAG5vbmUAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWRlc2MAAADAAAAAb2RzY20A
-AAEwAAAGZmNwcnQAAAeYAAAAOHd0cHQAAAfQAAAAFGtUUkMAAAfkAAAADmRlc2MAAAAAAAAAFUdlbmVy
-aWMgR3JheSBQcm9maWxlAAAAAAAAAAAAAAAVR2VuZXJpYyBHcmF5IFByb2ZpbGUAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACoA
-AAGEZW5VUwAAACgAAAGuY2FFUwAAACwAAAHWdmlWTgAAACwAAAICcHRCUgAAACoAAAIudWtVQQAAACwA
-AAJYZnJGVQAAACoAAAKEaHVIVQAAAC4AAAKuemhUVwAAABAAAALcbmJOTwAAACwAAALsa29LUgAAABgA
-AAMYY3NDWgAAACQAAAMwaGVJTAAAACAAAANUcm9STwAAACQAAAN0ZGVERQAAADoAAAOYaXRJVAAAAC4A
-AAPSc3ZTRQAAAC4AAAQAemhDTgAAABAAAAQuamFKUAAAABYAAAQ+ZWxHUgAAACQAAARUcHRQTwAAADgA
-AAR4bmxOTAAAACoAAASwZXNFUwAAACgAAATadGhUSAAAACQAAAUCdHJUUgAAACIAAAUmZmlGSQAAACwA
-AAVIaHJIUgAAADoAAAV0cGxQTAAAADYAAAWucnVSVQAAACYAAAXkYXJFRwAAACgAAAYKZGFESwAAADQA
-AAYyAFYBYQBlAG8AYgBlAGMAbgD9ACAAcwBpAHYA/QAgAHAAcgBvAGYAaQBsAEcAZQBuAGUAcgBpAGMA
-IABHAHIAYQB5ACAAUAByAG8AZgBpAGwAZQBQAGUAcgBmAGkAbAAgAGQAZQAgAGcAcgBpAHMAIABnAGUA
-bgDoAHIAaQBjAEMepQB1ACAAaADsAG4AaAAgAE0A4AB1ACAAeADhAG0AIABDAGgAdQBuAGcAUABlAHIA
-ZgBpAGwAIABDAGkAbgB6AGEAIABHAGUAbgDpAHIAaQBjAG8EFwQwBDMEMAQ7BEwEPQQ4BDkAIAQ/BEAE
-PgREBDAEOQQ7ACAARwByAGEAeQBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAZwByAGkA
-cwDBAGwAdABhAGwA4QBuAG8AcwAgAHMAegD8AHIAawBlACAAcAByAG8AZgBpAGyQGnUocHCWjoJyX2lj
-z4/wAEcAZQBuAGUAcgBpAHMAawAgAGcAcgDlAHQAbwBuAGUAcAByAG8AZgBpAGzHfLwYACAARwByAGEA
-eQAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIAFhAGUAZAD9ACAAcAByAG8AZgBpAGwF5AXoBdUF5AXZBdwA
-IABHAHIAYQB5ACAF2wXcBdwF2QBQAHIAbwBmAGkAbAAgAGcAcgBpACAAZwBlAG4AZQByAGkAYwBBAGwA
-bABnAGUAbQBlAGkAbgBlAHMAIABHAHIAYQB1AHMAdAB1AGYAZQBuAC0AUAByAG8AZgBpAGwAUAByAG8A
-ZgBpAGwAbwAgAGcAcgBpAGcAaQBvACAAZwBlAG4AZQByAGkAYwBvAEcAZQBuAGUAcgBpAHMAawAgAGcA
-cgDlAHMAawBhAGwAZQBwAHIAbwBmAGkAbGZukBpwcF6mY8+P8GWHTvZOAIIsMLAw7DCkMNcw7TDVMKEw
-pDDrA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sAIAOzA7oDwQO5AFAAZQByAGYAaQBsACAAZwBlAG4A
-6QByAGkAYwBvACAAZABlACAAYwBpAG4AegBlAG4AdABvAHMAQQBsAGcAZQBtAGUAZQBuACAAZwByAGkA
-agBzAHAAcgBvAGYAaQBlAGwAUABlAHIAZgBpAGwAIABnAHIAaQBzACAAZwBlAG4A6QByAGkAYwBvDkIO
-Gw4jDkQOHw4lDkwOKg41DkAOFw4yDhcOMQ5IDicORA4bAEcAZQBuAGUAbAAgAEcAcgBpACAAUAByAG8A
-ZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAaABhAHIAbQBhAGEAcAByAG8AZgBpAGkAbABpAEcAZQBuAGUA
-cgBpAQ0AawBpACAAcAByAG8AZgBpAGwAIABzAGkAdgBpAGgAIAB0AG8AbgBvAHYAYQBVAG4AaQB3AGUA
-cgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAHMAegBhAHIAbwFbAGMAaQQeBDEESQQ4BDkAIARBBDUE
-QARLBDkAIAQ/BEAEPgREBDgEOwRMBkUGRAZBACAGKgY5BjEGSgZBACAARwByAGEAeQAgBicGRAY5BicG
-RQBHAGUAbgBlAHIAZQBsACAAZwByAOUAdABvAG4AZQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAAHRleHQA
-AAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAA
-APNRAAEAAAABFsxjdXJ2AAAAAAAAAAEBzQAA0issLS5aJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0
-bWFwSW1hZ2VSZXCjLS8wWk5TSW1hZ2VSZXBYTlNPYmplY3TSKywyM1dOU0FycmF5ojIw0issNTZeTlNN
-dXRhYmxlQXJyYXmjNTIw1Tg5OjsPPD0+P0BXTlNXaGl0ZVxOU0NvbXBvbmVudHNcTlNDb2xvclNwYWNl
-XxASTlNDdXN0b21Db2xvclNwYWNlRDAgMABDMCAwEAOADIAP1EJDRA9FRkdIVE5TSURVTlNJQ0NXTlNN
-b2RlbBAJgA0QAIAOTxERnAAAEZxhcHBsAgAAAG1udHJHUkFZWFlaIAfcAAgAFwAPAC4AD2Fjc3BBUFBM
-AAAAAG5vbmUAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWRlc2MAAADAAAAAeWRzY20AAAE8AAAIGmNwcnQAAAlY
-AAAAI3d0cHQAAAl8AAAAFGtUUkMAAAmQAAAIDGRlc2MAAAAAAAAAH0dlbmVyaWMgR3JheSBHYW1tYSAy
-LjIgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAAC4AAAGE
-ZGFESwAAADoAAAGyY2FFUwAAADgAAAHsdmlWTgAAAEAAAAIkcHRCUgAAAEoAAAJkdWtVQQAAACwAAAKu
-ZnJGVQAAAD4AAALaaHVIVQAAADQAAAMYemhUVwAAABoAAANMa29LUgAAACIAAANmbmJOTwAAADoAAAOI
-Y3NDWgAAACgAAAPCaGVJTAAAACQAAAPqcm9STwAAACoAAAQOZGVERQAAAE4AAAQ4aXRJVAAAAE4AAASG
-c3ZTRQAAADgAAATUemhDTgAAABoAAAUMamFKUAAAACYAAAUmZWxHUgAAACoAAAVMcHRQTwAAAFIAAAV2
-bmxOTAAAAEAAAAXIZXNFUwAAAEwAAAYIdGhUSAAAADIAAAZUdHJUUgAAACQAAAaGZmlGSQAAAEYAAAaq
-aHJIUgAAAD4AAAbwcGxQTAAAAEoAAAcuYXJFRwAAACwAAAd4cnVSVQAAADoAAAekZW5VUwAAADwAAAfe
-AFYBYQBlAG8AYgBlAGMAbgDhACAAcwBpAHYA4QAgAGcAYQBtAGEAIAAyACwAMgBHAGUAbgBlAHIAaQBz
-AGsAIABnAHIA5QAgADIALAAyACAAZwBhAG0AbQBhAC0AcAByAG8AZgBpAGwARwBhAG0AbQBhACAAZABl
-ACAAZwByAGkAcwBvAHMAIABnAGUAbgDoAHIAaQBjAGEAIAAyAC4AMgBDHqUAdQAgAGgA7ABuAGgAIABN
-AOAAdQAgAHgA4QBtACAAQwBoAHUAbgBnACAARwBhAG0AbQBhACAAMgAuADIAUABlAHIAZgBpAGwAIABH
-AGUAbgDpAHIAaQBjAG8AIABkAGEAIABHAGEAbQBhACAAZABlACAAQwBpAG4AegBhAHMAIAAyACwAMgQX
-BDAEMwQwBDsETAQ9BDAAIABHAHIAYQB5AC0EMwQwBDwEMAAgADIALgAyAFAAcgBvAGYAaQBsACAAZwDp
-AG4A6QByAGkAcQB1AGUAIABnAHIAaQBzACAAZwBhAG0AbQBhACAAMgAsADIAwQBsAHQAYQBsAOEAbgBv
-AHMAIABzAHoA/AByAGsAZQAgAGcAYQBtAG0AYQAgADIALgAykBp1KHBwlo5RSV6mADIALgAygnJfaWPP
-j/DHfLwYACDWjMDJACCsELnIACAAMgAuADIAINUEuFzTDMd8AEcAZQBuAGUAcgBpAHMAawAgAGcAcgDl
-ACAAZwBhAG0AbQBhACAAMgAsADIALQBwAHIAbwBmAGkAbABPAGIAZQBjAG4A4QAgAWEAZQBkAOEAIABn
-AGEAbQBhACAAMgAuADIF0gXQBd4F1AAgBdAF5AXVBegAIAXbBdwF3AXZACAAMgAuADIARwBhAG0AYQAg
-AGcAcgBpACAAZwBlAG4AZQByAGkAYwEDACAAMgAsADIAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAARwBy
-AGEAdQBzAHQAdQBmAGUAbgAtAFAAcgBvAGYAaQBsACAARwBhAG0AbQBhACAAMgAsADIAUAByAG8AZgBp
-AGwAbwAgAGcAcgBpAGcAaQBvACAAZwBlAG4AZQByAGkAYwBvACAAZABlAGwAbABhACAAZwBhAG0AbQBh
-ACAAMgAsADIARwBlAG4AZQByAGkAcwBrACAAZwByAOUAIAAyACwAMgAgAGcAYQBtAG0AYQBwAHIAbwBm
-AGkAbGZukBpwcF6mfPtlcAAyAC4AMmPPj/Blh072TgCCLDCwMOwwpDCsMPMw3gAgADIALgAyACAw1zDt
-MNUwoTCkMOsDkwO1A70DuQO6A8wAIAOTA7oDwQO5ACADkwOsA7wDvAOxACAAMgAuADIAUABlAHIAZgBp
-AGwAIABnAGUAbgDpAHIAaQBjAG8AIABkAGUAIABjAGkAbgB6AGUAbgB0AG8AcwAgAGQAYQAgAEcAYQBt
-AG0AYQAgADIALAAyAEEAbABnAGUAbQBlAGUAbgAgAGcAcgBpAGoAcwAgAGcAYQBtAG0AYQAgADIALAAy
-AC0AcAByAG8AZgBpAGUAbABQAGUAcgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQAZQAgAGcAYQBt
-AG0AYQAgAGQAZQAgAGcAcgBpAHMAZQBzACAAMgAsADIOIw4xDgcOKg41DkEOAQ4hDiEOMg5ADgEOIw4i
-DkwOFw4xDkgOJw5EDhsAIAAyAC4AMgBHAGUAbgBlAGwAIABHAHIAaQAgAEcAYQBtAGEAIAAyACwAMgBZ
-AGwAZQBpAG4AZQBuACAAaABhAHIAbQBhAGEAbgAgAGcAYQBtAG0AYQAgADIALAAyACAALQBwAHIAbwBm
-AGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABHAHIAYQB5ACAARwBhAG0AbQBhACAAMgAuADIAIABw
-AHIAbwBmAGkAbABVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAHMAegBhAHIAbwFb
-AGMAaQAgAGcAYQBtAG0AYQAgADIALAAyBjoGJwZFBicAIAAyAC4AMgAgBkQGSAZGACAGMQZFBicGLwZK
-ACAGOQYnBkUEHgQxBEkEMARPACAEQQQ1BEAEMARPACAEMwQwBDwEPAQwACAAMgAsADIALQQ/BEAEPgRE
-BDgEOwRMAEcAZQBuAGUAcgBpAGMAIABHAHIAYQB5ACAARwBhAG0AbQBhACAAMgAuADIAIABQAHIAbwBm
-AGkAbABlAAB0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDEyAABYWVogAAAAAAAA81EAAQAA
-AAEWzGN1cnYAAAAAAAAEAAAAAAUACgAPABQAGQAeACMAKAAtADIANwA7AEAARQBKAE8AVABZAF4AYwBo
-AG0AcgB3AHwAgQCGAIsAkACVAJoAnwCkAKkArgCyALcAvADBAMYAywDQANUA2wDgAOUA6wDwAPYA+wEB
-AQcBDQETARkBHwElASsBMgE4AT4BRQFMAVIBWQFgAWcBbgF1AXwBgwGLAZIBmgGhAakBsQG5AcEByQHR
-AdkB4QHpAfIB+gIDAgwCFAIdAiYCLwI4AkECSwJUAl0CZwJxAnoChAKOApgCogKsArYCwQLLAtUC4ALr
-AvUDAAMLAxYDIQMtAzgDQwNPA1oDZgNyA34DigOWA6IDrgO6A8cD0wPgA+wD+QQGBBMEIAQtBDsESARV
-BGMEcQR+BIwEmgSoBLYExATTBOEE8AT+BQ0FHAUrBToFSQVYBWcFdwWGBZYFpgW1BcUF1QXlBfYGBgYW
-BicGNwZIBlkGagZ7BowGnQavBsAG0QbjBvUHBwcZBysHPQdPB2EHdAeGB5kHrAe/B9IH5Qf4CAsIHwgy
-CEYIWghuCIIIlgiqCL4I0gjnCPsJEAklCToJTwlkCXkJjwmkCboJzwnlCfsKEQonCj0KVApqCoEKmAqu
-CsUK3ArzCwsLIgs5C1ELaQuAC5gLsAvIC+EL+QwSDCoMQwxcDHUMjgynDMAM2QzzDQ0NJg1ADVoNdA2O
-DakNww3eDfgOEw4uDkkOZA5/DpsOtg7SDu4PCQ8lD0EPXg96D5YPsw/PD+wQCRAmEEMQYRB+EJsQuRDX
-EPURExExEU8RbRGMEaoRyRHoEgcSJhJFEmQShBKjEsMS4xMDEyMTQxNjE4MTpBPFE+UUBhQnFEkUahSL
-FK0UzhTwFRIVNBVWFXgVmxW9FeAWAxYmFkkWbBaPFrIW1hb6Fx0XQRdlF4kXrhfSF/cYGxhAGGUYihiv
-GNUY+hkgGUUZaxmRGbcZ3RoEGioaURp3Gp4axRrsGxQbOxtjG4obshvaHAIcKhxSHHscoxzMHPUdHh1H
-HXAdmR3DHeweFh5AHmoelB6+HukfEx8+H2kflB+/H+ogFSBBIGwgmCDEIPAhHCFIIXUhoSHOIfsiJyJV
-IoIiryLdIwojOCNmI5QjwiPwJB8kTSR8JKsk2iUJJTglaCWXJccl9yYnJlcmhya3JugnGCdJJ3onqyfc
-KA0oPyhxKKIo1CkGKTgpaymdKdAqAio1KmgqmyrPKwIrNitpK50r0SwFLDksbiyiLNctDC1BLXYtqy3h
-LhYuTC6CLrcu7i8kL1ovkS/HL/4wNTBsMKQw2zESMUoxgjG6MfIyKjJjMpsy1DMNM0YzfzO4M/E0KzRl
-NJ402DUTNU01hzXCNf02NzZyNq426TckN2A3nDfXOBQ4UDiMOMg5BTlCOX85vDn5OjY6dDqyOu87LTtr
-O6o76DwnPGU8pDzjPSI9YT2hPeA+ID5gPqA+4D8hP2E/oj/iQCNAZECmQOdBKUFqQaxB7kIwQnJCtUL3
-QzpDfUPARANER0SKRM5FEkVVRZpF3kYiRmdGq0bwRzVHe0fASAVIS0iRSNdJHUljSalJ8Eo3Sn1KxEsM
-S1NLmkviTCpMcky6TQJNSk2TTdxOJU5uTrdPAE9JT5NP3VAnUHFQu1EGUVBRm1HmUjFSfFLHUxNTX1Oq
-U/ZUQlSPVNtVKFV1VcJWD1ZcVqlW91dEV5JX4FgvWH1Yy1kaWWlZuFoHWlZaplr1W0VblVvlXDVchlzW
-XSddeF3JXhpebF69Xw9fYV+zYAVgV2CqYPxhT2GiYfViSWKcYvBjQ2OXY+tkQGSUZOllPWWSZedmPWaS
-ZuhnPWeTZ+loP2iWaOxpQ2maafFqSGqfavdrT2una/9sV2yvbQhtYG25bhJua27Ebx5veG/RcCtwhnDg
-cTpxlXHwcktypnMBc11zuHQUdHB0zHUodYV14XY+dpt2+HdWd7N4EXhueMx5KnmJeed6RnqlewR7Y3vC
-fCF8gXzhfUF9oX4BfmJ+wn8jf4R/5YBHgKiBCoFrgc2CMIKSgvSDV4O6hB2EgITjhUeFq4YOhnKG14c7
-h5+IBIhpiM6JM4mZif6KZIrKizCLlov8jGOMyo0xjZiN/45mjs6PNo+ekAaQbpDWkT+RqJIRknqS45NN
-k7aUIJSKlPSVX5XJljSWn5cKl3WX4JhMmLiZJJmQmfyaaJrVm0Kbr5wcnImc951kndKeQJ6unx2fi5/6
-oGmg2KFHobaiJqKWowajdqPmpFakx6U4pammGqaLpv2nbqfgqFKoxKk3qamqHKqPqwKrdavprFys0K1E
-rbiuLa6hrxavi7AAsHWw6rFgsdayS7LCszizrrQltJy1E7WKtgG2ebbwt2i34LhZuNG5SrnCuju6tbsu
-u6e8IbybvRW9j74KvoS+/796v/XAcMDswWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5
-yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo
-2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui8
-6Ubp0Opb6uXrcOv77IbtEe2c7ijutO9A78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4
-+cf6V/rn+3f8B/yY/Sn9uv5L/tz/bf//0issS0xcTlNDb2xvclNwYWNlok0wXE5TQ29sb3JTcGFjZdIr
-LE9QV05TQ29sb3KiTzDSKyxSU1dOU0ltYWdlolIwAAgAEQAaACQAKQAyADcASQBMAFEAUwBnAG0AegCB
-AJAAlwCkAKsAswC1ALcAuQC+AMAAwgDJAM4A2QDbAN0A3wDkAOcA6QDrAO0A9AELAScBKQErCfMJ+AoD
-CgwKHwojCi4KNwo8CkQKRwpMClsKXwpqCnIKfwqMCqEKpgqqCqwKrgqwCrkKvgrECswKzgrQCtIK1Bx0
-HHkchhyJHJYcmxyjHKYcqxyzAAAAAAAAAgEAAAAAAAAAVAAAAAAAAAAAAAAAAAAAHLY
+AhAAgBASIMMAAIADgAtWezEsIDF90hsPHB5aTlMub2JqZWN0c6EdgASACtIbDyAjoiEigAWABoAJ0iUP
+JidfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPEQjETU0AKgAAAAoAAAAQAQAAAwAAAAEAAQAAAQEA
+AwAAAAEAAQAAAQIAAwAAAAIACAAIAQMAAwAAAAEAAQAAAQYAAwAAAAEAAQAAAQoAAwAAAAEAAQAAAREA
+BAAAAAEAAAAIARIAAwAAAAEAAQAAARUAAwAAAAEAAgAAARYAAwAAAAEAAQAAARcABAAAAAEAAAACARwA
+AwAAAAEAAQAAASgAAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABh3MABwAAB/QAAADQAAAA
+AAAAB/RhcHBsAiAAAG1udHJHUkFZWFlaIAfQAAIADgAMAAAAAGFjc3BBUFBMAAAAAG5vbmUAAAAAAAAA
+AAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAABWRlc2MAAADAAAAAb2RzY20AAAEwAAAGZmNwcnQAAAeYAAAAOHd0cHQAAAfQAAAA
+FGtUUkMAAAfkAAAADmRlc2MAAAAAAAAAFUdlbmVyaWMgR3JheSBQcm9maWxlAAAAAAAAAAAAAAAVR2Vu
+ZXJpYyBHcmF5IFByb2ZpbGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACoAAAGEZW5VUwAAACgAAAGuY2FFUwAAACwAAAHWdmlW
+TgAAACwAAAICcHRCUgAAACoAAAIudWtVQQAAACwAAAJYZnJGVQAAACoAAAKEaHVIVQAAAC4AAAKuemhU
+VwAAABAAAALcbmJOTwAAACwAAALsa29LUgAAABgAAAMYY3NDWgAAACQAAAMwaGVJTAAAACAAAANUcm9S
+TwAAACQAAAN0ZGVERQAAADoAAAOYaXRJVAAAAC4AAAPSc3ZTRQAAAC4AAAQAemhDTgAAABAAAAQuamFK
+UAAAABYAAAQ+ZWxHUgAAACQAAARUcHRQTwAAADgAAAR4bmxOTAAAACoAAASwZXNFUwAAACgAAATadGhU
+SAAAACQAAAUCdHJUUgAAACIAAAUmZmlGSQAAACwAAAVIaHJIUgAAADoAAAV0cGxQTAAAADYAAAWucnVS
+VQAAACYAAAXkYXJFRwAAACgAAAYKZGFESwAAADQAAAYyAFYBYQBlAG8AYgBlAGMAbgD9ACAAcwBpAHYA
+/QAgAHAAcgBvAGYAaQBsAEcAZQBuAGUAcgBpAGMAIABHAHIAYQB5ACAAUAByAG8AZgBpAGwAZQBQAGUA
+cgBmAGkAbAAgAGQAZQAgAGcAcgBpAHMAIABnAGUAbgDoAHIAaQBjAEMepQB1ACAAaADsAG4AaAAgAE0A
+4AB1ACAAeADhAG0AIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABDAGkAbgB6AGEAIABHAGUAbgDpAHIA
+aQBjAG8EFwQwBDMEMAQ7BEwEPQQ4BDkAIAQ/BEAEPgREBDAEOQQ7ACAARwByAGEAeQBQAHIAbwBmAGkA
+bAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAZwByAGkAcwDBAGwAdABhAGwA4QBuAG8AcwAgAHMAegD8AHIA
+awBlACAAcAByAG8AZgBpAGyQGnUocHCWjoJyX2ljz4/wAEcAZQBuAGUAcgBpAHMAawAgAGcAcgDlAHQA
+bwBuAGUAcAByAG8AZgBpAGzHfLwYACAARwByAGEAeQAg1QS4XNMMx3wATwBiAGUAYwBuAP0AIAFhAGUA
+ZAD9ACAAcAByAG8AZgBpAGwF5AXoBdUF5AXZBdwAIABHAHIAYQB5ACAF2wXcBdwF2QBQAHIAbwBmAGkA
+bAAgAGcAcgBpACAAZwBlAG4AZQByAGkAYwBBAGwAbABnAGUAbQBlAGkAbgBlAHMAIABHAHIAYQB1AHMA
+dAB1AGYAZQBuAC0AUAByAG8AZgBpAGwAUAByAG8AZgBpAGwAbwAgAGcAcgBpAGcAaQBvACAAZwBlAG4A
+ZQByAGkAYwBvAEcAZQBuAGUAcgBpAHMAawAgAGcAcgDlAHMAawBhAGwAZQBwAHIAbwBmAGkAbGZukBpw
+cF6mY8+P8GWHTvZOAIIsMLAw7DCkMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPMACADwAPBA78DxgOvA7sA
+IAOzA7oDwQO5AFAAZQByAGYAaQBsACAAZwBlAG4A6QByAGkAYwBvACAAZABlACAAYwBpAG4AegBlAG4A
+dABvAHMAQQBsAGcAZQBtAGUAZQBuACAAZwByAGkAagBzAHAAcgBvAGYAaQBlAGwAUABlAHIAZgBpAGwA
+IABnAHIAaQBzACAAZwBlAG4A6QByAGkAYwBvDkIOGw4jDkQOHw4lDkwOKg41DkAOFw4yDhcOMQ5IDicO
+RA4bAEcAZQBuAGUAbAAgAEcAcgBpACAAUAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAaABhAHIA
+bQBhAGEAcAByAG8AZgBpAGkAbABpAEcAZQBuAGUAcgBpAQ0AawBpACAAcAByAG8AZgBpAGwAIABzAGkA
+dgBpAGgAIAB0AG8AbgBvAHYAYQBVAG4AaQB3AGUAcgBzAGEAbABuAHkAIABwAHIAbwBmAGkAbAAgAHMA
+egBhAHIAbwFbAGMAaQQeBDEESQQ4BDkAIARBBDUEQARLBDkAIAQ/BEAEPgREBDgEOwRMBkUGRAZBACAG
+KgY5BjEGSgZBACAARwByAGEAeQAgBicGRAY5BicGRQBHAGUAbgBlAHIAZQBsACAAZwByAOUAdABvAG4A
+ZQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAAHRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwg
+YWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAAAPNRAAEAAAABFsxjdXJ2AAAAAAAAAAEBzQAA0ior
+LC1aJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjLC4vWk5TSW1hZ2VSZXBYTlNP
+YmplY3TSKisxMldOU0FycmF5ojEv0iorNDVeTlNNdXRhYmxlQXJyYXmjNDEv1Tc4OToPOzw9Pj9XTlNX
+aGl0ZVxOU0NvbXBvbmVudHNcTlNDb2xvclNwYWNlXxASTlNDdXN0b21Db2xvclNwYWNlRDAgMABDMCAw
+EAOADIAP1EFCQw9ERUZHVE5TSURVTlNJQ0NXTlNNb2RlbBAJgA0QAIAOTxERaAAAEWhhcHBsAgAAAG1u
+dHJHUkFZWFlaIAfcAAgAFwAPAC4AD2Fjc3BBUFBMAAAAAG5vbmUAAAAAAAAAAAAAAAAAAAAAAAD21gAB
+AAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWRl
+c2MAAADAAAAAeWRzY20AAAE8AAAH6GNwcnQAAAkkAAAAI3d0cHQAAAlIAAAAFGtUUkMAAAlcAAAIDGRl
+c2MAAAAAAAAAH0dlbmVyaWMgR3JheSBHYW1tYSAyLjIgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAAC4AAAGEZGFESwAAADgAAAGyY2FFUwAAADgAAAHqdmlWTgAA
+AEAAAAIicHRCUgAAAEoAAAJidWtVQQAAACwAAAKsZnJGVQAAAD4AAALYaHVIVQAAADQAAAMWemhUVwAA
+AB4AAANKbmJOTwAAADoAAANoY3NDWgAAACgAAAOiaGVJTAAAACQAAAPKaXRJVAAAAE4AAAPucm9STwAA
+ACoAAAQ8ZGVERQAAAE4AAARma29LUgAAACIAAAS0c3ZTRQAAADgAAAGyemhDTgAAAB4AAATWamFKUAAA
+ACYAAAT0ZWxHUgAAACoAAAUacHRQTwAAAFIAAAVEbmxOTAAAAEAAAAWWZXNFUwAAAEwAAAXWdGhUSAAA
+ADIAAAYidHJUUgAAACQAAAZUZmlGSQAAAEYAAAZ4aHJIUgAAAD4AAAa+cGxQTAAAAEoAAAb8cnVSVQAA
+ADoAAAdGZW5VUwAAADwAAAeAYXJFRwAAACwAAAe8AFYBYQBlAG8AYgBlAGMAbgDhACAAcwBpAHYA4QAg
+AGcAYQBtAGEAIAAyACwAMgBHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QAgADIALAAyACAAZwBhAG0AbQBh
+AHAAcgBvAGYAaQBsAEcAYQBtAG0AYQAgAGQAZQAgAGcAcgBpAHMAbwBzACAAZwBlAG4A6AByAGkAYwBh
+ACAAMgAuADIAQx6lAHUAIABoAOwAbgBoACAATQDgAHUAIAB4AOEAbQAgAEMAaAB1AG4AZwAgAEcAYQBt
+AG0AYQAgADIALgAyAFAAZQByAGYAaQBsACAARwBlAG4A6QByAGkAYwBvACAAZABhACAARwBhAG0AYQAg
+AGQAZQAgAEMAaQBuAHoAYQBzACAAMgAsADIEFwQwBDMEMAQ7BEwEPQQwACAARwByAGEAeQAtBDMEMAQ8
+BDAAIAAyAC4AMgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAZwByAGkAcwAgAGcAYQBt
+AG0AYQAgADIALAAyAMEAbAB0AGEAbADhAG4AbwBzACAAcwB6APwAcgBrAGUAIABnAGEAbQBtAGEAIAAy
+AC4AMpAadShwcJaOUUlepgAgADIALgAyACCCcl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QAg
+AGcAYQBtAG0AYQAgADIALAAyAC0AcAByAG8AZgBpAGwATwBiAGUAYwBuAOEAIAFhAGUAZADhACAAZwBh
+AG0AYQAgADIALgAyBdIF0AXeBdQAIAXQBeQF1QXoACAF2wXcBdwF2QAgADIALgAyAFAAcgBvAGYAaQBs
+AG8AIABnAHIAaQBnAGkAbwAgAGcAZQBuAGUAcgBpAGMAbwAgAGQAZQBsAGwAYQAgAGcAYQBtAG0AYQAg
+ADIALAAyAEcAYQBtAGEAIABnAHIAaQAgAGcAZQBuAGUAcgBpAGMBAwAgADIALAAyAEEAbABsAGcAZQBt
+AGUAaQBuAGUAcwAgAEcAcgBhAHUAcwB0AHUAZgBlAG4ALQBQAHIAbwBmAGkAbAAgAEcAYQBtAG0AYQAg
+ADIALAAyx3y8GAAg1ozAyQAgrBC5yAAgADIALgAyACDVBLhc0wzHfGZukBpwcF6mfPtlcAAgADIALgAy
+ACBjz4/wZYdO9k4AgiwwsDDsMKQwrDDzMN4AIAAyAC4AMgAgMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPM
+ACADkwO6A8EDuQAgA5MDrAO8A7wDsQAgADIALgAyAFAAZQByAGYAaQBsACAAZwBlAG4A6QByAGkAYwBv
+ACAAZABlACAAYwBpAG4AegBlAG4AdABvAHMAIABkAGEAIABHAGEAbQBtAGEAIAAyACwAMgBBAGwAZwBl
+AG0AZQBlAG4AIABnAHIAaQBqAHMAIABnAGEAbQBtAGEAIAAyACwAMgAtAHAAcgBvAGYAaQBlAGwAUABl
+AHIAZgBpAGwAIABnAGUAbgDpAHIAaQBjAG8AIABkAGUAIABnAGEAbQBtAGEAIABkAGUAIABnAHIAaQBz
+AGUAcwAgADIALAAyDiMOMQ4HDioONQ5BDgEOIQ4hDjIOQA4BDiMOIg5MDhcOMQ5IDicORA4bACAAMgAu
+ADIARwBlAG4AZQBsACAARwByAGkAIABHAGEAbQBhACAAMgAsADIAWQBsAGUAaQBuAGUAbgAgAGgAYQBy
+AG0AYQBhAG4AIABnAGEAbQBtAGEAIAAyACwAMgAgAC0AcAByAG8AZgBpAGkAbABpAEcAZQBuAGUAcgBp
+AQ0AawBpACAARwByAGEAeQAgAEcAYQBtAG0AYQAgADIALgAyACAAcAByAG8AZgBpAGwAVQBuAGkAdwBl
+AHIAcwBhAGwAbgB5ACAAcAByAG8AZgBpAGwAIABzAHoAYQByAG8BWwBjAGkAIABnAGEAbQBtAGEAIAAy
+ACwAMgQeBDEESQQwBE8AIARBBDUEQAQwBE8AIAQzBDAEPAQ8BDAAIAAyACwAMgAtBD8EQAQ+BEQEOAQ7
+BEwARwBlAG4AZQByAGkAYwAgAEcAcgBhAHkAIABHAGEAbQBtAGEAIAAyAC4AMgAgAFAAcgBvAGYAaQBs
+AGUGOgYnBkUGJwAgADIALgAyACAGRAZIBkYAIAYxBkUGJwYvBkoAIAY5BicGRXRleHQAAAAAQ29weXJp
+Z2h0IEFwcGxlIEluYy4sIDIwMTIAAFhZWiAAAAAAAADzUQABAAAAARbMY3VydgAAAAAAAAQAAAAABQAK
+AA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoATwBUAFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCf
+AKQAqQCuALIAtwC8AMEAxgDLANAA1QDbAOAA5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFF
+AUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEBqQGxAbkBwQHJAdEB2QHhAekB8gH6AgMCDAIUAh0CJgIv
+AjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwCtgLBAssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNm
+A3IDfgOKA5YDogOuA7oDxwPTA+AD7AP5BAYEEwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTw
+BP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUFxQXVBeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbR
+BuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQ
+CSUJOglPCWQJeQmPCaQJugnPCeUJ+woRCicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuw
+C8gL4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62
+DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQQxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxIm
+EkUSZBKEEqMSwxLjEwMTIxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYD
+FiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZtxndGgQaKhpR
+GncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIcexyjHMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8T
+Hz4faR+UH78f6iAVIEEgbCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRN
+JHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/KHEooijUKQYpOClrKZ0p0CoC
+KjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0MLUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv/jA1
+MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0zRjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3NnI2rjbp
+NyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI67zstO2s7qjvoPCc8ZTykPOM9Ij1hPaE94D4g
+PmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHuQjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXe
+RiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJqUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4l
+Tm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZSMVJ8UsdTE1NfU6pT9lRCVI9U21UoVXVVwlYPVlxWqVb3
+V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVbRVuVW+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBX
+YKpg/GFPYaJh9WJJYpxi8GNDY5dj62RAZJRk6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpI
+ap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRvHm94b9FwK3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTM
+dSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl553pGeqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/l
+gEeAqIEKgWuBzYIwgpKC9INXg7qEHYSAhOOFR4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuW
+i/yMY4zKjTGNmI3/jmaOzo82j56QBpBukNaRP5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfg
+mEyYuJkkmZCZ/JpomtWbQpuvnByciZz3nWSd0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTH
+pTilqaYapoum/adup+CoUqjEqTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJL
+ssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/v3q/9cBw
+wOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83
+z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i
+3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO60
+70DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t
+///SKitKS1xOU0NvbG9yU3BhY2WiTC9cTlNDb2xvclNwYWNl0iorTk9XTlNDb2xvcqJOL9IqK1FSV05T
+SW1hZ2WiUS8ACAARABoAJAApADIANwBJAEwAUQBTAGcAbQB6AIEAkACXAKQAqwCzALUAtwC5AL4AwADC
+AMkAzgDZANsA3QDfAOQA5wDpAOsA7QDyAQkBCwENCdUJ2gnlCe4KAQoFChAKGQoeCiYKKQouCj0KQQpM
+ClQKYQpuCoMKiAqMCo4KkAqSCpsKoAqmCq4KsAqyCrQKthwiHCccNBw3HEQcSRxRHFQcWRxhAAAAAAAA
+AgEAAAAAAAAAUwAAAAAAAAAAAAAAAAAAHGQ
 </mutableData>
         </image>
-        <image name="calendar" catalog="system" width="16" height="14"/>
-        <image name="checkmark.circle" catalog="system" width="15" height="15"/>
-        <image name="delete.left.fill" catalog="system" width="17" height="14"/>
-        <image name="doc.append.rtl" catalog="system" width="14" height="16"/>
-        <image name="doc.zipper" catalog="system" width="14" height="17"/>
-        <image name="gearshape" catalog="system" width="16" height="16"/>
-        <image name="heart.fill" catalog="system" width="16" height="14"/>
+        <image name="calendar" width="15" height="15"/>
+        <image name="checkmark.circle" width="15" height="15"/>
+        <image name="delete.left.fill" width="15" height="15"/>
+        <image name="doc.append.rtl" width="15" height="15"/>
+        <image name="doc.zipper" width="15" height="15"/>
+        <image name="gearshape" width="15" height="15"/>
+        <image name="heart.fill" width="15" height="15"/>
         <image name="info.circle" width="15" height="15"/>
-        <image name="info.circle" catalog="system" width="15" height="15"/>
-        <image name="magnifyingglass" catalog="system" width="15" height="15"/>
-        <image name="mail" catalog="system" width="18" height="14"/>
-        <image name="newspaper" catalog="system" width="18" height="16"/>
-        <image name="printer" catalog="system" width="18" height="16"/>
-        <image name="quote.bubble" catalog="system" width="17" height="16"/>
-        <image name="rectangle.and.text.magnifyingglass" catalog="system" width="20" height="15"/>
-        <image name="safari" catalog="system" width="15" height="15"/>
-        <image name="tablecells.badge.ellipsis" catalog="system" width="20" height="15"/>
-        <image name="tag" catalog="system" width="17" height="17"/>
-        <image name="text.insert" catalog="system" width="16" height="13"/>
+        <image name="magnifyingglass" width="15" height="15"/>
+        <image name="mail" width="15" height="15"/>
+        <image name="newspaper" width="15" height="15"/>
+        <image name="printer" width="15" height="15"/>
+        <image name="quote.bubble" width="15" height="15"/>
+        <image name="rectangle.and.text.magnifyingglass" width="15" height="15"/>
+        <image name="safari" width="15" height="15"/>
+        <image name="tablecells.badge.ellipsis" width="15" height="15"/>
+        <image name="tag" width="15" height="15"/>
+        <image name="text.insert" width="15" height="15"/>
         <sound name="Funk"/>
     </resources>
 </document>

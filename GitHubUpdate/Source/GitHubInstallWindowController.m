@@ -728,52 +728,53 @@ NS_ASSUME_NONNULL_END
 
 - ( BOOL )checkCodeSigning: ( NSURL * )app
 {
+    // do not check code signing for now
     return YES;
-    NSBundle * b1;
-    NSBundle * b2;
-    BOOL       cs1;
-    BOOL       cs2;
-    NSString * id1;
-    NSString * id2;
-    
-    dispatch_sync
-    (
-        dispatch_get_main_queue(),
-        ^( void )
-        {
-            self.progressWindowController.message = NSLocalizedString( @"正在验证代码签名…", @"" );
-        }
-    );
-    
-    b1  = [ NSBundle mainBundle ];
-    b2  = [ NSBundle bundleWithURL: app ];
-    cs1 = b1.isCodeSigned;
-    cs2 = b2.isCodeSigned;
-    id1 = b1.codeSigningIdentity;
-    id2 = b2.codeSigningIdentity;
-    
-    if( cs1 == YES && cs2 == NO )
-    {
-        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: NSLocalizedString( @"下载的 App 没有被有效签名。", @"" ) ];
-        
-        return NO;
-    }
-    
-    if( cs1 == YES && cs2 == YES && ( id1 == nil || id2 == nil ) )
-    {
-        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: NSLocalizedString( @"现在无法验证代码签名。", @"" ) ];
-        
-        return NO;
-    }
-    
-    if( cs1 == YES && cs2 == YES && [ id1 isEqualToString: id2 ] == NO )
-    {
-        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: [ NSString stringWithFormat: NSLocalizedString( @"代码签名不匹配。期望的值是 %@，实际上是 %@。", @"" ), id1, id2 ] ];
-        
-        return NO;
-    }
-    
-    return YES;
+//    NSBundle * b1;
+//    NSBundle * b2;
+//    BOOL       cs1;
+//    BOOL       cs2;
+//    NSString * id1;
+//    NSString * id2;
+//
+//    dispatch_sync
+//    (
+//        dispatch_get_main_queue(),
+//        ^( void )
+//        {
+//            self.progressWindowController.message = NSLocalizedString( @"正在验证代码签名…", @"" );
+//        }
+//    );
+//
+//    b1  = [ NSBundle mainBundle ];
+//    b2  = [ NSBundle bundleWithURL: app ];
+//    cs1 = b1.isCodeSigned;
+//    cs2 = b2.isCodeSigned;
+//    id1 = b1.codeSigningIdentity;
+//    id2 = b2.codeSigningIdentity;
+//
+//    if( cs1 == YES && cs2 == NO )
+//    {
+//        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: NSLocalizedString( @"下载的 App 没有被有效签名。", @"" ) ];
+//
+//        return NO;
+//    }
+//
+//    if( cs1 == YES && cs2 == YES && ( id1 == nil || id2 == nil ) )
+//    {
+//        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: NSLocalizedString( @"现在无法验证代码签名。", @"" ) ];
+//
+//        return NO;
+//    }
+//
+//    if( cs1 == YES && cs2 == YES && [ id1 isEqualToString: id2 ] == NO )
+//    {
+//        [ self displayErrorWithTitle: NSLocalizedString( @"代码签名验证失败", @"" ) message: [ NSString stringWithFormat: NSLocalizedString( @"代码签名不匹配。期望的值是 %@，实际上是 %@。", @"" ), id1, id2 ] ];
+//
+//        return NO;
+//    }
+//
+//    return YES;
 }
 
 - ( BOOL )replaceApp: ( NSURL * )app

@@ -58,7 +58,7 @@ class WebLoginViewController: NSViewController, WKUIDelegate, WKNavigationDelega
         forwardButton.isEnabled = embedWebView.canGoForward
         urlLabel.stringValue = embedWebView.url?.absoluteString ?? "空"
 
-        ESLog.info("redirected to " + (embedWebView.url?.absoluteString ?? "<< error page >>"))
+        ESLog.info("redirected to %@", embedWebView.url?.absoluteString ?? "<< error page >>")
 
         if embedWebView.url?.absoluteString.starts(with: LoginConst.mainPageUrl) ?? false {
             done()
@@ -70,7 +70,7 @@ class WebLoginViewController: NSViewController, WKUIDelegate, WKNavigationDelega
             if #available(OSX 10.13, *) {
                 embedWebView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
                     for cookie in cookies {
-                        ESLog.info("get cookie @\(cookie.domain), pair: \(cookie.name) : \(cookie.value)")
+                        ESLog.info("get cookie at domain `%@`, pair: %@: %@", cookie.domain, cookie.name, cookie.value)
                         Alamofire.HTTPCookieStorage.shared.setCookie(cookie)
                     }
                     self.delegate?.callbackWeb(success)

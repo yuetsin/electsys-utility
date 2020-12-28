@@ -13,14 +13,6 @@ class PreferencesViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         readPreferences()
-        
-        if isDebugVersion {
-            debugLevelMenuItem.isEnabled = true
-            traceLevelMenuItem.isEnabled = true
-        } else {
-            debugLevelMenuItem.isEnabled = false
-            traceLevelMenuItem.isEnabled = false
-        }
     }
     
     
@@ -61,15 +53,15 @@ class PreferencesViewController: NSViewController {
     func disableTextBox() {
         // due to login strategy migration, auto-fill feature is disabled.
         return
-        if autoFillTokenChecker.state == .on {
-            userNameToken.isEnabled = true
-            passWordToken.isEnabled = true
-            saveCredentialButton.isEnabled = true
-        } else {
-            userNameToken.isEnabled = false
-            passWordToken.isEnabled = false
-            saveCredentialButton.isEnabled = false
-        }
+//        if autoFillTokenChecker.state == .on {
+//            userNameToken.isEnabled = true
+//            passWordToken.isEnabled = true
+//            saveCredentialButton.isEnabled = true
+//        } else {
+//            userNameToken.isEnabled = false
+//            passWordToken.isEnabled = false
+//            saveCredentialButton.isEnabled = false
+//        }
     }
 
     @IBAction func removeCertificates(_ sender: NSButton) {
@@ -155,28 +147,20 @@ class PreferencesViewController: NSViewController {
     @IBAction func debugLevelTriggered(_ sender: NSPopUpButton) {
         switch sender.selectedTag() {
         case 0:
+            // fault
+            ESLog.minLevel = .fault
+        case 1:
             // error
             ESLog.minLevel = .error
-            enableDebugMode()
-        case 1:
-            // warning
-            ESLog.minLevel = .warning
-            enableDebugMode()
         case 2:
             // info
             ESLog.minLevel = .info
-            enableDebugMode()
         case 3:
             // debug
             ESLog.minLevel = .debug
-            enableDebugMode()
-        case 4:
-            // trace
-            ESLog.minLevel = .trace
-            enableDebugMode()
         case 5:
             // disabled
-            disableDebugMode()
+            ESLog.minLevel = .off
         default:
             // nothing to do
             ESLog.error("gotta invalid debug level ", sender.selectedTag())

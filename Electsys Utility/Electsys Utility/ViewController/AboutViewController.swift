@@ -28,9 +28,9 @@ class AboutViewController: NSViewController {
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion")
         let pI = ProcessInfo.init()
         let systemVersion = pI.operatingSystemVersionString
-        
-        ESLog.info("app version: ", version ?? "unknown")
-        ESLog.info("system version: ", systemVersion)
+
+        ESLog.info("app version: %@", version as? String ?? "unknown")
+        ESLog.info("system version: %@", systemVersion)
         
         self.versionLabel.stringValue = "App 版本 \(version ?? "未知") (\(build ?? "未知"))"
         self.systemLabel.stringValue = "运行在 macOS \(systemVersion)"

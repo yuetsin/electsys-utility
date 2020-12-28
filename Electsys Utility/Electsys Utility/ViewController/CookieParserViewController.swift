@@ -28,7 +28,7 @@ class CookieParserViewController: NSViewController {
         let targetUrl = URL(string: LoginConst.initUrl)!
         
         for pair in dict {
-            ESLog.info("parsed cookie pair: \(pair.key) : \(pair.value)")
+            ESLog.info("parsed cookie pair: `%@`: `%@`", pair.key, pair.value)
         }
         
         for cookie in HTTPCookie.cookies(withResponseHeaderFields: dict, for: targetUrl) {

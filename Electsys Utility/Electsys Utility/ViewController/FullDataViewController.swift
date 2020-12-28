@@ -641,7 +641,7 @@ class FullDataViewController: NSViewController {
                 LinGangCampus.append(str)
             }
         } else {
-            ESLog.error("uncategorized: \(campus), \(building)")
+            ESLog.error("uncategorized: %@, %@", campus, building)
         }
     }
 
